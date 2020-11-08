@@ -1,0 +1,14 @@
+{
+  "domain": "vicnie",
+  "name": "Vicnie custom components",
+  "requirements": [
+    "requests==2.22.0",
+    "python-dotenv==0.15.0"
+  ],
+  "homeassistant": "0.117.2",
+  "dependencies": [
+  ],
+  "codeowners": [
+    "@VictorWinberg"
+  ]
+}

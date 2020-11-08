@@ -1,0 +1,14 @@
+tetzipetzi:
+  description: Start the latest Tetzipetzi youtube video
+  fields:
+    rgb_color:
+      description: The color to which the light will be set
+      example: '255,0,0'
+remote_control:
+  description: Remote Control
+  fields:
+    entity_id:
+      description: The input_select entity_id to be used
+      example: 'input_select.remote_entity'
+    event:
+      description: Event Data

@@ -1,0 +1,132 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Custom
+mobile_app:
+discovery:
+wake_on_lan:
+vicnie:
+sonoff:
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 62.63.212.136
+
+tts:
+  - platform: google_translate
+
+google:
+  client_id: !secret google_ms_client_id
+  client_secret: !secret google_ms_client_secret
+
+webostv:
+  host: !secret mio_tv_ip
+  name: Mio TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret mio_tv_mac
+
+homeassistant:
+  customize:
+    person.victor:
+      entity_picture: "/local/victor.jpg"
+    person.annie:
+      entity_picture: "/local/annie.jpg"
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Variables
+input_boolean:
+  living_room_plug:
+    name: Legacy Living Room Plug
+    initial: on
+    icon: mdi:lamp
+  door_plug:
+    name: Door Plug
+    initial: off
+    icon: mdi:door
+  wakeup_enabled:
+    name: "Wake-up lights"
+    initial: on
+    icon: mdi:theme-light-dark
+  wakeup_weekend:
+    name: "Enable Wake-up on weekends"
+    initial: off
+    icon: mdi:calendar-blank
+
+input_datetime:
+  wakeup_time:
+    name: "Start alarm at"
+    has_time: true
+    has_date: false
+    initial: "06:45"
+  light_transition_time:
+    name: "Light transition time"
+    has_time: true
+    has_date: false
+    initial: "00:30"
+    icon: mdi:timer
+  goodnight_transition_time:
+    name: "Light transition time"
+    has_time: true
+    has_date: false
+    initial: "00:10"
+    icon: mdi:timer
+
+input_number:
+  light_brightness:
+    name: "Light brightness"
+    initial: 40
+    min: 0
+    max: 100
+  color_index:
+    name: "Color index"
+    initial: 0
+    min: 0
+    max: 100
+
+input_text:
+  annie_playlist:
+    name: Annie's Playlist
+    initial: spotify:playlist:7r1hoWkiMx0Gkb9P3jFPJR
+  victor_playlist:
+    name: Victor's Playlist
+    initial: spotify:playlist:7iPZRCvMuGjr99hVGrvlI5
+  dinner_playlist:
+    name: Dinner Playlist
+    initial: spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ
+  goodnight_playlist:
+    name: Goodnight Playlist
+    initial: spotify:playlist:5WYfafy1UXyU1tYKeMU8Am
+  arrive_home_playlist:
+    name: Arrive Home Playlist
+    initial: spotify:playlist:37i9dQZF1DX4WYpdgoIcn6
+
+input_select:
+  remote_entity:
+    name: "Remote Control Entity"
+    options:
+     - default
+     - media_player.speakers
+     - media_player.portable_speaker
+     - media_player.sorrysound_audio
+     - media_player.sorrysound_tv
+     - media_player.mio_tv
+     - light:all
+     - light:group.ikea
+    initial: default
+    icon: mdi:remote
+

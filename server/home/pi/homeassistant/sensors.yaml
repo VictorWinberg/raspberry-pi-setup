@@ -1,0 +1,45 @@
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+- platform: template
+  sensors:
+    temperature:
+      friendly_name: "Weather Temperature"
+      unit_of_measurement: 'Celcius'
+      value_template: "{{ state_attr('weather.kasinot', 'temperature') }}"
+- platform: template
+  sensors:
+    time_until_alarm:
+      friendly_name: "Time until alarm"
+      value_template: >
+        {% set t = states.sensor.time.state.split(':') %}
+        {% set time = t[0] | int * 60 * 60 + t[1] | int * 60 %}
+        {% set alarm = states.input_datetime.wakeup_time.attributes.timestamp %}
+        {% set until = alarm - time + 60 * 60 * 24 %}
+        {{ ((until % (60 * 60 * 24)) / (60 * 60)) | round(1) }}
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_use_percent
+    - type: processor_use
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+- platform: darksky
+  api_key: 0d12f185b83caa57598829eb68da6b95
+  hourly_forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - summary
+    - temperature
+    - precip_intensity
+  scan_interval: '00:30'
+- platform: template
+  sensors:
+    someone_home:
+      friendly_name: "Someone home?"
+      value_template: '{{ is_state("person.annie", "home") or is_state("person.victor", "home") }}'
+#- platform: spotcast

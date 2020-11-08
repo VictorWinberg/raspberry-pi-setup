@@ -1,0 +1,407 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_dashboard",
+    "data": {
+        "config": {
+            "title": "Dashboard",
+            "views": [
+                {
+                    "panel": true,
+                    "path": "default_view",
+                    "theme": "slate",
+                    "title": "Dashboard",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "dateSize": 180,
+                                            "dayWrapperLineColor": "transparent",
+                                            "descSize": 80,
+                                            "entities": [
+                                                {
+                                                    "entity": "calendar.helgdagar_i_sverige",
+                                                    "titleColor": "#D63118"
+                                                },
+                                                {
+                                                    "entity": "calendar.fodelsedagar",
+                                                    "titleColor": "#D63118"
+                                                },
+                                                {
+                                                    "entity": "calendar.victors_fodelsedagar",
+                                                    "titleColor": "#D63118"
+                                                },
+                                                {
+                                                    "entity": "calendar.annie_victor",
+                                                    "titleColor": "#0F8482"
+                                                },
+                                                {
+                                                    "entity": "calendar.victors_kalender",
+                                                    "titleColor": "#326BB7"
+                                                },
+                                                {
+                                                    "entity": "calendar.annies_kalender",
+                                                    "titleColor": "#AD208E"
+                                                }
+                                            ],
+                                            "finishedEventOpacity": 0.7,
+                                            "fullDayEventText": "Hela dagen",
+                                            "hoursFormat": "24h",
+                                            "language": "sv",
+                                            "locationLinkColor": "#03a9f4",
+                                            "locationTextSize": 120,
+                                            "noEventsForNextDaysText": "Inga h\u00e4ndelser under de n\u00e4rmaste dagarna",
+                                            "noEventsForTodayText": "Inga h\u00e4ndelser",
+                                            "showColors": true,
+                                            "maxDaysToShow": 14,
+                                            "style": "ha-card {\n  box-shadow: none;\n}\n",
+                                            "dateColor": "#333",
+                                            "timeColor": "#313131",
+                                            "timeSize": 140,
+                                            "title": "",
+                                            "titleSize": 180,
+                                            "type": "custom:atomic-calendar",
+                                            "untilText": "Fram tills"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "content": "{% set weekdays = [\"M\u00e5ndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"L\u00f6rdag\", \"S\u00f6ndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
+                                            "style": {
+                                                ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                                                "ha-markdown": {
+                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 10em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
+                                                }
+                                            },
+                                            "type": "markdown"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "input_number.light_brightness",
+                                                "full_row": true,
+                                                "hide_state": true,
+                                                "type": "custom:slider-entity-row"
+                                            },
+                                            "style": {
+                                                "slider-entity-row": {
+                                                    "$": {
+                                                        "ha-slider": {
+                                                            "$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "type": "custom:mod-card"
+                                        },
+                                        {
+                                            "current": true,
+                                            "details": false,
+                                            "entity": "weather.smhi_home",
+                                            "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  margin-left: 0 !important;\n}\n.current {\n  position: relative;\n  font-size: 3em;\n  line-height: 1.5;\n  order: 2;\n  width: 385px;\n  height: 280px;\n  margin-bottom: 0 !important;\n}\n.current .temp {\n  color: white;\n  font-weight: bold;\n  margin-top: 0.5em;\n  margin-right: -30px;\n}\n.current .tempc {\n  color: white;\n  font-weight: bold;\n  margin-top: 1.5em;\n}\n.forecast {\n  order: 1;\n}\n.forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n}\n.forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.33em 0;\n}\n.forecast .precipitation {\n  display: none;\n}\n",
+                                            "type": "custom:weather-card"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "card": {
+                                                "cards": [
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
+                                                        "icon": "mdi:face-woman",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.annie_playlist"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    },
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
+                                                        "icon": "mdi:face",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.victor_playlist"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    },
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
+                                                        "icon": "mdi:glass-wine",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.dinner_playlist"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    },
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
+                                                        "icon": "mdi:weather-night",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.goodnight_playlist"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    }
+                                                ],
+                                                "type": "horizontal-stack"
+                                            },
+                                            "style": "ha-card {\n  position: absolute;\n  z-index: 1;\n  padding: 16px;\n}\n",
+                                            "type": "custom:mod-card"
+                                        },
+                                        {
+                                            "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
+                                            "style": {
+                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 100px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                                                "ha-markdown": {
+                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
+                                                }
+                                            },
+                                            "type": "markdown"
+                                        },
+                                        {
+                                            "artwork": "cover",
+                                            "entity": "media_player.portable_speaker",
+                                            "group": true,
+                                            "hide": {
+                                                "controls": false,
+                                                "icon": true,
+                                                "info": false,
+                                                "mute": true,
+                                                "name": true,
+                                                "next": false,
+                                                "play_pause": false,
+                                                "power": true,
+                                                "prev": false,
+                                                "progress": true,
+                                                "source": false,
+                                                "volume": true
+                                            },
+                                            "style": ":host {\n  top: 350px;\n  width: 275px;\n  position: absolute;\n  z-index: 1;\n  --mini-media-player-scale: 1.75;\n}\nha-card {\n  left: 23px;\n}\n.entity__info__media {\n  padding-top: 1em;\n  text-align: center;\n}\n.mmp-player__core.flex {\n  flex-direction: column;\n}\n",
+                                            "type": "custom:mini-media-player"
+                                        },
+                                        {
+                                            "elements": [
+                                                {
+                                                    "entity": "light.hallway_spots",
+                                                    "style": {
+                                                        "left": "60%",
+                                                        "top": "60%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.outdoor_plug",
+                                                    "style": {
+                                                        "left": "70%",
+                                                        "top": "15%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.living_room_plug",
+                                                    "style": {
+                                                        "left": "90%",
+                                                        "top": "65%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.sonoff_10008c59d6",
+                                                    "style": {
+                                                        "left": "13%",
+                                                        "top": "83%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "input_boolean.living_room_plug",
+                                                    "style": {
+                                                        "left": "93%",
+                                                        "top": "25%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.hallway_door",
+                                                    "style": {
+                                                        "left": "30%",
+                                                        "top": "65%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.hallway_kitchen",
+                                                    "style": {
+                                                        "left": "50%",
+                                                        "top": "65%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.kitchen_table",
+                                                    "style": {
+                                                        "left": "57%",
+                                                        "top": "92%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.kitchen_oven",
+                                                    "style": {
+                                                        "left": "48%",
+                                                        "top": "77%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.kitchen_sink",
+                                                    "style": {
+                                                        "left": "48%",
+                                                        "top": "88%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.bedroom",
+                                                    "style": {
+                                                        "left": "83%",
+                                                        "top": "80%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.philips_hue",
+                                                    "style": {
+                                                        "left": "92%",
+                                                        "top": "92%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.led_strip_lifx",
+                                                    "style": {
+                                                        "left": "70%",
+                                                        "top": "37%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.led_strip_philips",
+                                                    "style": {
+                                                        "left": "70%",
+                                                        "top": "47%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "light.hallway_spots",
+                                                    "image": "/local/annie.jpg",
+                                                    "style": {
+                                                        "left": "57.5%",
+                                                        "top": "50%",
+                                                        "width": "15%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "image"
+                                                },
+                                                {
+                                                    "entity": "light.lifx_led_strip",
+                                                    "image": "/local/victor.jpg",
+                                                    "style": {
+                                                        "left": "42%",
+                                                        "top": "50%",
+                                                        "width": "15%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "image"
+                                                }
+                                            ],
+                                            "image": "/local/blueprint.png",
+                                            "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-top: 10px;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
+                                            "type": "picture-elements"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

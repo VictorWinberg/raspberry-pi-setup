@@ -1,0 +1,24 @@
+alarm_clock:
+  name: "Wake-up Lights"
+  entities: # Add all entities here that should be part of the widget
+    - input_datetime.wakeup_time
+    - input_boolean.wakeup_enabled
+    - input_boolean.wakeup_weekend
+bedroom:
+  name: "Bedroom Lights"
+  entities:
+    - light.bedroom
+    - light.philips_hue
+plugs:
+  name: "Plugs"
+  entities:
+    - input_boolean.living_room_plug
+ikea:
+  name: "IKEA"
+  entities:
+    - light.kitchen_table
+    - light.kitchen_oven
+    - light.kitchen_sink
+    - light.hallway_door
+    - light.hallway_kitchen
+    - light.hallway_spots

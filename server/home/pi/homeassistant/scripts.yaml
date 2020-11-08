@@ -1,0 +1,137 @@
+start_video_lights:
+  alias: Start Video with Lights
+  fields:
+    rgb_color:
+      description: Color for the light in RGB-format.
+      example: 255,255,255
+    video:
+      description: The YouTube video to play.
+      example: https://youtu.be/Wfphn9Dei4k
+  sequence:
+  - data_template:
+      brightness: 255
+      entity_id:
+      - light.led_strip_lifx
+      - light.led_strip_philips
+      rgb_color:
+      - '{{ rgb_color.split('','')[0] }}'
+      - '{{ rgb_color.split('','')[1] }}'
+      - '{{ rgb_color.split('','')[2] }}'
+    service: light.turn_on
+  - condition: template
+    value_template: '{{ video is defined }}'
+  - data: {}
+    entity_id: media_player.mio_tv
+    service: media_player.turn_on
+  - data_template:
+      entity_id: media_player.sorrysound_tv
+      media_content_id: '{{ video }}'
+      media_content_type: video/youtube
+    service: media_extractor.play_media
+  mode: single
+power_off:
+  alias: Power off
+  sequence:
+  - entity_id: group.plugs
+    service: input_boolean.turn_off
+  - data: {}
+    entity_id: all
+    service: media_player.turn_off
+  - data: {}
+    entity_id: all
+    service: switch.turn_off
+  - entity_id: all
+    service: light.turn_off
+  mode: single
+power_on:
+  alias: Power on
+  sequence:
+  - entity_id:
+    - switch.hallway_plug
+    - switch.living_room_plug
+    service: switch.turn_on
+  - data:
+      brightness: 200
+      entity_id:
+      - group.ikea
+    service: light.turn_on
+  - data:
+      entity_id: automation.evening_dim_lights
+    service: automation.trigger
+goodnight_at_night:
+  alias: Goodnight - with Time Condition
+  sequence:
+  - after: '21:00'
+    before: 04:00
+    condition: time
+  - data:
+      entity_id: automation.goodnight_turn_off_the_lights
+    service_template: "{% if is_state('group.ikea', 'off') %}\n  script.hot_night\n\
+      {% else %}\n  automation.trigger\n{% endif %}\n"
+toggle_power_at_day:
+  alias: Toggle Power on/off - with Time Condition
+  sequence:
+  - after: 06:00
+    before: '21:00'
+    condition: time
+  - service_template: "{% if is_state('group.ikea', 'on') %}\n  script.power_off\n\
+      {% else %}\n  script.power_on\n{% endif %}\n"
+hot_night:
+  alias: Hot Night
+  sequence:
+  - data: {}
+    entity_id: switch.hallway_plug, switch.sonoff_10008c59d6
+    service: switch.turn_on
+  - data:
+      brightness: 255
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.philips_hue
+    service: light.turn_on
+  - data:
+      brightness: 200
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.bedroom
+    service: light.turn_on
+  - delay: 00:00:01
+  - data:
+      brightness: 200
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.bedroom
+    service: light.turn_on
+  - delay: 00:00:03
+  - data:
+      brightness: 200
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.bedroom
+    service: light.turn_on
+toggle_play_pause:
+  alias: Toggle Play/Pause  - with Time Condition
+  sequence:
+  - after: 06:00
+    before: '21:00'
+    condition: time
+  - entity_id: media_player.portable_speaker
+    service: media_player.media_play_pause
+  mode: single
+play_spotify:
+  alias: Play Spotify
+  sequence:
+  - data_template:
+      entity_id: '{{ entity_id }}'
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: '{{ states(uri) }}'
+    service: spotcast.start
