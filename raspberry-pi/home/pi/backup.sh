@@ -1,6 +1,6 @@
 #!/bin/bash
 GIT="/home/pi/git/raspberry-pi-setup"
-BACKUP="server"
+BACKUP="raspberry-pi"
 PATHS=(
 /etc/nginx/sites-available/default
 /home/pi/backup.sh

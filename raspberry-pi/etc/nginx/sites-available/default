@@ -4,6 +4,7 @@
 # 3001 - www
 # 3004 - shop
 # 3008 - wishlist.ml
+# 3009 - fgg
 # 3010 - menu
 # 3011 - ces
 # 8123 - home
@@ -74,6 +75,17 @@ server {
 
   location / {
     return 301 https://www.wishlist.ml;
+  }
+}
+
+# FGG :: 3009 - fgg
+#
+server {
+  listen 443;
+  server_name fgg.zolly.ml;
+
+  location / {
+    proxy_pass http://localhost:3009;
   }
 }
 
