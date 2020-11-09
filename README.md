@@ -82,7 +82,7 @@ Let's Encrypt with Certbot :shipit:
 ```
 $ sudo certbot --authenticator webroot --installer nginx
 Input webroot: /var/www/html
-$ sudo vim /etc/nginx/sites-available/default
+$ sudo nano /etc/nginx/sites-available/default
 $ sudo /etc/init.d/nginx reload (start/restart)
 ```
 
