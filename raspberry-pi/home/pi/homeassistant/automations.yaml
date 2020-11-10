@@ -186,6 +186,9 @@
   trigger:
   - at: '20:30'
     platform: time
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
   condition:
   - condition: state
     entity_id: group.ikea

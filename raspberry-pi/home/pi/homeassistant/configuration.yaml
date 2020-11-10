@@ -25,6 +25,25 @@ google:
   client_id: !secret google_ms_client_id
   client_secret: !secret google_ms_client_secret
 
+android_ip_webcam:
+  - host: 192.168.0.195
+    sensors:
+      - light
+      - motion
+      - proximity
+      - sound
+    switches:
+      - exposure_lock
+      - ffc
+      - focus
+      - gps_active
+      - motion_detect
+      - night_vision
+      - overlay
+      - torch
+      - whitebalance_lock
+      - video_recording
+
 webostv:
   host: !secret mio_tv_ip
   name: Mio TV

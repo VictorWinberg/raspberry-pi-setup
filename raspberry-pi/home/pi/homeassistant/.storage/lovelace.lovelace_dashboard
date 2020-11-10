@@ -74,7 +74,7 @@
                                         {
                                             "content": "{% set weekdays = [\"M\u00e5ndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"L\u00f6rdag\", \"S\u00f6ndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
                                             "style": {
-                                                ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                                                ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
                                                 "ha-markdown": {
                                                     "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 10em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
                                                 }
