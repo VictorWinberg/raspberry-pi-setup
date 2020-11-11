@@ -197,17 +197,14 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
-  - after: '20:15'
-    before: '8:00'
-    condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-    - sun
+  - condition: or
+    conditions:
+    - condition: time
+      after: '20:15'
+      before: '8:00'
+    - condition: sun
+      after: sunset
+      after_offset: -00:30:00
   - data:
       entity_id:
       - light.hallway_kitchen

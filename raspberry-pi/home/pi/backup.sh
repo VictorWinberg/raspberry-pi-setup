@@ -15,6 +15,7 @@ PATHS=(
 /home/pi/homeassistant/scripts.yaml
 /home/pi/homeassistant/sensors.yaml
 /home/pi/homeassistant/www/*.*
+/home/git/db-dumps/*
 )
 
 cd "$GIT"
