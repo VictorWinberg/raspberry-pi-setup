@@ -134,6 +134,7 @@ Postgres :elephant:
 - [Install Postgres](https://www.postgresql.org/download/linux/ubuntu/) `sudo apt-get -y install postgresql`
 - Create user `sudo -u postgres createuser USERNAME --interactive --pwprompt`
 - Create database `sudo -u postgres createdb -O USERNAME DBNAME`
+- Drop database `sudo -u postgres dropdb DBNAME`
 - PostgreSQL interactive terminal `sudo -u postgres psql` or `psql postgres://USERNAME:PASSWORD@localhost/DBNAME`
 
 Node :diamond_shape_with_a_dot_inside:
