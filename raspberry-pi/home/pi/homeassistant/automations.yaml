@@ -67,6 +67,8 @@
       transition: '{{ states.input_datetime.light_transition_time.attributes.timestamp
         | int }}'
     service: light.turn_on
+  - service: script.pulsing_lights
+    data: {}
   - delay: '{{ states.input_datetime.light_transition_time.attributes.timestamp |
       int }} '
   - entity_id: switch.hallway_plug
@@ -86,6 +88,7 @@
   - data:
       entity_id: automation.notify_rain_status
     service: automation.trigger
+  mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
   description: ''

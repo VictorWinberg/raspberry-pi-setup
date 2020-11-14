@@ -135,3 +135,35 @@ play_spotify:
       shuffle: true
       uri: '{{ states(uri) }}'
     service: spotcast.start
+pulsing_lights:
+  alias: Pulsing light
+  sequence:
+  - repeat:
+      count: '{{(states.input_datetime.light_transition_time.attributes.timestamp
+        / 60) | int}} '
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id:
+          - light.bedroom
+          - light.philips_hue
+          transition: 15
+          rgb_color:
+          - 255
+          - 220
+          - 110
+          brightness: 255
+      - delay: 00:00:15
+      - service: light.turn_on
+        data:
+          entity_id:
+          - light.bedroom
+          - light.philips_hue
+          transition: 15
+          rgb_color:
+          - 255
+          - 160
+          - 70
+          brightness: 100
+      - delay: 00:00:15
+  mode: single

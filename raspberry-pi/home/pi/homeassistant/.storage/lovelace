@@ -888,19 +888,6 @@
                             ],
                             "show_header_toggle": false,
                             "type": "glance"
-                        },
-                        {
-                            "type": "picture-glance",
-                            "title": "Camera",
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "entities": [
-                                {
-                                    "entity": "sensor.time"
-                                }
-                            ],
-                            "camera_image": "camera.ip_webcam",
-                            "aspect_ratio": "16:9",
-                            "camera_view": "live"
                         }
                     ]
                 }
