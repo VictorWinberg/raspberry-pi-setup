@@ -75,6 +75,8 @@ You might want to set your RPi to a Static IP (e.g. `192.168.0.100`) if you woul
 External Storage :file_folder:
 -----------------------------
 [External Storage Documentation](https://www.raspberrypi.org/documentation/configuration/external-storage.md)
+
+- Automatically mount storage devices using `fstab`
 ```vim
 # /etc/fstab
 UUID=XXXX-XXXX /mnt/exfat exfat defaults,auto,users,rw,nofail 0 0
@@ -85,6 +87,8 @@ Remote Access (Samba) :open_file_folder:
 File and print services using SMB/CIFS protocol.
 
 [Samba Documentation](https://www.raspberrypi.org/documentation/remote-access/samba.md)
+
+- Shared access to mounted storage device
 ```vim
 # /etc/samba/smb.conf
 [share]
@@ -162,7 +166,7 @@ Docker :whale:
 Docker is an open platform for developing, shipping, and running applications.
 
 [Docker](https://www.docker.com/)
-- [Portainer](https://www.portainer.io/)
+- [Portainer](https://www.portainer.io/) - Portainer simplifies container management in Docker by providing an UI
 
 Postgres :elephant:
 ------------------
@@ -180,9 +184,9 @@ Node :diamond_shape_with_a_dot_inside:
 -------------------------------------
 Node.js is an open-source, cross-platform, back-end, JavaScript runtime environment that executes JavaScript code outside a web browser.
 
-- [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
-- [Install Node](https://github.com/nvm-sh/nvm#usage)
-- [Install PM2](https://github.com/Unitech/pm2)
+- [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating) - Node Version Manager
+- [Install Node](https://github.com/nvm-sh/nvm#usage) - JavaScript Engine
+- [Install PM2](https://github.com/Unitech/pm2) - Process Manager 2
 
 Applications :computer:
 ======================
