@@ -76,7 +76,7 @@
                                             "style": {
                                                 ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
                                                 "ha-markdown": {
-                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 10em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
+                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
                                                 }
                                             },
                                             "type": "markdown"
@@ -393,6 +393,16 @@
                                             "image": "/local/blueprint.png",
                                             "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-top: 10px;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
                                             "type": "picture-elements"
+                                        },
+                                        {
+                                            "content": "{% set precip_intensity = 0.3 %} {% if states(\"sensor.dark_sky_precip_intensity_0h\") | float  > precip_intensity -%}\n  <p></p>\n{%- endif %} {% if states.light | count == states.light | selectattr('state','eq', 'off') | list | count -%}\n  <s></s>\n{%- endif %}\n",
+                                            "style": {
+                                                ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
+                                                "ha-markdown": {
+                                                    "$": "p, s {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\np {\n  z-index: -1;\n  background: linear-gradient(to top, #4b6cb7, #182848); \n}\ns {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n  pointer-events: none;\n}\n"
+                                                }
+                                            },
+                                            "type": "markdown"
                                         }
                                     ],
                                     "type": "vertical-stack"

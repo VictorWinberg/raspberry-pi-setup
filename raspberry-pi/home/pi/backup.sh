@@ -27,5 +27,5 @@ find "$BACKUP" -type f ! -name '*.md' -delete
 rsync -vr --files-from=<(find "${PATHS[@]}" -type f -not -name ".*") / "$BACKUP"
 
 git add .
-git commit -m "Update Server Files - $(date)"
+git commit -m "Update server files - $(date +'%F %H:%M')"
 git push

@@ -9,17 +9,7 @@
       event: '{% if trigger.to_state.state == ''on'' %}turn_on_living_room_plug{%
         else %}turn_off_living_room_plug{% endif %}'
     service: ifttt.trigger
-- id: toggle_door_plug
-  alias: Toggle Door Plug
-  description: ''
-  trigger:
-  - entity_id: input_boolean.door_plug
-    platform: state
-  action:
-  - data_template:
-      event: '{% if trigger.to_state.state == ''on'' %}turn_on_door_plug{% else %}turn_off_door_plug{%
-        endif %}'
-    service: ifttt.trigger
+  mode: single
 - id: ccf2b80b3c4e4080b7e7ea0969afc666
   alias: Alarm Clock - Wake me up with lights
   trigger:
@@ -47,17 +37,8 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
-  - data: {}
-    entity_id: switch.sonoff_10008c59d6
-    service: switch.turn_on
-  - delay: 00:00:10
-  - data:
-      brightness: 1
-      entity_id: group.bedroom
-    service: light.turn_on
-  - delay: 00:00:01
   - data_template:
-      brightness: 254
+      brightness: 255
       entity_id:
       - group.bedroom
       rgb_color:
@@ -67,11 +48,15 @@
       transition: '{{ states.input_datetime.light_transition_time.attributes.timestamp
         | int }}'
     service: light.turn_on
-  - service: script.pulsing_lights
+  - service: script.turn_on
     data: {}
+    entity_id: script.pulsing_lights
   - delay: '{{ states.input_datetime.light_transition_time.attributes.timestamp |
-      int }} '
-  - entity_id: switch.hallway_plug
+      int }}'
+  - data:
+      entity_id:
+      - switch.hallway_plug
+      - switch.sonoff_10008c59d6
     service: switch.turn_on
   - data:
       brightness: 40
@@ -81,13 +66,6 @@
       - light.kitchen_oven
       - light.kitchen_sink
     service: light.turn_on
-  - data:
-      brightness: 255
-    entity_id: light.bedroom
-    service: light.turn_on
-  - data:
-      entity_id: automation.notify_rain_status
-    service: automation.trigger
   mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
@@ -101,6 +79,7 @@
   action:
   - data: {}
     service: script.power_on
+  mode: single
 - id: '1575958785836'
   alias: Goodnight - Turn off the lights
   description: ''
@@ -118,12 +97,24 @@
     service: script.power_off
   - entity_id: light.philips_hue
     service: light.turn_on
+    data:
+      brightness: 50
+      rgb_color:
+      - 255
+      - 150
+      - 40
   - data_template:
       entity_id:
       - light.philips_hue
       transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
         | int }}'
-    service: light.turn_off
+      brightness: 0
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    service: light.turn_on
+  mode: single
 - id: '1576047741633'
   alias: Leave Home - Turn off lights
   description: ''
@@ -137,23 +128,6 @@
   action:
   - data: {}
     service: script.power_off
-- id: '1576574822450'
-  alias: Notify Rain Status
-  description: ''
-  trigger: []
-  condition: []
-  action:
-  - above: '0.1'
-    condition: numeric_state
-    entity_id: sensor.dark_sky_precip_intensity_1h
-  - data:
-      entity_id: light.philips_hue
-      rgb_color:
-      - 50
-      - 50
-      - 200
-      transition: 15
-    service: light.turn_on
 - id: '1578430362392'
   alias: 'Arrive Home - Victor '
   description: ''
@@ -174,15 +148,13 @@
   action:
   - data:
       volume_level: 0.4
-    entity_id: media_player.jbl_link
+    entity_id: media_player.portable_speaker
     service: media_player.volume_set
   - data:
-      entity_id: media_player.speakers_3
-      random_song: true
-      repeat: context
-      shuffle: true
+      entity_id: media_player.speakers
       uri: input_text.arrive_home_playlist
-    service: spotcast.start
+    service: script.play_spotify
+  mode: single
 - id: '1581713291992'
   alias: Evening - Dim lights
   description: ''
@@ -277,19 +249,3 @@
       event: '{{ trigger.event.as_dict()["data"].event }}'
     service: vicnie.remote_control
   mode: single
-- id: '1598897983100'
-  alias: Door - Rain Status
-  description: ''
-  trigger:
-  - above: '0.1'
-    below: '0.1'
-    entity_id: sensor.dark_sky_precip_intensity_1h
-    platform: numeric_state
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.door_plug
-    service_template: "{% set precip_intensity = [states('sensor.dark_sky_precip_intensity_0h'),\
-      \ states('sensor.dark_sky_precip_intensity_1h')] | max | float %} {% if 0.4\
-      \ < precip_intensity %}\n   input_boolean.turn_on\n{% else %}\n   input_boolean.turn_off\n\
-      {% endif %}\n"

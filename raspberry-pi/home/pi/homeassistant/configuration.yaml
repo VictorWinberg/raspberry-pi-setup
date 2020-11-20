@@ -72,7 +72,7 @@ input_datetime:
     name: "Start alarm at"
     has_time: true
     has_date: false
-    initial: "06:45"
+    initial: "06:30"
   light_transition_time:
     name: "Light transition time"
     has_time: true

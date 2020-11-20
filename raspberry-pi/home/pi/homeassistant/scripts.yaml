@@ -34,11 +34,9 @@ power_off:
   sequence:
   - entity_id: group.plugs
     service: input_boolean.turn_off
-  - data: {}
-    entity_id: all
+  - entity_id: all
     service: media_player.turn_off
-  - data: {}
-    entity_id: all
+  - entity_id: all
     service: switch.turn_off
   - entity_id: all
     service: light.turn_off
@@ -139,21 +137,9 @@ pulsing_lights:
   alias: Pulsing light
   sequence:
   - repeat:
-      count: '{{(states.input_datetime.light_transition_time.attributes.timestamp
-        / 60) | int}} '
+      count: '{{ (states.input_datetime.light_transition_time.attributes.timestamp
+        * 2 / 30) | int }}'
       sequence:
-      - service: light.turn_on
-        data:
-          entity_id:
-          - light.bedroom
-          - light.philips_hue
-          transition: 15
-          rgb_color:
-          - 255
-          - 220
-          - 110
-          brightness: 255
-      - delay: 00:00:15
       - service: light.turn_on
         data:
           entity_id:
@@ -165,5 +151,17 @@ pulsing_lights:
           - 160
           - 70
           brightness: 100
+      - delay: 00:00:15
+      - service: light.turn_on
+        data:
+          entity_id:
+          - light.bedroom
+          - light.philips_hue
+          transition: 15
+          rgb_color:
+          - 255
+          - 220
+          - 110
+          brightness: 255
       - delay: 00:00:15
   mode: single
