@@ -50,6 +50,7 @@ To Do :notebook_with_decorative_cover:
 - [ ] Git on the Server
   - [ ] Git hooks
   - [ ] Github sync actions
+- [ ] Swap file 
 
 Raspberry Pi :strawberry:
 ========================
