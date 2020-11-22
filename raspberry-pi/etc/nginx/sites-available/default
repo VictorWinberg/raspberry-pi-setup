@@ -3,6 +3,7 @@
 # 3000 - app
 # 3001 - www
 # 3004 - shop
+# 3006 - x
 # 3008 - wishlist.ml
 # 3009 - fgg
 # 3010 - menu
@@ -56,6 +57,17 @@ server {
 
     proxy_set_header Host $http_host;
     proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+
+# Webbuilder :: 3006 - x.zolly.ml
+#
+server {
+  listen 443;
+  server_name x.zolly.ml;
+
+  location / {
+    proxy_pass http://localhost:3006;
   }
 }
 
