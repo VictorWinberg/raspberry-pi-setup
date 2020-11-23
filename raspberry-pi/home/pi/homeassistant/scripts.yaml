@@ -54,8 +54,11 @@ power_on:
       - group.ikea
     service: light.turn_on
   - data:
-      entity_id: automation.evening_dim_lights
+      entity_id:
+      - automation.evening_dim_lights
+      - automation.sunset_balcony_lights
     service: automation.trigger
+  mode: single
 goodnight_at_night:
   alias: Goodnight - with Time Condition
   sequence:

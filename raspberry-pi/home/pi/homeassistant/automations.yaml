@@ -1,15 +1,3 @@
-- id: toggle_living_room_plug
-  alias: Toggle Living Room Plug
-  description: ''
-  trigger:
-  - entity_id: input_boolean.living_room_plug
-    platform: state
-  action:
-  - data_template:
-      event: '{% if trigger.to_state.state == ''on'' %}turn_on_living_room_plug{%
-        else %}turn_off_living_room_plug{% endif %}'
-    service: ifttt.trigger
-  mode: single
 - id: ccf2b80b3c4e4080b7e7ea0969afc666
   alias: Alarm Clock - Wake me up with lights
   trigger:
@@ -161,9 +149,6 @@
   trigger:
   - at: '20:30'
     platform: time
-  - platform: sun
-    event: sunset
-    offset: -00:30:00
   condition:
   - condition: state
     entity_id: group.ikea
@@ -248,4 +233,20 @@
       id: '{{ trigger.event.as_dict()["data"].id }}'
       event: '{{ trigger.event.as_dict()["data"].event }}'
     service: vicnie.remote_control
+  mode: single
+- id: '1606157917188'
+  alias: Sunset - Balcony Lights
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
+  condition:
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.outdoor_plug
   mode: single
