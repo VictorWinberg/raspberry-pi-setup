@@ -114,6 +114,9 @@ input_text:
   arrive_home_playlist:
     name: Arrive Home Playlist
     initial: spotify:playlist:37i9dQZF1DX4WYpdgoIcn6
+  good_morning_playlist:
+    name: Good morning Playlist
+    initial: spotify:playlist:37i9dQZF1DX4sWSpwq3LiO
 
 input_select:
   remote_entity:

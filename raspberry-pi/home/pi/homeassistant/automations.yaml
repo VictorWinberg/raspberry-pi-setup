@@ -47,13 +47,17 @@
       - switch.sonoff_10008c59d6
     service: switch.turn_on
   - data:
-      brightness: 40
+      brightness: 200
       entity_id:
       - light.hallway_door
       - light.kitchen_table
       - light.kitchen_oven
       - light.kitchen_sink
     service: light.turn_on
+  - service: script.play_spotify
+    data:
+      entity_id: media_player.speakers
+      uri: input_text.good_morning_playlist
   mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
