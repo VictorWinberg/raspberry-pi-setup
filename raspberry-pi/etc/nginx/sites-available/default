@@ -4,7 +4,7 @@
 # 3001 - www
 # 3004 - shop
 # 3006 - x
-# 3008 - wishlist.ml
+# 3008 - wish
 # 3009 - fgg
 # 3010 - menu
 # 3011 - ces
@@ -71,14 +71,17 @@ server {
   }
 }
 
-# Wishlist :: 3008 - wishlist.ml
+# Wishlist :: 3008 - wish
 #
 server {
   listen 443;
-  server_name www.wishlist.ml;
+  server_name wish.zolly.ml www.wishlist.ml;
 
   location / {
     proxy_pass http://localhost:3008;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
   }
 }
 
