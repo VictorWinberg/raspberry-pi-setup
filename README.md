@@ -180,6 +180,13 @@ PostgreSQL is a powerful, open source object-relational database system.
 - Create database `sudo -u postgres createdb -O USERNAME DBNAME`
 - Drop database `sudo -u postgres dropdb DBNAME`
 - PostgreSQL interactive terminal `sudo -u postgres psql` or `psql postgres://USERNAME:PASSWORD@localhost/DBNAME`
+- Allow remote connection
+   - Add following to `postgresql.conf`:
+      - `listen_addresses = '*'`
+   - Add following to `pg_hba.conf`:
+      - `host    all             all              0.0.0.0/0              md5`
+      - `host    all             all              ::/0                   md5`
+   - Restart postgresql `sudo /etc/init.d/postgresql restart`
 
 Node :diamond_shape_with_a_dot_inside:
 -------------------------------------
