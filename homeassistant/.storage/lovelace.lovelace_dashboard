@@ -395,11 +395,11 @@
                                             "type": "picture-elements"
                                         },
                                         {
-                                            "content": "{% set precip_intensity = 0.3 %} {% if states(\"sensor.dark_sky_precip_intensity_0h\") | float  > precip_intensity -%}\n  <p></p>\n{%- endif %} {% if states.light | count == states.light | selectattr('state','eq', 'off') | list | count -%}\n  <s></s>\n{%- endif %}\n",
+                                            "content": "{% set precip_intensity = 0.3 %} {% if states(\"sensor.dark_sky_precip_intensity_0h\") | float  > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if states.light | count == states.light | selectattr('state','eq', 'off') | list | count  -%}\n  <b></b>\n{%- endif %}\n",
                                             "style": {
                                                 ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
                                                 "ha-markdown": {
-                                                    "$": "p, s {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\np {\n  z-index: -1;\n  background: linear-gradient(to top, #4b6cb7, #182848); \n}\ns {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n  pointer-events: none;\n}\n"
+                                                    "$": "p, a, b {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: -1;\n  background: linear-gradient(to top, #4b6cb7, #182848); \n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n  pointer-events: none;\n}\n"
                                                 }
                                             },
                                             "type": "markdown"

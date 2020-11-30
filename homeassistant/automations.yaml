@@ -54,11 +54,8 @@
       - light.kitchen_oven
       - light.kitchen_sink
     service: light.turn_on
-  - service: cover.open_cover
-    data:
-      entity_id:
-      - cover.bedroom_blind_l
-      - cover.bedroom_blind_r
+  - service: script.turn_on
+    entity_id: script.blinds_open
   - service: script.play_spotify
     data:
       entity_id: media_player.speakers

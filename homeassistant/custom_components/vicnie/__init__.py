@@ -114,6 +114,7 @@ def setup(hass, config):
           'light': light_domain,
           'automation': lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
           'tradfri_open_close_remote': tradfri_open_close_remote,
+          'tradfri_open_close_switch': tradfri_open_close_remote,
         }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
 
     # Register our service with Home Assistant.

@@ -168,3 +168,23 @@ pulsing_lights:
           brightness: 255
       - delay: 00:00:15
   mode: single
+blinds_open:
+  alias: Blinds Open
+  sequence:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.bedroom_blind_r
+  - delay: 00:00:02
+  - service: cover.open_cover
+    data:
+      entity_id: cover.bedroom_blind_l
+  mode: single
+blinds_close:
+  alias: Blinds Close
+  sequence:
+  - service: cover.close_cover
+    data:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
+  mode: single
