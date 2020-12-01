@@ -60,6 +60,10 @@
     data:
       entity_id: media_player.speakers
       uri: input_text.good_morning_playlist
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.6
+    entity_id: media_player.portable_speaker
   mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
