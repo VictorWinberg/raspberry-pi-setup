@@ -62,7 +62,7 @@
       uri: input_text.good_morning_playlist
   - service: media_player.volume_set
     data:
-      volume_level: 0.6
+      volume_level: 0.5
     entity_id: media_player.portable_speaker
   mode: single
 - id: '1575459544999'
@@ -261,6 +261,10 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
+  - condition: sun
+    after: sunset
+    before: sunrise
+    after_offset: -00:00:30
   - service: switch.turn_on
     data: {}
     entity_id: switch.outdoor_plug

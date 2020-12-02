@@ -173,11 +173,17 @@ blinds_open:
   sequence:
   - service: cover.open_cover
     data:
-      entity_id: cover.bedroom_blind_r
-  - delay: 00:00:02
+      entity_id:
+      - cover.bedroom_blind_r
+      - cover.bedroom_blind_l
+  - delay: 00:00:30
   - service: cover.open_cover
-    data:
-      entity_id: cover.bedroom_blind_l
+    data: {}
+    entity_id: cover.bedroom_blind_l
+  - delay: 00:00:30
+  - service: cover.open_cover
+    data: {}
+    entity_id: cover.bedroom_blind_r
   mode: single
 blinds_close:
   alias: Blinds Close
