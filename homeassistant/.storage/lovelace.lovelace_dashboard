@@ -159,6 +159,20 @@
                                                     {
                                                         "color": "transparent",
                                                         "color_type": "card",
+                                                        "icon": "mdi:pine-tree",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.christmas_playlist"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    },
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
                                                         "icon": "mdi:weather-night",
                                                         "tap_action": {
                                                             "action": "call-service",

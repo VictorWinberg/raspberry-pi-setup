@@ -80,9 +80,6 @@ toggle_power_at_day:
 hot_night:
   alias: Hot Night
   sequence:
-  - data: {}
-    entity_id: switch.hallway_plug, switch.sonoff_10008c59d6
-    service: switch.turn_on
   - data:
       brightness: 255
       rgb_color:
@@ -99,24 +96,11 @@ hot_night:
       - 0
     entity_id: light.bedroom
     service: light.turn_on
-  - delay: 00:00:01
-  - data:
-      brightness: 200
-      rgb_color:
-      - 255
-      - 0
-      - 0
-    entity_id: light.bedroom
-    service: light.turn_on
-  - delay: 00:00:03
-  - data:
-      brightness: 200
-      rgb_color:
-      - 255
-      - 0
-      - 0
-    entity_id: light.bedroom
-    service: light.turn_on
+  - service: light.turn_on
+    data:
+      brightness: 4
+    entity_id: light.hallway_spots
+  mode: single
 toggle_play_pause:
   alias: Toggle Play/Pause  - with Time Condition
   sequence:

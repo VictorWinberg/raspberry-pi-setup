@@ -108,6 +108,9 @@ input_text:
   dinner_playlist:
     name: Dinner Playlist
     initial: spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ
+  christmas_playlist:
+    name: Christmas Playlist
+    initial: spotify:playlist:1WJbVVZmtlTUcqms2zbMaH
   goodnight_playlist:
     name: Goodnight Playlist
     initial: spotify:playlist:5WYfafy1UXyU1tYKeMU8Am

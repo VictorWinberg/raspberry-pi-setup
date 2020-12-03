@@ -206,6 +206,15 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
+                                                        "uri": "input_text.christmas_playlist"
+                                                    },
+                                                    "icon": "mdi:pine-tree",
+                                                    "id": "script.play_spotify",
+                                                    "type": "script"
+                                                },
+                                                {
+                                                    "data": {
+                                                        "entity_id": "media_player.speakers",
                                                         "uri": "input_text.goodnight_playlist"
                                                     },
                                                     "icon": "mdi:weather-night",
@@ -213,7 +222,7 @@
                                                     "type": "script"
                                                 }
                                             ],
-                                            "columns": 4
+                                            "columns": 5
                                         },
                                         "type": "custom:mini-media-player"
                                     },
@@ -584,6 +593,109 @@
                                 "input_select.remote_entity"
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "show_icon": false
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "show_icon": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "icon": "mdi:view-dashboard",
@@ -871,6 +983,12 @@
                                     "entity": "input_text.dinner_playlist",
                                     "icon": "mdi:glass-wine",
                                     "name": "Dinner",
+                                    "show_state": false
+                                },
+                                {
+                                    "entity": "input_text.christmas_playlist",
+                                    "icon": "mdi:pine-tree",
+                                    "name": "Christmas",
                                     "show_state": false
                                 },
                                 {
