@@ -201,6 +201,8 @@ Applications :computer:
 
 Home Assistant :house:
 ---------------------
+**[My Home Assistant Configuration](homeassistant)**
+
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
 
 [Home Assistant](https://www.home-assistant.io/)
@@ -216,10 +218,6 @@ http:
     - 127.0.0.1
     - <your external ip>
 ```
-
-**My Home Assistant Configuration**
-
-[/home/pi/homeassistant](/raspberry-pi/home/pi/homeassistant)
 
 Conbee II :speaking_head:
 ------------------------
