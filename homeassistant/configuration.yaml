@@ -25,6 +25,34 @@ google:
   client_id: !secret google_ms_client_id
   client_secret: !secret google_ms_client_secret
 
+google_assistant:
+  project_id: homeassistant-273413
+  service_account: !include gcp_homeassistant_service_account.json
+  report_state: true
+  entity_config:
+    script.blinds_close:
+      name: Blinds Close
+      expose: true
+      aliases:
+        - Close Blinds
+    script.blinds_open:
+      name: Blinds Open
+      expose: true
+      aliases:
+        - Open Blinds
+    script.pulsing_lights:
+      name: Pulsing Lights
+      expose: true
+    script.power_on:
+      name: Power On
+      expose: true
+    script.power_off:
+      name: Power Off
+      expose: true
+    script.goodnight_at_night:
+      name: Goodnight
+      expose: true
+
 webostv:
   host: !secret mio_tv_ip
   name: Mio TV
@@ -50,14 +78,6 @@ frontend:
 
 # Variables
 input_boolean:
-  living_room_plug:
-    name: Legacy Living Room Plug
-    initial: on
-    icon: mdi:lamp
-  door_plug:
-    name: Door Plug
-    initial: off
-    icon: mdi:door
   wakeup_enabled:
     name: "Wake-up lights"
     initial: on

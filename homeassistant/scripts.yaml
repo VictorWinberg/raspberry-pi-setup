@@ -32,8 +32,6 @@ start_video_lights:
 power_off:
   alias: Power off
   sequence:
-  - entity_id: group.plugs
-    service: input_boolean.turn_off
   - entity_id: all
     service: media_player.turn_off
   - entity_id: all
@@ -161,12 +159,14 @@ blinds_open:
       - cover.bedroom_blind_r
       - cover.bedroom_blind_l
   - delay: 00:00:30
-  - service: cover.open_cover
-    data: {}
+  - service: cover.set_cover_position
+    data:
+      position: 87
     entity_id: cover.bedroom_blind_l
   - delay: 00:00:30
-  - service: cover.open_cover
-    data: {}
+  - service: cover.set_cover_position
+    data:
+      position: 86
     entity_id: cover.bedroom_blind_r
   mode: single
 blinds_close:

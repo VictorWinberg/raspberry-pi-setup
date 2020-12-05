@@ -9,10 +9,6 @@ bedroom:
   entities:
     - light.bedroom
     - light.philips_hue
-plugs:
-  name: "Plugs"
-  entities:
-    - input_boolean.living_room_plug
 ikea:
   name: "IKEA"
   entities:
