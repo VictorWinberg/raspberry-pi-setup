@@ -155,4 +155,16 @@ input_select:
      - light:group.ikea
     initial: default
     icon: mdi:remote
-
+  symfonisk_entity:
+    name: "Symfonisk Controller Entity"
+    options:
+     - default
+     - media_player.speakers
+     - media_player.portable_speaker
+     - media_player.sorrysound_audio
+     - media_player.sorrysound_tv
+     - media_player.mio_tv
+     - light:all
+     - light:group.ikea
+    initial: media_player.portable_speaker
+    icon: mdi:circle-outline

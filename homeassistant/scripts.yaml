@@ -166,7 +166,7 @@ blinds_open:
   - delay: 00:00:30
   - service: cover.set_cover_position
     data:
-      position: 86
+      position: 87
     entity_id: cover.bedroom_blind_r
   mode: single
 blinds_close:

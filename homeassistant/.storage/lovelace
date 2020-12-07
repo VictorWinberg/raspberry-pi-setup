@@ -47,9 +47,10 @@
                                     }
                                 },
                                 {
-                                    "entity": "input_boolean.living_room_plug",
-                                    "name": "Liv. Lamp",
+                                    "entity": "script.pulsing_lights",
+                                    "name": "Puls Bedr.",
                                     "show_state": false,
+                                    "icon": "mdi:weather-sunny",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -590,7 +591,12 @@
                         },
                         {
                             "entities": [
-                                "input_select.remote_entity"
+                                {
+                                    "entity": "input_select.remote_entity"
+                                },
+                                {
+                                    "entity": "input_select.symfonisk_entity"
+                                }
                             ],
                             "type": "entities"
                         },
@@ -988,7 +994,7 @@
                                 {
                                     "entity": "input_text.christmas_playlist",
                                     "icon": "mdi:pine-tree",
-                                    "name": "Christmas",
+                                    "name": "Xmas",
                                     "show_state": false
                                 },
                                 {
@@ -1000,11 +1006,12 @@
                                 {
                                     "entity": "input_text.arrive_home_playlist",
                                     "icon": "mdi:door",
-                                    "name": "I'm Home",
+                                    "name": "Home",
                                     "show_state": false
                                 }
                             ],
                             "show_header_toggle": false,
+                            "columns": 6,
                             "type": "glance"
                         }
                     ]

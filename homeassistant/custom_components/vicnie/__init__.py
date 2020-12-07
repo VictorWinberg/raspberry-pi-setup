@@ -31,13 +31,22 @@ def setup(hass, config):
     def remote_control_service(call):
         """Service data"""
         id = call.data.get("id")
-        input_select_entity_id = call.data.get("entity_id")
-        entity_id = hass.states.get(input_select_entity_id).state
-        domain = entity_id.split(":")[0].split(".")[0] if id == "tradfri_remote_control" else id
-        entity_id = re.sub("[^:]+:", "", entity_id)
-        event = {
+        entity_id = {
+          'symfonisk_controller': 'input_select.symfonisk_entity',
+          'tradfri_remote_control': 'input_select.remote_entity',
+        }.get(id, '')
+        if entity_id:
+          entity_id = hass.states.get(entity_id).state
+          domain = entity_id.split(":")[0].split(".")[0]
+          entity_id = re.sub("[^:]+:", "", entity_id)
+        else:
+          domain = id
+
+        events = {
           "1001": "MDWN", "1002": "MBTN", "1003": "MUP", "2001": "UDWN", "2002": "UBTN", "2003": "UUP", "3001": "DDWN", "3002": "DBTN", "3003": "DUP", "4001": "LDWN", "4002": "LBTN", "4003": "LUP", "5001": "RDWN", "5002": "RBTN", "5003": "RUP"
-        }.get(call.data.get("event"), "NUL")
+        }
+        if id == "symfonisk_controller": events = {**events, "1004": "RBTN", "1005": "LBTN", "2001": "UBTN", "3001": "DBTN"}
+        event = events.get(call.data.get("event"), "NUL")
 
         """Variables"""
         s = hass.services.call
@@ -99,12 +108,13 @@ def setup(hass, config):
             "RBTN": lambda: set_color(1),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
+
         def tradfri_open_close_remote():
             {
             "MBTN": lambda: s("script", "blinds_open", {}, False),
             "UBTN": lambda: s("script", "blinds_close", {}, False),
-            "MUP": lambda: s("script", "power_on", {}, False),
-            "UUP": lambda: (s("script", "goodnight_at_night", {}, False), s("script", "script.toggle_power_at_day", {}, False)),
+            "MUP": lambda: s("automation", "trigger", {"entity_id": "automation.alarm_clock_wake_me_up_with_lights"}, False),
+            "UUP": lambda: s("automation", "trigger", {"entity_id": "automation.goodnight_turn_off_the_lights"}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
         """Run service"""

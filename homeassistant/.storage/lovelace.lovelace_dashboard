@@ -268,17 +268,6 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "input_boolean.living_room_plug",
-                                                    "style": {
-                                                        "left": "93%",
-                                                        "top": "25%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
                                                     "entity": "light.hallway_door",
                                                     "style": {
                                                         "left": "30%",
