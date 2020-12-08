@@ -45,6 +45,10 @@
                                                 {
                                                     "entity": "calendar.annies_kalender",
                                                     "titleColor": "#AD208E"
+                                                },
+                                                {
+                                                    "entity": "calendar.hogtidsdagar_i_sverige",
+                                                    "titleColor": "#D63118"
                                                 }
                                             ],
                                             "finishedEventOpacity": 0.7,
@@ -367,30 +371,32 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "light.hallway_spots",
+                                                    "entity": "person.annie",
                                                     "image": "/local/annie.jpg",
                                                     "style": {
                                                         "left": "57.5%",
                                                         "top": "50%",
                                                         "width": "15%"
                                                     },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "image"
+                                                    "type": "image",
+                                                    "state_filter": {
+                                                        "not_home": "grayscale(1)",
+                                                        "unknown": "sepia(1)"
+                                                    }
                                                 },
                                                 {
-                                                    "entity": "light.lifx_led_strip",
+                                                    "entity": "person.victor",
                                                     "image": "/local/victor.jpg",
                                                     "style": {
                                                         "left": "42%",
                                                         "top": "50%",
                                                         "width": "15%"
                                                     },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "image"
+                                                    "type": "image",
+                                                    "state_filter": {
+                                                        "not_home": "grayscale(1)",
+                                                        "unknown": "sepia(1)"
+                                                    }
                                                 }
                                             ],
                                             "image": "/local/blueprint.png",

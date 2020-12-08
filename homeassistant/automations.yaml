@@ -268,3 +268,37 @@
     data: {}
     entity_id: switch.outdoor_plug
   mode: single
+- id: '1607431749233'
+  alias: Bodypump
+  description: ''
+  trigger:
+  - platform: time
+    at: 05:30
+  condition:
+  - condition: time
+    weekday:
+    - wed
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  action:
+  - service: script.turn_on
+    data: {}
+    entity_id: script.pulsing_lights
+  - delay: 00:15:00
+  - service: spotcast.start
+    data:
+      entity_id: media_player.speakers
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: spotify:playlist:37i9dQZF1DX76Wlfdnj7AP
+  - entity_id:
+    - switch.hallway_plug
+    service: switch.turn_on
+  - service: light.turn_on
+    data:
+      brightness: 40
+      entity_id:
+      - group.ikea
+  mode: single
