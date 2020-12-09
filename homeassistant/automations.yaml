@@ -301,4 +301,7 @@
       brightness: 40
       entity_id:
       - group.ikea
+  - service: script.turn_on
+    data: {}
+    entity_id: script.blinds_open
   mode: single
