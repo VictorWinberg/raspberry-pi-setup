@@ -73,7 +73,7 @@ Devices :iphone:
 
 HACS :books:
 ====
-**Frontend** [Code](homeassistant/.storage/lovelace_resources)
+**Frontend** [Code](.storage/lovelace_resources)
 - [card-mod](https://github.com/thomasloven/lovelace-card-mod)
 - [mini-media-player](https://github.com/kalkih/mini-media-player)
 - [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
@@ -92,7 +92,7 @@ HACS :books:
 
 Automations :repeat:
 ===========
-[Code](homeassistant/automations.yaml)
+[Code](automations.yaml)
 - Alarm Clock - Wake me up with lights
 - Arrive Home - Turn on lights
 - Leave Home - Turn off lights
@@ -102,7 +102,7 @@ Automations :repeat:
 
 Scripts :page_with_curl:
 =======
-[Code](homeassistant/scripts.yaml)
+[Code](scripts.yaml)
 - Start Video with Lights
 - Power off
 - Power on
@@ -113,11 +113,11 @@ Scripts :page_with_curl:
 
 Custom Components :computer:
 =================
-[Code](homeassistant/custom_components)
+[Code](custom_components)
 
 Vicnie
 ------
-[Code](homeassistant/custom_components/vicnie/__init__.py)
+[Code](custom_components/vicnie/__init__.py)
 
 **Remote Control Service** - Making my IKEA Trådfri remotes ''smart'' and able to control lights, speakers, tv, blinds, power on/off.
 
