@@ -382,6 +382,13 @@
                                                     "state_filter": {
                                                         "not_home": "grayscale(1)",
                                                         "unknown": "sepia(1)"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "light.toggle",
+                                                        "service_data": {
+                                                            "entity_id": "light.hallway_spots"
+                                                        }
                                                     }
                                                 },
                                                 {
@@ -396,6 +403,13 @@
                                                     "state_filter": {
                                                         "not_home": "grayscale(1)",
                                                         "unknown": "sepia(1)"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "switch.toggle",
+                                                        "service_data": {
+                                                            "entity_id": "switch.sonoff_10008c59d6"
+                                                        }
                                                     }
                                                 }
                                             ],

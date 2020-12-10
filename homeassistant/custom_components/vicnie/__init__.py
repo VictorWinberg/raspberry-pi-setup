@@ -31,12 +31,12 @@ def setup(hass, config):
     def remote_control_service(call):
         """Service data"""
         id = call.data.get("id")
-        entity_id = {
+        input_select_entity_id = {
           'symfonisk_controller': 'input_select.symfonisk_entity',
           'tradfri_remote_control': 'input_select.remote_entity',
         }.get(id, '')
-        if entity_id:
-          entity_id = hass.states.get(entity_id).state
+        if input_select_entity_id:
+          entity_id = hass.states.get(input_select_entity_id).state
           domain = entity_id.split(":")[0].split(".")[0]
           entity_id = re.sub("[^:]+:", "", entity_id)
         else:
