@@ -36,17 +36,12 @@ Table of contents :book:
    - [Home Assistant :house:](#home-assistant-house)
    - [Conbee II :speaking_head:](#conbee-ii-speaking_head)
    - [Nextcloud :cloud:](#nextcloud-cloud)
-- [Extras :heavy_plus_sign:](#extras-heavy_plus_sign)
+- [Git :octocat:](#git-octocat)
    - [Git on the Server :octocat:](#git-on-the-server-octocat)
 - [Recovery :recycle:](#recovery-recycle)
 
 To Do :notebook_with_decorative_cover:
 -------------------------------------
-- [ ] Home Assistant
-  - [ ] HACS Dependencies
-  - [ ] README.md
-  - [ ] Google Calendar
-  - [ ] Custom component Vicnie
 - [ ] Git on the Server
   - [ ] Git hooks
   - [ ] Github sync actions
@@ -250,8 +245,8 @@ docker exec nextcloud_app_1 chown -R www-data:www-data /var/www/html/config
 - Enable "External storage support" in Apps
 - Add External Storage in Settings/Admin
 
-Extras :heavy_plus_sign:
-=======================
+Git :octocat:
+============
 
 Git on the Server :octocat:
 --------------------------
