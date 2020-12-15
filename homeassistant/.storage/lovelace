@@ -39,8 +39,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.outdoor_plug",
-                                    "name": "Out. Plug",
+                                    "entity": "switch.balcony_plug",
+                                    "name": "Balcony",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -80,8 +80,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.living_room_plug",
-                                    "name": "Liv. Plug",
+                                    "entity": "switch.window_plug",
+                                    "name": "Window",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -120,8 +120,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "group.ikea",
-                                    "name": "IKEA",
+                                    "entity": "switch.living_room_plug",
+                                    "name": "Liv. Plug",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -956,8 +956,12 @@
                                     "state_header": "Remote",
                                     "entities": [
                                         {
-                                            "name": "Open/Close",
+                                            "name": "On/Off",
                                             "entity": "sensor.tradfri_open_close_remote_battery_level"
+                                        },
+                                        {
+                                            "name": "On/Off",
+                                            "entity": "sensor.tradfri_open_close_switch_battery_level"
                                         },
                                         {
                                             "name": "Symfonisk",

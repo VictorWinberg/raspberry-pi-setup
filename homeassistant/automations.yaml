@@ -194,7 +194,9 @@
       - light.hallway_spots
     service: light.turn_on
   - data: {}
-    entity_id: switch.outdoor_plug
+    entity_id:
+    - switch.balcony_plug
+    - switch.window_plug
     service: switch.turn_on
   mode: single
 - id: power_off_for_work
@@ -266,7 +268,9 @@
     after_offset: -00:00:30
   - service: switch.turn_on
     data: {}
-    entity_id: switch.outdoor_plug
+    entity_id:
+    - switch.balcony_plug
+    - switch.window_plug
   mode: single
 - id: '1607431749233'
   alias: Bodypump

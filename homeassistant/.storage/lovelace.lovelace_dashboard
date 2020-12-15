@@ -239,10 +239,21 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.outdoor_plug",
+                                                    "entity": "switch.balcony_plug",
                                                     "style": {
-                                                        "left": "70%",
-                                                        "top": "15%"
+                                                        "left": "83%",
+                                                        "top": "12%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.window_plug",
+                                                    "style": {
+                                                        "left": "85%",
+                                                        "top": "22%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
