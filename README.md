@@ -37,14 +37,13 @@ Table of contents :book:
    - [Conbee II :speaking_head:](#conbee-ii-speaking_head)
    - [Nextcloud :cloud:](#nextcloud-cloud)
 - [Git :octocat:](#git-octocat)
-   - [Git on the Server :octocat:](#git-on-the-server-octocat)
+   - [Git Server :octocat:](#git-server-octocat)
+   - [Git Client :octocat:](#git-client-octocat)
+   - [Github Actions :octocat:](#github-actions-octocat)
 - [Recovery :recycle:](#recovery-recycle)
 
 To Do :notebook_with_decorative_cover:
 -------------------------------------
-- [ ] Git on the Server
-  - [ ] Git hooks
-  - [ ] Github sync actions
 - [ ] Swap file 
 
 Raspberry Pi :strawberry:
@@ -120,9 +119,42 @@ Nginx is a web server that can also be used as a reverse proxy, load balancer, m
 $ sudo apt install nginx
 ```
 
-**My Nginx Configuration**
+**Nginx Configuration**
 
-[/etc/nginx/sites-available/default](/raspberry-pi/etc/nginx/sites-available/default)
+`$ sudo nano /etc/nginx/sites-available/default`
+
+```nginx
+# APPLICATION_NAME :: PORT - SUBDOMAIN
+#
+server {
+  listen 443;
+  server_name SUBDOMAIN.DOMAIN;
+
+  location / {
+    proxy_pass http://localhost:PORT;
+
+    # If you have header issues add the following lines
+    # proxy_set_header Host $http_host;
+    # proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+`$ sudo /etc/init.d/nginx reload (start/restart)`
+
+### DNS setup
+| Host      | Type | TTL   | Target      |
+| --------- | ---- | ----- | ----------- |
+|           | A    | 86400 | {SERVER_IP} |
+| www       | A    | 86400 | {SERVER_IP} |
+| {PROJECT} | A    | 86400 | {SERVER_IP} |
+| ...
+
+##### Alt with wildcard domain name support
+| Host      | Type | TTL   | Target      |
+| --------- | ---- | ----- | ----------- |
+|           | A    | 86400 | {SERVER_IP} |
+| *         | A    | 86400 | {SERVER_IP} |
 
 Crontab :clock4:
 -----------------
@@ -182,6 +214,13 @@ PostgreSQL is a powerful, open source object-relational database system.
       - `host    all             all              0.0.0.0/0              md5`
       - `host    all             all              ::/0                   md5`
    - Restart postgresql `sudo /etc/init.d/postgresql restart`
+
+
+**Reset Database**
+
+[db-dumps](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/db-dumps)
+
+`pg_dump --format=c -h 192.168.0.100 -U USERNAME DATABASE | pg_restore --clean --no-owner -h localhost -d DATABASE`
 
 Node :diamond_shape_with_a_dot_inside:
 -------------------------------------
@@ -248,8 +287,8 @@ docker exec nextcloud_app_1 chown -R www-data:www-data /var/www/html/config
 Git :octocat:
 ============
 
-Git on the Server :octocat:
---------------------------
+Git Server :octocat:
+-------------------
 Convenient for deploying applications to the raspberry pi using git
 
 [Git on the Server](https://git-scm.com/book/fa/v2/Git-on-the-Server-Setting-Up-the-Server)
@@ -260,6 +299,185 @@ Convenient for deploying applications to the raspberry pi using git
 │   └── pm-ui.git
 └── www
     └── pm-ui
+```
+
+#### Setup bare repo
+```sh
+$ ssh git@DOMAIN
+$ git init --bare repos/{PROJECT}.git
+$ mkdir www/{PROJECT}
+```
+
+#### Add ssh keys
+`$ nano /home/git/.ssh/authorized_keys`
+
+```
+ssh-rsa ABC123 user@domain.com
+```
+
+#### Add post-receive hook
+*Requires: pm2*
+
+`$ cd repos/{PROJECT}.git && nano hooks/post-receive`
+
+```
+#!/bin/bash
+set -eu # exit script on errors
+. $HOME/.nvm/nvm.sh
+
+PROJECT="INSERT_PROJECT_NAME_HERE"
+MAIN="INSERT_NODE_SCRIPT_PATH_HERE"
+BRANCH="master"
+
+WORK_TREE="/home/git/www/${PROJECT}"
+GIT_DIR="/home/git/repos/${PROJECT}.git"
+
+while read oldrev newrev ref
+do
+  echo "Ref $ref received."
+
+  if [[ $ref = refs/heads/"$BRANCH" ]];
+  then
+    echo "Deploying ${BRANCH} branch..."
+
+    echo "> git checkout..."
+    git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout -f
+    cd "$WORK_TREE"
+
+    echo "> npm install..."
+    npm install
+
+    # # If build wasn't done on github uncomment this
+    # echo "> npm run build..."
+    # npm run build
+
+    # I use pm2 for process management of my Node applications
+    echo "> pm2 start server"
+    pm2 restart "${PROJECT}" || pm2 start "${MAIN}" --name "${PROJECT}"
+
+    echo "> pm2 save"
+    pm2 save
+
+    echo "Deployment ${BRANCH} branch complete."
+
+  else
+    echo "No deployment done."
+    echo "Only the ${BRANCH} branch may be deployed."
+  fi
+done
+```
+
+**Don't forget to make hook executable**
+
+`$ chmod +x hooks/post-receive`
+
+Git Client :octocat:
+-------------------
+#### Clone
+`$ git clone git@{DOMAIN}:repos/{PROJECT}.git`
+
+#### Add remote
+`$ git remote add server git@{DOMAIN}:repos/{PROJECT}.git`
+
+#### Init repo
+```sh
+$ cd {PROJECT}
+# Fetch or create a .gitignore
+$ curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore
+$ npm init
+$ npm install express --save
+$ code server/index.js
+```
+```js
+// server/index.js
+const express = require('express');
+const path = require("path");
+const app = express();
+
+const PORT = <<INSERT_PORT_HERE>>;
+
+// Serve static files
+app.use(express.static(path.resolve(__dirname, "dist")));
+
+app.get('/api', (req, res) => res.send('API Running!'))
+
+app.listen(PORT, () => console.log(`App running on port ${PORT}!`))
+```
+
+Github Actions :octocat:
+-----------------------
+```
+name: Build (+Deploy)
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install and cache dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: BUILD_FOLDER
+          path: BUILD_FOLDER
+  deploy:
+    needs: build
+
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          ref: 'master'
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: BUILD_FOLDER
+          path: BUILD_FOLDER
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          name: id_rsa # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Git Push
+        run: |
+          git remote add server git@YOUR_DOMAIN:YOUR_GIT_REPO_PATH
+          git config --global user.email "actions@github.com"
+          git config --global user.name "Github Actions"
+          git add build -f
+          git commit -m "Build files"
+          git push -u server master -f
 ```
 
 Recovery :recycle:
