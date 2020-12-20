@@ -309,3 +309,17 @@
     data: {}
     entity_id: script.blinds_open
   mode: single
+- id: '1608451314385'
+  alias: Bedroom brightness
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.bedroom
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+    entity_id: light.bedroom
+  mode: single

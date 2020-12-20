@@ -363,6 +363,17 @@
                                                     "entity": "light.led_strip_lifx",
                                                     "style": {
                                                         "left": "70%",
+                                                        "top": "27%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "media_player.mio_tv",
+                                                    "style": {
+                                                        "left": "70%",
                                                         "top": "37%"
                                                     },
                                                     "tap_action": {

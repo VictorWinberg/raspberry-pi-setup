@@ -57,24 +57,6 @@ power_on:
       - automation.sunset_balcony_lights
     service: automation.trigger
   mode: single
-goodnight_at_night:
-  alias: Goodnight - with Time Condition
-  sequence:
-  - after: '21:00'
-    before: 04:00
-    condition: time
-  - data:
-      entity_id: automation.goodnight_turn_off_the_lights
-    service_template: "{% if is_state('group.ikea', 'off') %}\n  script.hot_night\n\
-      {% else %}\n  automation.trigger\n{% endif %}\n"
-toggle_power_at_day:
-  alias: Toggle Power on/off - with Time Condition
-  sequence:
-  - after: 04:00
-    before: '21:00'
-    condition: time
-  - service_template: "{% if is_state('group.ikea', 'on') %}\n  script.power_off\n\
-      {% else %}\n  script.power_on\n{% endif %}\n"
 hot_night:
   alias: Hot Night
   sequence:
@@ -98,15 +80,6 @@ hot_night:
     data:
       brightness: 4
     entity_id: light.hallway_spots
-  mode: single
-toggle_play_pause:
-  alias: Toggle Play/Pause  - with Time Condition
-  sequence:
-  - after: 06:00
-    before: '21:00'
-    condition: time
-  - entity_id: media_player.portable_speaker
-    service: media_player.media_play_pause
   mode: single
 play_spotify:
   alias: Play Spotify
@@ -177,4 +150,21 @@ blinds_close:
       entity_id:
       - cover.bedroom_blind_l
       - cover.bedroom_blind_r
+  mode: single
+default_toggle:
+  alias: Default Toggle
+  sequence:
+  - choose:
+    - conditions:
+      - after: '21:00'
+        before: 04:00
+        condition: time
+      sequence:
+      - data:
+          entity_id: automation.goodnight_turn_off_the_lights
+        service_template: "{% if is_state('group.ikea', 'off') %}\n  script.hot_night\n\
+          {% else %}\n  automation.trigger\n{% endif %}\n"
+    default:
+    - service_template: "{% if is_state('group.ikea', 'on') %}\n  script.power_off\n\
+        {% else %}\n  script.power_on\n{% endif %}\n"
   mode: single

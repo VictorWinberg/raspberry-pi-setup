@@ -52,11 +52,13 @@ def setup(hass, config):
         s = hass.services.call
         color_list = ["white", "bisque", "red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"]
 
-        defaults = {"MDWN": lambda: s("homeassistant", "restart", {}, False),
-                    "LDWN": lambda: select("media_player.portable_speaker"),
-                    "RDWN": lambda: select("media_player.mio_tv"),
-                    "UDWN": lambda: select("light:group.ikea"),
-                    "DDWN": lambda: select("default")}
+        defaults = {
+          "MDWN": lambda: s("homeassistant", "restart", {}, False),
+          "LDWN": lambda: select("media_player.portable_speaker"),
+          "RDWN": lambda: select("media_player.mio_tv"),
+          "UDWN": lambda: select("light:group.ikea"),
+          "DDWN": lambda: select("default")
+        }
 
 
         """Helpers"""
@@ -73,59 +75,80 @@ def setup(hass, config):
 
         """Domain functions"""
         def default_domain():
-            audio_id = "media_player.portable_speaker" if hass.states.is_state("media_player.speakers", "off") else "media_player.speakers"
-            volume = hass.states.get(audio_id).attributes.get('volume_level')
+            entity_id = []
+            if not hass.states.is_state("media_player.speakers", "off"):
+              entity_id.append("media_player.speakers")
+            if not hass.states.is_state("media_player.portable_speaker", "off") and hass.states.is_state("media_player.speakers", "off"):
+              entity_id.append("media_player.portable_speaker")
+            if not hass.states.is_state("media_player.mio_tv", "off"):
+              entity_id.append("media_player.mio_tv")
+
+            if event == "DDWN":
+              s("script", "default_toggle", {}, False)
+            elif not entity_id:
+              run_service("light", "group.ikea")
+            else:
+              run_service("media_player", entity_id)
+
+        def media_player_domain(entity_id):
+            volume, volume_entity = None, None
+            if isinstance(entity_id, str) and len(entity_id):
+              volume_entity = entity_id
+            if isinstance(entity_id, list) and len(entity_id):
+              if hass.states.is_state("media_player.speakers", "playing"):
+                volume_entity = "media_player.speakers"
+              elif hass.states.is_state("media_player.portable_speaker", "playing"):
+                volume_entity = "media_player.portable_speaker"
+              elif hass.states.is_state("media_player.mio_tv", "on"):
+                volume_entity = "media_player.mio_tv"
+            if volume_entity:
+              volume = hass.states.get(volume_entity).attributes.get('volume_level')
+
+            _LOGGER.warning(entity_id)
+
             {
-            **defaults,
-            "MBTN": lambda: (s("script", "goodnight_at_night", {}, False), s("script", "toggle_play_pause", {}, False)),
-            "UBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": audio_id, "volume_level": volume + 0.05}, False),
-            "DBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": audio_id, "volume_level": volume - 0.05}, False),
-            "LBTN": lambda: s("media_player", "media_previous_track", {"entity_id": audio_id}, False),
-            "RBTN": lambda: s("media_player", "media_next_track", {"entity_id": audio_id}, False),
+              **defaults,
+              "MBTN": lambda: s("media_player", "media_play_pause", {"entity_id": entity_id}, False),
+              "UBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": volume_entity, "volume_level": volume + 0.05}, False),
+              "DBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": volume_entity, "volume_level": volume - 0.05}, False),
+              "LBTN": lambda: s("media_player", "media_previous_track", {"entity_id": entity_id}, False),
+              "RBTN": lambda: s("media_player", "media_next_track", {"entity_id": entity_id}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
-        def media_player_domain():
-            volume = hass.states.get(entity_id).attributes.get('volume_level')
-            {
-            **defaults,
-            "MBTN": lambda: s("media_player", "media_play_pause", {"entity_id": entity_id}, False),
-            "UBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": entity_id, "volume_level": volume + 0.05}, False),
-            "DBTN": lambda: volume and s("media_player", "volume_set", {"entity_id": entity_id, "volume_level": volume - 0.05}, False),
-            "LBTN": lambda: s("media_player", "media_previous_track", {"entity_id": entity_id}, False),
-            "RBTN": lambda: s("media_player", "media_next_track", {"entity_id": entity_id}, False),
-            }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
-
-        def light_domain():
+        def light_domain(entity_id):
             light_on = hass.states.is_state(entity_id, "on")
             brightness_id = "input_number.light_brightness"
             brt = float(hass.states.get(brightness_id).state)
             {
-            **defaults,
-            "MBTN": lambda: s("light", "turn_off" if light_on else "turn_on", {"entity_id": entity_id}, False),
-            "UBTN": lambda: s("input_number", "set_value", {"entity_id": brightness_id, "value": brt + 10}, False),
-            "DBTN": lambda: s("input_number", "set_value", {"entity_id": brightness_id, "value": brt - 10}, False),
-            "LBTN": lambda: set_color(-1),
-            "RBTN": lambda: set_color(1),
+              **defaults,
+              "MBTN": lambda: s("light", "turn_off" if light_on else "turn_on", {"entity_id": entity_id}, False),
+              "UBTN": lambda: s("input_number", "set_value", {"entity_id": brightness_id, "value": brt + 10}, False),
+              "DBTN": lambda: s("input_number", "set_value", {"entity_id": brightness_id, "value": brt - 10}, False),
+              "LBTN": lambda: set_color(-1),
+              "RBTN": lambda: set_color(1),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
 
         def tradfri_open_close_remote():
             {
-            "MBTN": lambda: s("script", "blinds_open", {}, False),
-            "UBTN": lambda: s("script", "blinds_close", {}, False),
-            "MUP": lambda: s("automation", "trigger", {"entity_id": "automation.alarm_clock_wake_me_up_with_lights"}, False),
-            "UUP": lambda: s("automation", "trigger", {"entity_id": "automation.goodnight_turn_off_the_lights"}, False),
+              "MBTN": lambda: s("script", "blinds_open", {}, False),
+              "UBTN": lambda: s("script", "blinds_close", {}, False),
+              "MUP":  lambda: s("automation", "trigger", {"entity_id": "automation.alarm_clock_wake_me_up_with_lights"}, False),
+              "UUP":  lambda: s("automation", "trigger", {"entity_id": "automation.goodnight_turn_off_the_lights"}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
         """Run service"""
-        {
-          'default': default_domain,
-          'media_player': media_player_domain,
-          'light': light_domain,
-          'automation': lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
-          'tradfri_open_close_switch': tradfri_open_close_remote,
-          'tradfri_open_close_switch_2': tradfri_open_close_remote,
-        }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
+        def run_service(domain, entity_id):
+            {
+              "default":                     lambda: default_domain(),
+              "media_player":                lambda: media_player_domain(entity_id),
+              "light":                       lambda: light_domain(entity_id),
+              "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
+              "tradfri_open_close_switch":   lambda: tradfri_open_close_remote(),
+              "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(),
+            }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
+
+        run_service(domain, entity_id)
 
     # Register our service with Home Assistant.
     hass.services.register(DOMAIN, 'tetzipetzi', tetzipetzi_service)
