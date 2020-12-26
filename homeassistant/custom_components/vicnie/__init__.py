@@ -41,6 +41,7 @@ def setup(hass, config):
           entity_id = re.sub("[^:]+:", "", entity_id)
         else:
           domain = id
+          entity_id = None
 
         events = {
           "1001": "MDWN", "1002": "MBTN", "1003": "MUP", "2001": "UDWN", "2002": "UBTN", "2003": "UUP", "3001": "DDWN", "3002": "DBTN", "3003": "DUP", "4001": "LDWN", "4002": "LBTN", "4003": "LUP", "5001": "RDWN", "5002": "RBTN", "5003": "RUP"
