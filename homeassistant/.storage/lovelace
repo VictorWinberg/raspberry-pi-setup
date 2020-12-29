@@ -936,7 +936,8 @@
                                     ],
                                     "entity": "person.victor",
                                     "state_header": "Place",
-                                    "type": "custom:multiple-entity-row"
+                                    "type": "custom:multiple-entity-row",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "entities": [
@@ -947,7 +948,8 @@
                                     ],
                                     "entity": "person.annie",
                                     "state_header": "Place",
-                                    "type": "custom:multiple-entity-row"
+                                    "type": "custom:multiple-entity-row",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "sensor.tradfri_remote_control_battery_level",
@@ -1017,6 +1019,37 @@
                             "show_header_toggle": false,
                             "columns": 6,
                             "type": "glance"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "air_quality.netatmo",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "icon": "hass:air-filter",
+                                    "name": "Netatmo",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_co2"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_temperature"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
