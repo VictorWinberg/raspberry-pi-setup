@@ -1024,11 +1024,11 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "air_quality.netatmo",
+                                    "entity": "sensor.netatmo_airq_health",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_temperature",
+                                    "entity": "sensor.netatmo_airq_temperature",
                                     "type": "custom:multiple-entity-row",
                                     "show_state": false,
                                     "icon": "hass:air-filter",
@@ -1037,15 +1037,15 @@
                                     "entities": [
                                         {
                                             "name": false,
-                                            "entity": "sensor.netatmo_co2"
+                                            "entity": "sensor.netatmo_airq_co2"
                                         },
                                         {
                                             "name": false,
-                                            "entity": "sensor.netatmo_humidity"
+                                            "entity": "sensor.netatmo_airq_humidity"
                                         },
                                         {
                                             "name": false,
-                                            "entity": "sensor.netatmo_temperature"
+                                            "entity": "sensor.netatmo_airq_temperature"
                                         }
                                     ]
                                 }

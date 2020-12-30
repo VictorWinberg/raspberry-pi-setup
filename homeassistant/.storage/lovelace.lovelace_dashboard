@@ -197,12 +197,43 @@
                                         {
                                             "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
                                             "style": {
-                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 100px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 60px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
                                                 "ha-markdown": {
                                                     "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
                                                 }
                                             },
                                             "type": "markdown"
+                                        },
+                                        {
+                                            "type": "entities",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.netatmo_airq_health",
+                                                    "name": "Netatmo AirQ"
+                                                },
+                                                {
+                                                    "entity": "sensor.netatmo_airq_temperature",
+                                                    "type": "custom:multiple-entity-row",
+                                                    "show_state": false,
+                                                    "icon": "hass:air-filter",
+                                                    "name": "Stats",
+                                                    "entities": [
+                                                        {
+                                                            "name": false,
+                                                            "entity": "sensor.netatmo_airq_co2"
+                                                        },
+                                                        {
+                                                            "name": false,
+                                                            "entity": "sensor.netatmo_airq_humidity"
+                                                        },
+                                                        {
+                                                            "name": false,
+                                                            "entity": "sensor.netatmo_airq_temperature"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "style": ":host {\n  top: 240px;\n  width: 310px;\n  position: absolute;\n  z-index: 1;\n}\nha-card {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n  /*position: absolute;*/\n  /*margin-top: 400px;*/ \n  /*width: 50%;*/\n}\n"
                                         },
                                         {
                                             "artwork": "cover",
