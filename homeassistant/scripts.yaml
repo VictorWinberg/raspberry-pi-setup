@@ -168,3 +168,69 @@ default_toggle:
     - service_template: "{% if is_state('group.ikea', 'on') %}\n  script.power_off\n\
         {% else %}\n  script.power_on\n{% endif %}\n"
   mode: single
+good_morning:
+  alias: Good Morning
+  sequence:
+  - service: switch.turn_on
+    data:
+      entity_id:
+      - switch.sonoff_10008c59d6
+  - service: light.turn_on
+    data:
+      brightness: 200
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+      - light.hallway_door
+      - light.hallway_spots
+      - light.kitchen_oven
+      - light.kitchen_table
+      - light.kitchen_sink
+  - service: script.turn_on
+    data: {}
+    entity_id: script.blinds_open
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.5
+    entity_id: media_player.portable_speaker
+  - service: script.play_spotify
+    data:
+      entity_id: media_player.speakers
+      uri: input_text.good_morning_playlist
+  mode: single
+good_night:
+  alias: Good Night
+  sequence:
+  - service: script.turn_on
+    data: {}
+    entity_id: script.blinds_close
+  - service: light.turn_on
+    data:
+      brightness: 15
+      transition: 15
+      entity_id:
+      - light.philips_hue
+      - light.bedroom
+  - delay: 00:00:30
+  - service: script.turn_on
+    data: {}
+    entity_id: script.power_off
+  - service: light.turn_on
+    data:
+      brightness: 50
+      rgb_color:
+      - 255
+      - 150
+      - 40
+    entity_id: light.philips_hue
+  - service: light.turn_on
+    data_template:
+      brightness: 0
+      transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
+        | int }} '
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      entity_id: light.philips_hue
+  mode: single

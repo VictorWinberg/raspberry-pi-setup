@@ -25,45 +25,13 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
-  - data_template:
-      brightness: 255
-      entity_id:
-      - group.bedroom
-      rgb_color:
-      - 255
-      - 180
-      - 100
-      transition: '{{ states.input_datetime.light_transition_time.attributes.timestamp
-        | int }}'
-    service: light.turn_on
   - service: script.turn_on
     data: {}
     entity_id: script.pulsing_lights
   - delay: '{{ states.input_datetime.light_transition_time.attributes.timestamp |
       int }}'
-  - data:
-      entity_id:
-      - switch.hallway_plug
-      - switch.sonoff_10008c59d6
-    service: switch.turn_on
-  - data:
-      brightness: 200
-      entity_id:
-      - light.hallway_door
-      - light.kitchen_table
-      - light.kitchen_oven
-      - light.kitchen_sink
-    service: light.turn_on
   - service: script.turn_on
-    entity_id: script.blinds_open
-  - service: script.play_spotify
-    data:
-      entity_id: media_player.speakers
-      uri: input_text.good_morning_playlist
-  - service: media_player.volume_set
-    data:
-      volume_level: 0.5
-    entity_id: media_player.portable_speaker
+    entity_id: script.good_morning
   mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
@@ -84,39 +52,9 @@
   trigger: []
   condition: []
   action:
-  - service: cover.close_cover
-    data:
-      entity_id:
-      - cover.bedroom_blind_l
-      - cover.bedroom_blind_r
-  - data:
-      brightness: 10
-      entity_id:
-      - light.philips_hue
-      transition: 10
-    service: light.turn_on
-  - delay: 00:00:12
-  - data: {}
-    service: script.power_off
-  - entity_id: light.philips_hue
-    service: light.turn_on
-    data:
-      brightness: 50
-      rgb_color:
-      - 255
-      - 150
-      - 40
-  - data_template:
-      entity_id:
-      - light.philips_hue
-      transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
-        | int }}'
-      brightness: 0
-      rgb_color:
-      - 255
-      - 0
-      - 0
-    service: light.turn_on
+  - service: script.turn_on
+    data: {}
+    entity_id: script.good_night
   mode: single
 - id: '1576047741633'
   alias: Leave Home - Turn off lights
