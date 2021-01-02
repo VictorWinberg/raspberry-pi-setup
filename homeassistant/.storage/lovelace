@@ -293,8 +293,7 @@
                         {
                             "cards": [
                                 {
-                                    "color": "rgb(250,230,0)",
-                                    "entity": "automation.alarm_clock_wake_me_up_with_lights",
+                                    "entity": "script.good_morning",
                                     "icon": "mdi:weather-sunny",
                                     "name": "WAKE UP",
                                     "styles": {
@@ -302,20 +301,21 @@
                                             {
                                                 "font-size": "12px"
                                             }
+                                        ],
+                                        "icon": [
+                                            {
+                                                "color": "rgb(255,230,0)"
+                                            }
                                         ]
                                     },
                                     "tap_action": {
                                         "action": "call-service",
-                                        "service": "automation.trigger",
-                                        "service_data": {
-                                            "entity_id": "automation.alarm_clock_wake_me_up_with_lights"
-                                        }
+                                        "service": "script.good_morning"
                                     },
                                     "type": "custom:button-card"
                                 },
                                 {
-                                    "color": "black",
-                                    "entity": "automation.goodnight_turn_off_the_lights",
+                                    "entity": "script.good_night",
                                     "icon": "mdi:brightness-3",
                                     "name": "Goodnight",
                                     "styles": {
@@ -323,14 +323,16 @@
                                             {
                                                 "font-size": "12px"
                                             }
+                                        ],
+                                        "icon": [
+                                            {
+                                                "color": "black"
+                                            }
                                         ]
                                     },
                                     "tap_action": {
                                         "action": "call-service",
-                                        "service": "automation.trigger",
-                                        "service_data": {
-                                            "entity_id": "automation.goodnight_turn_off_the_lights"
-                                        }
+                                        "service": "script.good_night"
                                     },
                                     "type": "custom:button-card"
                                 },

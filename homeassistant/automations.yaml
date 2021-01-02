@@ -235,9 +235,6 @@
       repeat: context
       shuffle: true
       uri: spotify:playlist:37i9dQZF1DX76Wlfdnj7AP
-  - entity_id:
-    - switch.hallway_plug
-    service: switch.turn_on
   - service: light.turn_on
     data:
       brightness: 40
