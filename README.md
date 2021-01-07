@@ -406,6 +406,7 @@ app.listen(PORT, () => console.log(`App running on port ${PORT}!`))
 
 Github Actions :octocat:
 -----------------------
+#### Action
 ```
 name: Build (+Deploy)
 on:
@@ -479,6 +480,10 @@ jobs:
           git commit -m "Build files"
           git push -u server master -f
 ```
+
+#### Secrets
+- `SSH_PRIVATE_KEY`: `-----BEGIN RSA PRIVATE KEY----- ...`
+- `KNOWN_HOSTS`: `YOUR_DOMAIN,EXTERNAL_IP sha XXXXXX`
 
 Recovery :recycle:
 =================
