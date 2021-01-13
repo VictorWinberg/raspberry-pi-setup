@@ -154,13 +154,20 @@ default_toggle:
         before: 04:00
         condition: time
       sequence:
-      - data:
-          entity_id: automation.goodnight_turn_off_the_lights
-        service_template: "{% if is_state('group.ikea', 'off') %}\n  script.hot_night\n\
-          {% else %}\n  automation.trigger\n{% endif %}\n"
+      - service: script.good_night
+        data: {}
     default:
-    - service_template: "{% if is_state('group.ikea', 'on') %}\n  script.power_off\n\
-        {% else %}\n  script.power_on\n{% endif %}\n"
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: group.ikea
+          state: 'on'
+        sequence:
+        - service: script.power_off
+          data: {}
+      default:
+      - service: script.power_on
+        data: {}
   mode: single
 good_morning:
   alias: Good Morning
@@ -198,36 +205,45 @@ good_morning:
 good_night:
   alias: Good Night
   sequence:
-  - service: script.turn_on
-    data: {}
-    entity_id: script.blinds_close
-  - service: light.turn_on
-    data:
-      brightness: 15
-      transition: 15
-      entity_id:
-      - light.philips_hue
-      - light.bedroom
-  - delay: 00:00:30
-  - service: script.turn_on
-    data: {}
-    entity_id: script.power_off
-  - service: light.turn_on
-    data:
-      brightness: 50
-      rgb_color:
-      - 255
-      - 150
-      - 40
-    entity_id: light.philips_hue
-  - service: light.turn_on
-    data_template:
-      brightness: 0
-      transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
-        | int }} '
-      rgb_color:
-      - 255
-      - 0
-      - 0
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: group.ikea
+        state: 'off'
+      sequence:
+      - service: script.hot_night
+        data: {}
+    default:
+    - service: script.turn_on
+      data: {}
+      entity_id: script.blinds_close
+    - service: light.turn_on
+      data:
+        brightness: 15
+        transition: 15
+        entity_id:
+        - light.philips_hue
+        - light.bedroom
+    - delay: 00:00:30
+    - service: script.turn_on
+      data: {}
+      entity_id: script.power_off
+    - service: light.turn_on
+      data:
+        brightness: 50
+        rgb_color:
+        - 255
+        - 150
+        - 40
       entity_id: light.philips_hue
+    - service: light.turn_on
+      data_template:
+        brightness: 0
+        transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
+          | int }} '
+        rgb_color:
+        - 255
+        - 0
+        - 0
+        entity_id: light.philips_hue
   mode: single

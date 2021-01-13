@@ -281,6 +281,17 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
+                                                    "entity": "switch.innr_plug",
+                                                    "style": {
+                                                        "left": "70%",
+                                                        "top": "12%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
                                                     "entity": "switch.window_plug",
                                                     "style": {
                                                         "left": "85%",

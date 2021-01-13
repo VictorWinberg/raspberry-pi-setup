@@ -47,10 +47,9 @@
                                     }
                                 },
                                 {
-                                    "entity": "script.pulsing_lights",
-                                    "name": "Puls Bedr.",
+                                    "entity": "switch.innr_plug",
+                                    "name": "Lamp",
                                     "show_state": false,
-                                    "icon": "mdi:weather-sunny",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
