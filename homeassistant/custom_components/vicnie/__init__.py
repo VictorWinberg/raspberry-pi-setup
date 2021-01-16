@@ -134,8 +134,8 @@ def setup(hass, config):
             {
               "MBTN": lambda: s("script", "blinds_open", {}, False),
               "UBTN": lambda: s("script", "blinds_close", {}, False),
-              "MDWN":  lambda: s("script", "good_morning", {}, False),
-              "UDWN":  lambda: s("script", "good_night", {}, False),
+              "MUP":  lambda: s("script", "good_morning", {}, False),
+              "UUP":  lambda: s("script", "good_night", {}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
         """Run service"""
