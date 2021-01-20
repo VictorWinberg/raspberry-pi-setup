@@ -234,7 +234,7 @@
       random_song: true
       repeat: context
       shuffle: true
-      uri: spotify:playlist:37i9dQZF1DX76Wlfdnj7AP
+      uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
   - service: light.turn_on
     data:
       brightness: 40
