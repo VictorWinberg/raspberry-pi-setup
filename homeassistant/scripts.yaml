@@ -225,9 +225,8 @@ good_night:
         - light.philips_hue
         - light.bedroom
     - delay: 00:00:30
-    - service: script.turn_on
-      data: {}
-      entity_id: script.power_off
+    - service: script.power_off
+    - delay: 00:00:01
     - service: light.turn_on
       data:
         brightness: 50
