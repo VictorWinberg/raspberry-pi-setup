@@ -61,7 +61,7 @@
                                             "noEventsForTodayText": "Inga h\u00e4ndelser",
                                             "showColors": true,
                                             "maxDaysToShow": 14,
-                                            "style": "ha-card {\n  box-shadow: none;\n}\n",
+                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 20.5em);\n}\n",
                                             "dateColor": "#333",
                                             "timeColor": "#313131",
                                             "timeSize": 140,
@@ -69,6 +69,94 @@
                                             "titleSize": 180,
                                             "type": "custom:atomic-calendar",
                                             "untilText": "Fram tills"
+                                        },
+                                        {
+                                            "type": "horizontal-stack",
+                                            "cards": [
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "hours_to_show": 168,
+                                                    "font_size": 75,
+                                                    "align_header": "center",
+                                                    "smoothing": false,
+                                                    "show": {
+                                                        "state": false,
+                                                        "icon": false
+                                                    },
+                                                    "entities": [
+                                                        "sensor.ny_teknik"
+                                                    ],
+                                                    "style": "ha-card {\n  margin-top: 3em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "hours_to_show": 168,
+                                                    "font_size": 75,
+                                                    "align_header": "center",
+                                                    "smoothing": false,
+                                                    "name": "Sm\u00e5bolag",
+                                                    "show": {
+                                                        "state": false,
+                                                        "icon": false
+                                                    },
+                                                    "entities": [
+                                                        "sensor.lf_smabolag"
+                                                    ],
+                                                    "style": "ha-card {\n  margin-top: 3em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "custom:mini-graph-card",
+                                                    "hours_to_show": 24,
+                                                    "font_size": 50,
+                                                    "align_header": "center",
+                                                    "align_state": "center",
+                                                    "smoothing": false,
+                                                    "points_per_hour": 60,
+                                                    "name": "GME",
+                                                    "show": {
+                                                        "icon": false
+                                                    },
+                                                    "entities": [
+                                                        "sensor.gme"
+                                                    ],
+                                                    "style": "ha-card {\n  margin-top: 3em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "horizontal-stack",
+                                            "cards": [
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 w.\n{% if state_attr('sensor.ny_teknik',\n'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 m.\n{% if state_attr('sensor.ny_teknik',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 w.\n{% if state_attr('sensor.lf_smabolag',\n'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 m.\n{% if state_attr('sensor.lf_smabolag',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 d.\n{% if state_attr('sensor.gme', 'changePercent') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "1 w.\n{% if state_attr('sensor.gme', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                }
+                                            ]
                                         }
                                     ],
                                     "type": "vertical-stack"

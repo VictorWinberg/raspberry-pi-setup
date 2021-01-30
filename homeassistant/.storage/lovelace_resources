@@ -57,6 +57,11 @@
                 "url": "/hacsfiles/atomic_calendar/atomic_calendar.js",
                 "type": "module",
                 "id": "a450b35054c040bfa6e377f5639756bb"
+            },
+            {
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js",
+                "type": "module",
+                "id": "d2fa40762a044ae287ae4766de6ef1a1"
             }
         ]
     }

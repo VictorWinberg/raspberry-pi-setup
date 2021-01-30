@@ -979,6 +979,125 @@
                             "type": "entities"
                         },
                         {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:mini-graph-card",
+                                            "hours_to_show": 168,
+                                            "font_size": 75,
+                                            "align_header": "center",
+                                            "show": {
+                                                "state": false,
+                                                "icon": false
+                                            },
+                                            "entities": [
+                                                "sensor.ny_teknik"
+                                            ],
+                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "custom:mini-graph-card",
+                                            "hours_to_show": 168,
+                                            "font_size": 75,
+                                            "name": "Sm\u00e5bolag",
+                                            "align_header": "center",
+                                            "show": {
+                                                "state": false,
+                                                "icon": false
+                                            },
+                                            "entities": [
+                                                "sensor.lf_smabolag"
+                                            ],
+                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "custom:mini-graph-card",
+                                            "hours_to_show": 24,
+                                            "font_size": 50,
+                                            "align_header": "center",
+                                            "align_state": "center",
+                                            "show": {
+                                                "icon": false
+                                            },
+                                            "entities": [
+                                                "sensor.gme"
+                                            ],
+                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 w.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 m. {% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 w. {% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 m. {% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 d.\n{% if state_attr('sensor.gme', 'changePercent') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "1 w.\n{% if state_attr('sensor.gme', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_airq_health",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_airq_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "icon": "hass:air-filter",
+                                    "name": "Netatmo",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_co2"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_temperature"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "input_text.annie_playlist",
@@ -1020,37 +1139,6 @@
                             "show_header_toggle": false,
                             "columns": 6,
                             "type": "glance"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_airq_health",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_airq_temperature",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "icon": "hass:air-filter",
-                                    "name": "Netatmo",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_co2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_humidity"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_temperature"
-                                        }
-                                    ]
-                                }
-                            ]
                         }
                     ]
                 }
