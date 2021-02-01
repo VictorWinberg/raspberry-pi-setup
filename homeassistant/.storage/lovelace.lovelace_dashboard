@@ -106,7 +106,7 @@
                                                 },
                                                 {
                                                     "type": "custom:mini-graph-card",
-                                                    "hours_to_show": 24,
+                                                    "hours_to_show": 8,
                                                     "font_size": 50,
                                                     "align_header": "center",
                                                     "align_state": "center",

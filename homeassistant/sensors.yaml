@@ -44,6 +44,7 @@
       value_template: '{{ is_state("person.annie", "home") or is_state("person.victor", "home") }}'
 - platform: spotcast
 - platform: avanza_stock
+  scan_interval: 10
   stock:
     - id: 2011
       name: LF Småbolag

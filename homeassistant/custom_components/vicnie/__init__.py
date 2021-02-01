@@ -86,6 +86,9 @@ def setup(hass, config):
 
             if event == "DDWN":
               s("script", "default_toggle", {}, False)
+            elif event == "UDWN":
+              light_on = hass.states.is_state("group.ikea", "on")
+              s("light", "turn_off" if light_on else "turn_on", {"entity_id": "group.ikea"}, False)
             elif not entity_id:
               run_service("light", "group.ikea")
             else:
@@ -104,8 +107,6 @@ def setup(hass, config):
                 volume_entity = "media_player.mio_tv"
             if volume_entity:
               volume = hass.states.get(volume_entity).attributes.get('volume_level')
-
-            _LOGGER.warning(entity_id)
 
             {
               **defaults,
