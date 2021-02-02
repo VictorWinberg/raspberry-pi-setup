@@ -221,6 +221,7 @@ good_night:
       data:
         brightness: 15
         transition: 15
+        flash: short
         entity_id:
         - light.philips_hue
         - light.bedroom

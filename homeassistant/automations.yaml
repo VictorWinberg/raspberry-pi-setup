@@ -184,8 +184,8 @@
   condition: []
   action:
   - data_template:
-      id: '{{ trigger.event.as_dict()["data"].id }}'
-      event: '{{ trigger.event.as_dict()["data"].event }}'
+      id: '{{ trigger.event.data.id }}'
+      event: '{{ trigger.event.data.event }}'
     service: vicnie.remote_control
   mode: single
 - id: '1606157917188'

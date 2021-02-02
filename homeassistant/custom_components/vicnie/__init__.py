@@ -47,7 +47,7 @@ def setup(hass, config):
           "1001": "MDWN", "1002": "MBTN", "1003": "MUP", "2001": "UDWN", "2002": "UBTN", "2003": "UUP", "3001": "DDWN", "3002": "DBTN", "3003": "DUP", "4001": "LDWN", "4002": "LBTN", "4003": "LUP", "5001": "RDWN", "5002": "RBTN", "5003": "RUP"
         }
         if id == "symfonisk_controller": events = {**events, "1004": "RBTN", "1005": "LBTN", "2001": "UBTN", "3001": "DBTN"}
-        event = events.get(call.data.get("event"), "NUL")
+        event = events.get(str(call.data.get("event")), "NUL")
 
         """Variables"""
         s = hass.services.call
@@ -121,6 +121,7 @@ def setup(hass, config):
             light_on = hass.states.is_state(entity_id, "on")
             brightness_id = "input_number.light_brightness"
             brt = float(hass.states.get(brightness_id).state)
+
             {
               **defaults,
               "MBTN": lambda: s("light", "turn_off" if light_on else "turn_on", {"entity_id": entity_id}, False),

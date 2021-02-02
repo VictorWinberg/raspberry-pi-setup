@@ -76,7 +76,6 @@
                                                 {
                                                     "type": "custom:mini-graph-card",
                                                     "hours_to_show": 168,
-                                                    "font_size": 75,
                                                     "align_header": "center",
                                                     "smoothing": false,
                                                     "show": {
@@ -91,7 +90,6 @@
                                                 {
                                                     "type": "custom:mini-graph-card",
                                                     "hours_to_show": 168,
-                                                    "font_size": 75,
                                                     "align_header": "center",
                                                     "smoothing": false,
                                                     "name": "Sm\u00e5bolag",
@@ -106,18 +104,15 @@
                                                 },
                                                 {
                                                     "type": "custom:mini-graph-card",
-                                                    "hours_to_show": 8,
-                                                    "font_size": 50,
+                                                    "hours_to_show": 168,
                                                     "align_header": "center",
-                                                    "align_state": "center",
                                                     "smoothing": false,
-                                                    "points_per_hour": 60,
-                                                    "name": "GME",
                                                     "show": {
+                                                        "state": false,
                                                         "icon": false
                                                     },
                                                     "entities": [
-                                                        "sensor.gme"
+                                                        "sensor.world_tech"
                                                     ],
                                                     "style": "ha-card {\n  margin-top: 3em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 }
@@ -148,12 +143,12 @@
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "1 d.\n{% if state_attr('sensor.gme', 'changePercent') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercent')}}%</font>\n{%- endif %}\n",
+                                                    "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "1 w.\n{% if state_attr('sensor.gme', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.gme', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                                    "content": "1 m.\n{% if state_attr('sensor.world_tech', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 }
                                             ]
