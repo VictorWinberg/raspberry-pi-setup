@@ -219,9 +219,12 @@ good_night:
       entity_id: script.blinds_close
     - service: light.turn_on
       data:
+        flash: short
+        entity_id: light.philips_hue
+    - service: light.turn_on
+      data:
         brightness: 15
         transition: 15
-        flash: short
         entity_id:
         - light.philips_hue
         - light.bedroom
