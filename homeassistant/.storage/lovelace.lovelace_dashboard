@@ -132,32 +132,32 @@
                                             "cards": [
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 w.</small>\n{% if state_attr('sensor.ny_teknik',\n'changePercentOneWeek') > 0 -%}\n<font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.ny_teknik','changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nfont {\n  font-size: 5rem;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 m.</small>\n{% if state_attr('sensor.ny_teknik',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 w.</small>\n{% if state_attr('sensor.lf_smabolag',\n'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 m.</small>\n{% if state_attr('sensor.lf_smabolag',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 w.</small>\n{% if state_attr('sensor.world_tech',\n'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 m.</small>\n{% if state_attr('sensor.world_tech',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.world_tech',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
                                                     "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 }
                                             ]
