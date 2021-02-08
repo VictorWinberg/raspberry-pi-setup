@@ -393,8 +393,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "255,255,255",
-                                                    "video": "https://youtu.be/V37Q3l6AFAU"
+                                                    "rgb_color": [
+                                                        255,
+                                                        255,
+                                                        255
+                                                    ],
+                                                    "video": "V37Q3l6AFAU"
                                                 }
                                             },
                                             "icon": "mdi:lightbulb-on-outline",
@@ -414,8 +418,13 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "128,0,128",
-                                                    "video": "https://youtu.be/E8y3eDUMb4Q"
+                                                    "rgb_color": [
+                                                        128,
+                                                        0,
+                                                        128
+                                                    ],
+                                                    "video": "sRE5iQCdRvE",
+                                                    "song": "spotify:playlist:7rlCwXBPo431YiHj1xWLnP"
                                                 }
                                             },
                                             "icon": "mdi:human-handsup",
@@ -435,8 +444,13 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "90,255,70",
-                                                    "video": "https://youtu.be/E8y3eDUMb4Q"
+                                                    "rgb_color": [
+                                                        90,
+                                                        255,
+                                                        70
+                                                    ],
+                                                    "video": "E8y3eDUMb4Q",
+                                                    "song": "spotify:track:2W0BQsqgyO6a2LxGSDDB1I"
                                                 }
                                             },
                                             "icon": "mdi:code-braces",
@@ -461,7 +475,11 @@
                                                 "action": "call-service",
                                                 "service": "vicnie.tetzipetzi",
                                                 "service_data": {
-                                                    "rgb_color": "255,145,226"
+                                                    "rgb_color": [
+                                                        255,
+                                                        145,
+                                                        226
+                                                    ]
                                                 }
                                             },
                                             "icon": "mdi:at",
@@ -481,8 +499,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "255,43,0",
-                                                    "video": "https://youtu.be/d52pBJCL_DA"
+                                                    "rgb_color": [
+                                                        255,
+                                                        80,
+                                                        60
+                                                    ],
+                                                    "video": "M5V9CERbLcA"
                                                 }
                                             },
                                             "icon": "mdi:heart",
@@ -502,8 +524,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "255,127,80",
-                                                    "video": "https://youtu.be/-50NdPawLVY"
+                                                    "rgb_color": [
+                                                        255,
+                                                        127,
+                                                        80
+                                                    ],
+                                                    "video": "-50NdPawLVY"
                                                 }
                                             },
                                             "icon": "mdi:face-agent",
@@ -528,8 +554,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "150,255,120",
-                                                    "video": "https://youtu.be/-IAfg_Iy7n8"
+                                                    "rgb_color": [
+                                                        150,
+                                                        255,
+                                                        120
+                                                    ],
+                                                    "video": "-IAfg_Iy7n8"
                                                 }
                                             },
                                             "icon": "mdi:pine-tree",
@@ -549,8 +579,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "255,43,0",
-                                                    "video": "https://youtu.be/L_LUpnjgPso"
+                                                    "rgb_color": [
+                                                        255,
+                                                        80,
+                                                        60
+                                                    ],
+                                                    "video": "L_LUpnjgPso"
                                                 }
                                             },
                                             "icon": "mdi:campfire",
@@ -570,8 +604,12 @@
                                                 "action": "call-service",
                                                 "service": "script.start_video_lights",
                                                 "service_data": {
-                                                    "rgb_color": "100,168,255",
-                                                    "video": "https://youtu.be/MEuRS1aUYUU"
+                                                    "rgb_color": [
+                                                        100,
+                                                        168,
+                                                        255
+                                                    ],
+                                                    "video": "MEuRS1aUYUU"
                                                 }
                                             },
                                             "icon": "mdi:waves",

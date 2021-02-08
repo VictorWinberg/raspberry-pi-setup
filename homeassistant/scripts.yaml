@@ -13,21 +13,31 @@ start_video_lights:
       entity_id:
       - light.led_strip_lifx
       - light.led_strip_philips
-      rgb_color:
-      - '{{ rgb_color.split('','')[0] }}'
-      - '{{ rgb_color.split('','')[1] }}'
-      - '{{ rgb_color.split('','')[2] }}'
+      rgb_color: '{{ rgb_color }}'
     service: light.turn_on
   - condition: template
     value_template: '{{ video is defined }}'
   - data: {}
     entity_id: media_player.mio_tv
     service: media_player.turn_on
+  - service: media_player.play_media
+    data_template:
+      media_content_type: cast
+      media_content_id: '{
+
+        "app_name": "youtube", "media_id": "{{video}}"
+
+        }'
+    entity_id: media_player.sorrysound_tv
+  - condition: template
+    value_template: '{{ song is defined }}'
   - data_template:
-      entity_id: media_player.sorrysound_tv
-      media_content_id: '{{ video }}'
-      media_content_type: video/youtube
-    service: media_extractor.play_media
+      entity_id: media_player.sorrysound_audio
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: '{{ song }}'
+    service: spotcast.start
   mode: single
 power_off:
   alias: Power off

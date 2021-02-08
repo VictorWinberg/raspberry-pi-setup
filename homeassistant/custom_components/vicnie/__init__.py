@@ -16,12 +16,15 @@ channelId = "UCKBW7WWWKIrewD13oRkaDag"
 def setup(hass, config):
     """Set up the tetzipetzi service component."""
     def tetzipetzi_service(call):
-        res = requests.get('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelId + '&maxResults=1&order=date&type=video&key=' + key)
+        url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelId + '&maxResults=1&order=date&type=video&key=' + key
+        res = requests.get(url)
+        if not res.ok:
+          _LOGGER.error('Tetzipetzi error: ' + url + ' ' + str(res.json()))
+          return
         item = res.json()["items"][0]
 
         rgb_color = call.data.get("rgb_color")
-        video = 'https://www.youtube.com/watch?v=' + item["id"]["videoId"]
-        service_data = {"rgb_color": rgb_color, "video": video}
+        service_data = {"rgb_color": rgb_color, "video": item["id"]["videoId"]}
         hass.services.call("script", "start_video_lights", service_data, False)
         player = "media_player.sorrysound_audio"
         message = "Hej Hej Annie, Tetzipetzi haer. " #+ item["snippet"]["title"]
