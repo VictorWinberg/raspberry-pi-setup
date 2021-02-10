@@ -180,7 +180,7 @@ $ sudo apt install python-certbot-nginx
 
 **Update certs**
 ```cs
-$ sudo certbot --authenticator webroot --installer nginx
+$ sudo certbot --authenticator webroot --installer nginx --cert-name DOMAIN
 Input webroot: /var/www/html
 $ sudo nano /etc/nginx/sites-available/default
 $ sudo /etc/init.d/nginx reload (start/restart)
