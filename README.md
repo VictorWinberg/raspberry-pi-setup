@@ -22,6 +22,7 @@ Table of contents :book:
 - [Raspberry Pi :strawberry:](#raspberry-pi-strawberry)
 - [Configuration :wrench:](#configuration-wrench)
    - [Network - Static IP :pushpin:](#network---static-ip-pushpin)
+   - [Network - External IP :earth_africa:](#network---external-ip-earth_africa)
    - [External Storage :file_folder:](#external-storage-file_folder)
    - [Remote Access (Samba) :open_file_folder:](#remote-access-samba-open_file_folder)
    - [Remote Access (SSH) :key:](#remote-access-ssh-key)
@@ -66,6 +67,12 @@ Network - Static IP :pushpin:
 You might want to set your RPi to a Static IP (e.g. `192.168.0.100`) if you would like to port forward your RPi online. This could be done by either or both of the following:
 - Assign a static IP adress to RPi with a router, using some router settings
 - Request a static IP adress for the RPi with DHCPCD
+
+Network - External IP :earth_africa:
+------------------------------
+```
+$ curl https://ipinfo.io/ip
+```
 
 External Storage :file_folder:
 -----------------------------
