@@ -53,3 +53,14 @@
       name: World Tech
     - id: 194698
       name: GME
+- platform: rest
+  name: OneList
+  json_attributes_path: '$.[0]'
+  json_attributes:
+    - id
+    - category
+  value_template: '{{ value_json | selectattr("uid", "eq", 0) | selectattr("checked", "eq", false) | rejectattr("id", "eq", 62) | map(attribute="name") | list | to_json }}'
+  scan_interval: 30
+  resource: https://shop.zolly.ml/__/products
+  headers:
+    Authorization: !secret api_key_onelist

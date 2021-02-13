@@ -760,10 +760,12 @@
                                     "entity": "sensor.time_until_alarm"
                                 },
                                 {
-                                    "entity": "input_boolean.wakeup_enabled"
+                                    "entity": "input_boolean.wakeup_enabled",
+                                    "name": "Enabled"
                                 },
                                 {
-                                    "entity": "input_boolean.wakeup_weekend"
+                                    "entity": "input_boolean.wakeup_weekend",
+                                    "name": "Weekend"
                                 },
                                 {
                                     "entity": "input_datetime.light_transition_time",
@@ -1015,6 +1017,10 @@
                             "show_header_toggle": false,
                             "title": "Info",
                             "type": "entities"
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "{% set json =  states(\"sensor.onelist\") | from_json %}\n### OneList\n{{ json | sort | join(\"\\n\") }}\n"
                         },
                         {
                             "type": "vertical-stack",

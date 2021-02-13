@@ -200,7 +200,15 @@
                                             "details": false,
                                             "entity": "weather.smhi_home",
                                             "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n}\n.current {\n  position: relative;\n  font-size: 3em;\n  line-height: 1.5;\n  order: 2;\n  width: 385px;\n  height: 280px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n}\n.current .temp {\n  color: white;\n  font-weight: bold;\n  margin-top: 0.5em;\n  margin-right: -30px;\n}\n.current .tempc {\n  color: white;\n  font-weight: bold;\n  margin-top: 1.5em;\n}\n.forecast {\n  order: 1;\n}\n.forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n}\n.forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.33em 0;\n}\n.forecast .precipitation {\n  display: none;\n}\n",
-                                            "type": "custom:weather-card"
+                                            "type": "custom:weather-card",
+                                            "number_of_forecasts": "5"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "{% set json =  states(\"sensor.onelist\") | from_json | sort %}\n{% for item in json %}\n{{ item }}\n{%- endfor %}",
+                                            "style": {
+                                                ".": "ha-card {\n  height: 23rem !important;\n  overflow: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1;\n  text-align: left;\n  color: #F4F5F6;\n  margin-top: -23rem;\n}\n"
+                                            }
                                         }
                                     ],
                                     "type": "vertical-stack"
