@@ -121,7 +121,7 @@ input_number:
 input_text:
   annie_playlist:
     name: Annie's Playlist
-    initial: spotify:playlist:7r1hoWkiMx0Gkb9P3jFPJR
+    initial: spotify:playlist:20zpgm7qIkGzTUULeJD1d5
   victor_playlist:
     name: Victor's Playlist
     initial: spotify:playlist:7iPZRCvMuGjr99hVGrvlI5

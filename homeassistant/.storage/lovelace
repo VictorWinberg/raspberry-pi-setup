@@ -1019,10 +1019,6 @@
                             "type": "entities"
                         },
                         {
-                            "type": "markdown",
-                            "content": "{% set json =  states(\"sensor.onelist\") | from_json %}\n### OneList\n{{ json | sort | join(\"\\n\") }}\n"
-                        },
-                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {

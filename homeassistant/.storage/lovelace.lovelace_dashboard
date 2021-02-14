@@ -205,9 +205,9 @@
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "{% set json =  states(\"sensor.onelist\") | from_json | sort %}\n{% for item in json %}\n{{ item }}\n{%- endfor %}",
+                                            "content": "{{ states(\"sensor.onelist\") }}",
                                             "style": {
-                                                ".": "ha-card {\n  height: 23rem !important;\n  overflow: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1;\n  text-align: left;\n  color: #F4F5F6;\n  margin-top: -23rem;\n}\n"
+                                                ".": "ha-card {\n  height: 23rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1;\n  text-align: left;\n  color: #F4F5F6;\n  margin-top: -23rem;\n}\n"
                                             }
                                         }
                                     ],
