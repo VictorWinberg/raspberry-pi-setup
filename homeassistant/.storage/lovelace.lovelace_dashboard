@@ -524,6 +524,17 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
+                                                    "entity": "light.living_room",
+                                                    "style": {
+                                                        "left": "85%",
+                                                        "top": "37%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
                                                     "entity": "light.led_strip_philips",
                                                     "style": {
                                                         "left": "70%",
