@@ -32,7 +32,7 @@
                                 },
                                 {
                                     "entity": "light.hallway_spots",
-                                    "name": "Hall. Spot",
+                                    "name": "Hall",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -48,7 +48,7 @@
                                 },
                                 {
                                     "entity": "switch.innr_plug",
-                                    "name": "Lamp",
+                                    "name": "Wall",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -87,8 +87,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "light.bedroom",
-                                    "name": "Bedr.",
+                                    "entity": "light.living_room",
+                                    "name": "Liv. Light",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -103,16 +103,16 @@
                                     }
                                 },
                                 {
-                                    "entity": "light.kitchen_sink",
-                                    "name": "Sink",
+                                    "entity": "group.kitchen",
+                                    "name": "Kitchen",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "light.kitchen_oven",
-                                    "name": "Oven",
+                                    "entity": "group.ikea",
+                                    "name": "IKEA",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -127,16 +127,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "light.philips_hue",
-                                    "name": "Hue",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "light.living_room",
-                                    "name": "Liv. Light",
+                                    "entity": "group.bedroom",
+                                    "name": "Bedr.",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"

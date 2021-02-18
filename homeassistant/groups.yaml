@@ -9,6 +9,12 @@ bedroom:
   entities:
     - light.bedroom
     - light.philips_hue
+kitchen:
+  name: "Kitchen Lights"
+  entities:
+    - light.kitchen_table
+    - light.kitchen_oven
+    - light.kitchen_sink
 ikea:
   name: "IKEA"
   entities:
