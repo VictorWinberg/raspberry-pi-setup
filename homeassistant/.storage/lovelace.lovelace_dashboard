@@ -359,6 +359,71 @@
                                         {
                                             "elements": [
                                                 {
+                                                    "service": "light.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.living_room"
+                                                    },
+                                                    "style": {
+                                                        "left": "82.7%",
+                                                        "top": "35.5%",
+                                                        "transform": "translate(-50%, -50%) scale(4.1, 8.5)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
+                                                    "service": "light.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.ikea"
+                                                    },
+                                                    "style": {
+                                                        "left": "45%",
+                                                        "top": "78%",
+                                                        "transform": "translate(-50%, -50%) scale(6.2, 11)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
+                                                    "service": "light.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.bedroom"
+                                                    },
+                                                    "style": {
+                                                        "left": "83%",
+                                                        "top": "84%",
+                                                        "transform": "translate(-50%, -50%) scale(4.1, 7.8)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
+                                                    "service": "light.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.kitchen"
+                                                    },
+                                                    "style": {
+                                                        "left": "53.7%",
+                                                        "top": "84%",
+                                                        "transform": "translate(-50%, -50%) scale(3.7, 7.4)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
+                                                    "service": "switch.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "switch.sonoff_10008c59d6"
+                                                    },
+                                                    "style": {
+                                                        "left": "12%",
+                                                        "top": "84%",
+                                                        "transform": "translate(-50%, -50%) scale(2.9, 7.4)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
                                                     "entity": "light.hallway_spots",
                                                     "style": {
                                                         "left": "60%",
@@ -526,8 +591,8 @@
                                                 {
                                                     "entity": "light.living_room",
                                                     "style": {
-                                                        "left": "85%",
-                                                        "top": "37%"
+                                                        "left": "84.3%",
+                                                        "top": "36.5%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"

@@ -24,3 +24,9 @@ ikea:
     - light.hallway_door
     - light.hallway_kitchen
     - light.hallway_spots
+living_room:
+  name: Living Room
+  entities:
+    - light.led_strip_lifx
+    - light.led_strip_philips
+    - light.living_room
