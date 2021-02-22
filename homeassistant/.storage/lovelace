@@ -1028,7 +1028,6 @@
                                             "type": "custom:mini-graph-card",
                                             "hours_to_show": 168,
                                             "align_header": "center",
-                                            "smoothing": false,
                                             "show": {
                                                 "state": false,
                                                 "icon": false
@@ -1043,7 +1042,6 @@
                                             "hours_to_show": 168,
                                             "name": "Sm\u00e5bolag",
                                             "align_header": "center",
-                                            "smoothing": false,
                                             "show": {
                                                 "state": false,
                                                 "icon": false
@@ -1057,7 +1055,6 @@
                                             "type": "custom:mini-graph-card",
                                             "hours_to_show": 168,
                                             "align_header": "center",
-                                            "smoothing": false,
                                             "show": {
                                                 "state": false,
                                                 "icon": false

@@ -53,6 +53,7 @@
       name: World Tech
     - id: 194698
       name: GME
+  scan_interval: 7200
 - platform: rest
   name: OneList
   json_attributes_path: '$.[0]'
