@@ -228,6 +228,8 @@
     data: {}
     entity_id: script.pulsing_lights
   - delay: 00:15:00
+  - service: script.good_morning
+    data: {}
   - service: spotcast.start
     data:
       entity_id: media_player.speakers
@@ -235,14 +237,6 @@
       repeat: context
       shuffle: true
       uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
-  - service: light.turn_on
-    data:
-      brightness: 40
-      entity_id:
-      - group.ikea
-  - service: script.turn_on
-    data: {}
-    entity_id: script.blinds_open
   mode: single
 - id: '1608451314385'
   alias: Bedroom brightness

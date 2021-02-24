@@ -130,6 +130,12 @@ pulsing_lights:
           - 110
           brightness: 255
       - delay: 00:00:15
+  - service: light.turn_on
+    data:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+      brightness: 255
   mode: single
 blinds_open:
   alias: Blinds Open
@@ -207,6 +213,10 @@ good_morning:
     data:
       volume_level: 0.5
     entity_id: media_player.portable_speaker
+  - service: media_player.volume_set
+    data:
+      volume_set: 0.15
+    entity_id: media_player.sorrysound_audio
   - service: script.play_spotify
     data:
       entity_id: media_player.speakers
