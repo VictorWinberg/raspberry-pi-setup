@@ -215,7 +215,7 @@ good_morning:
     entity_id: media_player.portable_speaker
   - service: media_player.volume_set
     data:
-      volume_set: 0.15
+      volume_level: 0.15
     entity_id: media_player.sorrysound_audio
   - service: script.play_spotify
     data:
