@@ -256,3 +256,12 @@
       brightness: 255
     entity_id: light.bedroom
   mode: single
+- id: '1615616615899'
+  alias: Certificate Expiration
+  description: ''
+  use_blueprint:
+    path: bkbilly/certificate-expiration.yaml
+    input:
+      days_input: '5'
+      certificate_input: sensor.cert_expiry_timestamp_zolly_ml
+      notify_device: 5275297c6b106d98dd2ff5c406835899
