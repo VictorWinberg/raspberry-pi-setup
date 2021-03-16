@@ -99,6 +99,8 @@ play_spotify:
       shuffle: true
       uri: '{{ states(uri) }}'
     service: spotcast.start
+  mode: parallel
+  max: 10
 pulsing_lights:
   alias: Pulsing light
   sequence:
