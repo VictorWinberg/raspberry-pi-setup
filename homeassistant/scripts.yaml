@@ -258,8 +258,8 @@ good_night:
         brightness: 50
         rgb_color:
         - 255
-        - 150
-        - 40
+        - 100
+        - 100
       entity_id: light.philips_hue
     - service: light.turn_on
       data_template:
