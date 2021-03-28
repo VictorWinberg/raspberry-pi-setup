@@ -168,3 +168,31 @@ input_select:
      - light:group.ikea
     initial: media_player.portable_speaker
     icon: mdi:circle-outline
+  chef_monday:
+    name: Chef Monday
+    options:
+     - chef-woman
+     - chef-man
+    initial: chef-woman
+    icon: mdi:chef-hat
+  chef_tuesday:
+    name: Chef Tuesday
+    options:
+     - chef-woman
+     - chef-man
+    initial: chef-man
+    icon: mdi:chef-hat
+  chef_wednesday:
+    name: Chef Wednesday
+    options:
+     - chef-woman
+     - chef-man
+    initial: chef-man
+    icon: mdi:chef-hat
+  chef_thursday:
+    name: Chef Thursday
+    options:
+     - chef-woman
+     - chef-man
+    initial: chef-woman
+    icon: mdi:chef-hat

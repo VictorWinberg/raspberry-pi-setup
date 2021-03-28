@@ -1019,6 +1019,203 @@
                             "type": "entities"
                         },
                         {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_airq_health",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_airq_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "icon": "hass:air-filter",
+                                    "name": "Netatmo",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_co2"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_temperature"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:vertical-stack-in-card",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_monday",
+                                            "icon": "mdi:alpha-m-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_monday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_tuesday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_tuesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_wednesday",
+                                            "icon": "mdi:alpha-w-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_wednesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_thursday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_thursday"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_monday",
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_monday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_tuesday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_tuesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_wednesday",
+                                            "icon": "mdi:alpha-w-circle",
+                                            "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_wednesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_thursday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_thursday",
+                                                    "icon": "mdi:cube-outline"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_text.annie_playlist",
+                                    "icon": "mdi:face-woman",
+                                    "name": "Annie"
+                                },
+                                {
+                                    "entity": "input_text.victor_playlist",
+                                    "icon": "mdi:face",
+                                    "name": "Victor"
+                                },
+                                {
+                                    "entity": "input_text.dinner_playlist",
+                                    "icon": "mdi:glass-wine",
+                                    "name": "Dinner"
+                                },
+                                {
+                                    "entity": "input_text.christmas_playlist",
+                                    "icon": "mdi:pine-tree",
+                                    "name": "Xmas"
+                                },
+                                {
+                                    "entity": "input_text.goodnight_playlist",
+                                    "icon": "mdi:weather-night",
+                                    "name": "Nighty"
+                                },
+                                {
+                                    "entity": "input_text.arrive_home_playlist",
+                                    "icon": "mdi:door",
+                                    "name": "Home"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "show_name": false,
+                            "show_state": false,
+                            "columns": 6,
+                            "type": "glance"
+                        },
+                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
@@ -1102,80 +1299,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_airq_health",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_airq_temperature",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "icon": "hass:air-filter",
-                                    "name": "Netatmo",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_co2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_humidity"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_temperature"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_text.annie_playlist",
-                                    "icon": "mdi:face-woman",
-                                    "name": "Annie",
-                                    "show_state": false
-                                },
-                                {
-                                    "entity": "input_text.victor_playlist",
-                                    "icon": "mdi:face",
-                                    "name": "Victor",
-                                    "show_state": false
-                                },
-                                {
-                                    "entity": "input_text.dinner_playlist",
-                                    "icon": "mdi:glass-wine",
-                                    "name": "Dinner",
-                                    "show_state": false
-                                },
-                                {
-                                    "entity": "input_text.christmas_playlist",
-                                    "icon": "mdi:pine-tree",
-                                    "name": "Xmas",
-                                    "show_state": false
-                                },
-                                {
-                                    "entity": "input_text.goodnight_playlist",
-                                    "icon": "mdi:weather-night",
-                                    "name": "Nighty",
-                                    "show_state": false
-                                },
-                                {
-                                    "entity": "input_text.arrive_home_playlist",
-                                    "icon": "mdi:door",
-                                    "name": "Home",
-                                    "show_state": false
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "columns": 6,
-                            "type": "glance"
                         }
                     ]
                 }
