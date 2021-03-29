@@ -84,11 +84,14 @@ HACS :books:
 - [weather-card](https://github.com/bramkragten/weather-card)
 - [kiosk-mode](https://github.com/maykar/kiosk-mode)
 - [swipe-navigation](https://github.com/maykar/Lovelace-Swipe-Navigation)
+- [mini-graph-card](https://github.com/kalkih/mini-graph-card)
+- [vertical-stack-in-card](https://github.com/ofekashery/vertical-stack-in-card)
 - [atomic_calendar (modified)](https://github.com/AnnieLeonia/atomic_calendar) [atomic_calendar (original)](https://github.com/atomic7777/atomic_calendar)
 
 **Integrations**
 - [Spotcast - Start Spotify on chromecast](https://github.com/fondberg/spotcast)
 - [Sonoff LAN - Control Sonoff devices](https://github.com/AlexxIT/SonoffLAN)
+- [Avanza Stock](https://github.com/custom-components/sensor.avanza_stock)
 
 Automations :repeat:
 ===========
@@ -99,13 +102,14 @@ Automations :repeat:
 - Goodnight - Turn off lights
 - Evening - Dim lights
 - Sunset - Balcony Lights
+- Certificate Expiration - Notification
 
 Scripts :page_with_curl:
 =======
 [Code](scripts.yaml)
 - Start Video with Lights
-- Power off
 - Power on
+- Power off
 - Goodnight
 - Toggle Power on/off
 - Toggle Play/Pause
