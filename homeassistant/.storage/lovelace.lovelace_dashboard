@@ -54,6 +54,12 @@
                                             "finishedEventOpacity": 0.7,
                                             "fullDayEventText": "Hela dagen",
                                             "hoursFormat": "24h",
+                                            "icons": {
+                                                "monday": "input_select.chef_monday",
+                                                "tuesday": "input_select.chef_tuesday",
+                                                "wednesday": "input_select.chef_wednesday",
+                                                "thursday": "input_select.chef_thursday"
+                                            },
                                             "language": "sv",
                                             "locationLinkColor": "#03a9f4",
                                             "locationTextSize": 120,

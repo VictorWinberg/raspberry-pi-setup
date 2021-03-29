@@ -24,7 +24,7 @@
                                 },
                                 {
                                     "entity": "light.led_strip_lifx",
-                                    "name": "LIFX",
+                                    "name": "TV",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -1167,8 +1167,7 @@
                                                 "action": "call-service",
                                                 "service": "input_select.select_next",
                                                 "service_data": {
-                                                    "entity_id": "input_select.chef_thursday",
-                                                    "icon": "mdi:cube-outline"
+                                                    "entity_id": "input_select.chef_thursday"
                                                 }
                                             }
                                         }
@@ -1299,6 +1298,38 @@
                                     ]
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Scenes",
+                    "path": "scenes",
+                    "icon": "mdi:palette",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "glance",
+                                "show_state": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "domain": "scene",
+                                        "options": {
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "scene.turn_on",
+                                                "service_data": {
+                                                    "entity_id": "this.entity_id"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }

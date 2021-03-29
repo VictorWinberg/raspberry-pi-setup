@@ -54,11 +54,6 @@
                 "id": "2cf3716e774d4ab89890f5cabf637eed"
             },
             {
-                "url": "https://dd5c8b521fbf.ngrok.io/atomic_calendar.js",
-                "type": "module",
-                "id": "a450b35054c040bfa6e377f5639756bb"
-            },
-            {
                 "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js",
                 "type": "module",
                 "id": "d2fa40762a044ae287ae4766de6ef1a1"
@@ -67,6 +62,16 @@
                 "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js",
                 "type": "module",
                 "id": "ac8cb3fe71414431b79bdf2e34b12385"
+            },
+            {
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+                "type": "module",
+                "id": "d1ebf73f89ba43b194d3475f4c6a595f"
+            },
+            {
+                "url": "/hacsfiles/atomic_calendar/atomic_calendar.js",
+                "type": "module",
+                "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
             }
         ]
     }
