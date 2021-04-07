@@ -59,6 +59,7 @@ power_on:
     service: light.turn_on
   - entity_id: switch.living_room_plug
     service: switch.turn_on
+  - delay: 00:00:01
   - data:
       entity_id:
       - automation.evening_dim_lights
