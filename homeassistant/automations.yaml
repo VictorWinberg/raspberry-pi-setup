@@ -45,16 +45,6 @@
   - data: {}
     service: script.power_on
   mode: single
-- id: '1575958785836'
-  alias: Goodnight - Turn off the lights
-  description: ''
-  trigger: []
-  condition: []
-  action:
-  - service: script.turn_on
-    data: {}
-    entity_id: script.good_night
-  mode: single
 - id: '1576047741633'
   alias: Leave Home - Turn off lights
   description: ''
@@ -113,7 +103,7 @@
     conditions:
     - condition: time
       after: '20:15'
-      before: '8:00'
+      before: '4:00'
     - condition: sun
       after: sunset
       after_offset: -00:30:00

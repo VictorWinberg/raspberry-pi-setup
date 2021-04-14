@@ -82,7 +82,7 @@
                                                 {
                                                     "type": "custom:mini-graph-card",
                                                     "hours_to_show": 168,
-                                                    "height": 200,
+                                                    "height": 150,
                                                     "align_header": "center",
                                                     "line_width": 3,
                                                     "line_color": "#0474ca",
@@ -98,7 +98,7 @@
                                                 {
                                                     "type": "custom:mini-graph-card",
                                                     "hours_to_show": 168,
-                                                    "height": 200,
+                                                    "height": 150,
                                                     "align_header": "center",
                                                     "line_width": 3,
                                                     "line_color": "#0474ca",
@@ -115,7 +115,7 @@
                                                 {
                                                     "type": "custom:mini-graph-card",
                                                     "hours_to_show": 168,
-                                                    "height": 200,
+                                                    "height": 150,
                                                     "align_header": "center",
                                                     "line_width": 3,
                                                     "line_color": "#0474ca",
@@ -124,7 +124,7 @@
                                                         "icon": false
                                                     },
                                                     "entities": [
-                                                        "sensor.world_tech"
+                                                        "sensor.avanza_zero"
                                                     ],
                                                     "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                                 }
@@ -136,32 +136,67 @@
                                                 {
                                                     "type": "markdown",
                                                     "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.ny_teknik','changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nfont {\n  font-size: 5rem;\n}\n"
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
                                                     "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
                                                     "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
                                                     "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                    "content": "<h2>\n<small>1 w.</small><br/>\n{% if state_attr('sensor.avanza_zero', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.avanza_zero', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.avanza_zero', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 },
                                                 {
                                                     "type": "markdown",
-                                                    "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.world_tech',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
-                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                                    "content": "<h2>\n<small>1 m.</small><br/>\n{% if state_attr('sensor.avanza_zero',\n'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.avanza_zero', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.avanza_zero', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "horizontal-stack",
+                                            "cards": [
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>3 m.</small><br/>\n{% if state_attr('sensor.ny_teknik','changePercentThreeMonths') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentThreeMonths')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentThreeMonths')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>1 y.</small><br/>\n{% if state_attr('sensor.ny_teknik', 'changePercentOneYear') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneYear')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneYear')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>3 m.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentThreeMonths') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentThreeMonths')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentThreeMonths')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>1 y.</small><br/>\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneYear') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneYear')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneYear')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>3 m.</small><br/>\n{% if state_attr('sensor.avanza_zero', 'changePercentThreeMonths') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.avanza_zero', 'changePercentThreeMonths')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.avanza_zero', 'changePercentThreeMonths')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
+                                                },
+                                                {
+                                                    "type": "markdown",
+                                                    "content": "<h2>\n<small>1 y.</small><br/>\n{% if state_attr('sensor.avanza_zero',\n'changePercentOneYear') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.avanza_zero', 'changePercentOneYear')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.avanza_zero', 'changePercentOneYear')}}%</font>\n{%- endif %}\n</h2>\n",
+                                                    "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\nha-markdown {\n  padding: 0 !important;\n}\n"
                                                 }
                                             ]
                                         }
@@ -209,9 +244,12 @@
                                         {
                                             "type": "markdown",
                                             "content": "{{ states(\"sensor.onelist\") }}",
-                                            "style": {
-                                                ".": "ha-card {\n  height: 23rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1;\n  text-align: left;\n  color: #F4F5F6;\n  margin-top: -23rem;\n}\n"
-                                            }
+                                            "style": "ha-card {\n  height: 23rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1;\n  text-align: left;\n  color: #F4F5F6;\n  margin-top: -23rem;\n}\n"
+                                        },
+                                        {
+                                            "type": "markdown",
+                                            "content": "{{ states('sensor.netatmo_airq_temperature') }}\n<sup><sub><sup><sub>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></sub></sup></sub></sup>\n",
+                                            "style": "ha-card {\n  height: auto !important;\n  margin-top: -7rem; \n  margin-left: 17.5rem;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 32px;\n  line-height: 1;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n"
                                         }
                                     ],
                                     "type": "vertical-stack"
@@ -300,43 +338,12 @@
                                         {
                                             "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
                                             "style": {
-                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 60px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
                                                 "ha-markdown": {
                                                     "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
                                                 }
                                             },
                                             "type": "markdown"
-                                        },
-                                        {
-                                            "type": "entities",
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.netatmo_airq_health",
-                                                    "name": "Netatmo AirQ"
-                                                },
-                                                {
-                                                    "entity": "sensor.netatmo_airq_temperature",
-                                                    "type": "custom:multiple-entity-row",
-                                                    "show_state": false,
-                                                    "icon": "hass:air-filter",
-                                                    "name": "Stats",
-                                                    "entities": [
-                                                        {
-                                                            "name": false,
-                                                            "entity": "sensor.netatmo_airq_co2"
-                                                        },
-                                                        {
-                                                            "name": false,
-                                                            "entity": "sensor.netatmo_airq_humidity"
-                                                        },
-                                                        {
-                                                            "name": false,
-                                                            "entity": "sensor.netatmo_airq_temperature"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "style": ":host {\n  top: 240px;\n  width: 310px;\n  position: absolute;\n  z-index: 1;\n}\nha-card {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n  /*position: absolute;*/\n  /*margin-top: 400px;*/ \n  /*width: 50%;*/\n}\n"
                                         },
                                         {
                                             "artwork": "cover",

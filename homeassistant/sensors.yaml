@@ -53,7 +53,9 @@
       name: World Tech
     - id: 194698
       name: GME
-  scan_interval: 7200
+    - id: 41567
+      name: Avanza Zero
+  scan_interval: 86400
 - platform: rest
   name: OneList
   json_attributes_path: '$.[0]'
