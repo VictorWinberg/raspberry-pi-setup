@@ -12,7 +12,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "columns": 5,
+                            "columns": 4,
                             "entities": [
                                 {
                                     "entity": "light.led_strip_philips",
@@ -31,8 +31,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "light.hallway_spots",
-                                    "name": "Hall",
+                                    "entity": "switch.innr_plug",
+                                    "name": "Wall",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -47,33 +47,28 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.innr_plug",
-                                    "name": "Wall",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
                                     "entity": "switch.sonoff_10008c59d6",
                                     "name": "Office",
                                     "show_state": false,
+                                    "icon": "mdi:office-building",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "light.hallway_door",
-                                    "name": "Door",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "light.hallway_kitchen",
+                                    "entity": "group.hallway",
                                     "name": "Hallway",
                                     "show_state": false,
+                                    "icon": "mdi:globe-light",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "group.dining",
+                                    "name": "Dining",
+                                    "show_state": false,
+                                    "icon": "mdi:table-chair",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -81,38 +76,6 @@
                                 {
                                     "entity": "switch.window_plug",
                                     "name": "Window",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "light.living_room",
-                                    "name": "Liv. Light",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "light.kitchen_table",
-                                    "name": "Table",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.kitchen",
-                                    "name": "Kitchen",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.ikea",
-                                    "name": "IKEA",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -127,9 +90,28 @@
                                     }
                                 },
                                 {
+                                    "entity": "group.kitchen",
+                                    "name": "Kitchen",
+                                    "show_state": false,
+                                    "icon": "mdi:fridge-outline",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "light.living_room",
+                                    "name": "Liv. Light",
+                                    "show_state": false,
+                                    "icon": "mdi:sofa",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
                                     "entity": "group.bedroom",
                                     "name": "Bedr.",
                                     "show_state": false,
+                                    "icon": "mdi:bed",
                                     "tap_action": {
                                         "action": "toggle"
                                     }

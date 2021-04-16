@@ -384,12 +384,25 @@
                                                 {
                                                     "service": "light.toggle",
                                                     "service_data": {
-                                                        "entity_id": "group.ikea"
+                                                        "entity_id": "group.hallway"
                                                     },
                                                     "style": {
                                                         "left": "45%",
-                                                        "top": "78%",
-                                                        "transform": "translate(-50%, -50%) scale(6.2, 11)",
+                                                        "top": "64%",
+                                                        "transform": "translate(-50%, -50%) scale(6.2, 3.2)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
+                                                    "service": "light.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.dining"
+                                                    },
+                                                    "style": {
+                                                        "left": "83%",
+                                                        "top": "60%",
+                                                        "transform": "translate(-50%, -50%) scale(4.1, 5)",
                                                         "--success-color": "rgba(255,255,255,0.2)"
                                                     },
                                                     "type": "service-button"
@@ -483,6 +496,18 @@
                                                         "left": "90%",
                                                         "top": "65%"
                                                     },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "group.dining",
+                                                    "style": {
+                                                        "left": "88%",
+                                                        "top": "57%"
+                                                    },
+                                                    "icon": "mdi:ceiling-light",
                                                     "tap_action": {
                                                         "action": "toggle"
                                                     },
