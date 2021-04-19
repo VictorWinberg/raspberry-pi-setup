@@ -55,7 +55,8 @@ power_on:
   - data:
       brightness: 200
       entity_id:
-      - group.ikea
+      - light.hallway_door
+      - light.hallway_spots
     service: light.turn_on
   - entity_id: switch.living_room_plug
     service: switch.turn_on
@@ -259,8 +260,8 @@ good_night:
         brightness: 50
         rgb_color:
         - 255
-        - 100
-        - 100
+        - 110
+        - 50
       entity_id: light.philips_hue
     - service: light.turn_on
       data_template:
