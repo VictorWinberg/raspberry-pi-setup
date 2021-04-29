@@ -148,6 +148,11 @@
     state: 'True'
   action:
   - service: script.power_off
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
   - data: {}
     entity_id: switch.sonoff_10008c59d6
     service: switch.turn_on

@@ -161,7 +161,8 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.annie_playlist"
+                                                        "uri": "input_text.annie_playlist",
+                                                        "account": "ms"
                                                     },
                                                     "icon": "mdi:face-woman",
                                                     "id": "script.play_spotify",
@@ -170,7 +171,8 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.victor_playlist"
+                                                        "uri": "input_text.victor_playlist",
+                                                        "account": "mr"
                                                     },
                                                     "icon": "mdi:face",
                                                     "id": "script.play_spotify",
@@ -179,7 +181,8 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.dinner_playlist"
+                                                        "uri": "input_text.dinner_playlist",
+                                                        "account": "mr"
                                                     },
                                                     "icon": "mdi:glass-wine",
                                                     "id": "script.play_spotify",
@@ -188,7 +191,8 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.christmas_playlist"
+                                                        "uri": "input_text.christmas_playlist",
+                                                        "account": "ms"
                                                     },
                                                     "icon": "mdi:pine-tree",
                                                     "id": "script.play_spotify",
@@ -197,7 +201,8 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.goodnight_playlist"
+                                                        "uri": "input_text.goodnight_playlist",
+                                                        "account": "mr"
                                                     },
                                                     "icon": "mdi:weather-night",
                                                     "id": "script.play_spotify",

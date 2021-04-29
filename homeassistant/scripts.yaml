@@ -100,6 +100,7 @@ play_spotify:
       repeat: context
       shuffle: true
       uri: '{{ states(uri) }}'
+      account: '{{ account }}'
     service: spotcast.start
   mode: parallel
   max: 10

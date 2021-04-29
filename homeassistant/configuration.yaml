@@ -8,9 +8,19 @@ discovery:
 wake_on_lan:
 vicnie:
 sonoff:
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
+  accounts:
+    mr:
+      sp_dc: !secret sp_mr_dc
+      sp_key: !secret sp_mr_key
+    ms:
+      sp_dc: !secret sp_ms_dc
+      sp_key: !secret sp_ms_key
 
 http:
   use_x_forwarded_for: true
