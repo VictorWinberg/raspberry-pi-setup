@@ -83,6 +83,7 @@
   - data:
       entity_id: media_player.speakers
       uri: input_text.arrive_home_playlist
+      account: mr
     service: script.play_spotify
   mode: single
 - id: '1581713291992'
@@ -238,6 +239,7 @@
       repeat: context
       shuffle: true
       uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
+      account: ms
   mode: single
 - id: '1608451314385'
   alias: Bedroom brightness

@@ -226,6 +226,7 @@ good_morning:
     data:
       entity_id: media_player.speakers
       uri: input_text.good_morning_playlist
+      account: mr
   mode: single
 good_night:
   alias: Good Night
