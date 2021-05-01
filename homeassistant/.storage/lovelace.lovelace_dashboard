@@ -268,7 +268,8 @@
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.annie_playlist"
+                                                                "uri": "input_text.annie_playlist",
+                                                                "account": "ms"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
@@ -282,7 +283,8 @@
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.victor_playlist"
+                                                                "uri": "input_text.victor_playlist",
+                                                                "account": "mr"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
@@ -296,7 +298,8 @@
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.dinner_playlist"
+                                                                "uri": "input_text.dinner_playlist",
+                                                                "account": "mr"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
@@ -310,7 +313,8 @@
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.christmas_playlist"
+                                                                "uri": "input_text.christmas_playlist",
+                                                                "account": "ms"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
@@ -324,7 +328,8 @@
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.goodnight_playlist"
+                                                                "uri": "input_text.goodnight_playlist",
+                                                                "account": "mr"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
