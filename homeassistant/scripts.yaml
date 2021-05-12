@@ -146,12 +146,6 @@ blinds_open:
   alias: Blinds Open
   sequence:
   - service: cover.open_cover
-    data:
-      entity_id:
-      - cover.bedroom_blind_r
-      - cover.bedroom_blind_l
-  - delay: 00:00:30
-  - service: cover.open_cover
     entity_id: cover.bedroom_blind_l
   - delay: 00:00:30
   - service: cover.open_cover
