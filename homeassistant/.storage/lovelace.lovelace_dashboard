@@ -341,7 +341,7 @@
                                             "type": "custom:mod-card"
                                         },
                                         {
-                                            "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
+                                            "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n",
                                             "style": {
                                                 ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
                                                 "ha-markdown": {
@@ -349,6 +349,15 @@
                                                 }
                                             },
                                             "type": "markdown"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "input_datetime.wakeup_time",
+                                            "name": " ",
+                                            "icon": " ",
+                                            "style": {
+                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 210px; \n  margin-left: 90px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  text-align: center;\n  text-transform: uppercase;\n  z-index: 999;\n}\n"
+                                            }
                                         },
                                         {
                                             "artwork": "cover",
@@ -694,7 +703,7 @@
                                                 }
                                             ],
                                             "image": "/local/blueprint.png",
-                                            "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-top: 10px;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
+                                            "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
                                             "type": "picture-elements"
                                         },
                                         {
