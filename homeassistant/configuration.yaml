@@ -96,6 +96,10 @@ input_boolean:
     name: "Enable Wake-up on weekends"
     initial: off
     icon: mdi:calendar-blank
+  flashing_lights:
+    name: Flashing lights
+    initial: off
+    icon: mdi:party-popper
 
 input_datetime:
   wakeup_time:

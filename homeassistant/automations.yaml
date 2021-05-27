@@ -264,3 +264,20 @@
       days_input: '5'
       certificate_input: sensor.cert_expiry_timestamp_zolly_ml
       notify_device: 5275297c6b106d98dd2ff5c406835899
+- id: '1622098156532'
+  alias: Flashing lights
+  description: ''
+  use_blueprint:
+    path: myGithub-Markus/flashing_lights.yaml
+    input:
+      activated: input_boolean.flashing_lights
+      target_lights:
+        entity_id:
+        - light.dining_table_m
+        - light.dining_table_n
+        - light.dining_table_s
+        - light.hallway_door
+        - light.hallway_kitchen
+        - light.hallway_spots
+        - light.living_room
+      delay: 5000
