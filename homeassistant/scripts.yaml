@@ -288,7 +288,7 @@ random_light_toggle:
             }}'
       - delay:
           hours: 0
-          minutes: 0
-          seconds: 1
+          minutes: 1
+          seconds: 0
           milliseconds: 0
   mode: single
