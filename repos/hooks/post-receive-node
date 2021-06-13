@@ -1,0 +1,38 @@
+#!/bin/bash
+set -eu # exit script on errors
+. $HOME/.nvm/nvm.sh
+
+WORK_TREE="/home/git/www/${REPO}"
+GIT_DIR="/home/git/repos/${REPO}.git"
+
+echo "> ./post-receive-node"
+while read oldrev newrev ref
+do
+  echo "Ref $ref received."
+
+  if [[ $ref = refs/heads/"$BRANCH" ]];
+  then
+    echo "Deploying ${BRANCH} branch..."
+
+    echo "> git checkout..."
+    git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout -f
+    cd "$WORK_TREE"
+
+    echo "> .github/deploy"
+    . ./.github/deploy
+
+    echo "> pm2 start ${MAIN}"
+    pm2 restart "${REPO}" || pm2 start "${MAIN}" --name "${REPO}"
+
+    echo "> pm2 save"
+    pm2 save
+
+    echo "Deployment ${BRANCH} branch complete."
+
+  else
+    echo "No deployment done."
+    echo "Only the ${BRANCH} branch may be deployed."
+
+  fi
+done
+
