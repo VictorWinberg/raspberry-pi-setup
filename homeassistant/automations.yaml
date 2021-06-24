@@ -281,3 +281,32 @@
         - light.hallway_spots
         - light.living_room
       delay: 5000
+- id: '1624548713213'
+  alias: Prepare Good Night
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.time_until_alarm
+    below: '9.0'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - sun
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  action:
+  - service: light.turn_on
+    data_template:
+      entity_id: '{{ states.light | selectattr(''state'',''eq'',''on'') | map(attribute=''entity_id'')
+        | join('','') }}'
+      flash: long
+  - service: script.play_spotify
+    data:
+      uri: input_text.good_night_playlist
+      account: mr
+  mode: single
