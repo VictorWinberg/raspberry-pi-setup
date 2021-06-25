@@ -1238,12 +1238,13 @@
                                             "type": "custom:mini-graph-card",
                                             "hours_to_show": 168,
                                             "align_header": "center",
+                                            "name": "Avanza Z",
                                             "show": {
                                                 "state": false,
                                                 "icon": false
                                             },
                                             "entities": [
-                                                "sensor.world_tech"
+                                                "sensor.avanza_zero"
                                             ],
                                             "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         }

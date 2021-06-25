@@ -299,6 +299,9 @@
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
+  - condition: state
+    entity_id: input_boolean.wakeup_enabled
+    state: 'on'
   action:
   - service: light.turn_on
     data_template:
