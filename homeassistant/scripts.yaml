@@ -284,11 +284,11 @@ random_light_toggle:
       sequence:
       - service: light.toggle
         data_template:
-          entity_id: '{{ states.light | map(attribute=''entity_id'') | list | random
-            }}'
+          entity_id: '{{ states.light | selectattr(''state'',''ne'', ''unavailable'')
+            | map(attribute=''entity_id'') | list | random }}'
       - delay:
           hours: 0
-          minutes: 0
-          seconds: 5
+          minutes: 1
+          seconds: 0
           milliseconds: 0
   mode: single
