@@ -207,7 +207,6 @@
     before: sunrise
     after_offset: -00:00:30
   - service: switch.turn_on
-    data: {}
     entity_id:
     - switch.balcony_plug
     - switch.window_plug
@@ -264,23 +263,6 @@
       days_input: '5'
       certificate_input: sensor.cert_expiry_timestamp_zolly_ml
       notify_device: 5275297c6b106d98dd2ff5c406835899
-- id: '1622098156532'
-  alias: Flashing lights
-  description: ''
-  use_blueprint:
-    path: myGithub-Markus/flashing_lights.yaml
-    input:
-      activated: input_boolean.flashing_lights
-      target_lights:
-        entity_id:
-        - light.dining_table_m
-        - light.dining_table_n
-        - light.dining_table_s
-        - light.hallway_door
-        - light.hallway_kitchen
-        - light.hallway_spots
-        - light.living_room
-      delay: 5000
 - id: '1624548713213'
   alias: Prepare Good Night
   description: ''
@@ -307,9 +289,15 @@
     data_template:
       entity_id: '{{ states.light | selectattr(''state'',''eq'',''on'') | map(attribute=''entity_id'')
         | join('','') }}'
-      flash: long
+      flash: short
+  - service: input_number.set_value
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: 10
   - service: script.play_spotify
     data:
       uri: input_text.good_night_playlist
       account: mr
+      entity_id: media_player.speakers
   mode: single
