@@ -138,7 +138,7 @@ input_text:
     initial: spotify:playlist:20zpgm7qIkGzTUULeJD1d5
   victor_playlist:
     name: Victor's Playlist
-    initial: spotify:playlist:7iPZRCvMuGjr99hVGrvlI5
+    initial: spotify:playlist:37i9dQZEVXcWTnWnE5HWDY
   dinner_playlist:
     name: Dinner Playlist
     initial: spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ
