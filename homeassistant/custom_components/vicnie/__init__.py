@@ -58,15 +58,16 @@ def setup(hass, config):
 
         defaults = {
           "MDWN": lambda: s("homeassistant", "restart", {}, False),
-          "LDWN": lambda: select("media_player.portable_speaker"),
-          "RDWN": lambda: select("media_player.mio_tv"),
-          "UDWN": lambda: select("light:group.ikea"),
-          "DDWN": lambda: select("default")
+          "LDWN": lambda: select_entity("media_player.portable_speaker"),
+          "RDWN": lambda: select_entity("media_player.mio_tv"),
+          "UDWN": lambda: select_entity("light:group.ikea"),
+          "DDWN": lambda: select_entity("default")
         }
 
 
         """Helpers"""
-        def select(option): s("input_select", "select_option", {"entity_id": input_select_entity_id, "option": option}, False)
+        def select_entity(option): s("input_select", "select_option", {"entity_id": input_select_entity_id, "option": option}, False)
+        def select_side(option): s("input_select", "select_option", {"entity_id": "input_select.magic_cube_side", "option": option}, False)
         def set_color(d):
             color_id = "input_number.color_index"
             light_on_ids = list(map(lambda x: x.entity_id, filter(lambda x: x.domain == "light" and x.state == "on", hass.states.all())))
@@ -134,7 +135,6 @@ def setup(hass, config):
               "RBTN": lambda: set_color(1),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
-
         def tradfri_open_close_remote():
             {
               "MBTN": lambda: s("script", "blinds_open", {}, False),
@@ -142,6 +142,18 @@ def setup(hass, config):
               "MUP":  lambda: s("script", "good_morning", {}, False),
               "UUP":  lambda: s("script", "good_night", {}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
+
+        def mi_magic_cube():
+            gesture = call.data.get("gesture")
+            event = call.data.get("event")
+
+            def mi_flip():
+                select_side("side-" + event[0])
+
+            {
+                "3": lambda: mi_flip(),
+                "4": lambda: mi_flip(),
+            }.get(gesture, lambda: _LOGGER.warning("Missing gesture: " + gesture))()
 
         """Run service"""
         def run_service(domain, entity_id):
@@ -152,6 +164,7 @@ def setup(hass, config):
               "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
               "tradfri_open_close_switch":   lambda: tradfri_open_close_remote(),
               "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(),
+              "mi_magic_cube":               lambda: mi_magic_cube(),
             }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
 
         run_service(domain, entity_id)

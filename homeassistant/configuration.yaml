@@ -182,6 +182,17 @@ input_select:
      - light:group.ikea
     initial: media_player.portable_speaker
     icon: mdi:circle-outline
+  magic_cube_side:
+    name: "Magic Cube Side"
+    options:
+     - side-1
+     - side-2
+     - side-3
+     - side-4
+     - side-5
+     - side-6
+    initial: side-1
+    icon: mdi:cube-outline
   chef_monday:
     name: Chef Monday
     options:
