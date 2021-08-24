@@ -64,7 +64,6 @@ def setup(hass, config):
           "DDWN": lambda: select_entity("default")
         }
 
-
         """Helpers"""
         def select_entity(option): s("input_select", "select_option", {"entity_id": input_select_entity_id, "option": option}, False)
         def select_side(option): s("input_select", "select_option", {"entity_id": "input_select.magic_cube_side", "option": option}, False)
@@ -79,7 +78,7 @@ def setup(hass, config):
             s("light", "turn_on", {"entity_id": light_on_ids, "color_name": color}, False)
 
         """Domain functions"""
-        def default_domain():
+        def default_domain(event):
             entity_id = []
             if not hass.states.is_state("media_player.speakers", "off"):
               entity_id.append("media_player.speakers")
@@ -94,11 +93,11 @@ def setup(hass, config):
               light_on = hass.states.is_state("group.ikea", "on")
               s("light", "turn_off" if light_on else "turn_on", {"entity_id": "group.ikea"}, False)
             elif not entity_id:
-              run_service("light", "group.ikea")
+              run_service("light", "group.ikea", event)
             else:
-              run_service("media_player", entity_id)
+              run_service("media_player", entity_id, event)
 
-        def media_player_domain(entity_id):
+        def media_player_domain(entity_id, event):
             volume, volume_entity = None, None
             if isinstance(entity_id, str) and len(entity_id):
               volume_entity = entity_id
@@ -121,7 +120,7 @@ def setup(hass, config):
               "RBTN": lambda: s("media_player", "media_next_track", {"entity_id": entity_id}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
-        def light_domain(entity_id):
+        def light_domain(entity_id, event):
             light_on = hass.states.is_state(entity_id, "on")
             brightness_id = "input_number.light_brightness"
             brt = float(hass.states.get(brightness_id).state)
@@ -135,7 +134,7 @@ def setup(hass, config):
               "RBTN": lambda: set_color(1),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
-        def tradfri_open_close_remote():
+        def tradfri_open_close_remote(event):
             {
               "MBTN": lambda: s("script", "blinds_open", {}, False),
               "UBTN": lambda: s("script", "blinds_close", {}, False),
@@ -144,30 +143,60 @@ def setup(hass, config):
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
         def mi_magic_cube():
-            gesture = call.data.get("gesture")
-            event = call.data.get("event")
+            sides = {
+              "side-1": "light.hallway_spots", "side-2": "media_player.mio_tv", "side-3": "media_player.speakers", "side-4": "media_player.sorrysound_tv", "side-5": "light:group.ikea", "side-6": "light:all"
+            }
+
+            gesture = str(call.data.get("gesture"))
+            event = str(call.data.get("event"))
+            side = hass.states.get("input_select.magic_cube_side").state
+            entity_id = sides.get(side)
+            domain = entity_id.split(":")[0].split(".")[0]
+            entity_id = re.sub("[^:]+:", "", entity_id)
+
+            def mi_awake():
+                _LOGGER.warning("Awake " + event)
 
             def mi_flip():
                 select_side("side-" + event[0])
 
+            def mi_move():
+                run_service(domain, entity_id, "MBTN")
+
+            def mi_shake():
+                run_service(domain, entity_id, "RBTN")
+
+            def mi_rotate_pos():
+                rotate = int(event) / 1000 # TODO: Use rotation amount
+                run_service(domain, entity_id, "UBTN")
+
+            def mi_rotate_neg():
+                rotate = int(event) / 1000 # TODO: Use rotation amount
+                run_service(domain, entity_id, "DBTN")
+
             {
+                "0": lambda: mi_awake(),
+                "1": lambda: mi_shake(),
                 "3": lambda: mi_flip(),
                 "4": lambda: mi_flip(),
+                "5": lambda: mi_move(),
+                "7": lambda: mi_rotate_pos(),
+                "8": lambda: mi_rotate_neg(),
             }.get(gesture, lambda: _LOGGER.warning("Missing gesture: " + gesture))()
 
         """Run service"""
-        def run_service(domain, entity_id):
+        def run_service(domain, entity_id, event):
             {
-              "default":                     lambda: default_domain(),
-              "media_player":                lambda: media_player_domain(entity_id),
-              "light":                       lambda: light_domain(entity_id),
+              "default":                     lambda: default_domain(event),
+              "media_player":                lambda: media_player_domain(entity_id, event),
+              "light":                       lambda: light_domain(entity_id, event),
               "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
-              "tradfri_open_close_switch":   lambda: tradfri_open_close_remote(),
-              "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(),
+              "tradfri_open_close_switch":   lambda: tradfri_open_close_remote(event),
+              "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(event),
               "mi_magic_cube":               lambda: mi_magic_cube(),
             }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
 
-        run_service(domain, entity_id)
+        run_service(domain, entity_id, event)
 
     # Register our service with Home Assistant.
     hass.services.register(DOMAIN, 'tetzipetzi', tetzipetzi_service)

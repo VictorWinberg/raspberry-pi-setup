@@ -188,6 +188,7 @@
   - data_template:
       id: '{{ trigger.event.data.id }}'
       event: '{{ trigger.event.data.event }}'
+      gesture: '{{ trigger.event.data.gesture }}'
     service: vicnie.remote_control
   mode: single
 - id: '1606157917188'

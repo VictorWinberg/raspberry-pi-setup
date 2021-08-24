@@ -248,8 +248,8 @@
                                     },
                                     {
                                         "icon": "mdi:cast",
-                                        "id": "HDMI 2",
-                                        "type": "source"
+                                        "type": "script",
+                                        "id": "script.ping_tv"
                                     },
                                     {
                                         "id": "SVT Play",
