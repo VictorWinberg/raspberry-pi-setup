@@ -41,11 +41,7 @@ Table of contents :book:
    - [Git Server :octocat:](#git-server-octocat)
    - [Git Client :octocat:](#git-client-octocat)
    - [Github Actions :octocat:](#github-actions-octocat)
-- [Recovery :recycle:](#recovery-recycle)
-
-To Do :notebook_with_decorative_cover:
--------------------------------------
-- [ ] Swap file 
+- [Recovery :recycle:](#recovery-recycle) 
 
 Raspberry Pi :strawberry:
 ========================
