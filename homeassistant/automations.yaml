@@ -298,7 +298,7 @@
       value: 10
   - service: script.play_spotify
     data:
-      uri: input_text.good_night_playlist
+      uri: input_text.goodnight_playlist
       account: mr
       entity_id: media_player.speakers
   mode: single
