@@ -181,20 +181,20 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.dinner_playlist",
-                                                        "account": "mr"
+                                                        "uri": "input_text.us_playlist",
+                                                        "account": "ms"
                                                     },
-                                                    "icon": "mdi:glass-wine",
+                                                    "icon": "mdi:account-supervisor",
                                                     "id": "script.play_spotify",
                                                     "type": "script"
                                                 },
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.christmas_playlist",
-                                                        "account": "ms"
+                                                        "uri": "input_text.dinner_playlist",
+                                                        "account": "mr"
                                                     },
-                                                    "icon": "mdi:pine-tree",
+                                                    "icon": "mdi:glass-wine",
                                                     "id": "script.play_spotify",
                                                     "type": "script"
                                                 },
@@ -1197,6 +1197,11 @@
                                     "name": "Victor"
                                 },
                                 {
+                                    "entity": "input_text.us_playlist",
+                                    "icon": "mdi:account-supervisor",
+                                    "name": "Couple"
+                                },
+                                {
                                     "entity": "input_text.dinner_playlist",
                                     "icon": "mdi:glass-wine",
                                     "name": "Dinner"
@@ -1220,7 +1225,7 @@
                             "show_header_toggle": false,
                             "show_name": false,
                             "show_state": false,
-                            "columns": 6,
+                            "columns": 7,
                             "type": "glance"
                         },
                         {

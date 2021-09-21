@@ -173,6 +173,21 @@
                                                     {
                                                         "color": "transparent",
                                                         "color_type": "card",
+                                                        "icon": "mdi:account-supervisor",
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "script.play_spotify",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.speakers",
+                                                                "uri": "input_text.us_playlist",
+                                                                "account": "ms"
+                                                            }
+                                                        },
+                                                        "type": "custom:button-card"
+                                                    },
+                                                    {
+                                                        "color": "transparent",
+                                                        "color_type": "card",
                                                         "icon": "mdi:glass-wine",
                                                         "tap_action": {
                                                             "action": "call-service",
@@ -181,21 +196,6 @@
                                                                 "entity_id": "media_player.speakers",
                                                                 "uri": "input_text.dinner_playlist",
                                                                 "account": "mr"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    },
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:pine-tree",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.christmas_playlist",
-                                                                "account": "ms"
                                                             }
                                                         },
                                                         "type": "custom:button-card"

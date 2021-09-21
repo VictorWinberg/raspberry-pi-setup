@@ -134,6 +134,9 @@ input_number:
     max: 100
 
 input_text:
+  us_playlist:
+    name: Couple Playlist
+    initial: spotify:playlist:37i9dQZF1EJwWzoTjgyTb5
   annie_playlist:
     name: Annie's Playlist
     initial: spotify:playlist:20zpgm7qIkGzTUULeJD1d5
