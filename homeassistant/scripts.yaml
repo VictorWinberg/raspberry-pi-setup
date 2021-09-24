@@ -221,11 +221,6 @@ good_morning:
       volume_level: 0.3
     target:
       entity_id: media_player.sorrysound_audio
-  - service: script.play_spotify
-    data:
-      entity_id: media_player.speakers
-      uri: input_text.good_morning_playlist
-      account: mr
   mode: single
 good_night:
   alias: Good Night
