@@ -26,6 +26,7 @@ Table of contents :book:
    - [External Storage :file_folder:](#external-storage-file_folder)
    - [Remote Access (Samba) :open_file_folder:](#remote-access-samba-open_file_folder)
    - [Remote Access (SSH) :key:](#remote-access-ssh-key)
+   - [Remote Access (RDP) :computer:](#remote-access-rdp-computer)
    - [Remote Access (Nginx) :earth_africa:](#remote-access-nginx-earth_africa)
    - [Crontab :clock4:](#crontab-clock4)
    - [Let's Encrypt with Certbot :shipit:](#lets-encrypt-with-certbot-shipit)
@@ -109,6 +110,21 @@ SSH or Secure Shell is a cryptographic network protocol, typical used for remote
 [SSH Documentation](https://www.raspberrypi.org/documentation/remote-access/ssh/)
 
 > If you would like to be able to SSH into your RPi you need to enable ssh, since it is disabled by default.
+
+Remote Access (RDP) :computer:
+-----------------------------
+Remote Desktop Protocol is a proprietary protocol which provides a user with a graphical interface to connect to another computer over a network connection.
+
+[Remote Desktop Setup](https://pimylifeup.com/raspberry-pi-remote-desktop/)
+
+**Install Xrdp**
+```cs
+$ sudo apt-get install xrdp
+```
+
+**Connect to raspberry pi**
+
+Use a RDP or a VNC software, and enter your raspberry pi's local IP address.
 
 Remote Access (Nginx) :earth_africa:
 -----------------------------------
