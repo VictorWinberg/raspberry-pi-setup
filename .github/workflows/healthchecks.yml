@@ -1,7 +1,10 @@
 name: Raspberry Pi Healthchecks
 on:
+  push:
+    branches:
+      - add-cron-jobs
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   ping-endpoint:
