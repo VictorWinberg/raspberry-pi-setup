@@ -11,7 +11,7 @@ jobs:
       - name: Ping homepage
         run: curl --head --silent --show-error --retry 3 "${WEBSITE_URL}" | head -1
         env:
-          WEBSITE_URL: ${{ WEBSITE_URL }}
+          WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
       - name: Ping healthchecks.io
         run: curl --head --silent --show-error --retry 3 "${HEALTHCHECKS_PING}" | head -1
         env:
