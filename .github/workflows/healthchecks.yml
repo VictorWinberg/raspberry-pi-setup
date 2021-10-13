@@ -1,0 +1,13 @@
+name: Raspberry Pi Healthchecks
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+
+jobs:
+  ping-endpoint:
+    name: Ping Endpoint
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -Is https://www.zolly.ml
+      - run: curl -Is http://www.zolly.ml
+      - run: curl -Is https://asdasd.zolly.ml
