@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping homepage
-        run: curl --head --silent --show-error --retry 3 https://www.zolly.ml | head -1
-      - name: Ping healthchecks.io
-        run: curl --head --silent --show-error --retry 3 "${URL}" | head -1
+        run: curl --head --silent --show-error --retry 3 "${WEBSITE_URL}" | head -1
         env:
-          URL: ${{ secrets.HEALTHCHECKS_PING }}
+          WEBSITE_URL: ${{ WEBSITE_URL }}
+      - name: Ping healthchecks.io
+        run: curl --head --silent --show-error --retry 3 "${HEALTHCHECKS_PING}" | head -1
+        env:
+          HEALTHCHECKS_PING: ${{ secrets.HEALTHCHECKS_PING }}
