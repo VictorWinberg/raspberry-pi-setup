@@ -1,0 +1,18 @@
+name: Raspberry Pi Healthchecks
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  ping-endpoint:
+    name: Ping Endpoint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping homepage
+        run: curl --head --silent --show-error --retry 3 "${WEBSITE_URL}" | head -1
+        env:
+          WEBSITE_URL: ${{ WEBSITE_URL }}
+      - name: Ping healthchecks.io
+        run: curl --head --silent --show-error --retry 3 "${HEALTHCHECKS_PING}" | head -1
+        env:
+          HEALTHCHECKS_PING: ${{ secrets.HEALTHCHECKS_PING }}
