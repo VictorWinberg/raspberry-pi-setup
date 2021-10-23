@@ -303,3 +303,13 @@ ping_tv:
     target:
       entity_id: media_player.sorrysound_tv
   mode: single
+shutdown_in_x_minutes:
+  alias: Shutdown in X minutes
+  sequence:
+  - delay:
+      hours: 0
+      minutes: 20
+      seconds: 0
+      milliseconds: 0
+  - service: script.power_off
+  mode: single

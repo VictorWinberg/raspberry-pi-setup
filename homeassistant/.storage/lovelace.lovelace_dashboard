@@ -583,7 +583,7 @@
                                             "style": {
                                                 ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
                                                 "ha-markdown": {
-                                                    "$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 199;\n  background: linear-gradient(to top, rgba(75, 108, 183, 0), rgba(24, 40, 72, 1));\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
+                                                    "$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
                                                 }
                                             },
                                             "type": "markdown"
