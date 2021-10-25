@@ -291,12 +291,14 @@ The self-hosted productivity platform that keeps you in control. Share and colla
 [Nextcloud](https://nextcloud.com/)
 - Install [Nextcloud Docker Image](https://github.com/nextcloud/docker/)
 - Nextcloud shell `docker exec -it nextcloud_app_1 /bin/bash`
+- Nextcloud config `docker exec nextcloud_app_1 cat /var/www/html/config/config.php`
 - Update config
 ```cs
 sudo nano /home/pi/.nextcloud-config.php
 docker cp /home/pi/.nextcloud-config.php nextcloud_app_1:/var/www/html/config/config.php
 docker exec nextcloud_app_1 chown -R www-data:www-data /var/www/html/config
 ```
+ - PHP info `/info.php`
 
 **External Storage**
 - [Use bind mounts](https://docs.docker.com/storage/bind-mounts/)
