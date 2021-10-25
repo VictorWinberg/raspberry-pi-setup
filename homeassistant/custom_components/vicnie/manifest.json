@@ -5,10 +5,9 @@
     "requests==2.22.0",
     "python-dotenv==0.15.0"
   ],
-  "homeassistant": "0.117.2",
-  "dependencies": [
-  ],
+  "dependencies": [],
   "codeowners": [
     "@VictorWinberg"
-  ]
+  ],
+  "version": "1.0.0"
 }
