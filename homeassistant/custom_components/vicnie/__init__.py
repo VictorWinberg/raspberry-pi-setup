@@ -90,7 +90,7 @@ def setup(hass, config):
             if event == "DDWN":
               s("script", "default_toggle", {}, False)
             elif event == "UDWN":
-              light_on = hass.states.is_state("group.ikea", "on")
+              light_on = hass.states.is_state("group.kitchen", "on")
               s("light", "turn_off" if light_on else "turn_on", {"entity_id": "group.ikea"}, False)
             elif not entity_id:
               run_service("light", "group.ikea", event)

@@ -174,7 +174,7 @@
                                                         "uri": "input_text.victor_playlist",
                                                         "account": "mr"
                                                     },
-                                                    "icon": "mdi:face",
+                                                    "icon": "mdi:face-man",
                                                     "id": "script.play_spotify",
                                                     "type": "script"
                                                 },
@@ -1193,7 +1193,7 @@
                                 },
                                 {
                                     "entity": "input_text.victor_playlist",
-                                    "icon": "mdi:face",
+                                    "icon": "mdi:face-man",
                                     "name": "Victor"
                                 },
                                 {
