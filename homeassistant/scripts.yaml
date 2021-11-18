@@ -149,17 +149,66 @@ pulsing_lights:
 blinds_open:
   alias: Blinds Open
   sequence:
+  - service: script.turn_off
+    target:
+      entity_id: script.blinds_close
   - service: cover.open_cover
-    entity_id: cover.bedroom_blind_l
+    data: {}
+    target:
+      entity_id:
+      - cover.bedroom_blind_l
   - delay: 00:00:30
   - service: cover.open_cover
     entity_id: cover.bedroom_blind_r
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - service: cover.open_cover
+    target:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: cover.open_cover
+    target:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
   mode: single
 blinds_close:
   alias: Blinds Close
   sequence:
+  - service: script.turn_off
+    target:
+      entity_id: script.blinds_open
   - service: cover.close_cover
     data:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: cover.close_cover
+    target:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - service: cover.close_cover
+    target:
       entity_id:
       - cover.bedroom_blind_l
       - cover.bedroom_blind_r
