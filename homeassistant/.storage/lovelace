@@ -191,10 +191,10 @@
                                                 {
                                                     "data": {
                                                         "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.dinner_playlist",
-                                                        "account": "mr"
+                                                        "uri": "input_text.christmas_playlist",
+                                                        "account": "ms"
                                                     },
-                                                    "icon": "mdi:glass-wine",
+                                                    "icon": "mdi:pine-tree",
                                                     "id": "script.play_spotify",
                                                     "type": "script"
                                                 },

@@ -188,14 +188,14 @@
                                                     {
                                                         "color": "transparent",
                                                         "color_type": "card",
-                                                        "icon": "mdi:glass-wine",
+                                                        "icon": "mdi:pine-tree",
                                                         "tap_action": {
                                                             "action": "call-service",
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.dinner_playlist",
-                                                                "account": "mr"
+                                                                "uri": "input_text.christmas_playlist",
+                                                                "account": "ms"
                                                             }
                                                         },
                                                         "type": "custom:button-card"
