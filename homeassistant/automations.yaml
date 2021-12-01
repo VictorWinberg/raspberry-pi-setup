@@ -101,14 +101,9 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
-  - condition: or
-    conditions:
-    - condition: time
-      after: '20:15'
-      before: '4:00'
-    - condition: sun
-      after: sunset
-      after_offset: -00:30:00
+  - condition: time
+    after: '20:15'
+    before: '4:00'
   - data:
       entity_id:
       - light.hallway_kitchen
@@ -280,6 +275,11 @@
   - condition: state
     entity_id: group.ikea
     state: 'on'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.sorrysound_audio
+      state: playing
   action:
   - service: light.turn_on
     data_template:
