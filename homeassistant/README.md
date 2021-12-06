@@ -100,6 +100,7 @@ Automations :repeat:
 - Arrive Home - Turn on lights
 - Leave Home - Turn off lights
 - Goodnight - Turn off lights
+- Brightness Slider - Set light brightness
 - Evening - Dim lights
 - Sunset - Balcony Lights
 - Certificate Expiration - Notification
