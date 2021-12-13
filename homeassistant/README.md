@@ -68,6 +68,9 @@ Devices :iphone:
 ### LG
 - LG Smart TV
 
+### Netatmo
+- Netatmo Smart Indoor Air Quality Monitor 
+
 ### Sonoff
 - Sonoff T1 - Smart Wall Light Switch
 
