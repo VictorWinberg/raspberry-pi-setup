@@ -44,13 +44,18 @@ power_off:
   sequence:
   - service: homeassistant.turn_off
     target:
-      entity_id: script.pulsing_lights
+      entity_id:
+      - script.pulsing_lights
+      - script.blinds_close
+      - script.blinds_open
   - entity_id: all
     service: media_player.turn_off
   - entity_id: all
     service: switch.turn_off
   - entity_id: all
     service: light.turn_off
+  - service: script.turn_off
+    entity_id: all
   mode: single
 power_on:
   alias: Power on
