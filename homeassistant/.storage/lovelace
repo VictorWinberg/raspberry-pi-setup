@@ -1010,14 +1010,14 @@
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.fyrtur_block_out_roller_blind_battery_level_r",
+                                    "entity": "sensor.fyrtur_block_out_roller_blind_battery_level_2",
                                     "name": "Blinds",
                                     "icon": "hass:blinds-open",
                                     "state_header": "Blind R",
                                     "entities": [
                                         {
                                             "name": "Blind L",
-                                            "entity": "sensor.fyrtur_block_out_roller_blind_battery_level_l"
+                                            "entity": "sensor.fyrtur_block_out_roller_blind_battery_level"
                                         }
                                     ],
                                     "type": "custom:multiple-entity-row"
