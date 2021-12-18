@@ -31,16 +31,14 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.innr_plug",
-                                    "name": "Wall",
+                                    "entity": "switch.power_strip_2",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "switch.balcony_plug",
-                                    "name": "Balcony",
+                                    "entity": "switch.power_strip_3",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -50,7 +48,6 @@
                                     "entity": "switch.sonoff_10008c59d6",
                                     "name": "Office",
                                     "show_state": false,
-                                    "icon": "mdi:office-building",
                                     "tap_action": {
                                         "action": "toggle"
                                     }

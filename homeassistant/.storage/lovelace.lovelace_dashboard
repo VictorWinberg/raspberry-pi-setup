@@ -344,7 +344,18 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.balcony_plug",
+                                                    "entity": "switch.power_strip_2",
+                                                    "style": {
+                                                        "left": "81%",
+                                                        "top": "5%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.power_strip_3",
                                                     "style": {
                                                         "left": "83%",
                                                         "top": "12%"
@@ -355,7 +366,7 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.innr_plug",
+                                                    "entity": "switch.power_strip_1",
                                                     "style": {
                                                         "left": "70%",
                                                         "top": "12%"

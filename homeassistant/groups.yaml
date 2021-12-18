@@ -9,6 +9,7 @@ bedroom:
   entities:
     - light.bedroom
     - light.philips_hue
+    - switch.innr_plug
 kitchen:
   name: Kitchen Lights
   entities:
