@@ -57,7 +57,6 @@ def setup(hass, config):
         color_list = ["white", "bisque", "red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"]
 
         defaults = {
-          "MDWN": lambda: s("homeassistant", "restart", {}, False),
           "LDWN": lambda: select_entity("media_player.portable_speaker"),
           "RDWN": lambda: select_entity("media_player.mio_tv"),
           "UDWN": lambda: select_entity("light:group.ikea"),
