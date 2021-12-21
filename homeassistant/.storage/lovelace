@@ -15,16 +15,17 @@
                             "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "light.led_strip_philips",
-                                    "name": "LED",
+                                    "entity": "switch.sonoff_10008c59d6",
+                                    "name": "Office",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "light.led_strip_lifx",
-                                    "name": "TV",
+                                    "entity": "group.tv_ambient",
+                                    "name": "TV Ambient",
+                                    "icon": "mdi:television",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -45,18 +46,18 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.sonoff_10008c59d6",
-                                    "name": "Office",
+                                    "entity": "group.hallway",
+                                    "name": "Hallway",
                                     "show_state": false,
+                                    "icon": "mdi:globe-light",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "group.hallway",
-                                    "name": "Hallway",
+                                    "entity": "switch.living_room_plug",
+                                    "name": "Liv. Plug",
                                     "show_state": false,
-                                    "icon": "mdi:globe-light",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -73,14 +74,6 @@
                                 {
                                     "entity": "switch.window_plug",
                                     "name": "Window",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.living_room_plug",
-                                    "name": "Liv. Plug",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -105,8 +98,15 @@
                                     }
                                 },
                                 {
+                                    "entity": "switch.innr_plug",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                },
+                                {
                                     "entity": "group.bedroom",
-                                    "name": "Bedr.",
+                                    "name": "Bedroom",
                                     "show_state": false,
                                     "icon": "mdi:bed",
                                     "tap_action": {
@@ -776,6 +776,11 @@
                     "title": "Alarm Clock"
                 },
                 {
+                    "icon": "mdi:remote-tv",
+                    "path": "remote-tv",
+                    "theme": "clear-dark",
+                    "title": "",
+                    "type": "panel",
                     "badges": [],
                     "cards": [
                         {
@@ -941,12 +946,7 @@
                                 }
                             }
                         }
-                    ],
-                    "icon": "mdi:remote-tv",
-                    "panel": true,
-                    "path": "remote-tv",
-                    "theme": "clear-dark",
-                    "title": ""
+                    ]
                 },
                 {
                     "title": "Info",

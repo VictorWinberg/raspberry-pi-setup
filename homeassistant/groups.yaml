@@ -9,7 +9,6 @@ bedroom:
   entities:
     - light.bedroom
     - light.philips_hue
-    - switch.innr_plug
 kitchen:
   name: Kitchen Lights
   entities:
@@ -40,9 +39,9 @@ ikea:
     - light.dining_table_n
     - light.dining_table_m
     - light.dining_table_s
-living_room:
-  name: Living Room
+tv_ambient:
+  name: TV Ambient
   entities:
     - light.led_strip_lifx
     - light.led_strip_philips
-    - light.living_room
+
