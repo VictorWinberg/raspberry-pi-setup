@@ -124,6 +124,7 @@
       - switch.window_plug
       - switch.power_strip_2
       - switch.power_strip_3
+      - switch.innr_plug
   - service: switch.turn_off
     data: {}
     entity_id: switch.living_room_plug
