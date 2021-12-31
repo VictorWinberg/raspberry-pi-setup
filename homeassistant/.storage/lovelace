@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -32,14 +33,14 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.power_strip_2",
+                                    "entity": "switch.power_strip_socket_2",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "switch.power_strip_3",
+                                    "entity": "switch.power_strip_socket_3",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -55,8 +56,8 @@
                                     }
                                 },
                                 {
-                                    "entity": "switch.living_room_plug",
-                                    "name": "Liv. Plug",
+                                    "entity": "light.living_room",
+                                    "name": "Liv. Light",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -89,16 +90,15 @@
                                     }
                                 },
                                 {
-                                    "entity": "light.living_room",
-                                    "name": "Liv. Light",
+                                    "entity": "switch.living_room_plug",
+                                    "name": "Liv. Plug",
                                     "show_state": false,
-                                    "icon": "mdi:sofa",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
                                 },
                                 {
-                                    "entity": "switch.innr_plug",
+                                    "entity": "switch.bed_strip",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"

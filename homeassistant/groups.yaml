@@ -44,4 +44,8 @@ tv_ambient:
   entities:
     - light.led_strip_lifx
     - light.led_strip_philips
-
+balcony:
+  name: Balcony
+  entities:
+    - switch.power_strip_2
+    - switch.power_strip_3

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace.lovelace_dashboard",
     "data": {
         "config": {
@@ -307,6 +308,19 @@
                                                     "type": "service-button"
                                                 },
                                                 {
+                                                    "service": "switch.toggle",
+                                                    "service_data": {
+                                                        "entity_id": "group.balcony"
+                                                    },
+                                                    "style": {
+                                                        "left": "82.7%",
+                                                        "top": "14%",
+                                                        "transform": "translate(-50%, -50%) scale(4.1, 4.1)",
+                                                        "--success-color": "rgba(255,255,255,0.2)"
+                                                    },
+                                                    "type": "service-button"
+                                                },
+                                                {
                                                     "service": "light.toggle",
                                                     "service_data": {
                                                         "entity_id": "group.kitchen"
@@ -344,10 +358,10 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.power_strip_2",
+                                                    "entity": "switch.power_strip_socket_2",
                                                     "style": {
                                                         "left": "81%",
-                                                        "top": "5%"
+                                                        "top": "8%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
@@ -355,10 +369,10 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.power_strip_3",
+                                                    "entity": "switch.power_strip_socket_3",
                                                     "style": {
-                                                        "left": "83%",
-                                                        "top": "12%"
+                                                        "left": "80%",
+                                                        "top": "15%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
@@ -366,7 +380,7 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "switch.power_strip_1",
+                                                    "entity": "switch.power_strip_socket_1",
                                                     "style": {
                                                         "left": "70%",
                                                         "top": "12%"
@@ -379,7 +393,7 @@
                                                 {
                                                     "entity": "switch.window_plug",
                                                     "style": {
-                                                        "left": "85%",
+                                                        "left": "90%",
                                                         "top": "22%"
                                                     },
                                                     "tap_action": {
@@ -404,7 +418,7 @@
                                                         "left": "88%",
                                                         "top": "57%"
                                                     },
-                                                    "icon": "mdi:ceiling-light",
+                                                    "icon": "mdi:ceiling-light-multiple",
                                                     "tap_action": {
                                                         "action": "toggle"
                                                     },
@@ -481,6 +495,17 @@
                                                     "style": {
                                                         "left": "83%",
                                                         "top": "80%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "switch.bed_strip",
+                                                    "style": {
+                                                        "left": "83%",
+                                                        "top": "72%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
