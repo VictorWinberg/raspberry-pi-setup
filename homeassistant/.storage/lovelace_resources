@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
@@ -34,7 +35,7 @@
                 "id": "32a5c937f336435a8e050faf02de3086"
             },
             {
-                "url": "/hacsfiles/roku-card/roku-card.js?hacstag=164367214122",
+                "url": "/hacsfiles/roku-card/roku-card.js?hacstag=164367214121",
                 "type": "module",
                 "id": "0553d6d7c1a54d199e7f5224c1e15b79"
             },

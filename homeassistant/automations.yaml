@@ -103,31 +103,8 @@
   action:
   - condition: time
     after: '20:15'
-    before: '4:00'
-  - data:
-      entity_id:
-      - light.hallway_kitchen
-      - light.kitchen_oven
-      - light.kitchen_sink
-    service: light.turn_off
-  - data:
-      brightness: 20
-      entity_id:
-      - light.kitchen_table
-      - light.hallway_door
-      - light.hallway_spots
-    service: light.turn_on
-  - data: {}
-    service: switch.turn_on
-    target:
-      entity_id:
-      - switch.window_plug
-      - switch.power_strip_2
-      - switch.power_strip_3
-      - switch.innr_plug
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.living_room_plug
+    before: 05:00
+  - service: script.dim_lights
   mode: single
 - id: power_off_for_work
   alias: Power off - @Work

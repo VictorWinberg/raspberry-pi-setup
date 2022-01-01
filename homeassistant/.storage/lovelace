@@ -287,7 +287,7 @@
                                         ],
                                         "icon": [
                                             {
-                                                "color": "rgb(255,230,0)"
+                                                "color": "yellow"
                                             }
                                         ]
                                     },
@@ -299,7 +299,7 @@
                                 },
                                 {
                                     "entity": "script.good_night",
-                                    "icon": "mdi:brightness-3",
+                                    "icon": "mdi:weather-night",
                                     "name": "Goodnight",
                                     "styles": {
                                         "card": [
@@ -309,13 +309,35 @@
                                         ],
                                         "icon": [
                                             {
-                                                "color": "black"
+                                                "color": "brown"
                                             }
                                         ]
                                     },
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "script.good_night"
+                                    },
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "entity": "script.dim_lights",
+                                    "icon": "mdi:moon-waxing-crescent",
+                                    "name": "Dim",
+                                    "styles": {
+                                        "card": [
+                                            {
+                                                "font-size": "12px"
+                                            }
+                                        ],
+                                        "icon": [
+                                            {
+                                                "color": "cyan"
+                                            }
+                                        ]
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.dim_lights"
                                     },
                                     "type": "custom:button-card"
                                 },

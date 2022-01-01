@@ -371,3 +371,31 @@ shutdown_in_x_minutes:
       milliseconds: 0
   - service: script.power_off
   mode: single
+dim_lights:
+  sequence:
+  - data:
+      entity_id:
+      - light.hallway_kitchen
+      - light.kitchen_oven
+      - light.kitchen_sink
+    service: light.turn_off
+  - data:
+      brightness: 20
+      entity_id:
+      - light.kitchen_table
+      - light.hallway_door
+      - light.hallway_spots
+    service: light.turn_on
+  - service: switch.turn_off
+    target:
+      entity_id: switch.living_room_plug
+  - data: {}
+    service: switch.turn_on
+    target:
+      entity_id:
+      - switch.window_plug
+      - switch.power_strip_2
+      - switch.power_strip_3
+      - switch.bed_strip
+  mode: single
+  alias: Dim Lights
