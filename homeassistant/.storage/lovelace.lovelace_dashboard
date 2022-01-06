@@ -516,10 +516,36 @@
                                                     "entity": "light.philips_hue",
                                                     "style": {
                                                         "left": "92%",
-                                                        "top": "92%"
+                                                        "top": "89%"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "script.blinds_open",
+                                                    "icon": "mdi:blinds-open",
+                                                    "style": {
+                                                        "left": "77%",
+                                                        "top": "97%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "script.blinds_open"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
+                                                    "entity": "script.blinds_close",
+                                                    "icon": "mdi:blinds",
+                                                    "style": {
+                                                        "left": "90%",
+                                                        "top": "97%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "script.blinds_close"
                                                     },
                                                     "type": "state-icon"
                                                 },

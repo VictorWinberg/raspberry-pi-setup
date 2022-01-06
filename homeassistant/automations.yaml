@@ -267,6 +267,9 @@
     - condition: state
       entity_id: media_player.sorrysound_audio
       state: playing
+  - condition: state
+    entity_id: media_player.mio_tv
+    state: 'off'
   action:
   - service: light.turn_on
     data_template:
