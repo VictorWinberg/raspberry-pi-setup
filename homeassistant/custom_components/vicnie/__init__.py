@@ -190,7 +190,7 @@ def setup(hass, config):
               "media_player":                lambda: media_player_domain(entity_id, event),
               "light":                       lambda: light_domain(entity_id, event),
               "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
-              "tradfri_open_close_switch":   lambda: tradfri_open_close_remote(event),
+              "tradfri_open_close_switch_1": lambda: tradfri_open_close_remote(event),
               "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(event),
               "mi_magic_cube":               lambda: mi_magic_cube(),
             }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()

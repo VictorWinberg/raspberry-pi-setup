@@ -1016,7 +1016,7 @@
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.tradfri_open_close_switch_battery_level",
+                                    "entity": "sensor.tradfri_open_close_switch_1_battery_level",
                                     "name": "On/Off",
                                     "icon": "mdi:remote",
                                     "state_header": "On/Off",
