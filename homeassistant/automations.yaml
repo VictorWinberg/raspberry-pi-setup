@@ -133,6 +133,14 @@
   - data: {}
     entity_id: switch.sonoff_10008c59d6
     service: switch.turn_on
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: switch.turn_on
+    target:
+      entity_id: switch.sonoff_10008c59d6
   mode: single
 - id: '1587480240661'
   alias: Brigthness Slider
