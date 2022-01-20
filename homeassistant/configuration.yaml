@@ -139,7 +139,7 @@ input_text:
     initial: spotify:playlist:37i9dQZF1EJwWzoTjgyTb5
   annie_playlist:
     name: Annie's Playlist
-    initial: spotify:playlist:20zpgm7qIkGzTUULeJD1d5
+    initial: spotify:playlist:37i9dQZEVXcJk8sVwtGBNk
   victor_playlist:
     name: Victor's Playlist
     initial: spotify:playlist:37i9dQZEVXcWTnWnE5HWDY
