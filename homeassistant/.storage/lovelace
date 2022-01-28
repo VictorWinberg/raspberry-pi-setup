@@ -126,6 +126,26 @@
                             "type": "custom:mod-card"
                         },
                         {
+                            "type": "picture-entity",
+                            "entity": "sensor.anniversary_skiing_vacation",
+                            "image": "https://sundio-media.azureedge.net/products/Images/Original/19500000/73000/19573714-Original.jpg",
+                            "name": "Zell am See, \u00d6sterrike!!!",
+                            "show_state": true,
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "spotcast.start",
+                                "service_data": {
+                                    "entity_id": "media_player.speakers",
+                                    "random_song": true,
+                                    "repeat": "context",
+                                    "shuffle": true,
+                                    "uri": "spotify:playlist:1573cs99p0jQItoU4Fq5qx",
+                                    "account": "mr"
+                                },
+                                "target": {}
+                            }
+                        },
+                        {
                             "entities": [
                                 {
                                     "entities": [

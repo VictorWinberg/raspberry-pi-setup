@@ -19,6 +19,27 @@
                                 {
                                     "cards": [
                                         {
+                                            "type": "picture-entity",
+                                            "entity": "sensor.anniversary_skiing_vacation",
+                                            "image": "https://sundio-media.azureedge.net/products/Images/Original/19500000/73000/19573714-Original.jpg",
+                                            "name": "Zell am See, \u00d6sterrike",
+                                            "show_state": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "spotcast.start",
+                                                "service_data": {
+                                                    "entity_id": "media_player.speakers",
+                                                    "random_song": true,
+                                                    "repeat": "context",
+                                                    "shuffle": true,
+                                                    "uri": "spotify:playlist:1573cs99p0jQItoU4Fq5qx",
+                                                    "account": "mr"
+                                                },
+                                                "target": {}
+                                            },
+                                            "style": ".footer.both {\n  font-size: 2rem;\n  font-weight: bold;\n  line-height: 1.5;\n  color: #0F8482;\n}\n"
+                                        },
+                                        {
                                             "dateSize": 180,
                                             "dayWrapperLineColor": "transparent",
                                             "descSize": 80,
@@ -68,7 +89,7 @@
                                             "noEventsForTodayText": "Inga h\u00e4ndelser",
                                             "showColors": true,
                                             "maxDaysToShow": 14,
-                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 19em);\n}\n",
+                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 19em - 31em);\n}\n.content::before {\n  top: calc(100vh - 22em - 30em);\n}\n",
                                             "dateColor": "#333",
                                             "timeColor": "#313131",
                                             "timeSize": 140,
@@ -79,7 +100,7 @@
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "# Ink\u00f6pslista\n{{ states(\"sensor.onelist\") }}\n",
+                                            "content": "{{ states(\"sensor.onelist\") }}\n",
                                             "style": {
                                                 ".": "ha-card {\n  height: 16rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
                                                 "ha-markdown": {
