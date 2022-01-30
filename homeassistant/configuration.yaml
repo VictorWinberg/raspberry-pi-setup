@@ -112,7 +112,7 @@ input_datetime:
     name: "Light transition time"
     has_time: true
     has_date: false
-    initial: "00:30"
+    initial: "00:15"
     icon: mdi:timer
   goodnight_transition_time:
     name: "Light transition time"
