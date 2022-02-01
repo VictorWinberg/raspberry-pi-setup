@@ -276,6 +276,14 @@ good_morning:
       volume_level: 0.3
     target:
       entity_id: media_player.sorrysound_audio
+  - service: spotcast.start
+    data:
+      entity_id: media_player.speakers
+      uri: https://open.spotify.com/playlist/4ZQNqlKwDCPSeey2y7kwlD
+      account: ms
+      random_song: true
+      repeat: context
+      shuffle: true
   mode: single
 good_night:
   alias: Good Night
