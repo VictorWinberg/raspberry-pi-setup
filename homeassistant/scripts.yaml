@@ -279,7 +279,7 @@ good_morning:
   - service: spotcast.start
     data:
       entity_id: media_player.speakers
-      uri: https://open.spotify.com/playlist/4ZQNqlKwDCPSeey2y7kwlD
+      uri: https://open.spotify.com/playlist/7oNV62TsIiX8VN5MeBsR7c
       account: ms
       random_song: true
       repeat: context
