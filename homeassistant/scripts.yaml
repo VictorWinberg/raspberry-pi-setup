@@ -172,7 +172,6 @@ blinds_open:
   - service: cover.open_cover
     target:
       entity_id:
-      - cover.bedroom_blind_l
       - cover.bedroom_blind_r
   - delay:
       hours: 0
@@ -183,7 +182,6 @@ blinds_open:
     target:
       entity_id:
       - cover.bedroom_blind_l
-      - cover.bedroom_blind_r
   mode: single
 blinds_close:
   alias: Blinds Close
