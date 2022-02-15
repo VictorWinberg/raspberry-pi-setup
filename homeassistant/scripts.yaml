@@ -349,8 +349,8 @@ random_light_toggle:
             | map(attribute=''entity_id'') | list | random }}'
       - delay:
           hours: 0
-          minutes: 1
-          seconds: 0
+          minutes: 0
+          seconds: 1
           milliseconds: 0
   mode: single
 ping_tv:
@@ -406,3 +406,28 @@ dim_lights:
       - switch.bed_strip
   mode: single
   alias: Dim Lights
+disco_lights:
+  alias: Disco Lights
+  sequence:
+  - repeat:
+      while:
+      - condition: template
+        value_template: 'True'
+      sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: '{{ states.light | selectattr(''state'',''ne'', ''unavailable'')
+            | selectattr(''attributes.supported_color_modes'', ''search'', "''hs''")
+            | map(attribute=''entity_id'') | list | random }}'
+          rgb_color:
+          - '{{ (range(0, 255) | random) }}'
+          - '{{ (range(0, 255) | random) }}'
+          - '{{ (range(0, 255) | random) }}'
+          brightness: '{{ range(0, 255) | random }}'
+          transition: 0.2
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 0
+          milliseconds: 100
+  mode: single
