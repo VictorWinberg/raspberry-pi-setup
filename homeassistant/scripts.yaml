@@ -421,13 +421,13 @@ disco_lights:
             | map(attribute=''entity_id'') | list | random }}'
           rgb_color:
           - '{{ (range(0, 255) | random) }}'
+          - '0'
           - '{{ (range(0, 255) | random) }}'
-          - '{{ (range(0, 255) | random) }}'
-          brightness: '{{ range(0, 255) | random }}'
-          transition: 0.2
+          brightness: '{{ range(150, 255) | random }}'
+          transition: 1
       - delay:
           hours: 0
           minutes: 0
           seconds: 0
-          milliseconds: 100
+          milliseconds: 20
   mode: single
