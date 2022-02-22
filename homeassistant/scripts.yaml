@@ -373,7 +373,7 @@ shutdown_in_x_minutes:
   sequence:
   - delay:
       hours: 0
-      minutes: 20
+      minutes: 30
       seconds: 0
       milliseconds: 0
   - service: script.power_off
