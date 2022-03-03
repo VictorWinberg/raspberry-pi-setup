@@ -268,7 +268,10 @@ good_morning:
   - service: media_player.volume_set
     data:
       volume_level: 0.5
-    entity_id: media_player.portable_speaker
+    target:
+      entity_id:
+      - media_player.portable_speaker
+      - media_player.nest_mini
   - service: media_player.volume_set
     data:
       volume_level: 0.3

@@ -165,6 +165,14 @@
                                             },
                                             "name": "Audio",
                                             "type": "custom:mini-media-player"
+                                        },
+                                        {
+                                            "entity": "media_player.nest_mini",
+                                            "group": true,
+                                            "hide": {
+                                                "power_state": false
+                                            },
+                                            "type": "custom:mini-media-player"
                                         }
                                     ],
                                     "head": {
