@@ -20,10 +20,10 @@
                                     "cards": [
                                         {
                                             "type": "picture-entity",
-                                            "entity": "sensor.anniversary_skiing_vacation",
-                                            "image": "https://sundio-media.azureedge.net/products/Images/Original/19500000/73000/19573714-Original.jpg",
-                                            "name": "Zell am See, \u00d6sterrike",
+                                            "entity": "sensor.anniversary_bayside",
+                                            "image": "https://static.wixstatic.com/media/06c9c9_df9984655c4d4678803ea08cd3794c3d~mv2.jpg/v1/fit/w_320,h_320,q_90/06c9c9_df9984655c4d4678803ea08cd3794c3d~mv2.jpg",
                                             "show_state": true,
+                                            "aspect_ratio": "4.5:1",
                                             "tap_action": {
                                                 "action": "call-service",
                                                 "service": "spotcast.start",
@@ -37,7 +37,9 @@
                                                 },
                                                 "target": {}
                                             },
-                                            "style": ".footer.both {\n  font-size: 2rem;\n  font-weight: bold;\n  line-height: 1.5;\n  color: #0F8482;\n}\n"
+                                            "style": {
+                                                ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
+                                            }
                                         },
                                         {
                                             "dateSize": 180,
@@ -89,7 +91,7 @@
                                             "noEventsForTodayText": "Inga h\u00e4ndelser",
                                             "showColors": true,
                                             "maxDaysToShow": 14,
-                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 19em - 31em);\n}\n.content::before {\n  top: calc(100vh - 22em - 30em);\n}\n",
+                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
                                             "dateColor": "#333",
                                             "timeColor": "#313131",
                                             "timeSize": 140,
@@ -102,10 +104,8 @@
                                             "type": "markdown",
                                             "content": "{{ states(\"sensor.onelist\") }}\n",
                                             "style": {
-                                                ".": "ha-card {\n  height: 16rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
-                                                "ha-markdown": {
-                                                    "$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
-                                                }
+                                                ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
+                                                "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
                                             }
                                         }
                                     ],
@@ -117,9 +117,7 @@
                                             "content": "{% set weekdays = [\"M\u00e5ndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"L\u00f6rdag\", \"S\u00f6ndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
                                             "style": {
                                                 ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
-                                                "ha-markdown": {
-                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
-                                                }
+                                                "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
                                             },
                                             "type": "markdown"
                                         },
@@ -131,12 +129,8 @@
                                                 "type": "custom:slider-entity-row"
                                             },
                                             "style": {
-                                                "slider-entity-row": {
-                                                    "$": {
-                                                        "ha-slider": {
-                                                            "$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
-                                                        }
-                                                    }
+                                                "slider-entity-row$": {
+                                                    "ha-slider$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
                                                 }
                                             },
                                             "type": "custom:mod-card"
@@ -210,13 +204,13 @@
                                                     {
                                                         "color": "transparent",
                                                         "color_type": "card",
-                                                        "icon": "mdi:pine-tree",
+                                                        "icon": "mdi:glass-wine",
                                                         "tap_action": {
                                                             "action": "call-service",
                                                             "service": "script.play_spotify",
                                                             "service_data": {
                                                                 "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.christmas_playlist",
+                                                                "uri": "input_text.dinner_playlist",
                                                                 "account": "ms"
                                                             }
                                                         },
@@ -247,9 +241,7 @@
                                             "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
                                             "style": {
                                                 ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
-                                                "ha-markdown": {
-                                                    "$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
-                                                }
+                                                "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
                                             },
                                             "type": "markdown"
                                         },
@@ -665,9 +657,7 @@
                                             "content": "{% set precip_intensity = 0.20 %} {% if [ states(\"sensor.dark_sky_precip_intensity_0h\"), states(\"sensor.dark_sky_precip_intensity_1h\") ] | max | float(0) > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | count == states.light | selectattr('state','ne', 'on') | list | count) and (states.switch | count == states.switch | selectattr('state','ne', 'on') | list | count) and not (states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
                                             "style": {
                                                 ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
-                                                "ha-markdown": {
-                                                    "$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
-                                                }
+                                                "ha-markdown$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
                                             },
                                             "type": "markdown"
                                         }
