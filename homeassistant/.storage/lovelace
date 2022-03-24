@@ -654,10 +654,6 @@
                             "type": "entities"
                         },
                         {
-                            "type": "entity",
-                            "entity": "input_select.magic_cube_side"
-                        },
-                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
@@ -757,6 +753,17 @@
                                             }
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.flashing_lights"
+                                },
+                                {
+                                    "entity": "input_select.magic_cube_side"
                                 }
                             ]
                         }
