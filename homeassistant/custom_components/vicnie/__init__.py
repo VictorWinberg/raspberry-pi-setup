@@ -79,11 +79,11 @@ def setup(hass, config):
         """Domain functions"""
         def default_domain(event):
             entity_id = []
-            if not hass.states.is_state("media_player.speakers", "off"):
+            if not hass.states.is_state("media_player.speakers", "off") and not hass.states.is_state("media_player.speakers", "unavailable"):
               entity_id.append("media_player.speakers")
-            if not hass.states.is_state("media_player.portable_speaker", "off") and hass.states.is_state("media_player.speakers", "off"):
+            if not hass.states.is_state("media_player.portable_speaker", "off") and not hass.states.is_state("media_player.portable_speaker", "unavailable") and (hass.states.is_state("media_player.speakers", "off") or hass.states.is_state("media_player.speakers", "unavailable")):
               entity_id.append("media_player.portable_speaker")
-            if not hass.states.is_state("media_player.mio_tv", "off"):
+            if not hass.states.is_state("media_player.mio_tv", "off") and not hass.states.is_state("media_player.mio_tv", "unavailable"):
               entity_id.append("media_player.mio_tv")
 
             if event == "DDWN":
