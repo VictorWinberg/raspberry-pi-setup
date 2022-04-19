@@ -100,6 +100,14 @@ hot_night:
 play_spotify:
   alias: Play Spotify
   sequence:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ is_state(entity_id, "unavailable") }}'
+      sequence:
+      - variables:
+          entity_id: media_player.portable_speaker
+    default: []
   - data_template:
       entity_id: '{{ entity_id }}'
       random_song: true
