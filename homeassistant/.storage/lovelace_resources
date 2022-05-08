@@ -5,12 +5,12 @@
     "data": {
         "items": [
             {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524312",
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524314",
                 "type": "module",
                 "id": "59e84790f1ed4e86aed19a0c81ad07af"
             },
             {
-                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381161",
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381162",
                 "type": "module",
                 "id": "4513f5c1a36a42fe93aa42858ca332a5"
             },
