@@ -43,6 +43,7 @@
       friendly_name: "Someone home?"
       value_template: '{{ is_state("person.annie", "home") or is_state("person.victor", "home") }}'
 - platform: spotcast
+  country: SE
 - platform: avanza_stock
   stock:
     - id: 2011
