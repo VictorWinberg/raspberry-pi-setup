@@ -417,9 +417,8 @@ dim_lights:
     target:
       entity_id:
       - switch.window_plug
-      - switch.power_strip_2
-      - switch.power_strip_3
       - switch.bed_strip
+      - switch.power_strip_socket_2
   mode: single
   alias: Dim Lights
 disco_lights:

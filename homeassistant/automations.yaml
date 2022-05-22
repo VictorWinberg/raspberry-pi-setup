@@ -196,8 +196,7 @@
     target:
       entity_id:
       - switch.window_plug
-      - switch.power_strip_3
-      - switch.power_strip_2
+      - switch.power_strip_socket_2
   mode: single
 - id: '1607431749233'
   alias: Bodypump
