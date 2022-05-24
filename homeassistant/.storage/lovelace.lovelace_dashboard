@@ -55,7 +55,7 @@
                                                     "titleColor": "#D63118"
                                                 },
                                                 {
-                                                    "entity": "calendar.victors_fodelsedagar",
+                                                    "entity": "calendar.victor_fodelsedagar",
                                                     "titleColor": "#D63118"
                                                 },
                                                 {
@@ -63,7 +63,7 @@
                                                     "titleColor": "#0F8482"
                                                 },
                                                 {
-                                                    "entity": "calendar.victors_kalender",
+                                                    "entity": "calendar.victor_kalender",
                                                     "titleColor": "#326BB7"
                                                 },
                                                 {
