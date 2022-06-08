@@ -269,7 +269,8 @@
                                 ],
                                 "columns": 4
                             },
-                            "type": "custom:mini-media-player"
+                            "type": "custom:mini-media-player",
+                            "toggle_power": false
                         }
                     ],
                     "icon": "mdi:home",
