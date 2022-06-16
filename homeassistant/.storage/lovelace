@@ -1040,40 +1040,40 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.tradfri_remote_control_battery_level",
+                                    "entity": "sensor.tradfri_remote_control_battery",
                                     "name": "Remotes",
                                     "icon": "mdi:remote",
                                     "state_header": "Remote",
                                     "entities": [
                                         {
                                             "name": "Symfonisk",
-                                            "entity": "sensor.symfonisk_controller_battery_level"
+                                            "entity": "sensor.symfonisk_controller_battery"
                                         }
                                     ],
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.tradfri_open_close_switch_1_battery_level",
+                                    "entity": "sensor.tradfri_open_close_switch_1_battery",
                                     "name": "On/Off",
                                     "icon": "mdi:remote",
                                     "state_header": "On/Off",
                                     "entities": [
                                         {
                                             "name": "On/Off",
-                                            "entity": "sensor.tradfri_open_close_switch_2_battery_level"
+                                            "entity": "sensor.tradfri_open_close_switch_2_battery"
                                         }
                                     ],
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.fyrtur_block_out_roller_blind_battery_level_2",
+                                    "entity": "sensor.fyrtur_block_out_roller_blind_battery_2",
                                     "name": "Blinds",
                                     "icon": "hass:blinds-open",
                                     "state_header": "Blind R",
                                     "entities": [
                                         {
                                             "name": "Blind L",
-                                            "entity": "sensor.fyrtur_block_out_roller_blind_battery_level"
+                                            "entity": "sensor.fyrtur_block_out_roller_blind_battery"
                                         }
                                     ],
                                     "type": "custom:multiple-entity-row"
