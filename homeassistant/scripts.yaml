@@ -388,11 +388,12 @@ shutdown_in_x_minutes:
   alias: Shutdown in X minutes
   sequence:
   - delay:
-      hours: 2
-      minutes: 0
+      hours: 0
+      minutes: 30
       seconds: 0
       milliseconds: 0
   - service: script.power_off
+    data: {}
   mode: single
 dim_lights:
   sequence:
