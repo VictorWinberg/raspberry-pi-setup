@@ -1018,7 +1018,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.mr_battery_level",
+                                            "entity": "sensor.mr_iphone_battery_level",
                                             "name": "Battery"
                                         }
                                     ],
