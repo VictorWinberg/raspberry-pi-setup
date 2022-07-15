@@ -806,27 +806,6 @@
                             "show_header_toggle": false,
                             "title": "Alarm Clock",
                             "type": "entities"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.anniversary_bayside",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "spotcast.start",
-                                        "service_data": {
-                                            "entity_id": "media_player.speakers",
-                                            "random_song": true,
-                                            "repeat": "context",
-                                            "shuffle": true,
-                                            "uri": "spotify:playlist:40TkyHs5UHgX0l27xkjlNz",
-                                            "account": "mr"
-                                        }
-                                    }
-                                }
-                            ],
-                            "show_header_toggle": false
                         }
                     ],
                     "icon": "mdi:alarm",
