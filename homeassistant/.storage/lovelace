@@ -76,6 +76,7 @@
                                     "entity": "switch.window_plug",
                                     "name": "Window",
                                     "show_state": false,
+                                    "icon": "mdi:lamp-outline",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -93,6 +94,7 @@
                                     "entity": "switch.living_room_plug",
                                     "name": "Liv. Plug",
                                     "show_state": false,
+                                    "icon": "mdi:floor-lamp-outline",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -100,7 +102,7 @@
                                 {
                                     "entity": "switch.bed_strip",
                                     "show_state": false,
-                                    "icon": "mdi:led-strip",
+                                    "icon": "mdi:led-strip-variant",
                                     "tap_action": {
                                         "action": "toggle"
                                     }
@@ -1271,45 +1273,19 @@
                                     "type": "horizontal-stack",
                                     "cards": [
                                         {
-                                            "type": "custom:mini-graph-card",
-                                            "hours_to_show": 168,
-                                            "align_header": "center",
-                                            "show": {
-                                                "state": false,
-                                                "icon": false
-                                            },
-                                            "entities": [
-                                                "sensor.ny_teknik"
-                                            ],
-                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                            "type": "markdown",
+                                            "content": "Ny Teknik",
+                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
-                                            "type": "custom:mini-graph-card",
-                                            "hours_to_show": 168,
-                                            "name": "Sm\u00e5bolag",
-                                            "align_header": "center",
-                                            "show": {
-                                                "state": false,
-                                                "icon": false
-                                            },
-                                            "entities": [
-                                                "sensor.lf_smabolag"
-                                            ],
-                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                            "type": "markdown",
+                                            "content": "Sm\u00e5bolag",
+                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
-                                            "type": "custom:mini-graph-card",
-                                            "hours_to_show": 168,
-                                            "align_header": "center",
-                                            "name": "Avanza Z",
-                                            "show": {
-                                                "state": false,
-                                                "icon": false
-                                            },
-                                            "entities": [
-                                                "sensor.avanza_zero"
-                                            ],
-                                            "style": "ha-card {\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
+                                            "type": "markdown",
+                                            "content": "Avanza Z",
+                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         }
                                     ]
                                 },
@@ -1318,32 +1294,32 @@
                                     "cards": [
                                         {
                                             "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 w.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "1 m.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 m.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 w.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "1 m.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 m.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         },
                                         {
                                             "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}%</font>\n{%- endif %}\n",
+                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
                                             "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
                                         }
                                     ]
