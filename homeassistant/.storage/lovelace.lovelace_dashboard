@@ -361,6 +361,7 @@
                                                 },
                                                 {
                                                     "entity": "light.hallway_spots",
+                                                    "icon": "mdi:wall-sconce-flat",
                                                     "style": {
                                                         "left": "60%",
                                                         "top": "60%"
@@ -405,6 +406,7 @@
                                                 },
                                                 {
                                                     "entity": "switch.window_plug",
+                                                    "icon": "mdi:lamp",
                                                     "style": {
                                                         "left": "90%",
                                                         "top": "22%"
@@ -416,6 +418,7 @@
                                                 },
                                                 {
                                                     "entity": "switch.living_room_plug",
+                                                    "icon": "mdi:floor-lamp",
                                                     "style": {
                                                         "left": "90%",
                                                         "top": "65%"
@@ -450,6 +453,7 @@
                                                 },
                                                 {
                                                     "entity": "light.hallway_door",
+                                                    "icon": "mdi:globe-light",
                                                     "style": {
                                                         "left": "30%",
                                                         "top": "65%"
@@ -461,6 +465,7 @@
                                                 },
                                                 {
                                                     "entity": "light.hallway_kitchen",
+                                                    "icon": "mdi:globe-light",
                                                     "style": {
                                                         "left": "50%",
                                                         "top": "65%"
@@ -472,6 +477,7 @@
                                                 },
                                                 {
                                                     "entity": "light.kitchen_table",
+                                                    "icon": "mdi:ceiling-light",
                                                     "style": {
                                                         "left": "57%",
                                                         "top": "92%"
@@ -483,6 +489,7 @@
                                                 },
                                                 {
                                                     "entity": "light.kitchen_oven",
+                                                    "icon": "mdi:ceiling-light",
                                                     "style": {
                                                         "left": "48%",
                                                         "top": "77%"
@@ -494,6 +501,7 @@
                                                 },
                                                 {
                                                     "entity": "light.kitchen_sink",
+                                                    "icon": "mdi:ceiling-light",
                                                     "style": {
                                                         "left": "48%",
                                                         "top": "88%"
@@ -505,6 +513,7 @@
                                                 },
                                                 {
                                                     "entity": "light.bedroom",
+                                                    "icon": "mdi:bed",
                                                     "style": {
                                                         "left": "83%",
                                                         "top": "80%"
@@ -516,6 +525,7 @@
                                                 },
                                                 {
                                                     "entity": "switch.bed_strip",
+                                                    "icon": "mdi:string-lights",
                                                     "style": {
                                                         "left": "83%",
                                                         "top": "72%"
@@ -527,6 +537,7 @@
                                                 },
                                                 {
                                                     "entity": "light.philips_hue",
+                                                    "icon": "mdi:wall-sconce-round-variant",
                                                     "style": {
                                                         "left": "92%",
                                                         "top": "89%"
@@ -564,6 +575,7 @@
                                                 },
                                                 {
                                                     "entity": "light.led_strip_lifx",
+                                                    "icon": "mdi:led-strip-variant",
                                                     "style": {
                                                         "left": "70%",
                                                         "top": "27%"
@@ -597,6 +609,7 @@
                                                 },
                                                 {
                                                     "entity": "light.led_strip_philips",
+                                                    "icon": "mdi:led-strip-variant",
                                                     "style": {
                                                         "left": "70%",
                                                         "top": "47%"
