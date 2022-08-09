@@ -319,3 +319,17 @@
         - light.kitchen_oven
       activated: input_boolean.flashing_lights
       delay: 300
+- id: '1660077043222'
+  alias: Watering Plants
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.water_pump_switch
+  mode: single

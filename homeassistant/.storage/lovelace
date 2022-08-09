@@ -647,17 +647,6 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "input_select.remote_entity"
-                                },
-                                {
-                                    "entity": "input_select.symfonisk_entity"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
@@ -759,6 +748,39 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.water_pump_switch"
+                                },
+                                {
+                                    "entity": "switch.water_pump_autorun"
+                                },
+                                {
+                                    "entity": "sensor.water_pump_duration"
+                                },
+                                {
+                                    "entity": "sensor.water_pump_interval"
+                                },
+                                {
+                                    "entity": "sensor.water_pump_next_interval"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": false
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_select.remote_entity"
+                                },
+                                {
+                                    "entity": "input_select.symfonisk_entity"
+                                }
+                            ],
+                            "type": "entities"
                         },
                         {
                             "type": "entities",
