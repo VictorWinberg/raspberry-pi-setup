@@ -328,8 +328,25 @@
     offset: 0
   condition: []
   action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.water_pump_switch
+  - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
+    continue_on_timeout: false
+    timeout: 01:00:00
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Watering Plants
+      message: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
+        // 10 }} times'
+  - repeat:
+      count: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature //
+        10 }}'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.water_pump_switch
+      - delay:
+          hours: 0
+          minutes: 15
+          seconds: 0
+          milliseconds: 0
   mode: single

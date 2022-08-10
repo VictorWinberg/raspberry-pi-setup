@@ -20,8 +20,8 @@
                                     "cards": [
                                         {
                                             "type": "picture-entity",
-                                            "entity": "sensor.anniversary_bayside",
-                                            "image": "https://static.wixstatic.com/media/06c9c9_df9984655c4d4678803ea08cd3794c3d~mv2.jpg/v1/fit/w_320,h_320,q_90/06c9c9_df9984655c4d4678803ea08cd3794c3d~mv2.jpg",
+                                            "entity": "sensor.anniversary_stugfezt",
+                                            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/a3/26/3e/sandhammaren-beach.jpg?w=1200&h=-1&s=1",
                                             "show_state": true,
                                             "aspect_ratio": "4.5:1",
                                             "tap_action": {
@@ -137,9 +137,9 @@
                                         },
                                         {
                                             "current": true,
-                                            "details": false,
-                                            "entity": "weather.smhi_home",
-                                            "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n}\n.current {\n  position: relative;\n  font-size: 3em;\n  line-height: 1.5;\n  order: 2;\n  width: 385px;\n  height: 280px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n}\n.current .temp {\n  color: white;\n  font-weight: bold;\n  margin-top: 0.5em;\n  margin-right: -30px;\n}\n.current .tempc {\n  color: white;\n  font-weight: bold;\n  margin-top: 1.5em;\n}\n.forecast {\n  order: 1;\n}\n.forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n}\n.forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.33em 0;\n}\n.forecast .precipitation {\n  display: none;\n}\n",
+                                            "details": true,
+                                            "entity": "weather.kasinot",
+                                            "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 280px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
                                             "type": "custom:weather-card",
                                             "number_of_forecasts": "5"
                                         },

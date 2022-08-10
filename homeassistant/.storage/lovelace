@@ -753,19 +753,15 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.water_pump_switch"
-                                },
-                                {
-                                    "entity": "switch.water_pump_autorun"
+                                    "entity": "switch.water_pump_switch",
+                                    "secondary_info": "hi"
                                 },
                                 {
                                     "entity": "sensor.water_pump_duration"
                                 },
                                 {
-                                    "entity": "sensor.water_pump_interval"
-                                },
-                                {
-                                    "entity": "sensor.water_pump_next_interval"
+                                    "entity": "automation.watering_plants",
+                                    "name": "Automation (flow: 0.5 dl / 10 s)"
                                 }
                             ],
                             "show_header_toggle": false,
