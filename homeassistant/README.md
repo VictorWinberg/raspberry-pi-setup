@@ -21,58 +21,70 @@ Table of contents :book:
 =======================
 - [Table of contents :book:](#table-of-contents-book)
 - [Devices :iphone:](#devices-iphone)
-  - [Google Cast](#google-cast)
-  - [Mobile App](#mobile-app)
-  - [IKEA](#ikea)
-  - [Philips](#philips)
-  - [INNR](#innr)
-  - [LIFX](#lifx)
-  - [LG](#lg)
-  - [Sonoff](#sonoff)
+	- [Lights](#lights)
+	- [Switches](#switches)
+	- [Media](#media)
+	- [Sensors](#sensors)
 - [HACS :books:](#hacs-books)
 - [Automations :repeat:](#automations-repeat)
 - [Scripts :page_with_curl:](#scripts-page_with_curl)
 - [Custom Components :computer:](#custom-components-computer)
-  - [Vicnie](#vicnie)
+	- [Vicnie](#vicnie)
 
 Devices :iphone:
 =======
 
-### Google Cast
-- JBL Link 10
-- Chromecast
-- Chromecast Audio
+### Lights
 
-### Mobile App
-- Mr Phone
-- Ms Phone
-
-### IKEA
+#### IKEA
 - Trådfri LED bulb E27 600 lumen dimmable color
 - Trådfri LED bulb E27 806 lumen dimmable white (x5)
 - Omlopp LED spot (x3) + Trådfri driver
+
+#### Philips
+- Philips Hue
+- Philips Lightstrip
+
+#### LIFX
+- LIFX Z - Lightstrip
+
+### Switches
+
+#### IKEA
 - FYRTUR roller blind (x2) + Trådfri open/close switch (x2)
 - Trådfri Remote Control
 - Symfonisk Controller
 
-### Philips
-- Philips Hue
-- Philips Lightstrip
-
-### INNR
+#### INNR
 - SP 120 (x2)
 
-### LIFX
-- LIFX Z - Lightstrip
+#### Sonoff
+- Sonoff T1 - Smart Wall Light Switch
 
-### LG
+#### Nedis
+- Nedis Wifi Water Pump
+
+### Media
+
+#### Google Cast
+- JBL Link 10
+- Chromecast
+- Chromecast Audio
+
+#### LG
 - LG Smart TV
 
-### Netatmo
+### Sensors
+
+#### Netatmo
 - Netatmo Smart Indoor Air Quality Monitor 
 
-### Sonoff
-- Sonoff T1 - Smart Wall Light Switch
+#### Aqara
+- Aqara Temperature/Humidity Sensor (x2)
+
+#### Mobile App
+- Mr Phone
+- Ms Phone
 
 HACS :books:
 ====
@@ -107,6 +119,7 @@ Automations :repeat:
 - Evening - Dim lights
 - Sunset - Balcony Lights
 - Certificate Expiration - Notification
+- Sunrise - Watering Plants
 
 Scripts :page_with_curl:
 =======
