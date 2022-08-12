@@ -335,7 +335,8 @@
     data:
       title: Watering Plants
       message: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
-        // 10 }} times'
+        // 10 }} times ({{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
+        }}°C)'
   - repeat:
       count: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature //
         10 }}'

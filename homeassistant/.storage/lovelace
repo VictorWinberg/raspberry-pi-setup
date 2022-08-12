@@ -18,6 +18,7 @@
                                 {
                                     "entity": "switch.sonoff_10008c59d6",
                                     "name": "Office",
+                                    "icon": "mdi:office-building",
                                     "show_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -753,8 +754,7 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.water_pump_switch",
-                                    "secondary_info": "hi"
+                                    "entity": "switch.water_pump_switch"
                                 },
                                 {
                                     "entity": "sensor.water_pump_duration"
