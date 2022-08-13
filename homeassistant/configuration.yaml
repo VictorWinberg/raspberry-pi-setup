@@ -97,10 +97,6 @@ input_boolean:
     name: "Enable Wake-up on weekends"
     initial: off
     icon: mdi:calendar-blank
-  flashing_lights:
-    name: Flashing lights
-    initial: off
-    icon: mdi:party-popper
 
 input_datetime:
   wakeup_time:
@@ -112,7 +108,7 @@ input_datetime:
     name: "Light transition time"
     has_time: true
     has_date: false
-    initial: "00:15"
+    initial: "00:30"
     icon: mdi:timer
   goodnight_transition_time:
     name: "Light transition time"

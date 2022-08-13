@@ -402,6 +402,402 @@
                             "type": "horizontal-stack"
                         },
                         {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_airq_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "name": "Bedroom",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_co2"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.netatmo_airq_temperature"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.office_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "name": "Office",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.office_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.office_temperature"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "sensor.balcony_temperature",
+                                    "type": "custom:multiple-entity-row",
+                                    "show_state": false,
+                                    "name": "Balcony",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.balcony_humidity"
+                                        },
+                                        {
+                                            "name": false,
+                                            "entity": "sensor.balcony_temperature"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.water_pump_switch"
+                                },
+                                {
+                                    "entity": "sensor.water_pump_duration"
+                                },
+                                {
+                                    "entity": "automation.watering_plants",
+                                    "name": "Automation (flow: 0.5 dl / 10 s)"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": false
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "show_icon": false
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "show_icon": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "icon": "mdi:view-dashboard",
+                    "path": "custom",
+                    "theme": "clear-dark",
+                    "title": "Custom"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_datetime.wakeup_time"
+                                },
+                                {
+                                    "entity": "sensor.time_until_alarm"
+                                },
+                                {
+                                    "entity": "input_boolean.wakeup_enabled",
+                                    "name": "Enabled"
+                                },
+                                {
+                                    "entity": "input_boolean.wakeup_weekend",
+                                    "name": "Weekend"
+                                },
+                                {
+                                    "entity": "input_datetime.light_transition_time",
+                                    "name": "Wake-up transition time"
+                                },
+                                {
+                                    "entity": "input_datetime.goodnight_transition_time",
+                                    "name": "Goodnight transition time"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Alarm Clock",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:alarm",
+                    "panel": false,
+                    "path": "alarm-clock",
+                    "theme": "clear-dark",
+                    "title": "Alarm Clock"
+                },
+                {
+                    "theme": "clear-dark",
+                    "icon": "mdi:remote-tv",
+                    "path": "remote-tv",
+                    "title": "",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "apps": [
+                                {
+                                    "app": "Netflix",
+                                    "image": "/local/netflix.svg"
+                                },
+                                {
+                                    "app": "YouTube",
+                                    "image": "/local/youtube.svg"
+                                },
+                                {
+                                    "app": "Nintendo Switch",
+                                    "image": "/local/nintendo-switch.svg"
+                                },
+                                {
+                                    "app": "Chromecast",
+                                    "image": "/local/chromecast.svg"
+                                }
+                            ],
+                            "back": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "BACK",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "down": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "DOWN",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "entity": "media_player.mio_tv",
+                            "forward": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "media_player.media_next_track",
+                                    "service_data": {
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "home": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "HOME",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "info": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "INFO",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "left": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "LEFT",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "play": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "media_player.media_play_pause",
+                                    "service_data": {
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "power": {
+                                "show": false
+                            },
+                            "reverse": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "media_player.media_previous_track",
+                                    "service_data": {
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "right": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "RIGHT",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "select": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "ENTER",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "tv": true,
+                            "type": "custom:roku-card",
+                            "up": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "UP",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "volume_down": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "VOLUMEDOWN",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "volume_mute": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "MUTE",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            },
+                            "volume_up": {
+                                "tap_action": {
+                                    "action": "call-service",
+                                    "service": "webostv.button",
+                                    "service_data": {
+                                        "button": "VOLUMEUP",
+                                        "entity_id": "media_player.mio_tv"
+                                    }
+                                }
+                            }
+                        },
+                        {
                             "cards": [
                                 {
                                     "cards": [
@@ -648,126 +1044,6 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "show_icon": false
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "show_icon": false
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-up",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.open_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:stop",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.stop_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-down",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.close_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-up",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.open_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:stop",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.stop_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-down",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.close_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.water_pump_switch"
-                                },
-                                {
-                                    "entity": "sensor.water_pump_duration"
-                                },
-                                {
-                                    "entity": "automation.watering_plants",
-                                    "name": "Automation (flow: 0.5 dl / 10 s)"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "state_color": false
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "input_select.remote_entity"
@@ -777,233 +1053,6 @@
                                 }
                             ],
                             "type": "entities"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.flashing_lights"
-                                },
-                                {
-                                    "entity": "input_select.magic_cube_side"
-                                }
-                            ]
-                        }
-                    ],
-                    "icon": "mdi:view-dashboard",
-                    "path": "custom",
-                    "theme": "clear-dark",
-                    "title": "Custom"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_datetime.wakeup_time"
-                                },
-                                {
-                                    "entity": "sensor.time_until_alarm"
-                                },
-                                {
-                                    "entity": "input_boolean.wakeup_enabled",
-                                    "name": "Enabled"
-                                },
-                                {
-                                    "entity": "input_boolean.wakeup_weekend",
-                                    "name": "Weekend"
-                                },
-                                {
-                                    "entity": "input_datetime.light_transition_time",
-                                    "name": "Wake-up transition time"
-                                },
-                                {
-                                    "entity": "input_datetime.goodnight_transition_time",
-                                    "name": "Goodnight transition time"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Alarm Clock",
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:alarm",
-                    "panel": false,
-                    "path": "alarm-clock",
-                    "theme": "clear-dark",
-                    "title": "Alarm Clock"
-                },
-                {
-                    "icon": "mdi:remote-tv",
-                    "path": "remote-tv",
-                    "theme": "clear-dark",
-                    "title": "",
-                    "type": "panel",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "apps": [
-                                {
-                                    "app": "Netflix",
-                                    "image": "/local/netflix.svg"
-                                },
-                                {
-                                    "app": "YouTube",
-                                    "image": "/local/youtube.svg"
-                                },
-                                {
-                                    "app": "Nintendo Switch",
-                                    "image": "/local/nintendo-switch.svg"
-                                },
-                                {
-                                    "app": "Chromecast",
-                                    "image": "/local/chromecast.svg"
-                                }
-                            ],
-                            "back": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "BACK",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "down": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "DOWN",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "entity": "media_player.mio_tv",
-                            "forward": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_next_track",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "home": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "HOME",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "info": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "INFO",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "left": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "LEFT",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "play": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_play_pause",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "power": {
-                                "show": false
-                            },
-                            "reverse": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_previous_track",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "right": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "RIGHT",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "select": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "ENTER",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "tv": true,
-                            "type": "custom:roku-card",
-                            "up": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "UP",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_down": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "VOLUMEDOWN",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_mute": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "MUTE",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_up": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "VOLUMEUP",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            }
                         }
                     ]
                 },
@@ -1082,37 +1131,6 @@
                             "show_header_toggle": false,
                             "title": "Info",
                             "type": "entities"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_airq_health",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_airq_temperature",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "icon": "hass:air-filter",
-                                    "name": "Netatmo",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_co2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_humidity"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_temperature"
-                                        }
-                                    ]
-                                }
-                            ]
                         },
                         {
                             "type": "custom:vertical-stack-in-card",
