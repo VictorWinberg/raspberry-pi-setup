@@ -405,6 +405,11 @@
                             "type": "entities",
                             "entities": [
                                 {
+                                    "entity": "weather.smhi_home",
+                                    "secondary_info": "none",
+                                    "name": "Malm\u00f6"
+                                },
+                                {
                                     "entity": "sensor.netatmo_airq_temperature",
                                     "type": "custom:multiple-entity-row",
                                     "show_state": false,
