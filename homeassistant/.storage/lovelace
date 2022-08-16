@@ -431,7 +431,7 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.office_temperature",
+                                    "entity": "sensor.office_sensor",
                                     "type": "custom:multiple-entity-row",
                                     "show_state": false,
                                     "name": "Office",
@@ -439,16 +439,16 @@
                                     "entities": [
                                         {
                                             "name": false,
-                                            "entity": "sensor.office_humidity"
+                                            "entity": "sensor.office_sensor_2"
                                         },
                                         {
                                             "name": false,
-                                            "entity": "sensor.office_temperature"
+                                            "entity": "sensor.office_sensor"
                                         }
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.balcony_temperature",
+                                    "entity": "sensor.balcony_sensor",
                                     "type": "custom:multiple-entity-row",
                                     "show_state": false,
                                     "name": "Balcony",
@@ -456,11 +456,11 @@
                                     "entities": [
                                         {
                                             "name": false,
-                                            "entity": "sensor.balcony_humidity"
+                                            "entity": "sensor.balcony_sensor_2"
                                         },
                                         {
                                             "name": false,
-                                            "entity": "sensor.balcony_temperature"
+                                            "entity": "sensor.balcony_sensor"
                                         }
                                     ]
                                 }
