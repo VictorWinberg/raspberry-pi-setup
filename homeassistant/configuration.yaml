@@ -84,6 +84,7 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
+template: !include templates.yaml
 frontend:
   themes: !include_dir_merge_named themes
 
@@ -154,6 +155,11 @@ input_text:
   good_morning_playlist:
     name: Good morning Playlist
     initial: spotify:playlist:37i9dQZF1DX4sWSpwq3LiO
+  anniversary_image:
+    name: Anniversary Image
+    initial: https://placekitten.com/600/200
+  anniversary_entity:
+    name: Anniversary Entity
 
 input_select:
   remote_entity:
@@ -221,4 +227,3 @@ input_select:
      - chef-man
     initial: chef-woman
     icon: mdi:chef-hat
-

@@ -1,0 +1,4 @@
+- sensor:
+  - name: "{{ state_attr(states('input_text.anniversary_entity'), 'friendly_name') }}"
+    unique_id: "template_anniversary_entity_id"
+    state: "{{ states(states('input_text.anniversary_entity')) }}"

@@ -20,8 +20,8 @@
                                     "cards": [
                                         {
                                             "type": "picture-entity",
-                                            "entity": "sensor.anniversary_stugfezt",
-                                            "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/a3/26/3e/sandhammaren-beach.jpg?w=1200&h=-1&s=1",
+                                            "entity": "sensor.anniversary_entity",
+                                            "camera_image": "camera.anniversary_image",
                                             "show_state": true,
                                             "aspect_ratio": "4.5:1",
                                             "tap_action": {
