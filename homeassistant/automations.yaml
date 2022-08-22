@@ -322,11 +322,11 @@
     data:
       title: Watering Plants
       message: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
-        // 8 }} times ({{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
+        // 10 }} times ({{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
         }}°C)'
   - repeat:
       count: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature //
-        8 }}'
+        10 }}'
       sequence:
       - service: switch.turn_on
         data: {}
