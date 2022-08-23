@@ -75,7 +75,7 @@ External Storage :file_folder:
 -----------------------------
 [External Storage Documentation](https://www.raspberrypi.org/documentation/configuration/external-storage.md)
 
-- Automatically mount storage devices using `fstab`
+- [Automatically mount storage devices using `fstab`](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-automatic-mounting)
 ```vim
 # /etc/fstab
 UUID=XXXX-XXXX /mnt/exfat exfat defaults,auto,users,rw,nofail 0 0
