@@ -402,6 +402,26 @@
                             "type": "horizontal-stack"
                         },
                         {
+                            "type": "picture-entity",
+                            "entity": "sensor.anniversary_entity",
+                            "camera_image": "camera.anniversary_image",
+                            "show_state": true,
+                            "aspect_ratio": "4.5:1",
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "spotcast.start",
+                                "service_data": {
+                                    "entity_id": "media_player.speakers",
+                                    "random_song": true,
+                                    "repeat": "context",
+                                    "shuffle": true,
+                                    "uri": "spotify:playlist:6570qmvZGKWzcIsLfUcHdd",
+                                    "account": "mr"
+                                },
+                                "target": {}
+                            }
+                        },
+                        {
                             "type": "entities",
                             "entities": [
                                 {
