@@ -64,13 +64,13 @@ google_assistant:
       name: Goodnight
       expose: true
 
-#webostv:
-#  host: !secret mio_tv_ip
-#  name: Mio TV
-#  turn_on_action:
-#    service: wake_on_lan.send_magic_packet
-#    data:
-#      mac: !secret mio_tv_mac
+webostv:
+  host: !secret mio_tv_ip
+  name: Mio TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret mio_tv_mac
 
 homeassistant:
   customize:
