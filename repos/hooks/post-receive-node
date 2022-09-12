@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eu # exit script on errors
+source ~/.profile
 . $HOME/.nvm/nvm.sh
 
 WORK_TREE="/home/git/www/${REPO}"
