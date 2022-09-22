@@ -164,6 +164,7 @@ blinds_open:
   - service: script.turn_off
     target:
       entity_id: script.blinds_close
+    data: {}
   - service: cover.open_cover
     data: {}
     target:
@@ -181,6 +182,7 @@ blinds_open:
     target:
       entity_id:
       - cover.bedroom_blind_r
+    data: {}
   - delay:
       hours: 0
       minutes: 2
@@ -190,6 +192,18 @@ blinds_open:
     target:
       entity_id:
       - cover.bedroom_blind_l
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: cover.open_cover
+    data: {}
+    target:
+      entity_id:
+      - cover.bedroom_blind_l
+      - cover.bedroom_blind_r
   mode: single
 blinds_close:
   alias: Blinds Close
