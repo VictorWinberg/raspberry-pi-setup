@@ -154,7 +154,7 @@ input_text:
     initial: spotify:playlist:37i9dQZF1DX4WYpdgoIcn6
   good_morning_playlist:
     name: Good morning Playlist
-    initial: spotify:playlist:37i9dQZF1DX4sWSpwq3LiO
+    initial: spotify:playlist:3IBrsav3Sh8AImtaGoaP07
   anniversary_image:
     name: Anniversary Image
     initial: https://placekitten.com/600/200

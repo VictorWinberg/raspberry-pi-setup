@@ -304,14 +304,11 @@ good_morning:
       volume_level: 0.3
     target:
       entity_id: media_player.sorrysound_audio
-  - service: spotcast.start
+  - service: script.play_spotify
     data:
       entity_id: media_player.speakers
-      uri: https://open.spotify.com/playlist/7oNV62TsIiX8VN5MeBsR7c
-      account: ms
-      random_song: true
-      repeat: context
-      shuffle: true
+      uri: input_text.good_morning_playlist
+      account: mr
   mode: single
 good_night:
   alias: Good Night
