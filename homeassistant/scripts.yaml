@@ -338,6 +338,7 @@ good_night:
         - light.bedroom
     - delay: 00:00:30
     - service: script.power_off
+      data: {}
     - delay:
         hours: 0
         minutes: 0
@@ -361,6 +362,32 @@ good_night:
         - 0
         - 0
         entity_id: light.philips_hue
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.1
+      target:
+        entity_id: media_player.sorrysound_audio
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.2
+      target:
+        entity_id: media_player.nest_mini
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.2
+      target:
+        entity_id: media_player.portable_speaker
+    - service: script.play_spotify
+      data:
+        entity_id: media_player.speakers
+        uri: input_text.goodnight_playlist
+        account: mr
+    - delay: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
+        | int}}'
+    - service: media_player.turn_off
+      data: {}
+      target:
+        entity_id: media_player.speakers
   mode: single
 random_light_toggle:
   alias: Random light toggle
