@@ -130,6 +130,109 @@
                             "type": "custom:mod-card"
                         },
                         {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "show_icon": false
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "show_icon": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_l",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-up",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.open_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:stop",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.stop_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "cover.bedroom_blind_r",
+                                            "icon": "mdi:arrow-down",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "cover.close_cover",
+                                                "service_data": {
+                                                    "entity_id": "entity"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "entities": [
                                 {
                                     "entities": [
@@ -246,11 +349,6 @@
                                         "type": "source"
                                     },
                                     {
-                                        "icon": "mdi:spotify",
-                                        "id": "Spotify Music - Listen free on LG TV",
-                                        "type": "source"
-                                    },
-                                    {
                                         "icon": "mdi:nintendo-switch",
                                         "id": "Nintendo Switch",
                                         "type": "source"
@@ -259,16 +357,6 @@
                                         "icon": "mdi:cast",
                                         "type": "script",
                                         "id": "script.ping_tv"
-                                    },
-                                    {
-                                        "id": "SVT Play",
-                                        "name": "SVT",
-                                        "type": "source"
-                                    },
-                                    {
-                                        "id": "Viaplay",
-                                        "name": "Viaplay",
-                                        "type": "source"
                                     }
                                 ],
                                 "columns": 4
@@ -505,20 +593,62 @@
                             "state_color": false
                         },
                         {
-                            "type": "vertical-stack",
+                            "type": "custom:vertical-stack-in-card",
                             "cards": [
                                 {
                                     "type": "horizontal-stack",
                                     "cards": [
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "show_icon": false
+                                            "entity": "input_select.chef_monday",
+                                            "icon": "mdi:alpha-m-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_monday"
+                                                }
+                                            }
                                         },
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "show_icon": false
+                                            "entity": "input_select.chef_tuesday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_tuesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_wednesday",
+                                            "icon": "mdi:alpha-w-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_wednesday"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "custom:button-card",
+                                            "entity": "input_select.chef_thursday",
+                                            "icon": "mdi:alpha-t-circle",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_next",
+                                                "service_data": {
+                                                    "entity_id": "input_select.chef_thursday"
+                                                }
+                                            }
                                         }
                                     ]
                                 },
@@ -527,79 +657,60 @@
                                     "cards": [
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-up",
+                                            "entity": "input_select.chef_monday",
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
                                             "show_name": false,
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "cover.open_cover",
+                                                "service": "input_select.select_next",
                                                 "service_data": {
-                                                    "entity_id": "entity"
+                                                    "entity_id": "input_select.chef_monday"
                                                 }
                                             }
                                         },
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:stop",
+                                            "entity": "input_select.chef_tuesday",
+                                            "icon": "mdi:alpha-t-circle",
                                             "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "cover.stop_cover",
+                                                "service": "input_select.select_next",
                                                 "service_data": {
-                                                    "entity_id": "entity"
+                                                    "entity_id": "input_select.chef_tuesday"
                                                 }
                                             }
                                         },
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-down",
+                                            "entity": "input_select.chef_wednesday",
+                                            "icon": "mdi:alpha-w-circle",
                                             "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "cover.close_cover",
+                                                "service": "input_select.select_next",
                                                 "service_data": {
-                                                    "entity_id": "entity"
+                                                    "entity_id": "input_select.chef_wednesday"
                                                 }
                                             }
                                         },
                                         {
                                             "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-up",
+                                            "entity": "input_select.chef_thursday",
+                                            "icon": "mdi:alpha-t-circle",
                                             "show_name": false,
+                                            "show_entity_picture": true,
+                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "cover.open_cover",
+                                                "service": "input_select.select_next",
                                                 "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:stop",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.stop_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-down",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.close_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
+                                                    "entity_id": "input_select.chef_thursday"
                                                 }
                                             }
                                         }
@@ -1067,23 +1178,6 @@
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_select.remote_entity"
-                                },
-                                {
-                                    "entity": "input_select.symfonisk_entity"
-                                },
-                                {
-                                    "entity": "input_text.anniversary_image"
-                                },
-                                {
-                                    "entity": "input_text.anniversary_entity"
-                                }
-                            ],
-                            "type": "entities"
                         }
                     ]
                 },
@@ -1164,132 +1258,6 @@
                             "type": "entities"
                         },
                         {
-                            "type": "custom:vertical-stack-in-card",
-                            "cards": [
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_monday",
-                                            "icon": "mdi:alpha-m-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_monday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_tuesday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_tuesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_wednesday",
-                                            "icon": "mdi:alpha-w-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_wednesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_thursday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_thursday"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_monday",
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_monday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_tuesday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_tuesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_wednesday",
-                                            "icon": "mdi:alpha-w-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_wednesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_thursday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_thursday"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "input_text.annie_playlist",
@@ -1334,64 +1302,21 @@
                             "type": "glance"
                         },
                         {
-                            "type": "vertical-stack",
-                            "cards": [
+                            "entities": [
                                 {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "markdown",
-                                            "content": "Ny Teknik",
-                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "Sm\u00e5bolag",
-                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "Avanza Z",
-                                            "style": "ha-card {\n  box-shadow: none;\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        }
-                                    ]
+                                    "entity": "input_select.remote_entity"
                                 },
                                 {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 m.\n{% if state_attr('sensor.ny_teknik', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.ny_teknik', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 m.\n{% if state_attr('sensor.lf_smabolag', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.lf_smabolag', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneWeek') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneWeek')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "1 w.\n{% if state_attr('sensor.world_tech', 'changePercentOneMonth') > 0 -%}\n  <font color=#0474ca>+{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}</font>\n{%- else -%}\n  <font color=#d90e48>{{state_attr('sensor.world_tech', 'changePercentOneMonth')}}</font>\n{%- endif %}\n",
-                                            "style": "ha-card {\n  text-align: center;\n  margin: 0 -1em;\n  box-shadow: none;\n  background-color: rgba(0, 0, 0, 0);\n}\n"
-                                        }
-                                    ]
+                                    "entity": "input_select.symfonisk_entity"
+                                },
+                                {
+                                    "entity": "input_text.anniversary_image"
+                                },
+                                {
+                                    "entity": "input_text.anniversary_entity"
                                 }
-                            ]
+                            ],
+                            "type": "entities"
                         }
                     ]
                 }
