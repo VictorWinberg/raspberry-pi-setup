@@ -266,9 +266,6 @@ good_morning:
   sequence:
   - service: script.turn_on
     data: {}
-    entity_id: script.blinds_open
-  - service: script.turn_on
-    data: {}
     entity_id: script.pulsing_lights
   - service: light.turn_on
     data:
@@ -309,6 +306,9 @@ good_morning:
       entity_id: media_player.speakers
       uri: input_text.good_morning_playlist
       account: mr
+  - service: script.turn_on
+    data: {}
+    entity_id: script.blinds_open
   mode: single
 good_night:
   alias: Good Night
@@ -322,9 +322,6 @@ good_night:
       - service: script.hot_night
         data: {}
     default:
-    - service: script.turn_on
-      data: {}
-      entity_id: script.blinds_close
     - service: light.turn_on
       data:
         flash: short
@@ -336,6 +333,9 @@ good_night:
         entity_id:
         - light.philips_hue
         - light.bedroom
+    - service: script.turn_on
+      data: {}
+      entity_id: script.blinds_close
     - delay: 00:00:30
     - service: script.power_off
       data: {}
