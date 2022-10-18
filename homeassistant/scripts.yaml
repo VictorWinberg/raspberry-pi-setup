@@ -382,8 +382,11 @@ good_night:
         entity_id: media_player.speakers
         uri: input_text.goodnight_playlist
         account: mr
-    - delay: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
-        | int}}'
+    - delay:
+        hours: 0
+        minutes: 30
+        seconds: 0
+        milliseconds: 0
     - service: media_player.turn_off
       data: {}
       target:
