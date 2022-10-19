@@ -364,12 +364,12 @@ good_night:
         entity_id: light.philips_hue
     - service: media_player.volume_set
       data:
-        volume_level: 0.1
+        volume_level: 0.2
       target:
         entity_id: media_player.sorrysound_audio
     - service: media_player.volume_set
       data:
-        volume_level: 0.2
+        volume_level: 0.1
       target:
         entity_id: media_player.nest_mini
     - service: media_player.volume_set
