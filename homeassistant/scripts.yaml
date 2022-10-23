@@ -17,9 +17,8 @@ start_video_lights:
     service: light.turn_on
   - condition: template
     value_template: '{{ video is defined }}'
-  - data: {}
-    entity_id: media_player.mio_tv
-    service: media_player.turn_on
+  - service: script.ping_tv
+    data: {}
   - service: media_player.play_media
     data_template:
       media_content_type: cast

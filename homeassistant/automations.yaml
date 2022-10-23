@@ -100,11 +100,19 @@
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - sun
   action:
   - condition: time
     after: '20:15'
     before: 05:00
   - service: script.dim_lights
+    data: {}
   mode: single
 - id: power_off_for_work
   alias: Power off - @Work
@@ -288,9 +296,6 @@
       entity_id: input_number.light_brightness
     data:
       value: 10
-  - condition: state
-    entity_id: media_player.mio_tv
-    state: 'on'
   - service: script.play_spotify
     data:
       uri: input_text.goodnight_playlist
@@ -337,4 +342,52 @@
           entity_id:
           - switch.water_pump_switch
           to: 'off'
+  mode: single
+- id: '1666530802374'
+  alias: TV Lights - Listener
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - media_player.mio_tv
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      transition: 10
+      brightness_pct: 80
+    target:
+      entity_id:
+      - light.led_strip_philips
+      - light.led_strip_lifx
+  - service: light.turn_on
+    data:
+      transition: 10
+      brightness_pct: 5
+    target:
+      entity_id: light.living_room
+  mode: single
+- id: '1666531317595'
+  alias: Lunch time - Turn on lights
+  description: ''
+  trigger:
+  - platform: time
+    at: '12:00:00'
+  condition:
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  action:
+  - service: script.power_on
+    data: {}
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id:
+      - light.kitchen_oven
+      - light.kitchen_sink
+      - light.kitchen_table
   mode: single
