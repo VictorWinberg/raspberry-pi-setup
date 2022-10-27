@@ -383,7 +383,7 @@ good_night:
         account: mr
     - delay:
         hours: 0
-        minutes: 30
+        minutes: 15
         seconds: 0
         milliseconds: 0
     - service: media_player.turn_off
