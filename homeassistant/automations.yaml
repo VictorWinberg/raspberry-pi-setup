@@ -352,7 +352,10 @@
     - media_player.mio_tv
     from: 'off'
     to: 'on'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: light.living_room
+    state: 'off'
   action:
   - service: light.turn_on
     data:
