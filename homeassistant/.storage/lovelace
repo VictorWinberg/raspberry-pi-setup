@@ -1,1326 +1,1328 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace",
-    "data": {
-        "config": {
-            "swipe_nav": {
-                "animate": "swipe"
-            },
-            "title": "Kasinot",
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace",
+  "data": {
+    "config": {
+      "swipe_nav": {
+        "animate": "swipe"
+      },
+      "title": "Kasinot",
+      "views": [
+        {
+          "badges": [],
+          "cards": [
+            {
+              "columns": 4,
+              "entities": [
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "columns": 4,
-                            "entities": [
-                                {
-                                    "entity": "switch.sonoff_10008c59d6",
-                                    "name": "Office",
-                                    "icon": "mdi:office-building",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.tv_ambient",
-                                    "name": "TV Ambient",
-                                    "icon": "mdi:television",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.power_strip_socket_2",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.power_strip_socket_3",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.hallway",
-                                    "name": "Hallway",
-                                    "show_state": false,
-                                    "icon": "mdi:globe-light",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "light.living_room",
-                                    "name": "Liv. Light",
-                                    "show_state": false,
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.dining",
-                                    "name": "Dining",
-                                    "show_state": false,
-                                    "icon": "mdi:table-chair",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.window_plug",
-                                    "name": "Window",
-                                    "show_state": false,
-                                    "icon": "mdi:lamp-outline",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.kitchen",
-                                    "name": "Kitchen",
-                                    "show_state": false,
-                                    "icon": "mdi:fridge-outline",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.living_room_plug",
-                                    "name": "Liv. Plug",
-                                    "show_state": false,
-                                    "icon": "mdi:floor-lamp-outline",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "switch.bed_strip",
-                                    "show_state": false,
-                                    "icon": "mdi:led-strip-variant",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                },
-                                {
-                                    "entity": "group.bedroom",
-                                    "name": "Bedroom",
-                                    "show_state": false,
-                                    "icon": "mdi:bed",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    }
-                                }
-                            ],
-                            "type": "glance"
-                        },
-                        {
-                            "card": {
-                                "entity": "input_number.light_brightness",
-                                "full_row": true,
-                                "type": "custom:slider-entity-row"
-                            },
-                            "style": "ha-card {\n  color: white;\n  padding-right: 1em;\n}\n",
-                            "type": "custom:mod-card"
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "show_icon": false
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "show_icon": false
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-up",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.open_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:stop",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.stop_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_l",
-                                            "icon": "mdi:arrow-down",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.close_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-up",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.open_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:stop",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.stop_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "cover.bedroom_blind_r",
-                                            "icon": "mdi:arrow-down",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "cover.close_cover",
-                                                "service_data": {
-                                                    "entity_id": "entity"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "media_player.portable_speaker",
-                                            "group": true,
-                                            "hide": {
-                                                "power_state": false
-                                            },
-                                            "type": "custom:mini-media-player"
-                                        },
-                                        {
-                                            "entity": "media_player.sorrysound_audio",
-                                            "group": true,
-                                            "hide": {
-                                                "power_state": false
-                                            },
-                                            "name": "Audio",
-                                            "type": "custom:mini-media-player"
-                                        },
-                                        {
-                                            "entity": "media_player.nest_mini",
-                                            "group": true,
-                                            "hide": {
-                                                "power_state": false
-                                            },
-                                            "type": "custom:mini-media-player"
-                                        }
-                                    ],
-                                    "head": {
-                                        "artwork": "cover",
-                                        "entity": "media_player.speakers",
-                                        "hide": {
-                                            "power_state": false
-                                        },
-                                        "shortcuts": {
-                                            "buttons": [
-                                                {
-                                                    "data": {
-                                                        "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.annie_playlist",
-                                                        "account": "ms"
-                                                    },
-                                                    "icon": "mdi:face-woman",
-                                                    "id": "script.play_spotify",
-                                                    "type": "script"
-                                                },
-                                                {
-                                                    "data": {
-                                                        "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.victor_playlist",
-                                                        "account": "mr"
-                                                    },
-                                                    "icon": "mdi:face-man",
-                                                    "id": "script.play_spotify",
-                                                    "type": "script"
-                                                },
-                                                {
-                                                    "data": {
-                                                        "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.us_playlist",
-                                                        "account": "ms"
-                                                    },
-                                                    "icon": "mdi:account-supervisor",
-                                                    "id": "script.play_spotify",
-                                                    "type": "script"
-                                                },
-                                                {
-                                                    "data": {
-                                                        "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.dinner_playlist",
-                                                        "account": "ms"
-                                                    },
-                                                    "icon": "mdi:glass-wine",
-                                                    "id": "script.play_spotify",
-                                                    "type": "script"
-                                                },
-                                                {
-                                                    "data": {
-                                                        "entity_id": "media_player.speakers",
-                                                        "uri": "input_text.goodnight_playlist",
-                                                        "account": "mr"
-                                                    },
-                                                    "icon": "mdi:weather-night",
-                                                    "id": "script.play_spotify",
-                                                    "type": "script"
-                                                }
-                                            ],
-                                            "columns": 5
-                                        },
-                                        "type": "custom:mini-media-player"
-                                    },
-                                    "type": "custom:fold-entity-row"
-                                }
-                            ],
-                            "style": ".card-content {\n  padding: 0;\n}\n",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.mio_tv",
-                            "hide": {
-                                "power_state": false
-                            },
-                            "shortcuts": {
-                                "buttons": [
-                                    {
-                                        "icon": "mdi:netflix",
-                                        "id": "Netflix",
-                                        "type": "source"
-                                    },
-                                    {
-                                        "icon": "mdi:youtube",
-                                        "id": "YouTube",
-                                        "type": "source"
-                                    },
-                                    {
-                                        "icon": "mdi:nintendo-switch",
-                                        "id": "Nintendo Switch",
-                                        "type": "source"
-                                    },
-                                    {
-                                        "icon": "mdi:cast",
-                                        "type": "script",
-                                        "id": "script.ping_tv"
-                                    }
-                                ],
-                                "columns": 4
-                            },
-                            "type": "custom:mini-media-player",
-                            "toggle_power": false
-                        }
-                    ],
-                    "icon": "mdi:home",
-                    "panel": false,
-                    "path": "default_view",
-                    "theme": "clear-dark",
-                    "title": "Home"
+                  "entity": "switch.sonoff_10008c59d6",
+                  "name": "Office",
+                  "icon": "mdi:office-building",
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  }
                 },
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "entity": "script.good_morning",
-                                    "icon": "mdi:weather-sunny",
-                                    "name": "WAKE UP",
-                                    "styles": {
-                                        "card": [
-                                            {
-                                                "font-size": "12px"
-                                            }
-                                        ],
-                                        "icon": [
-                                            {
-                                                "color": "yellow"
-                                            }
-                                        ]
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.good_morning"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "script.good_night",
-                                    "icon": "mdi:weather-night",
-                                    "name": "Goodnight",
-                                    "styles": {
-                                        "card": [
-                                            {
-                                                "font-size": "12px"
-                                            }
-                                        ],
-                                        "icon": [
-                                            {
-                                                "color": "brown"
-                                            }
-                                        ]
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.good_night"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "script.dim_lights",
-                                    "icon": "mdi:moon-waxing-crescent",
-                                    "name": "Dim",
-                                    "styles": {
-                                        "card": [
-                                            {
-                                                "font-size": "12px"
-                                            }
-                                        ],
-                                        "icon": [
-                                            {
-                                                "color": "cyan"
-                                            }
-                                        ]
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.dim_lights"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "script.power_on",
-                                    "icon": "mdi:power",
-                                    "name": "On",
-                                    "styles": {
-                                        "card": [
-                                            {
-                                                "font-size": "12px"
-                                            }
-                                        ],
-                                        "icon": [
-                                            {
-                                                "color": "green"
-                                            }
-                                        ]
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.power_on"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "script.power_off",
-                                    "icon": "mdi:power",
-                                    "name": "Off",
-                                    "styles": {
-                                        "card": [
-                                            {
-                                                "font-size": "12px"
-                                            }
-                                        ],
-                                        "icon": [
-                                            {
-                                                "color": "red"
-                                            }
-                                        ]
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.power_off"
-                                    },
-                                    "type": "custom:button-card"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "type": "picture-entity",
-                            "entity": "sensor.anniversary_entity",
-                            "camera_image": "camera.anniversary_image",
-                            "show_state": true,
-                            "aspect_ratio": "4.5:1",
-                            "tap_action": {
-                                "action": "call-service",
-                                "service": "spotcast.start",
-                                "service_data": {
-                                    "entity_id": "media_player.speakers",
-                                    "random_song": true,
-                                    "repeat": "context",
-                                    "shuffle": true,
-                                    "uri": "spotify:playlist:6570qmvZGKWzcIsLfUcHdd",
-                                    "account": "mr"
-                                },
-                                "target": {}
-                            }
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "weather.smhi_home",
-                                    "secondary_info": "none",
-                                    "name": "Malm\u00f6"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_airq_temperature",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "name": "Bedroom",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_co2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_humidity"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.netatmo_airq_temperature"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "entity": "sensor.office_sensor",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "name": "Office",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.office_sensor_2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.office_sensor"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "entity": "sensor.balcony_sensor",
-                                    "type": "custom:multiple-entity-row",
-                                    "show_state": false,
-                                    "name": "Balcony",
-                                    "secondary_info": "last-changed",
-                                    "entities": [
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.balcony_sensor_2"
-                                        },
-                                        {
-                                            "name": false,
-                                            "entity": "sensor.balcony_sensor"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "show_header_toggle": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.water_pump_switch"
-                                },
-                                {
-                                    "entity": "sensor.water_pump_duration"
-                                },
-                                {
-                                    "entity": "automation.watering_plants",
-                                    "name": "Automation (flow: 0.5 dl / 10 s)"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "state_color": false
-                        },
-                        {
-                            "type": "custom:vertical-stack-in-card",
-                            "cards": [
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_monday",
-                                            "icon": "mdi:alpha-m-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_monday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_tuesday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_tuesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_wednesday",
-                                            "icon": "mdi:alpha-w-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_wednesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_thursday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_thursday"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "horizontal-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_monday",
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "show_name": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_monday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_tuesday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_tuesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_wednesday",
-                                            "icon": "mdi:alpha-w-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_wednesday"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "custom:button-card",
-                                            "entity": "input_select.chef_thursday",
-                                            "icon": "mdi:alpha-t-circle",
-                                            "show_name": false,
-                                            "show_entity_picture": true,
-                                            "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_next",
-                                                "service_data": {
-                                                    "entity_id": "input_select.chef_thursday"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "icon": "mdi:view-dashboard",
-                    "path": "custom",
-                    "theme": "clear-dark",
-                    "title": "Custom"
+                  "entity": "group.tv_ambient",
+                  "name": "TV Ambient",
+                  "icon": "mdi:television",
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  }
                 },
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_datetime.wakeup_time"
-                                },
-                                {
-                                    "entity": "sensor.time_until_alarm"
-                                },
-                                {
-                                    "entity": "input_boolean.wakeup_enabled",
-                                    "name": "Enabled"
-                                },
-                                {
-                                    "entity": "input_boolean.wakeup_weekend",
-                                    "name": "Weekend"
-                                },
-                                {
-                                    "entity": "input_datetime.light_transition_time",
-                                    "name": "Wake-up transition time"
-                                },
-                                {
-                                    "entity": "input_datetime.goodnight_transition_time",
-                                    "name": "Goodnight transition time"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Alarm Clock",
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:alarm",
-                    "panel": false,
-                    "path": "alarm-clock",
-                    "theme": "clear-dark",
-                    "title": "Alarm Clock"
+                  "entity": "switch.power_strip_socket_2",
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  }
                 },
                 {
-                    "theme": "clear-dark",
-                    "icon": "mdi:remote-tv",
-                    "path": "remote-tv",
-                    "title": "",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "apps": [
-                                {
-                                    "app": "Netflix",
-                                    "image": "/local/netflix.svg"
-                                },
-                                {
-                                    "app": "YouTube",
-                                    "image": "/local/youtube.svg"
-                                },
-                                {
-                                    "app": "Nintendo Switch",
-                                    "image": "/local/nintendo-switch.svg"
-                                },
-                                {
-                                    "app": "Chromecast",
-                                    "image": "/local/chromecast.svg"
-                                }
-                            ],
-                            "back": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "BACK",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "down": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "DOWN",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "entity": "media_player.mio_tv",
-                            "forward": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_next_track",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "home": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "HOME",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "info": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "INFO",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "left": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "LEFT",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "play": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_play_pause",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "power": {
-                                "show": false
-                            },
-                            "reverse": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "media_player.media_previous_track",
-                                    "service_data": {
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "right": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "RIGHT",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "select": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "ENTER",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "tv": true,
-                            "type": "custom:roku-card",
-                            "up": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "UP",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_down": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "VOLUMEDOWN",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_mute": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "MUTE",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            },
-                            "volume_up": {
-                                "tap_action": {
-                                    "action": "call-service",
-                                    "service": "webostv.button",
-                                    "service_data": {
-                                        "button": "VOLUMEUP",
-                                        "entity_id": "media_player.mio_tv"
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(130, 130, 130)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        255,
-                                                        255,
-                                                        255
-                                                    ],
-                                                    "video": "V37Q3l6AFAU"
-                                                }
-                                            },
-                                            "icon": "mdi:lightbulb-on-outline",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "255,255,255"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(128, 0, 128)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        128,
-                                                        0,
-                                                        128
-                                                    ],
-                                                    "video": "sRE5iQCdRvE",
-                                                    "song": "spotify:playlist:7rlCwXBPo431YiHj1xWLnP"
-                                                }
-                                            },
-                                            "icon": "mdi:human-handsup",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "128,0,128"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(90, 255, 70)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        90,
-                                                        255,
-                                                        70
-                                                    ],
-                                                    "video": "E8y3eDUMb4Q",
-                                                    "song": "spotify:track:2W0BQsqgyO6a2LxGSDDB1I"
-                                                }
-                                            },
-                                            "icon": "mdi:code-braces",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "90,255,70"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(255, 145, 226)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "vicnie.tetzipetzi",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        255,
-                                                        145,
-                                                        226
-                                                    ]
-                                                }
-                                            },
-                                            "icon": "mdi:at",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "255,145,226"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(255, 43, 0)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        255,
-                                                        80,
-                                                        60
-                                                    ],
-                                                    "video": "M5V9CERbLcA"
-                                                }
-                                            },
-                                            "icon": "mdi:heart",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "255,43,0"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(255, 127, 80)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        255,
-                                                        127,
-                                                        80
-                                                    ],
-                                                    "video": "-50NdPawLVY"
-                                                }
-                                            },
-                                            "icon": "mdi:face-agent",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "255,127,80"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(150, 255, 120)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        150,
-                                                        255,
-                                                        120
-                                                    ],
-                                                    "video": "-IAfg_Iy7n8"
-                                                }
-                                            },
-                                            "icon": "mdi:pine-tree",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "150,255,120"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(255, 43, 0)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        255,
-                                                        80,
-                                                        60
-                                                    ],
-                                                    "video": "L_LUpnjgPso"
-                                                }
-                                            },
-                                            "icon": "mdi:campfire",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "255,43,0"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(100, 168, 255)",
-                                            "color_type": "icon",
-                                            "hold_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": [
-                                                        100,
-                                                        168,
-                                                        255
-                                                    ],
-                                                    "video": "MEuRS1aUYUU"
-                                                }
-                                            },
-                                            "icon": "mdi:waves",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.start_video_lights",
-                                                "service_data": {
-                                                    "rgb_color": "100,168,255"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ]
+                  "entity": "switch.power_strip_socket_3",
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  }
                 },
                 {
-                    "title": "Info",
-                    "path": "info",
-                    "icon": "mdi:information",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.mr_iphone_battery_level",
-                                            "name": "Battery"
-                                        }
-                                    ],
-                                    "entity": "person.victor",
-                                    "state_header": "Place",
-                                    "type": "custom:multiple-entity-row",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.ms_battery_level",
-                                            "name": "Battery"
-                                        }
-                                    ],
-                                    "entity": "person.annie",
-                                    "state_header": "Place",
-                                    "type": "custom:multiple-entity-row",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.tradfri_remote_control_battery",
-                                    "name": "Remotes",
-                                    "icon": "mdi:remote",
-                                    "state_header": "Remote",
-                                    "entities": [
-                                        {
-                                            "name": "Symfonisk",
-                                            "entity": "sensor.symfonisk_controller_battery"
-                                        }
-                                    ],
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entity": "sensor.fyrtur_block_out_roller_blind_battery_2",
-                                    "name": "Blinds",
-                                    "icon": "hass:blinds-open",
-                                    "state_header": "Blind R",
-                                    "entities": [
-                                        {
-                                            "name": "Blind L",
-                                            "entity": "sensor.fyrtur_block_out_roller_blind_battery"
-                                        }
-                                    ],
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entity": "sensor.tradfri_open_close_switch_1_battery",
-                                    "name": "On/Off",
-                                    "icon": "mdi:remote",
-                                    "state_header": "On/Off",
-                                    "entities": [
-                                        {
-                                            "name": "On/Off",
-                                            "entity": "sensor.tradfri_open_close_switch_2_battery"
-                                        }
-                                    ],
-                                    "type": "custom:multiple-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Info",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_text.annie_playlist",
-                                    "icon": "mdi:face-woman",
-                                    "name": "Annie"
-                                },
-                                {
-                                    "entity": "input_text.victor_playlist",
-                                    "icon": "mdi:face-man",
-                                    "name": "Victor"
-                                },
-                                {
-                                    "entity": "input_text.us_playlist",
-                                    "icon": "mdi:account-supervisor",
-                                    "name": "Couple"
-                                },
-                                {
-                                    "entity": "input_text.dinner_playlist",
-                                    "icon": "mdi:glass-wine",
-                                    "name": "Dinner"
-                                },
-                                {
-                                    "entity": "input_text.christmas_playlist",
-                                    "icon": "mdi:pine-tree",
-                                    "name": "Xmas"
-                                },
-                                {
-                                    "entity": "input_text.goodnight_playlist",
-                                    "icon": "mdi:weather-night",
-                                    "name": "Nighty"
-                                },
-                                {
-                                    "entity": "input_text.arrive_home_playlist",
-                                    "icon": "mdi:door",
-                                    "name": "Home"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "show_name": false,
-                            "show_state": false,
-                            "columns": 7,
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_select.remote_entity"
-                                },
-                                {
-                                    "entity": "input_select.symfonisk_entity"
-                                },
-                                {
-                                    "entity": "input_text.anniversary_image"
-                                },
-                                {
-                                    "entity": "input_text.anniversary_entity"
-                                }
-                            ],
-                            "type": "entities"
-                        }
-                    ]
+                  "entity": "group.hallway",
+                  "name": "Hallway",
+                  "show_state": false,
+                  "icon": "mdi:globe-light",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "light.living_room",
+                  "name": "Liv. Light",
+                  "show_state": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "group.dining",
+                  "name": "Dining",
+                  "show_state": false,
+                  "icon": "mdi:table-chair",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "switch.window_plug",
+                  "name": "Window",
+                  "show_state": false,
+                  "icon": "mdi:lamp-outline",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "group.kitchen",
+                  "name": "Kitchen",
+                  "show_state": false,
+                  "icon": "mdi:fridge-outline",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "switch.living_room_plug",
+                  "name": "Liv. Plug",
+                  "show_state": false,
+                  "icon": "mdi:floor-lamp-outline",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "switch.bed_strip",
+                  "show_state": false,
+                  "icon": "mdi:led-strip-variant",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "entity": "group.bedroom",
+                  "name": "Bedroom",
+                  "show_state": false,
+                  "icon": "mdi:bed",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
                 }
-            ]
+              ],
+              "type": "glance"
+            },
+            {
+              "card": {
+                "entity": "input_number.light_brightness",
+                "full_row": true,
+                "type": "custom:slider-entity-row"
+              },
+              "style": "ha-card {\n  color: white;\n  padding-right: 1em;\n}\n",
+              "type": "custom:mod-card"
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "show_icon": false
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "show_icon": false
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:arrow-up",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:stop",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.stop_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:arrow-down",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:arrow-up",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:stop",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.stop_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:arrow-down",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "entities": [
+                {
+                  "entities": [
+                    {
+                      "entity": "media_player.portable_speaker",
+                      "group": true,
+                      "hide": {
+                        "power_state": false
+                      },
+                      "type": "custom:mini-media-player"
+                    },
+                    {
+                      "entity": "media_player.sorrysound_audio",
+                      "group": true,
+                      "hide": {
+                        "power_state": false
+                      },
+                      "name": "Audio",
+                      "type": "custom:mini-media-player"
+                    },
+                    {
+                      "entity": "media_player.nest_mini",
+                      "group": true,
+                      "hide": {
+                        "power_state": false
+                      },
+                      "type": "custom:mini-media-player"
+                    }
+                  ],
+                  "head": {
+                    "artwork": "cover",
+                    "entity": "media_player.speakers",
+                    "hide": {
+                      "power_state": false
+                    },
+                    "shortcuts": {
+                      "buttons": [
+                        {
+                          "data": {
+                            "entity_id": "media_player.speakers",
+                            "uri": "input_text.annie_playlist",
+                            "account": "ms"
+                          },
+                          "icon": "mdi:face-woman",
+                          "id": "script.play_spotify",
+                          "type": "script"
+                        },
+                        {
+                          "data": {
+                            "entity_id": "media_player.speakers",
+                            "uri": "input_text.victor_playlist",
+                            "account": "mr"
+                          },
+                          "icon": "mdi:face-man",
+                          "id": "script.play_spotify",
+                          "type": "script"
+                        },
+                        {
+                          "data": {
+                            "entity_id": "media_player.speakers",
+                            "uri": "input_text.us_playlist",
+                            "account": "ms"
+                          },
+                          "icon": "mdi:account-supervisor",
+                          "id": "script.play_spotify",
+                          "type": "script"
+                        },
+                        {
+                          "data": {
+                            "entity_id": "media_player.speakers",
+                            "uri": "input_text.dinner_playlist",
+                            "account": "ms"
+                          },
+                          "icon": "mdi:glass-wine",
+                          "id": "script.play_spotify",
+                          "type": "script"
+                        },
+                        {
+                          "data": {
+                            "entity_id": "media_player.speakers",
+                            "uri": "input_text.goodnight_playlist",
+                            "account": "mr"
+                          },
+                          "icon": "mdi:weather-night",
+                          "id": "script.play_spotify",
+                          "type": "script"
+                        }
+                      ],
+                      "columns": 5
+                    },
+                    "type": "custom:mini-media-player"
+                  },
+                  "type": "custom:fold-entity-row"
+                }
+              ],
+              "style": ".card-content {\n  padding: 0;\n}\n",
+              "type": "entities"
+            },
+            {
+              "entity": "media_player.mio_tv",
+              "hide": {
+                "power_state": false
+              },
+              "shortcuts": {
+                "buttons": [
+                  {
+                    "icon": "mdi:netflix",
+                    "id": "Netflix",
+                    "type": "source"
+                  },
+                  {
+                    "icon": "mdi:youtube",
+                    "id": "YouTube",
+                    "type": "source"
+                  },
+                  {
+                    "icon": "mdi:nintendo-switch",
+                    "id": "Nintendo Switch",
+                    "type": "source"
+                  },
+                  {
+                    "icon": "mdi:cast",
+                    "type": "script",
+                    "id": "script.ping_tv"
+                  }
+                ],
+                "columns": 4
+              },
+              "type": "custom:mini-media-player",
+              "toggle_power": false
+            }
+          ],
+          "icon": "mdi:home",
+          "panel": false,
+          "path": "default_view",
+          "theme": "clear-dark",
+          "title": "Home"
+        },
+        {
+          "badges": [],
+          "cards": [
+            {
+              "cards": [
+                {
+                  "entity": "script.good_morning",
+                  "icon": "mdi:weather-sunny",
+                  "name": "WAKE UP",
+                  "styles": {
+                    "card": [
+                      {
+                        "font-size": "12px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "yellow"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.good_morning"
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "entity": "script.good_night",
+                  "icon": "mdi:weather-night",
+                  "name": "Goodnight",
+                  "styles": {
+                    "card": [
+                      {
+                        "font-size": "12px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "brown"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.good_night"
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "entity": "script.dim_lights",
+                  "icon": "mdi:moon-waxing-crescent",
+                  "name": "Dim",
+                  "styles": {
+                    "card": [
+                      {
+                        "font-size": "12px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "cyan"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.dim_lights"
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "entity": "script.power_on",
+                  "icon": "mdi:power",
+                  "name": "On",
+                  "styles": {
+                    "card": [
+                      {
+                        "font-size": "12px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "green"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.power_on"
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "entity": "script.power_off",
+                  "icon": "mdi:power",
+                  "name": "Off",
+                  "styles": {
+                    "card": [
+                      {
+                        "font-size": "12px"
+                      }
+                    ],
+                    "icon": [
+                      {
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.power_off"
+                  },
+                  "type": "custom:button-card"
+                }
+              ],
+              "type": "horizontal-stack"
+            },
+            {
+              "show_state": true,
+              "show_name": true,
+              "camera_view": "auto",
+              "type": "picture-entity",
+              "entity": "sensor.anniversary_entity",
+              "camera_image": "camera.anniversary_image",
+              "aspect_ratio": "4.5:1",
+              "tap_action": {
+                "action": "call-service",
+                "service": "spotcast.start",
+                "service_data": {
+                  "entity_id": "media_player.speakers",
+                  "random_song": true,
+                  "repeat": "context",
+                  "shuffle": true,
+                  "uri": "spotify:playlist:6570qmvZGKWzcIsLfUcHdd",
+                  "account": "mr"
+                },
+                "target": {}
+              }
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "weather.smhi_home",
+                  "secondary_info": "none",
+                  "name": "Malmö"
+                },
+                {
+                  "entity": "sensor.netatmo_airq_temperature",
+                  "type": "custom:multiple-entity-row",
+                  "show_state": false,
+                  "name": "Bedroom",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "name": false,
+                      "entity": "sensor.netatmo_airq_co2"
+                    },
+                    {
+                      "name": false,
+                      "entity": "sensor.netatmo_airq_humidity"
+                    },
+                    {
+                      "name": false,
+                      "entity": "sensor.netatmo_airq_temperature"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.office_sensor",
+                  "type": "custom:multiple-entity-row",
+                  "show_state": false,
+                  "name": "Office",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "name": false,
+                      "entity": "sensor.office_sensor_2"
+                    },
+                    {
+                      "name": false,
+                      "entity": "sensor.office_sensor"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.balcony_sensor",
+                  "type": "custom:multiple-entity-row",
+                  "show_state": false,
+                  "name": "Balcony",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "name": false,
+                      "entity": "sensor.balcony_sensor_2"
+                    },
+                    {
+                      "name": false,
+                      "entity": "sensor.balcony_sensor"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.water_pump_switch"
+                },
+                {
+                  "entity": "sensor.water_pump_duration"
+                },
+                {
+                  "entity": "automation.watering_plants",
+                  "name": "Automation (flow: 0.5 dl / 10 s)"
+                }
+              ],
+              "show_header_toggle": false,
+              "state_color": false
+            },
+            {
+              "type": "custom:vertical-stack-in-card",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_monday",
+                      "icon": "mdi:alpha-m-circle",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_monday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_tuesday",
+                      "icon": "mdi:alpha-t-circle",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_tuesday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_wednesday",
+                      "icon": "mdi:alpha-w-circle",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_wednesday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_thursday",
+                      "icon": "mdi:alpha-t-circle",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_thursday"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_monday",
+                      "show_entity_picture": true,
+                      "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_monday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_tuesday",
+                      "icon": "mdi:alpha-t-circle",
+                      "show_name": false,
+                      "show_entity_picture": true,
+                      "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_tuesday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_wednesday",
+                      "icon": "mdi:alpha-w-circle",
+                      "show_name": false,
+                      "show_entity_picture": true,
+                      "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_wednesday"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "input_select.chef_thursday",
+                      "icon": "mdi:alpha-t-circle",
+                      "show_name": false,
+                      "show_entity_picture": true,
+                      "entity_picture": "[[[ return '/local/' + entity.state + '.svg' ]]]\n",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_select.select_next",
+                        "service_data": {
+                          "entity_id": "input_select.chef_thursday"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "icon": "mdi:view-dashboard",
+          "path": "custom",
+          "theme": "clear-dark",
+          "title": "Custom"
+        },
+        {
+          "badges": [],
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entity": "input_datetime.wakeup_time"
+                },
+                {
+                  "entity": "sensor.time_until_alarm"
+                },
+                {
+                  "entity": "input_boolean.wakeup_enabled",
+                  "name": "Enabled"
+                },
+                {
+                  "entity": "input_boolean.wakeup_weekend",
+                  "name": "Weekend"
+                },
+                {
+                  "entity": "input_datetime.light_transition_time",
+                  "name": "Wake-up transition time"
+                },
+                {
+                  "entity": "input_datetime.goodnight_transition_time",
+                  "name": "Goodnight transition time"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Alarm Clock",
+              "type": "entities"
+            }
+          ],
+          "icon": "mdi:alarm",
+          "panel": false,
+          "path": "alarm-clock",
+          "theme": "clear-dark",
+          "title": "Alarm Clock"
+        },
+        {
+          "theme": "clear-dark",
+          "icon": "mdi:remote-tv",
+          "path": "remote-tv",
+          "title": "",
+          "badges": [],
+          "cards": [
+            {
+              "apps": [
+                {
+                  "app": "Netflix",
+                  "image": "/local/netflix.svg"
+                },
+                {
+                  "app": "YouTube",
+                  "image": "/local/youtube.svg"
+                },
+                {
+                  "app": "Nintendo Switch",
+                  "image": "/local/nintendo-switch.svg"
+                },
+                {
+                  "app": "Chromecast",
+                  "image": "/local/chromecast.svg"
+                }
+              ],
+              "back": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "BACK",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "down": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "DOWN",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "entity": "media_player.mio_tv",
+              "forward": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "media_player.media_next_track",
+                  "service_data": {
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "home": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "HOME",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "info": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "INFO",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "left": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "LEFT",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "play": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "media_player.media_play_pause",
+                  "service_data": {
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "power": {
+                "show": false
+              },
+              "reverse": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "media_player.media_previous_track",
+                  "service_data": {
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "right": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "RIGHT",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "select": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "ENTER",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "tv": true,
+              "type": "custom:roku-card",
+              "up": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "UP",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "volume_down": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "VOLUMEDOWN",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "volume_mute": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "MUTE",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              },
+              "volume_up": {
+                "tap_action": {
+                  "action": "call-service",
+                  "service": "webostv.button",
+                  "service_data": {
+                    "button": "VOLUMEUP",
+                    "entity_id": "media_player.mio_tv"
+                  }
+                }
+              }
+            },
+            {
+              "cards": [
+                {
+                  "cards": [
+                    {
+                      "color": "rgb(130, 130, 130)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            255,
+                            255,
+                            255
+                          ],
+                          "video": "V37Q3l6AFAU"
+                        }
+                      },
+                      "icon": "mdi:lightbulb-on-outline",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "255,255,255"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(128, 0, 128)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            128,
+                            0,
+                            128
+                          ],
+                          "video": "sRE5iQCdRvE",
+                          "song": "spotify:playlist:7rlCwXBPo431YiHj1xWLnP"
+                        }
+                      },
+                      "icon": "mdi:human-handsup",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "128,0,128"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(90, 255, 70)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            90,
+                            255,
+                            70
+                          ],
+                          "video": "E8y3eDUMb4Q",
+                          "song": "spotify:track:2W0BQsqgyO6a2LxGSDDB1I"
+                        }
+                      },
+                      "icon": "mdi:code-braces",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "90,255,70"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    }
+                  ],
+                  "type": "horizontal-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "color": "rgb(255, 145, 226)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "vicnie.tetzipetzi",
+                        "service_data": {
+                          "rgb_color": [
+                            255,
+                            145,
+                            226
+                          ]
+                        }
+                      },
+                      "icon": "mdi:at",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "255,145,226"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(255, 43, 0)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            255,
+                            80,
+                            60
+                          ],
+                          "video": "M5V9CERbLcA"
+                        }
+                      },
+                      "icon": "mdi:heart",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "255,43,0"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(255, 127, 80)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            255,
+                            127,
+                            80
+                          ],
+                          "video": "-50NdPawLVY"
+                        }
+                      },
+                      "icon": "mdi:face-agent",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "255,127,80"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    }
+                  ],
+                  "type": "horizontal-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "color": "rgb(150, 255, 120)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            150,
+                            255,
+                            120
+                          ],
+                          "video": "-IAfg_Iy7n8"
+                        }
+                      },
+                      "icon": "mdi:pine-tree",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "150,255,120"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(255, 43, 0)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            255,
+                            80,
+                            60
+                          ],
+                          "video": "L_LUpnjgPso"
+                        }
+                      },
+                      "icon": "mdi:campfire",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "255,43,0"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    },
+                    {
+                      "color": "rgb(100, 168, 255)",
+                      "color_type": "icon",
+                      "hold_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": [
+                            100,
+                            168,
+                            255
+                          ],
+                          "video": "MEuRS1aUYUU"
+                        }
+                      },
+                      "icon": "mdi:waves",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.start_video_lights",
+                        "service_data": {
+                          "rgb_color": "100,168,255"
+                        }
+                      },
+                      "type": "custom:button-card"
+                    }
+                  ],
+                  "type": "horizontal-stack"
+                }
+              ],
+              "type": "vertical-stack"
+            }
+          ]
+        },
+        {
+          "title": "Info",
+          "path": "info",
+          "icon": "mdi:information",
+          "badges": [],
+          "cards": [
+            {
+              "entities": [
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.mr_iphone_battery_level",
+                      "name": "Battery"
+                    }
+                  ],
+                  "entity": "person.victor",
+                  "state_header": "Place",
+                  "type": "custom:multiple-entity-row",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.ms_battery_level",
+                      "name": "Battery"
+                    }
+                  ],
+                  "entity": "person.annie",
+                  "state_header": "Place",
+                  "type": "custom:multiple-entity-row",
+                  "secondary_info": "last-changed"
+                },
+                {
+                  "entity": "sensor.tradfri_remote_control_battery",
+                  "name": "Remotes",
+                  "icon": "mdi:remote",
+                  "state_header": "Remote",
+                  "entities": [
+                    {
+                      "name": "Symfonisk",
+                      "entity": "sensor.symfonisk_controller_battery"
+                    }
+                  ],
+                  "type": "custom:multiple-entity-row"
+                },
+                {
+                  "entity": "sensor.fyrtur_block_out_roller_blind_battery_2",
+                  "name": "Blinds",
+                  "icon": "hass:blinds-open",
+                  "state_header": "Blind R",
+                  "entities": [
+                    {
+                      "name": "Blind L",
+                      "entity": "sensor.fyrtur_block_out_roller_blind_battery"
+                    }
+                  ],
+                  "type": "custom:multiple-entity-row"
+                },
+                {
+                  "entity": "sensor.tradfri_open_close_switch_1_battery",
+                  "name": "On/Off",
+                  "icon": "mdi:remote",
+                  "state_header": "On/Off",
+                  "entities": [
+                    {
+                      "name": "On/Off",
+                      "entity": "sensor.tradfri_open_close_switch_2_battery"
+                    }
+                  ],
+                  "type": "custom:multiple-entity-row"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Info",
+              "type": "entities"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "input_text.annie_playlist",
+                  "icon": "mdi:face-woman",
+                  "name": "Annie"
+                },
+                {
+                  "entity": "input_text.victor_playlist",
+                  "icon": "mdi:face-man",
+                  "name": "Victor"
+                },
+                {
+                  "entity": "input_text.us_playlist",
+                  "icon": "mdi:account-supervisor",
+                  "name": "Couple"
+                },
+                {
+                  "entity": "input_text.dinner_playlist",
+                  "icon": "mdi:glass-wine",
+                  "name": "Dinner"
+                },
+                {
+                  "entity": "input_text.christmas_playlist",
+                  "icon": "mdi:pine-tree",
+                  "name": "Xmas"
+                },
+                {
+                  "entity": "input_text.goodnight_playlist",
+                  "icon": "mdi:weather-night",
+                  "name": "Nighty"
+                },
+                {
+                  "entity": "input_text.arrive_home_playlist",
+                  "icon": "mdi:door",
+                  "name": "Home"
+                }
+              ],
+              "show_header_toggle": false,
+              "show_name": false,
+              "show_state": false,
+              "columns": 7,
+              "type": "glance"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "input_select.remote_entity"
+                },
+                {
+                  "entity": "input_select.symfonisk_entity"
+                },
+                {
+                  "entity": "input_text.anniversary_image"
+                },
+                {
+                  "entity": "input_text.anniversary_entity"
+                }
+              ],
+              "type": "entities"
+            }
+          ]
         }
+      ]
     }
+  }
 }

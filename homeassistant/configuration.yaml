@@ -150,6 +150,7 @@ input_text:
   anniversary_image:
     name: Anniversary Image
     initial: https://placekitten.com/600/200
+    max: 255
   anniversary_entity:
     name: Anniversary Entity
 
