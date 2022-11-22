@@ -1,690 +1,690 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_dashboard",
-    "data": {
-        "config": {
-            "title": "Dashboard",
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_dashboard",
+  "data": {
+    "config": {
+      "title": "Dashboard",
+      "views": [
+        {
+          "panel": true,
+          "path": "default_view",
+          "theme": "slate",
+          "title": "Dashboard",
+          "badges": [],
+          "cards": [
+            {
+              "type": "horizontal-stack",
+              "cards": [
                 {
-                    "panel": true,
-                    "path": "default_view",
-                    "theme": "slate",
-                    "title": "Dashboard",
-                    "badges": [],
-                    "cards": [
+                  "cards": [
+                    {
+                      "type": "picture-entity",
+                      "entity": "sensor.anniversary_entity",
+                      "camera_image": "camera.anniversary_image",
+                      "show_state": true,
+                      "aspect_ratio": "4.5:1",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "spotcast.start",
+                        "service_data": {
+                          "entity_id": "media_player.speakers",
+                          "random_song": true,
+                          "repeat": "context",
+                          "shuffle": true,
+                          "uri": "spotify:playlist:6570qmvZGKWzcIsLfUcHdd",
+                          "account": "mr"
+                        },
+                        "target": {}
+                      },
+                      "style": {
+                        ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
+                      }
+                    },
+                    {
+                      "dateSize": 180,
+                      "dayWrapperLineColor": "transparent",
+                      "descSize": 80,
+                      "entities": [
                         {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "type": "picture-entity",
-                                            "entity": "sensor.anniversary_entity",
-                                            "camera_image": "camera.anniversary_image",
-                                            "show_state": true,
-                                            "aspect_ratio": "4.5:1",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "spotcast.start",
-                                                "service_data": {
-                                                    "entity_id": "media_player.speakers",
-                                                    "random_song": true,
-                                                    "repeat": "context",
-                                                    "shuffle": true,
-                                                    "uri": "spotify:playlist:6570qmvZGKWzcIsLfUcHdd",
-                                                    "account": "mr"
-                                                },
-                                                "target": {}
-                                            },
-                                            "style": {
-                                                ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
-                                            }
-                                        },
-                                        {
-                                            "dateSize": 180,
-                                            "dayWrapperLineColor": "transparent",
-                                            "descSize": 80,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.helgdagar_i_sverige",
-                                                    "titleColor": "#D63118"
-                                                },
-                                                {
-                                                    "entity": "calendar.fodelsedagar",
-                                                    "titleColor": "#D63118"
-                                                },
-                                                {
-                                                    "entity": "calendar.victor_fodelsedagar",
-                                                    "titleColor": "#D63118"
-                                                },
-                                                {
-                                                    "entity": "calendar.annie_victor",
-                                                    "titleColor": "#0F8482"
-                                                },
-                                                {
-                                                    "entity": "calendar.victor_kalender",
-                                                    "titleColor": "#326BB7"
-                                                },
-                                                {
-                                                    "entity": "calendar.annies_kalender",
-                                                    "titleColor": "#AD208E"
-                                                },
-                                                {
-                                                    "entity": "calendar.hogtidsdagar_i_sverige",
-                                                    "titleColor": "#D63118"
-                                                }
-                                            ],
-                                            "finishedEventOpacity": 0.7,
-                                            "fullDayEventText": "Hela dagen",
-                                            "hoursFormat": "24h",
-                                            "icons": {
-                                                "monday": "input_select.chef_monday",
-                                                "tuesday": "input_select.chef_tuesday",
-                                                "wednesday": "input_select.chef_wednesday",
-                                                "thursday": "input_select.chef_thursday"
-                                            },
-                                            "language": "sv",
-                                            "locationLinkColor": "#03a9f4",
-                                            "locationTextSize": 120,
-                                            "noEventsForNextDaysText": "Inga h\u00e4ndelser under de n\u00e4rmaste dagarna",
-                                            "noEventsForTodayText": "Inga h\u00e4ndelser",
-                                            "showColors": true,
-                                            "maxDaysToShow": 14,
-                                            "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
-                                            "dateColor": "#333",
-                                            "timeColor": "#313131",
-                                            "timeSize": 140,
-                                            "title": "",
-                                            "titleSize": 180,
-                                            "type": "custom:atomic-calendar",
-                                            "untilText": "Fram tills"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "{{ states(\"sensor.onelist\") }}\n",
-                                            "style": {
-                                                ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
-                                                "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
-                                            }
-                                        }
-                                    ],
-                                    "type": "vertical-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "content": "{% set weekdays = [\"M\u00e5ndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"L\u00f6rdag\", \"S\u00f6ndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
-                                            "style": {
-                                                ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
-                                                "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1 !important;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
-                                            },
-                                            "type": "markdown"
-                                        },
-                                        {
-                                            "card": {
-                                                "entity": "input_number.light_brightness",
-                                                "full_row": true,
-                                                "hide_state": true,
-                                                "type": "custom:slider-entity-row"
-                                            },
-                                            "style": {
-                                                "slider-entity-row$": {
-                                                    "ha-slider$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
-                                                }
-                                            },
-                                            "type": "custom:mod-card"
-                                        },
-                                        {
-                                            "current": true,
-                                            "details": true,
-                                            "entity": "weather.openweathermap",
-                                            "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
-                                            "type": "custom:weather-card",
-                                            "number_of_forecasts": "5"
-                                        },
-                                        {
-                                            "type": "markdown",
-                                            "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} \u00b0C</td>\n    <td>{{ states('sensor.balcony_sensor') }} \u00b0C</td>\n    <td>{{ states('sensor.office_sensor') }} \u00b0C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_2') }} %</td>\n    <td>{{ states('sensor.office_sensor_2') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
-                                            "style": {
-                                                ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
-                                                "ha-markdown$": "td {\n  padding: 0 1rem;\n}\ntr:nth-child(3), tr:nth-child(4) {\n  font-size: 1.25rem;\n  color: grey;\n}\n"
-                                            }
-                                        }
-                                    ],
-                                    "type": "vertical-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "card": {
-                                                "cards": [
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:face-woman",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.annie_playlist",
-                                                                "account": "ms"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    },
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:face-man",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.victor_playlist",
-                                                                "account": "mr"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    },
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:account-supervisor",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.us_playlist",
-                                                                "account": "ms"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    },
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:glass-wine",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.dinner_playlist",
-                                                                "account": "ms"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    },
-                                                    {
-                                                        "color": "transparent",
-                                                        "color_type": "card",
-                                                        "icon": "mdi:weather-night",
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "script.play_spotify",
-                                                            "service_data": {
-                                                                "entity_id": "media_player.speakers",
-                                                                "uri": "input_text.goodnight_playlist",
-                                                                "account": "mr"
-                                                            }
-                                                        },
-                                                        "type": "custom:button-card"
-                                                    }
-                                                ],
-                                                "type": "horizontal-stack"
-                                            },
-                                            "style": "ha-card {\n  position: absolute;\n  z-index: 1;\n  padding: 16px;\n}\n",
-                                            "type": "custom:mod-card"
-                                        },
-                                        {
-                                            "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
-                                            "style": {
-                                                ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
-                                                "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
-                                            },
-                                            "type": "markdown"
-                                        },
-                                        {
-                                            "artwork": "cover",
-                                            "entity": "media_player.portable_speaker",
-                                            "group": true,
-                                            "hide": {
-                                                "controls": false,
-                                                "icon": true,
-                                                "info": false,
-                                                "mute": true,
-                                                "name": true,
-                                                "next": false,
-                                                "play_pause": false,
-                                                "power": true,
-                                                "prev": false,
-                                                "progress": true,
-                                                "source": false,
-                                                "volume": true
-                                            },
-                                            "style": ":host {\n  top: 350px;\n  width: 275px;\n  position: absolute;\n  z-index: 1;\n  --mini-media-player-scale: 1.75;\n}\nha-card {\n  left: 23px;\n}\n.entity__info__media {\n  padding-top: 1em;\n  text-align: center;\n}\n.mmp-player__core.flex {\n  flex-direction: column;\n}\n",
-                                            "type": "custom:mini-media-player"
-                                        },
-                                        {
-                                            "elements": [
-                                                {
-                                                    "service": "light.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.tv_ambient"
-                                                    },
-                                                    "style": {
-                                                        "left": "82.7%",
-                                                        "top": "35.5%",
-                                                        "transform": "translate(-50%, -50%) scale(4.1, 8.5)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "light.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.hallway"
-                                                    },
-                                                    "style": {
-                                                        "left": "45%",
-                                                        "top": "64%",
-                                                        "transform": "translate(-50%, -50%) scale(6.2, 3.2)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "light.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.dining"
-                                                    },
-                                                    "style": {
-                                                        "left": "83%",
-                                                        "top": "60%",
-                                                        "transform": "translate(-50%, -50%) scale(4.1, 5)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "light.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.bedroom"
-                                                    },
-                                                    "style": {
-                                                        "left": "83%",
-                                                        "top": "84%",
-                                                        "transform": "translate(-50%, -50%) scale(4.1, 7.8)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "switch.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.balcony"
-                                                    },
-                                                    "style": {
-                                                        "left": "82.7%",
-                                                        "top": "14%",
-                                                        "transform": "translate(-50%, -50%) scale(4.1, 4.1)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "light.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "group.kitchen"
-                                                    },
-                                                    "style": {
-                                                        "left": "53.7%",
-                                                        "top": "84%",
-                                                        "transform": "translate(-50%, -50%) scale(3.7, 7.4)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "service": "switch.toggle",
-                                                    "service_data": {
-                                                        "entity_id": "switch.sonoff_10008c59d6"
-                                                    },
-                                                    "style": {
-                                                        "left": "12%",
-                                                        "top": "84%",
-                                                        "transform": "translate(-50%, -50%) scale(2.9, 7.4)",
-                                                        "--success-color": "rgba(255,255,255,0.2)"
-                                                    },
-                                                    "type": "service-button"
-                                                },
-                                                {
-                                                    "entity": "light.hallway_spots",
-                                                    "icon": "mdi:wall-sconce-flat",
-                                                    "style": {
-                                                        "left": "60%",
-                                                        "top": "60%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.power_strip_socket_2",
-                                                    "style": {
-                                                        "left": "81%",
-                                                        "top": "8%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.power_strip_socket_3",
-                                                    "style": {
-                                                        "left": "80%",
-                                                        "top": "15%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.power_strip_socket_1",
-                                                    "style": {
-                                                        "left": "70%",
-                                                        "top": "12%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.window_plug",
-                                                    "icon": "mdi:lamp",
-                                                    "style": {
-                                                        "left": "90%",
-                                                        "top": "22%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.living_room_plug",
-                                                    "icon": "mdi:floor-lamp",
-                                                    "style": {
-                                                        "left": "90%",
-                                                        "top": "65%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "group.dining",
-                                                    "style": {
-                                                        "left": "88%",
-                                                        "top": "57%"
-                                                    },
-                                                    "icon": "mdi:ceiling-light-multiple",
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.sonoff_10008c59d6",
-                                                    "style": {
-                                                        "left": "13%",
-                                                        "top": "83%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.hallway_door",
-                                                    "icon": "mdi:globe-light",
-                                                    "style": {
-                                                        "left": "30%",
-                                                        "top": "65%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.hallway_kitchen",
-                                                    "icon": "mdi:globe-light",
-                                                    "style": {
-                                                        "left": "50%",
-                                                        "top": "65%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.kitchen_table",
-                                                    "icon": "mdi:ceiling-light",
-                                                    "style": {
-                                                        "left": "57%",
-                                                        "top": "92%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.kitchen_oven",
-                                                    "icon": "mdi:ceiling-light",
-                                                    "style": {
-                                                        "left": "48%",
-                                                        "top": "77%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.kitchen_sink",
-                                                    "icon": "mdi:ceiling-light",
-                                                    "style": {
-                                                        "left": "48%",
-                                                        "top": "88%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.bedroom",
-                                                    "icon": "mdi:bed",
-                                                    "style": {
-                                                        "left": "83%",
-                                                        "top": "80%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "switch.bed_strip",
-                                                    "icon": "mdi:string-lights",
-                                                    "style": {
-                                                        "left": "83%",
-                                                        "top": "72%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.philips_hue",
-                                                    "icon": "mdi:wall-sconce-round-variant",
-                                                    "style": {
-                                                        "left": "92%",
-                                                        "top": "89%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "script.blinds_open",
-                                                    "icon": "mdi:blinds-open",
-                                                    "style": {
-                                                        "left": "77%",
-                                                        "top": "97%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "script.blinds_open"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "script.blinds_close",
-                                                    "icon": "mdi:blinds",
-                                                    "style": {
-                                                        "left": "90%",
-                                                        "top": "97%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "script.blinds_close"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.led_strip_lifx",
-                                                    "icon": "mdi:led-strip-variant",
-                                                    "style": {
-                                                        "left": "70%",
-                                                        "top": "27%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "media_player.mio_tv",
-                                                    "style": {
-                                                        "left": "70%",
-                                                        "top": "37%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.living_room",
-                                                    "style": {
-                                                        "left": "84.3%",
-                                                        "top": "36.5%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.led_strip_philips",
-                                                    "icon": "mdi:led-strip-variant",
-                                                    "style": {
-                                                        "left": "70%",
-                                                        "top": "47%"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "person.annie",
-                                                    "image": "/local/annie.jpg",
-                                                    "style": {
-                                                        "left": "57.5%",
-                                                        "top": "50%",
-                                                        "width": "15%"
-                                                    },
-                                                    "type": "image",
-                                                    "state_filter": {
-                                                        "not_home": "grayscale(1)",
-                                                        "unknown": "sepia(1)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "light.toggle",
-                                                        "service_data": {
-                                                            "entity_id": "light.hallway_spots"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "entity": "person.victor",
-                                                    "image": "/local/victor.jpg",
-                                                    "style": {
-                                                        "left": "42%",
-                                                        "top": "50%",
-                                                        "width": "15%"
-                                                    },
-                                                    "type": "image",
-                                                    "state_filter": {
-                                                        "not_home": "grayscale(1)",
-                                                        "unknown": "sepia(1)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "switch.toggle",
-                                                        "service_data": {
-                                                            "entity_id": "switch.sonoff_10008c59d6"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "image": "/local/blueprint.png",
-                                            "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
-                                            "type": "picture-elements"
-                                        },
-                                        {
-                                            "content": "{% set precip_intensity = 0.20 %} {% if [ states(\"sensor.dark_sky_precip_intensity_0h\"), states(\"sensor.dark_sky_precip_intensity_1h\") ] | max | float(0) > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | count == states.light | selectattr('state','ne', 'on') | list | count) and (states.switch | count == states.switch | selectattr('state','ne', 'on') | list | count) and not (states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
-                                            "style": {
-                                                ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
-                                                "ha-markdown$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
-                                            },
-                                            "type": "markdown"
-                                        }
-                                    ],
-                                    "type": "vertical-stack"
-                                }
-                            ]
+                          "entity": "calendar.helgdagar_i_sverige",
+                          "titleColor": "#D63118"
+                        },
+                        {
+                          "entity": "calendar.fodelsedagar",
+                          "titleColor": "#D63118"
+                        },
+                        {
+                          "entity": "calendar.victor_fodelsedagar",
+                          "titleColor": "#D63118"
+                        },
+                        {
+                          "entity": "calendar.annie_victor",
+                          "titleColor": "#0F8482"
+                        },
+                        {
+                          "entity": "calendar.victor_kalender",
+                          "titleColor": "#326BB7"
+                        },
+                        {
+                          "entity": "calendar.annies_kalender",
+                          "titleColor": "#AD208E"
+                        },
+                        {
+                          "entity": "calendar.hogtidsdagar_i_sverige",
+                          "titleColor": "#D63118"
                         }
-                    ]
+                      ],
+                      "finishedEventOpacity": 0.7,
+                      "fullDayEventText": "Hela dagen",
+                      "hoursFormat": "24h",
+                      "icons": {
+                        "monday": "input_select.chef_monday",
+                        "tuesday": "input_select.chef_tuesday",
+                        "wednesday": "input_select.chef_wednesday",
+                        "thursday": "input_select.chef_thursday"
+                      },
+                      "language": "sv",
+                      "locationLinkColor": "#03a9f4",
+                      "locationTextSize": 120,
+                      "noEventsForNextDaysText": "Inga händelser under de närmaste dagarna",
+                      "noEventsForTodayText": "Inga händelser",
+                      "showColors": true,
+                      "maxDaysToShow": 14,
+                      "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
+                      "dateColor": "#333",
+                      "timeColor": "#313131",
+                      "timeSize": 140,
+                      "title": "",
+                      "titleSize": 180,
+                      "type": "custom:atomic-calendar",
+                      "untilText": "Fram tills"
+                    },
+                    {
+                      "type": "markdown",
+                      "content": "{{ states(\"sensor.onelist\") }}\n",
+                      "style": {
+                        ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
+                        "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
+                      }
+                    }
+                  ],
+                  "type": "vertical-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
+                      "style": {
+                        ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
+                        "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1 !important;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
+                      },
+                      "type": "markdown"
+                    },
+                    {
+                      "card": {
+                        "entity": "input_number.light_brightness",
+                        "full_row": true,
+                        "hide_state": true,
+                        "type": "custom:slider-entity-row"
+                      },
+                      "style": {
+                        "slider-entity-row$": {
+                          "ha-slider$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
+                        }
+                      },
+                      "type": "custom:mod-card"
+                    },
+                    {
+                      "current": true,
+                      "details": true,
+                      "entity": "weather.openweathermap",
+                      "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
+                      "type": "custom:weather-card",
+                      "number_of_forecasts": "5"
+                    },
+                    {
+                      "type": "markdown",
+                      "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor') }} °C</td>\n    <td>{{ states('sensor.office_sensor') }} °C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_2') }} %</td>\n    <td>{{ states('sensor.office_sensor_2') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
+                      "style": {
+                        ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
+                        "ha-markdown$": "td {\n  padding: 0 1rem;\n}\ntr:nth-child(3), tr:nth-child(4) {\n  font-size: 1.25rem;\n  color: grey;\n}\n"
+                      }
+                    }
+                  ],
+                  "type": "vertical-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "card": {
+                        "cards": [
+                          {
+                            "color": "transparent",
+                            "color_type": "card",
+                            "icon": "mdi:face-woman",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "script.play_spotify",
+                              "service_data": {
+                                "entity_id": "media_player.speakers",
+                                "uri": "input_text.annie_playlist",
+                                "account": "ms"
+                              }
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "color": "transparent",
+                            "color_type": "card",
+                            "icon": "mdi:face-man",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "script.play_spotify",
+                              "service_data": {
+                                "entity_id": "media_player.speakers",
+                                "uri": "input_text.victor_playlist",
+                                "account": "mr"
+                              }
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "color": "transparent",
+                            "color_type": "card",
+                            "icon": "mdi:account-supervisor",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "script.play_spotify",
+                              "service_data": {
+                                "entity_id": "media_player.speakers",
+                                "uri": "input_text.us_playlist",
+                                "account": "ms"
+                              }
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "color": "transparent",
+                            "color_type": "card",
+                            "icon": "mdi:pine-tree",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "script.play_spotify",
+                              "service_data": {
+                                "entity_id": "media_player.speakers",
+                                "uri": "input_text.christmas_playlist",
+                                "account": "ms"
+                              }
+                            },
+                            "type": "custom:button-card"
+                          },
+                          {
+                            "color": "transparent",
+                            "color_type": "card",
+                            "icon": "mdi:weather-night",
+                            "tap_action": {
+                              "action": "call-service",
+                              "service": "script.play_spotify",
+                              "service_data": {
+                                "entity_id": "media_player.speakers",
+                                "uri": "input_text.goodnight_playlist",
+                                "account": "mr"
+                              }
+                            },
+                            "type": "custom:button-card"
+                          }
+                        ],
+                        "type": "horizontal-stack"
+                      },
+                      "style": "ha-card {\n  position: absolute;\n  z-index: 1;\n  padding: 16px;\n}\n",
+                      "type": "custom:mod-card"
+                    },
+                    {
+                      "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
+                      "style": {
+                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                        "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
+                      },
+                      "type": "markdown"
+                    },
+                    {
+                      "artwork": "cover",
+                      "entity": "media_player.portable_speaker",
+                      "group": true,
+                      "hide": {
+                        "controls": false,
+                        "icon": true,
+                        "info": false,
+                        "mute": true,
+                        "name": true,
+                        "next": false,
+                        "play_pause": false,
+                        "power": true,
+                        "prev": false,
+                        "progress": true,
+                        "source": false,
+                        "volume": true
+                      },
+                      "style": ":host {\n  top: 350px;\n  width: 275px;\n  position: absolute;\n  z-index: 1;\n  --mini-media-player-scale: 1.75;\n}\nha-card {\n  left: 23px;\n}\n.entity__info__media {\n  padding-top: 1em;\n  text-align: center;\n}\n.mmp-player__core.flex {\n  flex-direction: column;\n}\n",
+                      "type": "custom:mini-media-player"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "service": "light.toggle",
+                          "service_data": {
+                            "entity_id": "group.tv_ambient"
+                          },
+                          "style": {
+                            "left": "82.7%",
+                            "top": "35.5%",
+                            "transform": "translate(-50%, -50%) scale(4.1, 8.5)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "light.toggle",
+                          "service_data": {
+                            "entity_id": "group.hallway"
+                          },
+                          "style": {
+                            "left": "45%",
+                            "top": "64%",
+                            "transform": "translate(-50%, -50%) scale(6.2, 3.2)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "light.toggle",
+                          "service_data": {
+                            "entity_id": "group.dining"
+                          },
+                          "style": {
+                            "left": "83%",
+                            "top": "60%",
+                            "transform": "translate(-50%, -50%) scale(4.1, 5)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "light.toggle",
+                          "service_data": {
+                            "entity_id": "group.bedroom"
+                          },
+                          "style": {
+                            "left": "83%",
+                            "top": "84%",
+                            "transform": "translate(-50%, -50%) scale(4.1, 7.8)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "switch.toggle",
+                          "service_data": {
+                            "entity_id": "group.balcony"
+                          },
+                          "style": {
+                            "left": "82.7%",
+                            "top": "14%",
+                            "transform": "translate(-50%, -50%) scale(4.1, 4.1)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "light.toggle",
+                          "service_data": {
+                            "entity_id": "group.kitchen"
+                          },
+                          "style": {
+                            "left": "53.7%",
+                            "top": "84%",
+                            "transform": "translate(-50%, -50%) scale(3.7, 7.4)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "service": "switch.toggle",
+                          "service_data": {
+                            "entity_id": "switch.sonoff_10008c59d6"
+                          },
+                          "style": {
+                            "left": "12%",
+                            "top": "84%",
+                            "transform": "translate(-50%, -50%) scale(2.9, 7.4)",
+                            "--success-color": "rgba(255,255,255,0.2)"
+                          },
+                          "type": "service-button"
+                        },
+                        {
+                          "entity": "light.hallway_spots",
+                          "icon": "mdi:wall-sconce-flat",
+                          "style": {
+                            "left": "60%",
+                            "top": "60%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.power_strip_socket_2",
+                          "style": {
+                            "left": "81%",
+                            "top": "8%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.power_strip_socket_3",
+                          "style": {
+                            "left": "80%",
+                            "top": "15%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.power_strip_socket_1",
+                          "style": {
+                            "left": "70%",
+                            "top": "12%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.window_plug",
+                          "icon": "mdi:lamp",
+                          "style": {
+                            "left": "90%",
+                            "top": "22%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.living_room_plug",
+                          "icon": "mdi:floor-lamp",
+                          "style": {
+                            "left": "90%",
+                            "top": "65%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "group.dining",
+                          "style": {
+                            "left": "88%",
+                            "top": "57%"
+                          },
+                          "icon": "mdi:ceiling-light-multiple",
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.sonoff_10008c59d6",
+                          "style": {
+                            "left": "13%",
+                            "top": "83%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.hallway_door",
+                          "icon": "mdi:globe-light",
+                          "style": {
+                            "left": "30%",
+                            "top": "65%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.hallway_kitchen",
+                          "icon": "mdi:globe-light",
+                          "style": {
+                            "left": "50%",
+                            "top": "65%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.kitchen_table",
+                          "icon": "mdi:ceiling-light",
+                          "style": {
+                            "left": "57%",
+                            "top": "92%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.kitchen_oven",
+                          "icon": "mdi:ceiling-light",
+                          "style": {
+                            "left": "48%",
+                            "top": "77%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.kitchen_sink",
+                          "icon": "mdi:ceiling-light",
+                          "style": {
+                            "left": "48%",
+                            "top": "88%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.bedroom",
+                          "icon": "mdi:bed",
+                          "style": {
+                            "left": "83%",
+                            "top": "80%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "switch.bed_strip",
+                          "icon": "mdi:string-lights",
+                          "style": {
+                            "left": "83%",
+                            "top": "72%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.philips_hue",
+                          "icon": "mdi:wall-sconce-round-variant",
+                          "style": {
+                            "left": "92%",
+                            "top": "89%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "script.blinds_open",
+                          "icon": "mdi:blinds-open",
+                          "style": {
+                            "left": "77%",
+                            "top": "97%"
+                          },
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.blinds_open"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "script.blinds_close",
+                          "icon": "mdi:blinds",
+                          "style": {
+                            "left": "90%",
+                            "top": "97%"
+                          },
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.blinds_close"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.led_strip_lifx",
+                          "icon": "mdi:led-strip-variant",
+                          "style": {
+                            "left": "70%",
+                            "top": "27%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "media_player.mio_tv",
+                          "style": {
+                            "left": "70%",
+                            "top": "37%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.living_room",
+                          "style": {
+                            "left": "84.3%",
+                            "top": "36.5%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "light.led_strip_philips",
+                          "icon": "mdi:led-strip-variant",
+                          "style": {
+                            "left": "70%",
+                            "top": "47%"
+                          },
+                          "tap_action": {
+                            "action": "toggle"
+                          },
+                          "type": "state-icon"
+                        },
+                        {
+                          "entity": "person.annie",
+                          "image": "/local/annie.jpg",
+                          "style": {
+                            "left": "57.5%",
+                            "top": "50%",
+                            "width": "15%"
+                          },
+                          "type": "image",
+                          "state_filter": {
+                            "not_home": "grayscale(1)",
+                            "unknown": "sepia(1)"
+                          },
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "light.toggle",
+                            "service_data": {
+                              "entity_id": "light.hallway_spots"
+                            }
+                          }
+                        },
+                        {
+                          "entity": "person.victor",
+                          "image": "/local/victor.jpg",
+                          "style": {
+                            "left": "42%",
+                            "top": "50%",
+                            "width": "15%"
+                          },
+                          "type": "image",
+                          "state_filter": {
+                            "not_home": "grayscale(1)",
+                            "unknown": "sepia(1)"
+                          },
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "switch.toggle",
+                            "service_data": {
+                              "entity_id": "switch.sonoff_10008c59d6"
+                            }
+                          }
+                        }
+                      ],
+                      "image": "/local/blueprint.png",
+                      "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
+                      "type": "picture-elements"
+                    },
+                    {
+                      "content": "{% set precip_intensity = 0.20 %} {% if [ states(\"sensor.dark_sky_precip_intensity_0h\"), states(\"sensor.dark_sky_precip_intensity_1h\") ] | max | float(0) > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | count == states.light | selectattr('state','ne', 'on') | list | count) and (states.switch | count == states.switch | selectattr('state','ne', 'on') | list | count) and not (states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
+                      "style": {
+                        ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
+                        "ha-markdown$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
+                      },
+                      "type": "markdown"
+                    }
+                  ],
+                  "type": "vertical-stack"
                 }
-            ]
+              ]
+            }
+          ]
         }
+      ]
     }
+  }
 }
