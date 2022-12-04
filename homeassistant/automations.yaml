@@ -320,6 +320,7 @@
       time_input: '15:00:00'
       certificate_input: sensor.cert_expiry_timestamp_zolly_ml
       notify_device: 5275297c6b106d98dd2ff5c406835899
+      days_input: 14
 - id: '1660077043222'
   alias: Watering Plants
   description: ''

@@ -375,7 +375,8 @@
                           "type": "state-icon"
                         },
                         {
-                          "entity": "switch.power_strip_socket_2",
+                          "entity": "switch.power_strip_socket_1",
+                          "icon": "mdi:string-lights",
                           "style": {
                             "left": "81%",
                             "top": "8%"
@@ -387,6 +388,7 @@
                         },
                         {
                           "entity": "switch.power_strip_socket_3",
+                          "icon": "mdi:pine-tree",
                           "style": {
                             "left": "80%",
                             "top": "15%"

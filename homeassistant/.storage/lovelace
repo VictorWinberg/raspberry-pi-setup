@@ -34,8 +34,10 @@
                   }
                 },
                 {
-                  "entity": "switch.power_strip_socket_2",
+                  "entity": "switch.power_strip_socket_1",
                   "show_state": false,
+                  "name": "Stars",
+                  "icon": "mdi:string-lights",
                   "tap_action": {
                     "action": "toggle"
                   }
@@ -43,6 +45,8 @@
                 {
                   "entity": "switch.power_strip_socket_3",
                   "show_state": false,
+                  "name": "Xmas",
+                  "icon": "mdi:pine-tree",
                   "tap_action": {
                     "action": "toggle"
                   }
