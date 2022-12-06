@@ -26,7 +26,7 @@ def setup(hass, config):
         rgb_color = call.data.get("rgb_color")
         service_data = {"rgb_color": rgb_color, "video": item["id"]["videoId"]}
         hass.services.call("script", "start_video_lights", service_data, False)
-        player = "media_player.sorrysound_audio"
+        player = "media_player.rio"
         message = "Hej Hej Annie, Tetzipetzi haer. " #+ item["snippet"]["title"]
         hass.services.call("tts", "google_translate_say", {"entity_id": player, "message": message}, False)
 
@@ -141,48 +141,6 @@ def setup(hass, config):
               "UUP":  lambda: s("script", "good_night", {}, False),
             }.get(event, lambda: _LOGGER.warning("Missing event: " + event))()
 
-        def mi_magic_cube():
-            sides = {
-              "side-1": "light.hallway_spots", "side-2": "media_player.mio_tv", "side-3": "media_player.speakers", "side-4": "media_player.sorrysound_tv", "side-5": "light:group.ikea", "side-6": "light:all"
-            }
-
-            gesture = str(call.data.get("gesture"))
-            event = str(call.data.get("event"))
-            side = hass.states.get("input_select.magic_cube_side").state
-            entity_id = sides.get(side)
-            domain = entity_id.split(":")[0].split(".")[0]
-            entity_id = re.sub("[^:]+:", "", entity_id)
-
-            def mi_awake():
-                _LOGGER.warning("Awake " + event)
-
-            def mi_flip():
-                select_side("side-" + event[0])
-
-            def mi_move():
-                run_service(domain, entity_id, "MBTN")
-
-            def mi_shake():
-                run_service(domain, entity_id, "RBTN")
-
-            def mi_rotate_pos():
-                rotate = int(event) / 1000 # TODO: Use rotation amount
-                run_service(domain, entity_id, "UBTN")
-
-            def mi_rotate_neg():
-                rotate = int(event) / 1000 # TODO: Use rotation amount
-                run_service(domain, entity_id, "DBTN")
-
-            {
-                "0": lambda: mi_awake(),
-                "1": lambda: mi_shake(),
-                "3": lambda: mi_flip(),
-                "4": lambda: mi_flip(),
-                "5": lambda: mi_move(),
-                "7": lambda: mi_rotate_pos(),
-                "8": lambda: mi_rotate_neg(),
-            }.get(gesture, lambda: _LOGGER.warning("Missing gesture: " + gesture))()
-
         """Run service"""
         def run_service(domain, entity_id, event):
             {
@@ -192,7 +150,6 @@ def setup(hass, config):
               "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
               "tradfri_open_close_switch_1": lambda: tradfri_open_close_remote(event),
               "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(event),
-              "mi_magic_cube":               lambda: mi_magic_cube(),
             }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
 
         run_service(domain, entity_id, event)

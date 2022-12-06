@@ -81,9 +81,9 @@
     before: '19:00:00'
     condition: time
   - condition: device
-    device_id: 334e513fb3de4085bbf4e1807f574000
+    device_id: 30eb3270af5c0debc8946facfcded474
     domain: media_player
-    entity_id: media_player.sorrysound_audio
+    entity_id: media_player.rio
     type: is_off
   action:
   - data:
@@ -289,7 +289,10 @@
   - condition: not
     conditions:
     - condition: state
-      entity_id: media_player.sorrysound_audio
+      entity_id: media_player.rio
+      state: playing
+    - condition: state
+      entity_id: media_player.portable_speaker
       state: playing
   - condition: state
     entity_id: media_player.mio_tv

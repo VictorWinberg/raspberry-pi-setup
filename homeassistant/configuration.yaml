@@ -161,8 +161,8 @@ input_select:
      - default
      - media_player.speakers
      - media_player.portable_speaker
-     - media_player.sorrysound_audio
-     - media_player.sorrysound_tv
+     - media_player.rio
+     - media_player.mio_cast
      - media_player.mio_tv
      - light:all
      - light:group.ikea
@@ -174,8 +174,8 @@ input_select:
      - default
      - media_player.speakers
      - media_player.portable_speaker
-     - media_player.sorrysound_audio
-     - media_player.sorrysound_tv
+     - media_player.rio
+     - media_player.mio_cast
      - media_player.mio_tv
      - light:all
      - light:group.ikea

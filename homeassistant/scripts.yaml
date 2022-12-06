@@ -27,7 +27,7 @@ start_video_lights:
         "app_name": "youtube", "media_id": "{{video}}"
 
         }'
-    entity_id: media_player.sorrysound_tv
+    entity_id: media_player.mio_cast
   - condition: template
     value_template: '{{ song is defined }}'
   - data_template:
@@ -414,7 +414,9 @@ ping_tv:
   sequence:
   - service: media_player.turn_on
     target:
-      entity_id: media_player.sorrysound_tv
+      entity_id:
+      - media_player.mio_cast
+    data: {}
   - delay:
       hours: 0
       minutes: 0
@@ -422,7 +424,9 @@ ping_tv:
       milliseconds: 0
   - service: media_player.turn_off
     target:
-      entity_id: media_player.sorrysound_tv
+      entity_id:
+      - media_player.mio_cast
+    data: {}
   mode: single
 shutdown_in_x_minutes:
   alias: Shutdown in X minutes
