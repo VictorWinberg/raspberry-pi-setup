@@ -457,6 +457,7 @@ dim_lights:
   - service: switch.turn_off
     target:
       entity_id: switch.living_room_plug
+    data: {}
   - data: {}
     service: switch.turn_on
     target:
@@ -464,6 +465,8 @@ dim_lights:
       - switch.window_plug
       - switch.bed_strip
       - switch.power_strip_socket_2
+      - switch.power_strip_socket_1
+      - switch.power_strip_socket_3
   mode: single
   alias: Dim Lights
 disco_lights:
