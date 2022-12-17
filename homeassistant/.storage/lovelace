@@ -249,12 +249,11 @@
                       "type": "custom:mini-media-player"
                     },
                     {
-                      "entity": "media_player.sorrysound_audio",
+                      "entity": "media_player.rio",
                       "group": true,
                       "hide": {
                         "power_state": false
                       },
-                      "name": "Audio",
                       "type": "custom:mini-media-player"
                     },
                     {
