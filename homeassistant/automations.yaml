@@ -407,3 +407,37 @@
       - light.kitchen_sink
       - light.kitchen_table
   mode: single
+- id: '1672304388800'
+  alias: Vacation - Balcony On
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  - platform: time
+    at: '16:00:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id:
+      - switch.power_strip_socket_3
+      - switch.power_strip_socket_1
+  mode: single
+- id: '1672304661695'
+  alias: Vacation - Balcony Off
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:00:00
+  - platform: time
+    at: '21:00:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id:
+      - switch.power_strip_socket_1
+      - switch.power_strip_socket_3
+  mode: single
