@@ -20,6 +20,7 @@
 Table of contents :book:
 =======================
 - [Raspberry Pi :strawberry:](#raspberry-pi-strawberry)
+   - [Raspberry Pi OS :cd:](#raspberry-pi-os-cd)
 - [Configuration :wrench:](#configuration-wrench)
    - [Network - Static IP :pushpin:](#network---static-ip-pushpin)
    - [Network - External IP :earth_africa:](#network---external-ip-earth_africa)
@@ -53,6 +54,12 @@ Parts:
 - Micro-SD
 - Charger
 - Case (optional)
+
+Raspberry Pi OS :cd:
+-----------------------------
+[Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+
+Raspberry Pi Imager is the quick and easy way to install Raspberry Pi OS and other operating systems to a microSD card.
 
 Configuration :wrench:
 =====================
