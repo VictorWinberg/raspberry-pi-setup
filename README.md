@@ -319,7 +319,7 @@ Git Server :octocat:
 -------------------
 Convenient for deploying applications to the raspberry pi using git
 
-[Git on the Server](https://git-scm.com/book/fa/v2/Git-on-the-Server-Setting-Up-the-Server)
+[Git on the Server](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server)
 
 ```cs
 /home/git
