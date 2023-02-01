@@ -116,7 +116,9 @@ SSH or Secure Shell is a cryptographic network protocol, typical used for remote
 
 [SSH Documentation](https://www.raspberrypi.org/documentation/remote-access/ssh/)
 
-> If you would like to be able to SSH into your RPi you need to enable ssh, since it is disabled by default.
+> **Fix Raspberry Pi SSH freezing issue**
+>
+> Open `/etc/ssh/sshd_config`, add `IPQoS cs0 cs0` or `IPQoS 0x00` at the bottom and run `sudo service sshd restart`.
 
 Remote Access (RDP) :computer:
 -----------------------------
