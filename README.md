@@ -118,7 +118,8 @@ SSH or Secure Shell is a cryptographic network protocol, typical used for remote
 
 > **Fix Raspberry Pi SSH freezing issue**
 >
-> Open `/etc/ssh/sshd_config`, add `IPQoS cs0 cs0` or `IPQoS 0x00` at the bottom and run `sudo service sshd restart`.
+> Solution 1: Open `/etc/ssh/sshd_config`, add `ClientAliveInterval=60` and `ClientAliveCountMax=3` and run `sudo service sshd restart`.
+> Solution 2: Open `/etc/ssh/sshd_config`, add `IPQoS cs0 cs0` or `IPQoS 0x00` at the bottom and run `sudo service sshd restart`.
 
 Remote Access (RDP) :computer:
 -----------------------------
