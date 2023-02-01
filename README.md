@@ -255,6 +255,7 @@ Node.js is an open-source, cross-platform, back-end, JavaScript runtime environm
 - [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating) - Node Version Manager
 - [Install Node](https://github.com/nvm-sh/nvm#usage) - JavaScript Engine
 - [Install PM2](https://github.com/Unitech/pm2) - Process Manager 2
+   - [Setup PM2 Startup](https://pm2.keymetrics.io/docs/usage/startup/)
 
 Applications :computer:
 ======================
