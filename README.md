@@ -251,6 +251,10 @@ PostgreSQL is a powerful, open source object-relational database system.
 
 `pg_dump --format=c -h 192.168.0.100 -U USERNAME DATABASE | pg_restore --clean --no-owner -h localhost -d DATABASE`
 
+**PG CLI**
+
+[pgcli](https://www.pgcli.com/install) is a command line interface for Postgres with auto-completion and syntax highlighting.
+
 Node :diamond_shape_with_a_dot_inside:
 -------------------------------------
 Node.js is an open-source, cross-platform, back-end, JavaScript runtime environment that executes JavaScript code outside a web browser.
