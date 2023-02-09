@@ -121,8 +121,8 @@ pulsing_lights:
   alias: Pulsing light
   sequence:
   - repeat:
-      count: '{{ (states.input_datetime.light_transition_time.attributes.timestamp
-        / 30) | int }}'
+      count: '{{ (states(''input_number.wakeup_transition_time'') | int * 60 / 30)
+        | int }}'
       sequence:
       - service: light.turn_on
         data:

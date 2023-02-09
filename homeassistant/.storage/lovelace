@@ -787,11 +787,11 @@
                   "name": "Weekend"
                 },
                 {
-                  "entity": "input_datetime.light_transition_time",
+                  "entity": "input_number.wakeup_transition_time",
                   "name": "Wake-up transition time"
                 },
                 {
-                  "entity": "input_datetime.goodnight_transition_time",
+                  "entity": "input_number.goodnight_transition_time",
                   "name": "Goodnight transition time"
                 }
               ],
