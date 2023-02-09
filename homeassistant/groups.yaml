@@ -47,5 +47,6 @@ tv_ambient:
 balcony:
   name: Balcony
   entities:
+    - switch.power_strip_socket_1
     - switch.power_strip_socket_2
     - switch.power_strip_socket_3

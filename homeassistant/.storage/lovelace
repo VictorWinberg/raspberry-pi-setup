@@ -13,116 +13,152 @@
           "badges": [],
           "cards": [
             {
-              "columns": 4,
-              "entities": [
-                {
-                  "entity": "switch.sonoff_10008c59d6",
-                  "name": "Office",
-                  "icon": "mdi:office-building",
-                  "show_state": false,
-                  "tap_action": {
-                    "action": "toggle"
+              "type": "custom:mod-card",
+              "style": ":host {\n  --paper-item-icon-color: gray;\n  --paper-item-icon-active-color: #F4EA56;\n}\n",
+              "card": {
+                "square": false,
+                "columns": 4,
+                "type": "grid",
+                "cards": [
+                  {
+                    "type": "custom:button-card",
+                    "entity": "switch.sonoff_10008c59d6",
+                    "name": "Office",
+                    "icon": "mdi:office-building",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.tv_ambient",
+                    "name": "TV Ambient",
+                    "icon": "mdi:television",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    },
+                    "double_tap_action": {
+                      "action": "more-info",
+                      "entity": "select.tv_theme"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "icon": "mdi:comment-question"
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.balcony",
+                    "name": "Balcony",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.hallway",
+                    "name": "Hallway",
+                    "icon": "mdi:globe-light",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "light.living_room",
+                    "name": "Liv. Light",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.dining",
+                    "name": "Dining",
+                    "icon": "mdi:table-chair",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "switch.window_plug",
+                    "name": "Window",
+                    "icon": "mdi:lamp-outline",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.kitchen",
+                    "name": "Kitchen",
+                    "icon": "mdi:fridge-outline",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "switch.living_room_plug",
+                    "name": "Liv. Plug",
+                    "icon": "mdi:floor-lamp-outline",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "switch.bed_strip",
+                    "icon": "mdi:led-strip-variant",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "group.bedroom",
+                    "name": "Bedroom",
+                    "icon": "mdi:bed",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
                   }
-                },
-                {
-                  "entity": "group.tv_ambient",
-                  "name": "TV Ambient",
-                  "icon": "mdi:television",
-                  "show_state": false,
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "switch.power_strip_socket_1",
-                  "show_state": false,
-                  "name": "Stars",
-                  "icon": "mdi:string-lights",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "switch.power_strip_socket_3",
-                  "show_state": false,
-                  "name": "Xmas",
-                  "icon": "mdi:pine-tree",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "group.hallway",
-                  "name": "Hallway",
-                  "show_state": false,
-                  "icon": "mdi:globe-light",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "light.living_room",
-                  "name": "Liv. Light",
-                  "show_state": false,
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "group.dining",
-                  "name": "Dining",
-                  "show_state": false,
-                  "icon": "mdi:table-chair",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "switch.window_plug",
-                  "name": "Window",
-                  "show_state": false,
-                  "icon": "mdi:lamp-outline",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "group.kitchen",
-                  "name": "Kitchen",
-                  "show_state": false,
-                  "icon": "mdi:fridge-outline",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "switch.living_room_plug",
-                  "name": "Liv. Plug",
-                  "show_state": false,
-                  "icon": "mdi:floor-lamp-outline",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "switch.bed_strip",
-                  "show_state": false,
-                  "icon": "mdi:led-strip-variant",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
-                  "entity": "group.bedroom",
-                  "name": "Bedroom",
-                  "show_state": false,
-                  "icon": "mdi:bed",
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                }
-              ],
-              "type": "glance"
+                ]
+              }
             },
             {
               "card": {
@@ -378,6 +414,8 @@
           "badges": [],
           "cards": [
             {
+              "square": false,
+              "columns": 5,
               "cards": [
                 {
                   "entity": "script.good_morning",
@@ -490,7 +528,7 @@
                   "type": "custom:button-card"
                 }
               ],
-              "type": "horizontal-stack"
+              "type": "grid"
             },
             {
               "show_state": true,
@@ -544,7 +582,7 @@
                   ]
                 },
                 {
-                  "entity": "sensor.office_sensor",
+                  "entity": "sensor.office_sensor_battery",
                   "type": "custom:multiple-entity-row",
                   "show_state": false,
                   "name": "Office",
@@ -552,16 +590,16 @@
                   "entities": [
                     {
                       "name": false,
-                      "entity": "sensor.office_sensor_2"
+                      "entity": "sensor.office_sensor_humidity"
                     },
                     {
                       "name": false,
-                      "entity": "sensor.office_sensor"
+                      "entity": "sensor.office_sensor_temperature"
                     }
                   ]
                 },
                 {
-                  "entity": "sensor.balcony_sensor",
+                  "entity": "sensor.balcony_sensor_battery",
                   "type": "custom:multiple-entity-row",
                   "show_state": false,
                   "name": "Balcony",
@@ -569,11 +607,11 @@
                   "entities": [
                     {
                       "name": false,
-                      "entity": "sensor.balcony_sensor_2"
+                      "entity": "sensor.balcony_sensor_humidity"
                     },
                     {
                       "name": false,
-                      "entity": "sensor.balcony_sensor"
+                      "entity": "sensor.balcony_sensor_temperature"
                     }
                   ]
                 }
@@ -939,250 +977,237 @@
               }
             },
             {
+              "square": false,
+              "columns": 3,
               "cards": [
                 {
-                  "cards": [
-                    {
-                      "color": "rgb(130, 130, 130)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            255,
-                            255,
-                            255
-                          ],
-                          "video": "V37Q3l6AFAU"
-                        }
-                      },
-                      "icon": "mdi:lightbulb-on-outline",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "255,255,255"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(128, 0, 128)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            128,
-                            0,
-                            128
-                          ],
-                          "video": "sRE5iQCdRvE",
-                          "song": "spotify:playlist:7rlCwXBPo431YiHj1xWLnP"
-                        }
-                      },
-                      "icon": "mdi:human-handsup",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "128,0,128"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(90, 255, 70)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            90,
-                            255,
-                            70
-                          ],
-                          "video": "E8y3eDUMb4Q",
-                          "song": "spotify:track:2W0BQsqgyO6a2LxGSDDB1I"
-                        }
-                      },
-                      "icon": "mdi:code-braces",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "90,255,70"
-                        }
-                      },
-                      "type": "custom:button-card"
+                  "color": "rgb(130, 130, 130)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        255,
+                        255,
+                        255
+                      ],
+                      "video": "V37Q3l6AFAU"
                     }
-                  ],
-                  "type": "horizontal-stack"
+                  },
+                  "icon": "mdi:lightbulb-on-outline",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "255,255,255"
+                    }
+                  },
+                  "type": "custom:button-card"
                 },
                 {
-                  "cards": [
-                    {
-                      "color": "rgb(255, 145, 226)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "vicnie.tetzipetzi",
-                        "service_data": {
-                          "rgb_color": [
-                            255,
-                            145,
-                            226
-                          ]
-                        }
-                      },
-                      "icon": "mdi:at",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "255,145,226"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(255, 43, 0)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            255,
-                            80,
-                            60
-                          ],
-                          "video": "M5V9CERbLcA"
-                        }
-                      },
-                      "icon": "mdi:heart",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "255,43,0"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(255, 127, 80)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            255,
-                            127,
-                            80
-                          ],
-                          "video": "-50NdPawLVY"
-                        }
-                      },
-                      "icon": "mdi:face-agent",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "255,127,80"
-                        }
-                      },
-                      "type": "custom:button-card"
+                  "color": "rgb(128, 0, 128)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        128,
+                        0,
+                        128
+                      ],
+                      "video": "sRE5iQCdRvE",
+                      "song": "spotify:playlist:7rlCwXBPo431YiHj1xWLnP"
                     }
-                  ],
-                  "type": "horizontal-stack"
+                  },
+                  "icon": "mdi:human-handsup",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "128,0,128"
+                    }
+                  },
+                  "type": "custom:button-card"
                 },
                 {
-                  "cards": [
-                    {
-                      "color": "rgb(150, 255, 120)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            150,
-                            255,
-                            120
-                          ],
-                          "video": "-IAfg_Iy7n8"
-                        }
-                      },
-                      "icon": "mdi:pine-tree",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "150,255,120"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(255, 43, 0)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            255,
-                            80,
-                            60
-                          ],
-                          "video": "L_LUpnjgPso"
-                        }
-                      },
-                      "icon": "mdi:campfire",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "255,43,0"
-                        }
-                      },
-                      "type": "custom:button-card"
-                    },
-                    {
-                      "color": "rgb(100, 168, 255)",
-                      "color_type": "icon",
-                      "hold_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": [
-                            100,
-                            168,
-                            255
-                          ],
-                          "video": "MEuRS1aUYUU"
-                        }
-                      },
-                      "icon": "mdi:waves",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.start_video_lights",
-                        "service_data": {
-                          "rgb_color": "100,168,255"
-                        }
-                      },
-                      "type": "custom:button-card"
+                  "color": "rgb(90, 255, 70)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        90,
+                        255,
+                        70
+                      ],
+                      "video": "E8y3eDUMb4Q",
+                      "song": "spotify:track:2W0BQsqgyO6a2LxGSDDB1I"
                     }
-                  ],
-                  "type": "horizontal-stack"
+                  },
+                  "icon": "mdi:code-braces",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "90,255,70"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(255, 145, 226)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "vicnie.tetzipetzi",
+                    "service_data": {
+                      "rgb_color": [
+                        255,
+                        145,
+                        226
+                      ]
+                    }
+                  },
+                  "icon": "mdi:at",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "255,145,226"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(255, 43, 0)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        255,
+                        80,
+                        60
+                      ],
+                      "video": "M5V9CERbLcA"
+                    }
+                  },
+                  "icon": "mdi:heart",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "255,43,0"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(255, 127, 80)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        255,
+                        127,
+                        80
+                      ],
+                      "video": "-50NdPawLVY"
+                    }
+                  },
+                  "icon": "mdi:face-agent",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "255,127,80"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(150, 255, 120)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        150,
+                        255,
+                        120
+                      ],
+                      "video": "-IAfg_Iy7n8"
+                    }
+                  },
+                  "icon": "mdi:pine-tree",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "150,255,120"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(255, 43, 0)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        255,
+                        80,
+                        60
+                      ],
+                      "video": "L_LUpnjgPso"
+                    }
+                  },
+                  "icon": "mdi:campfire",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "255,43,0"
+                    }
+                  },
+                  "type": "custom:button-card"
+                },
+                {
+                  "color": "rgb(100, 168, 255)",
+                  "color_type": "icon",
+                  "hold_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": [
+                        100,
+                        168,
+                        255
+                      ],
+                      "video": "MEuRS1aUYUU"
+                    }
+                  },
+                  "icon": "mdi:waves",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.start_video_lights",
+                    "service_data": {
+                      "rgb_color": "100,168,255"
+                    }
+                  },
+                  "type": "custom:button-card"
                 }
               ],
-              "type": "vertical-stack"
+              "type": "grid"
             }
           ]
         },
@@ -1197,7 +1222,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "sensor.mr_iphone_battery_level",
+                      "entity": "sensor.mr_battery_level",
                       "name": "Battery"
                     }
                   ],
@@ -1232,20 +1257,20 @@
                   "type": "custom:multiple-entity-row"
                 },
                 {
-                  "entity": "sensor.fyrtur_block_out_roller_blind_battery_2",
+                  "entity": "sensor.bedroom_blind_r_battery",
                   "name": "Blinds",
                   "icon": "hass:blinds-open",
                   "state_header": "Blind R",
                   "entities": [
                     {
                       "name": "Blind L",
-                      "entity": "sensor.fyrtur_block_out_roller_blind_battery"
+                      "entity": "sensor.bedroom_blind_l_battery"
                     }
                   ],
                   "type": "custom:multiple-entity-row"
                 },
                 {
-                  "entity": "sensor.tradfri_open_close_switch_1_battery",
+                  "entity": "sensor.tradfri_open_close_remote_1_battery",
                   "name": "On/Off",
                   "icon": "mdi:remote",
                   "state_header": "On/Off",

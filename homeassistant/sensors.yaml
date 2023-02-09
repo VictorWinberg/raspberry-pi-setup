@@ -40,19 +40,6 @@
   scan_interval: '00:30'
 - platform: spotcast
   country: SE
-- platform: avanza_stock
-  stock:
-    - id: 2011
-      name: LF Småbolag
-    - id: 1933
-      name: Ny Teknik
-    - id: 431
-      name: World Tech
-    - id: 194698
-      name: GME
-    - id: 41567
-      name: Avanza Zero
-  scan_interval: 86400
 - platform: rest
   name: OneList
   json_attributes_path: '$.[0]'
@@ -60,7 +47,7 @@
     - id
     - category
   value_template: >
-    {% set json = value_json | selectattr("uid", "eq", 0) | selectattr("checked", "eq", false) | rejectattr("id", "eq", 62) | map(attribute="name") | sort | join("\n") %}
+    {% set json = value_json | selectattr("uid", "eq", 0) | selectattr("checked", "eq", false) | rejectattr("id", "eq", 62) | map(attribute="name") | sort | join("\n") %}
     {{ json[:255] }}
   scan_interval: 30
   resource: https://shop.zolly.ml/__/products

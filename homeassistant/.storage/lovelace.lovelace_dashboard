@@ -67,7 +67,7 @@
                           "titleColor": "#326BB7"
                         },
                         {
-                          "entity": "calendar.annies_kalender",
+                          "entity": "calendar.annie_kalender",
                           "titleColor": "#AD208E"
                         },
                         {
@@ -91,7 +91,7 @@
                       "noEventsForTodayText": "Inga händelser",
                       "showColors": true,
                       "maxDaysToShow": 14,
-                      "style": "ha-card {\n  box-shadow: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
+                      "style": "ha-card {\n  box-shadow: none;\n  border: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
                       "dateColor": "#333",
                       "timeColor": "#313131",
                       "timeSize": 140,
@@ -104,7 +104,7 @@
                       "type": "markdown",
                       "content": "{{ states(\"sensor.onelist\") }}\n",
                       "style": {
-                        ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
+                        ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  border: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
                         "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
                       }
                     }
@@ -116,7 +116,7 @@
                     {
                       "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
                       "style": {
-                        ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
+                        ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
                         "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1 !important;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
                       },
                       "type": "markdown"
@@ -139,15 +139,15 @@
                       "current": true,
                       "details": true,
                       "entity": "weather.openweathermap",
-                      "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
+                      "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  border: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
                       "type": "custom:weather-card",
                       "number_of_forecasts": "5"
                     },
                     {
                       "type": "markdown",
-                      "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor') }} °C</td>\n    <td>{{ states('sensor.office_sensor') }} °C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_2') }} %</td>\n    <td>{{ states('sensor.office_sensor_2') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
+                      "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor_temperature') }} °C</td>\n    <td>{{ states('sensor.office_sensor_temperature') }} °C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_humidity') }} %</td>\n    <td>{{ states('sensor.office_sensor_humidity') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
                       "style": {
-                        ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
+                        ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
                         "ha-markdown$": "td {\n  padding: 0 1rem;\n}\ntr:nth-child(3), tr:nth-child(4) {\n  font-size: 1.25rem;\n  color: grey;\n}\n"
                       }
                     }
@@ -243,7 +243,7 @@
                     {
                       "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
                       "style": {
-                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
                         "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
                       },
                       "type": "markdown"
@@ -447,6 +447,7 @@
                         },
                         {
                           "entity": "switch.sonoff_10008c59d6",
+                          "icon": "mdi:office-building",
                           "style": {
                             "left": "13%",
                             "top": "83%"
@@ -668,7 +669,7 @@
                         }
                       ],
                       "image": "/local/blueprint.png",
-                      "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
+                      "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  border: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
                       "type": "picture-elements"
                     },
                     {

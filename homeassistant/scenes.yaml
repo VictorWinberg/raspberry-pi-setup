@@ -1,4 +1,0 @@
-- platform: lifx_cloud
-  token: !secret ms_lifx_token
-- platform: lifx_cloud
-  token: !secret mr_lifx_token

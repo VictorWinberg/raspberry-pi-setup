@@ -1,79 +1,84 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace_resources",
-    "data": {
-        "items": [
-            {
-                "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524314",
-                "type": "module",
-                "id": "59e84790f1ed4e86aed19a0c81ad07af"
-            },
-            {
-                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381164",
-                "type": "module",
-                "id": "4513f5c1a36a42fe93aa42858ca332a5"
-            },
-            {
-                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=15078199420012",
-                "type": "module",
-                "id": "c54beee920ce41ec83329fda4f19cab9"
-            },
-            {
-                "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
-                "type": "module",
-                "id": "7a9ac2ed77974da180855b99b5813183"
-            },
-            {
-                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
-                "type": "module",
-                "id": "2a6bd9e221f04804b4212e49e29b7b26"
-            },
-            {
-                "url": "/hacsfiles/button-card/button-card.js",
-                "type": "module",
-                "id": "32a5c937f336435a8e050faf02de3086"
-            },
-            {
-                "url": "/hacsfiles/roku-card/roku-card.js?hacstag=164367214121",
-                "type": "module",
-                "id": "0553d6d7c1a54d199e7f5224c1e15b79"
-            },
-            {
-                "url": "/hacsfiles/weather-card/weather-card.js",
-                "type": "module",
-                "id": "c4cfc587eedc4ddfb901a7c4e2ef1936"
-            },
-            {
-                "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=303101606172",
-                "type": "module",
-                "id": "2637c969ea3b41e8a4ab8a76f30234a1"
-            },
-            {
-                "url": "/hacsfiles/lovelace-swipe-navigation/swipe-navigation.js?hacstag=183995552136",
-                "type": "module",
-                "id": "2cf3716e774d4ab89890f5cabf637eed"
-            },
-            {
-                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
-                "type": "module",
-                "id": "d2fa40762a044ae287ae4766de6ef1a1"
-            },
-            {
-                "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833042",
-                "type": "module",
-                "id": "ac8cb3fe71414431b79bdf2e34b12385"
-            },
-            {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
-                "type": "module",
-                "id": "d1ebf73f89ba43b194d3475f4c6a595f"
-            },
-            {
-                "url": "/hacsfiles/atomic_calendar/atomic_calendar.js?hacstag=2542856740911",
-                "type": "module",
-                "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524320",
+        "type": "module",
+        "id": "59e84790f1ed4e86aed19a0c81ad07af"
+      },
+      {
+        "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381165",
+        "type": "module",
+        "id": "4513f5c1a36a42fe93aa42858ca332a5"
+      },
+      {
+        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994220",
+        "type": "module",
+        "id": "c54beee920ce41ec83329fda4f19cab9"
+      },
+      {
+        "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001730",
+        "type": "module",
+        "id": "7a9ac2ed77974da180855b99b5813183"
+      },
+      {
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
+        "type": "module",
+        "id": "2a6bd9e221f04804b4212e49e29b7b26"
+      },
+      {
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
+        "type": "module",
+        "id": "32a5c937f336435a8e050faf02de3086"
+      },
+      {
+        "url": "/hacsfiles/roku-card/roku-card.js?hacstag=164367214124",
+        "type": "module",
+        "id": "0553d6d7c1a54d199e7f5224c1e15b79"
+      },
+      {
+        "url": "/hacsfiles/weather-card/weather-card.js?hacstag=192732636150",
+        "type": "module",
+        "id": "c4cfc587eedc4ddfb901a7c4e2ef1936"
+      },
+      {
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128173",
+        "type": "module",
+        "id": "2637c969ea3b41e8a4ab8a76f30234a1"
+      },
+      {
+        "url": "/hacsfiles/lovelace-swipe-navigation/swipe-navigation.js?hacstag=183995552136",
+        "type": "module",
+        "id": "2cf3716e774d4ab89890f5cabf637eed"
+      },
+      {
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
+        "type": "module",
+        "id": "d2fa40762a044ae287ae4766de6ef1a1"
+      },
+      {
+        "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833044",
+        "type": "module",
+        "id": "ac8cb3fe71414431b79bdf2e34b12385"
+      },
+      {
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+        "type": "module",
+        "id": "d1ebf73f89ba43b194d3475f4c6a595f"
+      },
+      {
+        "url": "/hacsfiles/atomic_calendar/atomic_calendar.js?hacstag=2542856740911",
+        "type": "module",
+        "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
+      },
+      {
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791100",
+        "type": "module",
+        "id": "41662ed39a6241cb8f7a98cc96a4906b"
+      }
+    ]
+  }
 }

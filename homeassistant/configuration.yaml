@@ -8,8 +8,8 @@ wake_on_lan:
 vicnie:
 sonoff:
 spotcast:
-  sp_dc: !secret sp_dc
-  sp_key: !secret sp_key
+  sp_dc: !secret sp_mr_dc
+  sp_key: !secret sp_mr_key
   accounts:
     mr:
       sp_dc: !secret sp_mr_dc
@@ -56,14 +56,6 @@ google_assistant:
       name: Goodnight
       expose: true
 
-webostv:
-  host: !secret mio_tv_ip
-  name: Mio TV
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: !secret mio_tv_mac
-
 homeassistant:
   customize:
     person.victor:
@@ -84,11 +76,11 @@ frontend:
 input_boolean:
   wakeup_enabled:
     name: "Wake-up lights"
-    initial: on
+#    initial: on
     icon: mdi:theme-light-dark
   wakeup_weekend:
     name: "Enable Wake-up on weekends"
-    initial: off
+#    initial: off
     icon: mdi:calendar-blank
 
 input_datetime:
@@ -96,60 +88,62 @@ input_datetime:
     name: "Start alarm at"
     has_time: true
     has_date: false
-    initial: "07:00"
-  light_transition_time:
-    name: "Light transition time"
-    has_time: true
-    has_date: false
-    initial: "00:30"
-    icon: mdi:timer
-  goodnight_transition_time:
-    name: "Light transition time"
-    has_time: true
-    has_date: false
-    initial: "00:10"
-    icon: mdi:timer
+#    initial: "07:00"
 
 input_number:
   light_brightness:
     name: "Light brightness"
-    initial: 40
+#    initial: 40
     min: 0
     max: 100
   color_index:
     name: "Color index"
-    initial: 0
+#    initial: 0
     min: 0
     max: 100
+  wakeup_transition_time:
+    name: "Wake-up timer"
+#    initial: 30
+    min: 0
+    max: 100
+    unit_of_measurement: min
+    icon: mdi:timer
+  goodnight_transition_time:
+    name: "Goodnight timer"
+#    initial 10
+    min: 0
+    max: 100
+    unit_of_measurement: min
+    icon: mdi:timer
 
 input_text:
   us_playlist:
     name: Couple Playlist
-    initial: spotify:playlist:37i9dQZF1EJwWzoTjgyTb5
+#    initial: spotify:playlist:37i9dQZF1EJwWzoTjgyTb5
   annie_playlist:
     name: Annie's Playlist
-    initial: spotify:playlist:37i9dQZEVXcJk8sVwtGBNk
+#    initial: spotify:playlist:37i9dQZEVXcJk8sVwtGBNk
   victor_playlist:
     name: Victor's Playlist
-    initial: spotify:playlist:37i9dQZEVXcWTnWnE5HWDY
+#    initial: spotify:playlist:37i9dQZEVXcWTnWnE5HWDY
   dinner_playlist:
     name: Dinner Playlist
-    initial: spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ
+#    initial: spotify:playlist:37i9dQZF1DX4xuWVBs4FgJ
   christmas_playlist:
     name: Christmas Playlist
-    initial: spotify:playlist:1WJbVVZmtlTUcqms2zbMaH
+#    initial: spotify:playlist:1WJbVVZmtlTUcqms2zbMaH
   goodnight_playlist:
     name: Goodnight Playlist
-    initial: spotify:album:2GMizsQeKeilPBjUjrfqhI
+#    initial: spotify:album:2GMizsQeKeilPBjUjrfqhI
   arrive_home_playlist:
     name: Arrive Home Playlist
-    initial: spotify:playlist:37i9dQZF1DX4WYpdgoIcn6
+#    initial: spotify:playlist:37i9dQZF1DX4WYpdgoIcn6
   good_morning_playlist:
     name: Good morning Playlist
-    initial: spotify:playlist:7EMXXzWZ5dLGFZElF5ohEA
+#    initial: spotify:playlist:7EMXXzWZ5dLGFZElF5ohEA
   anniversary_image:
     name: Anniversary Image
-    initial: https://placekitten.com/600/200
+#    initial: https://placekitten.com/600/200
     max: 255
   anniversary_entity:
     name: Anniversary Entity
@@ -166,7 +160,7 @@ input_select:
      - media_player.mio_tv
      - light:all
      - light:group.ikea
-    initial: default
+#    initial: default
     icon: mdi:remote
   symfonisk_entity:
     name: "Symfonisk Controller Entity"
@@ -179,44 +173,33 @@ input_select:
      - media_player.mio_tv
      - light:all
      - light:group.ikea
-    initial: media_player.portable_speaker
+#    initial: media_player.portable_speaker
     icon: mdi:circle-outline
-  magic_cube_side:
-    name: "Magic Cube Side"
-    options:
-     - side-1
-     - side-2
-     - side-3
-     - side-4
-     - side-5
-     - side-6
-    initial: side-1
-    icon: mdi:cube-outline
   chef_monday:
     name: Chef Monday
     options:
      - chef-woman
      - chef-man
-    initial: chef-woman
+#    initial: chef-woman
     icon: mdi:chef-hat
   chef_tuesday:
     name: Chef Tuesday
     options:
      - chef-woman
      - chef-man
-    initial: chef-man
+#    initial: chef-man
     icon: mdi:chef-hat
   chef_wednesday:
     name: Chef Wednesday
     options:
      - chef-woman
      - chef-man
-    initial: chef-man
+#    initial: chef-man
     icon: mdi:chef-hat
   chef_thursday:
     name: Chef Thursday
     options:
      - chef-woman
      - chef-man
-    initial: chef-woman
+#    initial: chef-woman
     icon: mdi:chef-hat
