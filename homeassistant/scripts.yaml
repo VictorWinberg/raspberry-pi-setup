@@ -354,8 +354,8 @@ good_night:
     - service: light.turn_on
       data_template:
         brightness: 0
-        transition: '{{ states.input_datetime.goodnight_transition_time.attributes.timestamp
-          | int }} '
+        transition: '{{ states(''input_number.goodnight_transition_time'') | int *
+          60 }} '
         rgb_color:
         - 255
         - 0
