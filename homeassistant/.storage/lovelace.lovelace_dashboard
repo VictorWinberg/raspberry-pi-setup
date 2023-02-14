@@ -138,7 +138,7 @@
                     {
                       "current": true,
                       "details": true,
-                      "entity": "weather.openweathermap",
+                      "entity": "weather.forecast_home",
                       "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  border: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
                       "type": "custom:weather-card",
                       "number_of_forecasts": "5"
