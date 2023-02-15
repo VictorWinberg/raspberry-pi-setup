@@ -85,7 +85,7 @@ External Storage :file_folder:
 - [Automatically mount storage devices using `fstab`](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-automatic-mounting)
 ```vim
 # /etc/fstab
-UUID=XXXX-XXXX /mnt/exfat exfat defaults,auto,users,rw,nofail 0 0
+UUID=XXXX-XXXX /mnt/exfat exfat defaults,auto,users,rw,nofail,umask=000 0 0
 ```
 
 Remote Access (Samba) :open_file_folder:
