@@ -34,9 +34,21 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.tv_ambient",
-                    "name": "TV Ambient",
-                    "icon": "mdi:television",
+                    "entity": "light.led_strip_philips",
+                    "name": "Philips",
+                    "icon": "mdi:television-ambient-light",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
+                    "entity": "light.led_strip_lifx",
+                    "name": "LIFX",
+                    "icon": "mdi:television-ambient-light",
                     "tap_action": {
                       "action": "toggle"
                     },
@@ -50,12 +62,9 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "icon": "mdi:comment-question"
-                  },
-                  {
-                    "type": "custom:button-card",
                     "entity": "group.balcony",
                     "name": "Balcony",
+                    "icon": "mdi:string-lights",
                     "tap_action": {
                       "action": "toggle"
                     },
@@ -77,8 +86,9 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "light.living_room",
-                    "name": "Liv. Light",
+                    "entity": "group.dining",
+                    "name": "Dining",
+                    "icon": "mdi:table-chair",
                     "tap_action": {
                       "action": "toggle"
                     },
@@ -88,9 +98,9 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.dining",
-                    "name": "Dining",
-                    "icon": "mdi:table-chair",
+                    "entity": "light.living_room",
+                    "name": "Liv. Light",
+                    "icon": "mdi:ceiling-light",
                     "tap_action": {
                       "action": "toggle"
                     },

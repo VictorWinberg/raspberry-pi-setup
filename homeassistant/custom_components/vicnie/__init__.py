@@ -35,7 +35,7 @@ def setup(hass, config):
         """Service data"""
         id = call.data.get("id")
         input_select_entity_id = {
-          'symfonisk_controller': 'input_select.symfonisk_entity',
+          'symfonisk_sound_controller': 'input_select.symfonisk_entity',
           'tradfri_remote_control': 'input_select.remote_entity',
         }.get(id, '')
         if input_select_entity_id:
@@ -49,7 +49,7 @@ def setup(hass, config):
         events = {
           "1001": "MDWN", "1002": "MBTN", "1003": "MUP", "2001": "UDWN", "2002": "UBTN", "2003": "UUP", "3001": "DDWN", "3002": "DBTN", "3003": "DUP", "4001": "LDWN", "4002": "LBTN", "4003": "LUP", "5001": "RDWN", "5002": "RBTN", "5003": "RUP"
         }
-        if id == "symfonisk_controller": events = {**events, "1004": "RBTN", "1005": "LBTN", "2001": "UBTN", "3001": "DBTN"}
+        if id == "symfonisk_sound_controller": events = {**events, "1004": "RBTN", "1005": "LBTN", "2001": "UBTN", "3001": "DBTN"}
         event = events.get(str(call.data.get("event")), "NUL")
 
         """Variables"""
@@ -148,8 +148,7 @@ def setup(hass, config):
               "media_player":                lambda: media_player_domain(entity_id, event),
               "light":                       lambda: light_domain(entity_id, event),
               "automation":                  lambda: s("automation", "trigger", {"entity_id": entity_id}, False),
-              "tradfri_open_close_switch_1": lambda: tradfri_open_close_remote(event),
-              "tradfri_open_close_switch_2": lambda: tradfri_open_close_remote(event),
+              "tradfri_open_close_remote":   lambda: tradfri_open_close_remote(event),
             }.get(domain, lambda: _LOGGER.warning("Missing domain: " + domain))()
 
         run_service(domain, entity_id, event)
