@@ -171,7 +171,10 @@ blinds_open:
       - cover.bedroom_blind_l
   - delay: 00:00:30
   - service: cover.open_cover
-    entity_id: cover.bedroom_blind_r
+    data: {}
+    target:
+      entity_id:
+      - cover.bedroom_blind_r
   - delay:
       hours: 0
       minutes: 1
@@ -335,7 +338,11 @@ good_night:
     - service: script.turn_on
       data: {}
       entity_id: script.blinds_close
-    - delay: 00:00:30
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 15
+        milliseconds: 0
     - service: script.power_off
       data: {}
     - delay:
@@ -353,7 +360,7 @@ good_night:
         entity_id: light.philips_hue
     - service: light.turn_on
       data_template:
-        brightness: 0
+        brightness: 1
         transition: '{{ states(''input_number.goodnight_transition_time'') | int *
           60 }} '
         rgb_color:
@@ -390,6 +397,10 @@ good_night:
       data: {}
       target:
         entity_id: media_player.speakers
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.philips_hue
   mode: single
 random_light_toggle:
   alias: Random light toggle
