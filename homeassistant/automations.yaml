@@ -382,11 +382,9 @@
   - service: light.turn_on
     data:
       transition: 10
-      brightness_pct: 5
+      brightness_pct: 50
     target:
       entity_id: light.living_room
-  - service: script.lifx_mode
-    data: {}
   mode: single
 - id: '1666531317595'
   alias: Lunch time - Turn on lights
