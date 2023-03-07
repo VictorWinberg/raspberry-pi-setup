@@ -22,25 +22,27 @@
       - thu
       - fri
       before: 00:00:00
+      after: 00:00:00
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
   action:
+  - service: light.turn_on
+    data:
+      transition: '{{ states(''input_number.wakeup_transition_time'') | int * 60 //
+        2 }}'
+      brightness_pct: 100
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 // 2 }}'
   - service: script.turn_on
     data: {}
     entity_id: script.pulsing_lights
-  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
+  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 // 2 }}'
   - service: script.turn_on
     entity_id: script.good_morning
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: script.turn_on
-    data: {}
-    target:
-      entity_id: script.pulsing_lights
   mode: single
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
