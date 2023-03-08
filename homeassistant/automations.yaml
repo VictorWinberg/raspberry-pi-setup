@@ -29,6 +29,18 @@
   action:
   - service: light.turn_on
     data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - service: light.turn_on
+    data:
       transition: '{{ states(''input_number.wakeup_transition_time'') | int * 60 //
         2 }}'
       brightness_pct: 100
@@ -36,7 +48,7 @@
       entity_id:
       - light.bedroom
       - light.philips_hue
-  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 // 2 }}'
+  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
   - service: script.turn_on
     data: {}
     entity_id: script.pulsing_lights

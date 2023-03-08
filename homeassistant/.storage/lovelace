@@ -1325,6 +1325,10 @@
                   "name": "Xmas"
                 },
                 {
+                  "entity": "input_text.good_morning_playlist",
+                  "icon": "mdi:weather-sunset-up"
+                },
+                {
                   "entity": "input_text.goodnight_playlist",
                   "icon": "mdi:weather-night",
                   "name": "Nighty"
@@ -1338,7 +1342,7 @@
               "show_header_toggle": false,
               "show_name": false,
               "show_state": false,
-              "columns": 7,
+              "columns": 8,
               "type": "glance"
             },
             {
