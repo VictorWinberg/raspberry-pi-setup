@@ -23,7 +23,7 @@ do
     . ./.github/deploy
 
     echo "> pm2 start ${MAIN}"
-    pm2 restart "${REPO}" --time || pm2 start "${MAIN}" --name "${REPO} --time"
+    pm2 restart "${REPO}" --time || pm2 start "${MAIN}" --name "${REPO}" --time
 
     echo "> pm2 save"
     pm2 save
