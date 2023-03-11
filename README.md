@@ -407,6 +407,10 @@ done
 
 `$ chmod +x hooks/post-receive`
 
+**You can also run the hook manually**
+
+`$ echo "oldrev newrev refs/heads/master" | repos/${PROJECT}.git/hooks/post-receive`
+
 Git Client :octocat:
 -------------------
 #### Clone
