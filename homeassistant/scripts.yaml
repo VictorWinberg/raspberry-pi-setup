@@ -228,7 +228,6 @@ good_morning:
   sequence:
   - service: light.turn_on
     data:
-      brightness: 200
       flash: long
     target:
       entity_id:
@@ -244,6 +243,7 @@ good_morning:
       - light.kitchen_oven
       - light.kitchen_table
       - light.kitchen_sink
+      - light.philips_hue
   - service: switch.turn_on
     data: {}
     target:
