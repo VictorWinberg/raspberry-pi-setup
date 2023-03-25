@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_printer",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "theme": "Backend-selected",
+          "title": "3D Printer",
+          "icon": "mdi:printer",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.ender_3_connect_to_printer",
+                  "name": "Connect to printer"
+                },
+                {
+                  "entity": "switch.ender_3_pause_print",
+                  "name": "Pause Print"
+                },
+                {
+                  "entity": "button.ender_3_cancel_print",
+                  "name": "Cancel Print"
+                },
+                {
+                  "entity": "button.ender_3_emergency_stop",
+                  "name": "Emergency Stop"
+                },
+                {
+                  "entity": "button.ender_3_reboot_system",
+                  "name": "Reboot System"
+                },
+                {
+                  "entity": "button.ender_3_restart_server",
+                  "name": "Restart Server"
+                },
+                {
+                  "entity": "button.ender_3_shutdown_system",
+                  "name": "Shutdown System"
+                }
+              ],
+              "title": "Ender 3 - 3D Printer",
+              "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.ender_3_approximate_completion_time",
+                  "name": "Approximate Completion Time"
+                },
+                {
+                  "entity": "sensor.ender_3_approximate_total_print_time",
+                  "name": "Approximate Total Print Time"
+                },
+                {
+                  "entity": "sensor.ender_3_bed_target",
+                  "name": "Bed Target"
+                },
+                {
+                  "entity": "sensor.ender_3_bed_temperature",
+                  "name": "Bed Temperature"
+                },
+                {
+                  "entity": "binary_sensor.ender_3_connected",
+                  "name": "Connected"
+                },
+                {
+                  "entity": "sensor.ender_3_current_z",
+                  "name": "Current Z"
+                },
+                {
+                  "entity": "sensor.ender_3_last_event",
+                  "name": "Last Event"
+                },
+                {
+                  "entity": "sensor.ender_3_print_file",
+                  "name": "Print File"
+                },
+                {
+                  "entity": "sensor.ender_3_print_progress",
+                  "name": "Print Progress"
+                },
+                {
+                  "entity": "sensor.ender_3_print_status",
+                  "name": "Print Status"
+                },
+                {
+                  "entity": "sensor.ender_3_print_time",
+                  "name": "Print Time"
+                },
+                {
+                  "entity": "sensor.ender_3_print_time_left",
+                  "name": "Print Time Left"
+                },
+                {
+                  "entity": "binary_sensor.ender_3_printing",
+                  "name": "Printing"
+                },
+                {
+                  "entity": "sensor.ender_3_slicing_file",
+                  "name": "Slicing File"
+                },
+                {
+                  "entity": "sensor.ender_3_slicing_progress",
+                  "name": "Slicing Progress"
+                },
+                {
+                  "entity": "sensor.ender_3_soc_temperature",
+                  "name": "SoC Temperature"
+                },
+                {
+                  "entity": "sensor.ender_3_tool_0_target",
+                  "name": "Tool 0 Target"
+                },
+                {
+                  "entity": "sensor.ender_3_tool_0_temperature",
+                  "name": "Tool 0 Temperature"
+                }
+              ],
+              "title": "Ender 3"
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "v1",
+          "path": "v1",
+          "icon": "mdi:fax",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:vertical-stack-in-card",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "binary_sensor.octoprint_printing",
+                      "name": "State"
+                    },
+                    {
+                      "entity": "sensor.octoprint_bed_temp",
+                      "name": "Bed"
+                    },
+                    {
+                      "entity": "sensor.octoprint_tool_temp",
+                      "name": "Hotend"
+                    }
+                  ],
+                  "columns": 3,
+                  "title": "Creality Ender-3 3D Printer"
+                }
+              ]
+            },
+            {
+              "type": "gauge",
+              "entity": "sensor.octoprint_job_percentage",
+              "needle": false,
+              "name": "Progress"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:button-card",
+                  "icon": "mdi:play",
+                  "show_name": false,
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "button.press",
+                    "service_data": {
+                      "entity_id": "button.octoprint_resume_job"
+                    }
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "icon": "mdi:pause",
+                  "show_name": false,
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "button.press",
+                    "service_data": {
+                      "entity_id": "button.octoprint_pause_job"
+                    }
+                  }
+                },
+                {
+                  "type": "custom:button-card",
+                  "icon": "mdi:stop",
+                  "show_name": false,
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "button.press",
+                    "service_data": {
+                      "entity_id": "button.octoprint_stop_job"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.octoprint_current_state"
+                },
+                {
+                  "entity": "sensor.octoprint_start_time"
+                },
+                {
+                  "entity": "sensor.octoprint_estimated_finish_time"
+                },
+                {
+                  "entity": "binary_sensor.octoprint_printing"
+                },
+                {
+                  "entity": "binary_sensor.octoprint_printing_error"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
