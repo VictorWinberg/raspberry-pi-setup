@@ -209,7 +209,7 @@ $ sudo apt install python3-certbot-nginx
 
 **Update certs**
 ```cs
-$ sudo certbot --authenticator webroot -w /var/www/html --installer nginx
+$ sudo certbot --authenticator webroot -w /var/www/html --installer nginx --cert-name zolly.ml
 $ sudo nano /etc/nginx/sites-available/default
 $ sudo /etc/init.d/nginx reload (start/restart)
 ```
