@@ -19,14 +19,6 @@
     someone_home:
       friendly_name: "Someone home?"
       value_template: '{{ is_state("person.annie", "home") or is_state("person.victor", "home") }}'
-    octoprint_bed_temp:
-      friendly_name: "Octoprint Bed Temp"
-      unit_of_measurement: 'Celcius'
-      value_template: '{{ states("sensor.octoprint_actual_bed_temp") + " / " + states("sensor.octoprint_target_bed_temp") }}'
-    octoprint_tool_temp:
-      friendly_name: "Octoprint Tool Temp"
-      unit_of_measurement: 'Celcius'
-      value_template: '{{ states("sensor.octoprint_actual_tool0_temp") + " / " + states("octoprint_target_tool0_temp") }}'
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
