@@ -266,15 +266,26 @@ good_morning:
     data:
       volume_level: 0.15
     target:
-      entity_id: media_player.sorrysound_audio
+      entity_id:
+      - media_player.rio
   - service: script.play_spotify
     data:
       entity_id: media_player.speakers
-      uri: input_text.good_morning_playlist
+      uri: input_text.goodnight_playlist
       account: mr
   - service: script.turn_on
     data: {}
     entity_id: script.blinds_open
+  - delay:
+      hours: 0
+      minutes: 30
+      seconds: 0
+      milliseconds: 0
+  - service: script.play_spotify
+    data:
+      entity_id: media_player.nest_mini
+      uri: input_text.good_morning_playlist
+      account: mr
   mode: single
 good_night:
   alias: Good Night
@@ -341,7 +352,8 @@ good_night:
       data:
         volume_level: 0.2
       target:
-        entity_id: media_player.sorrysound_audio
+        entity_id:
+        - media_player.rio
     - service: media_player.volume_set
       data:
         volume_level: 0.1
