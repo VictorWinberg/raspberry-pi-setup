@@ -43,10 +43,6 @@
                   "name": "Approximate Completion Time"
                 },
                 {
-                  "entity": "sensor.ender_3_approximate_total_print_time",
-                  "name": "Approximate Total Print Time"
-                },
-                {
                   "entity": "sensor.ender_3_print_status",
                   "name": "Print Status"
                 },
@@ -65,19 +61,9 @@
               ]
             },
             {
-              "type": "horizontal-stack",
-              "cards": [
-                {
-                  "type": "gauge",
-                  "entity": "sensor.ender_3_print_progress",
-                  "name": "Printing"
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.ender_3_slicing_progress",
-                  "name": "Slicing"
-                }
-              ]
+              "type": "gauge",
+              "entity": "sensor.ender_3_print_progress",
+              "name": "Printing"
             },
             {
               "type": "entities",
@@ -105,20 +91,16 @@
                   "name": "Connected"
                 },
                 {
+                  "entity": "sensor.ender_3_print_file",
+                  "name": "Print File"
+                },
+                {
                   "entity": "sensor.ender_3_current_z",
                   "name": "Current Z"
                 },
                 {
                   "entity": "sensor.ender_3_last_event",
                   "name": "Last Event"
-                },
-                {
-                  "entity": "sensor.ender_3_print_file",
-                  "name": "Print File"
-                },
-                {
-                  "entity": "sensor.ender_3_slicing_file",
-                  "name": "Slicing File"
                 },
                 {
                   "entity": "sensor.ender_3_soc_temperature",

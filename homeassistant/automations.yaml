@@ -34,18 +34,6 @@
       entity_id:
       - light.bedroom
       - light.philips_hue
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 0
-      milliseconds: 20
-  - service: light.turn_on
-    data:
-      brightness_pct: 1
-    target:
-      entity_id:
-      - light.bedroom
-      - light.philips_hue
   - service: light.turn_on
     data:
       transition: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
@@ -57,7 +45,7 @@
   - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
   - service: script.turn_on
     entity_id: script.good_morning
-  mode: single
+  mode: restart
 - id: '1575459544999'
   alias: Arrive Home - Turn on lights
   description: ''
@@ -273,6 +261,8 @@
     event_data:
       entity_id: light.bedroom
   condition:
+  - condition: template
+    value_template: '{{ trigger.event.data.old_state.state == "off" }}'
   - condition: template
     value_template: '{{ trigger.event.data.new_state.state == "on" }}'
   - condition: template
