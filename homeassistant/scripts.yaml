@@ -44,13 +44,23 @@ power_off:
   - service: homeassistant.turn_off
     target:
       entity_id:
-      - script.pulsing_lights
       - script.blinds_close
       - script.blinds_open
+      - script.good_morning
+      - script.good_night
+    data: {}
   - entity_id: all
     service: media_player.turn_off
-  - entity_id: all
-    service: switch.turn_off
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id:
+      - switch.bed_strip
+      - switch.living_room_plug
+      - switch.sonoff_10008c59d6
+      - switch.power_strip_socket_1
+      - switch.window_plug
+      - switch.power_strip_socket_3
   - entity_id: all
     service: light.turn_off
   mode: single

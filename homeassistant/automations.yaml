@@ -345,21 +345,25 @@
   - platform: sun
     event: sunrise
     offset: 0
-  condition: []
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - wed
+    - fri
+    before: 00:00:00
+    after: 00:00:00
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
     timeout: 01:00:00
-  - service: notify.mobile_app_victors_ipod
-    data:
-      title: Watering Plants
-      message: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
-        // 10 }} times ({{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature
-        }}°C)'
   - repeat:
-      count: '{{ state_attr(''weather.smhi_home'', ''forecast'')[0].temperature //
-        10 }}'
+      count: '10'
       sequence:
+      - service: notify.mobile_app_victors_ipod
+        data:
+          title: Watering Plants
+          message: '{{ ''Watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
       - service: switch.turn_on
         data: {}
         target:
@@ -369,6 +373,11 @@
           entity_id:
           - switch.water_pump_switch
           to: 'off'
+        timeout:
+          hours: 0
+          minutes: 0
+          seconds: 0
+          milliseconds: 0
   mode: single
 - id: '1666530802374'
   alias: TV Lights - Listener
