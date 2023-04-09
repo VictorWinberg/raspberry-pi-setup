@@ -46,8 +46,6 @@ power_off:
       entity_id:
       - script.blinds_close
       - script.blinds_open
-      - script.good_morning
-      - script.good_night
     data: {}
   - entity_id: all
     service: media_player.turn_off
