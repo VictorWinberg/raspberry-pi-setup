@@ -394,7 +394,7 @@
   - service: light.turn_on
     data:
       transition: 10
-      brightness_pct: 80
+      brightness_pct: 60
     target:
       entity_id:
       - light.led_strip_philips
@@ -402,7 +402,7 @@
   - service: light.turn_on
     data:
       transition: 10
-      brightness_pct: 50
+      brightness_pct: 10
     target:
       entity_id: light.living_room
   mode: single
