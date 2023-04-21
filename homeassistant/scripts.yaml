@@ -429,7 +429,7 @@ ping_tv:
     data: {}
   mode: single
 shutdown_in_x_minutes:
-  alias: Shutdown in X minutes
+  alias: Shutdown in 15 minutes
   sequence:
   - delay:
       hours: 0
@@ -438,7 +438,7 @@ shutdown_in_x_minutes:
       milliseconds: 0
   - service: script.power_off
     data: {}
-  mode: single
+  mode: restart
 dim_lights:
   sequence:
   - data:
