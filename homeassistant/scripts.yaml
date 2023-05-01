@@ -243,6 +243,10 @@ good_morning:
   - service: light.turn_on
     data:
       brightness: 200
+      rgb_color:
+      - 255
+      - 171
+      - 1
     target:
       entity_id:
       - light.bedroom
