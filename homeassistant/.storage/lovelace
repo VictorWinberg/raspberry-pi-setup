@@ -342,7 +342,7 @@
                         {
                           "data": {
                             "entity_id": "media_player.speakers",
-                            "uri": "input_text.us_playlist",
+                            "uri": "input_text.couple_playlist",
                             "account": "ms"
                           },
                           "icon": "mdi:account-supervisor",
@@ -352,20 +352,20 @@
                         {
                           "data": {
                             "entity_id": "media_player.speakers",
-                            "uri": "input_text.christmas_playlist",
-                            "account": "ms"
+                            "uri": "input_text.dinner_playlist",
+                            "account": "mr"
                           },
-                          "icon": "mdi:pine-tree",
+                          "icon": "mdi:glass-wine",
                           "id": "script.play_spotify",
                           "type": "script"
                         },
                         {
                           "data": {
                             "entity_id": "media_player.speakers",
-                            "uri": "input_text.goodnight_playlist",
-                            "account": "mr"
+                            "uri": "input_text.custom_playlist",
+                            "account": "ms"
                           },
-                          "icon": "mdi:weather-night",
+                          "icon": "mdi:star",
                           "id": "script.play_spotify",
                           "type": "script"
                         }
@@ -1310,7 +1310,7 @@
                   "name": "Victor"
                 },
                 {
-                  "entity": "input_text.us_playlist",
+                  "entity": "input_text.couple_playlist",
                   "icon": "mdi:account-supervisor",
                   "name": "Couple"
                 },
@@ -1320,9 +1320,9 @@
                   "name": "Dinner"
                 },
                 {
-                  "entity": "input_text.christmas_playlist",
-                  "icon": "mdi:pine-tree",
-                  "name": "Xmas"
+                  "entity": "input_text.custom_playlist",
+                  "icon": "mdi:star",
+                  "name": "Custom"
                 },
                 {
                   "entity": "input_text.good_morning_playlist",
