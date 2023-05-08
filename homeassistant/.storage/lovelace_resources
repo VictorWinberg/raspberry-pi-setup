@@ -30,7 +30,7 @@
         "id": "2a6bd9e221f04804b4212e49e29b7b26"
       },
       {
-        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325342",
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325350",
         "type": "module",
         "id": "32a5c937f336435a8e050faf02de3086"
       },
@@ -45,7 +45,7 @@
         "id": "c4cfc587eedc4ddfb901a7c4e2ef1936"
       },
       {
-        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128173",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128190",
         "type": "module",
         "id": "2637c969ea3b41e8a4ab8a76f30234a1"
       },
@@ -75,9 +75,14 @@
         "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791100",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791111",
         "type": "module",
         "id": "41662ed39a6241cb8f7a98cc96a4906b"
+      },
+      {
+        "url": "/hacsfiles/miflora-card/miflora-card.js?hacstag=197715418",
+        "type": "module",
+        "id": "499d04be7079448a9ca0d0b92b6afb5a"
       }
     ]
   }

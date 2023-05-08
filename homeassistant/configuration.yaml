@@ -4,6 +4,7 @@ default_config:
 # Custom
 mobile_app:
 discovery:
+bluetooth:
 wake_on_lan:
 vicnie:
 sonoff:
