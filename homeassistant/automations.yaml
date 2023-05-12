@@ -342,40 +342,39 @@
   alias: Watering Plants
   description: ''
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: 0
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    before: 00:00:00
-    after: 00:00:00
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: WATERING_PLANTS
+  condition: []
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
     timeout: 01:00:00
-  - repeat:
-      count: '10'
-      sequence:
-      - service: notify.mobile_app_victors_ipod
-        data:
-          title: Watering Plants
-          message: '{{ ''Watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
-      - service: switch.turn_on
-        data: {}
-        target:
-          entity_id: switch.water_pump_switch
-      - wait_for_trigger:
-        - platform: state
-          entity_id:
-          - switch.water_pump_switch
-          to: 'off'
-        timeout:
-          hours: 0
-          minutes: 0
-          seconds: 0
-          milliseconds: 0
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Watering Plants
+      message: '{{ ''Initial watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.water_pump_switch
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
+    continue_on_timeout: false
+    timeout: 01:00:00
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Watering Plants
+      message: '{{ ''Continued watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.water_pump_switch
   mode: single
 - id: '1666530802374'
   alias: TV Lights - Listener
@@ -461,4 +460,26 @@
       entity_id:
       - switch.power_strip_socket_1
       - switch.power_strip_socket_3
+  mode: single
+- id: '1683892739577'
+  alias: Plant needs water - Notify
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.plant_sensor_282f_conductivity
+    below: 350
+  action:
+  - service: notify.mobile_app_victors_ipod
+    data:
+      message: '{{ ''Plants: '' + states(''sensor.plant_sensor_282f_conductivity'')
+        + ''µS/cm, '' + states(''sensor.plant_sensor_282f_moisture'') + ''%'' }}'
+      title: Give plants water? (LONG PRESS)
+      data:
+        actions:
+        - action: WATERING_PLANTS
+          title: Give water
   mode: single

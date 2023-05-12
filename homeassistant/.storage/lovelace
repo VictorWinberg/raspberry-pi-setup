@@ -635,7 +635,9 @@
               "min_moisture": 15,
               "max_moisture": 60,
               "min_conductivity": 350,
+              "max_conductivity": 2000,
               "min_temperature": 12,
+              "max_temperature": 30,
               "entities": [
                 {
                   "entity": "sensor.plant_sensor_282f_moisture",
@@ -664,14 +666,18 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.water_pump_switch"
+                  "entity": "switch.water_pump_switch",
+                  "name": "Watering Plants (flow: 0.5 dl / 10 s)",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "automation.trigger",
+                    "service_data": {
+                      "entity_id": "automation.watering_plants"
+                    }
+                  }
                 },
                 {
                   "entity": "sensor.water_pump_duration"
-                },
-                {
-                  "entity": "automation.watering_plants",
-                  "name": "Automation (flow: 0.5 dl / 10 s)"
                 }
               ],
               "show_header_toggle": false,
