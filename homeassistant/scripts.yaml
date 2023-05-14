@@ -389,7 +389,10 @@ good_night:
     - service: media_player.turn_off
       data: {}
       target:
-        entity_id: media_player.speakers
+        entity_id:
+        - media_player.speakers
+        - media_player.nest_mini
+        - media_player.portable_speaker
     - service: light.turn_off
       data: {}
       target:
