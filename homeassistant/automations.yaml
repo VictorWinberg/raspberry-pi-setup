@@ -471,7 +471,7 @@
   condition:
   - condition: numeric_state
     entity_id: sensor.plant_sensor_282f_conductivity
-    below: 350
+    below: 300
   action:
   - service: notify.mobile_app_victors_ipod
     data:
