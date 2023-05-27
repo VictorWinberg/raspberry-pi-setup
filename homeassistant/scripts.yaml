@@ -290,7 +290,7 @@ good_morning:
     entity_id: script.blinds_open
   - delay:
       hours: 0
-      minutes: 30
+      minutes: 10
       seconds: 0
       milliseconds: 0
   - service: script.play_spotify

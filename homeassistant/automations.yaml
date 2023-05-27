@@ -359,22 +359,13 @@
     data: {}
     target:
       entity_id: switch.water_pump_switch
-  - delay:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
     timeout: 01:00:00
   - service: notify.mobile_app_victors_ipod
     data:
       title: Watering Plants
-      message: '{{ ''Continued watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.water_pump_switch
+      message: '{{ ''Done watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
   mode: single
 - id: '1666530802374'
   alias: TV Lights - Listener
@@ -471,7 +462,7 @@
   condition:
   - condition: numeric_state
     entity_id: sensor.plant_sensor_282f_conductivity
-    below: 300
+    below: 350
   action:
   - service: notify.mobile_app_victors_ipod
     data:
