@@ -174,13 +174,14 @@ blinds_open:
       entity_id:
       - cover.bedroom_blind_l
       - cover.bedroom_blind_r
-  mode: single
+  mode: restart
 blinds_close:
   alias: Blinds Close
   sequence:
   - service: script.turn_off
     target:
       entity_id: script.blinds_open
+    data: {}
   - service: cover.close_cover
     data:
       entity_id:
@@ -196,6 +197,7 @@ blinds_close:
       entity_id:
       - cover.bedroom_blind_l
       - cover.bedroom_blind_r
+    data: {}
   - delay:
       hours: 0
       minutes: 1
@@ -206,7 +208,8 @@ blinds_close:
       entity_id:
       - cover.bedroom_blind_l
       - cover.bedroom_blind_r
-  mode: single
+    data: {}
+  mode: restart
 default_toggle:
   alias: Default Toggle
   sequence:
@@ -298,7 +301,7 @@ good_morning:
       entity_id: media_player.nest_mini
       uri: input_text.good_morning_playlist
       account: mr
-  mode: single
+  mode: restart
 good_night:
   alias: Good Night
   sequence:
@@ -397,7 +400,7 @@ good_night:
       data: {}
       target:
         entity_id: light.philips_hue
-  mode: single
+  mode: restart
 random_light_toggle:
   alias: Random light toggle
   sequence:
