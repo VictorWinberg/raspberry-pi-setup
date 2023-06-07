@@ -285,7 +285,7 @@ good_morning:
       - media_player.rio
   - service: script.play_spotify
     data:
-      entity_id: media_player.speakers
+      entity_id: media_player.nest_mini
       uri: input_text.goodnight_playlist
       account: mr
   - service: script.turn_on
