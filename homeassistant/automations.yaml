@@ -224,23 +224,17 @@
   description: ''
   trigger:
   - platform: time
-    at: 05:30
+    at: 05:30:00
   condition:
   - condition: time
     weekday:
     - wed
+    before: 00:00:00
+    after: 00:00:00
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
   action:
-  - service: script.turn_on
-    data: {}
-    entity_id: script.pulsing_lights
-  - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
   - service: script.good_morning
     data: {}
   - service: spotcast.start
