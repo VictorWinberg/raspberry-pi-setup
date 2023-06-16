@@ -113,7 +113,7 @@ play_spotify:
         value_template: '{{ is_state(entity_id, "unavailable") }}'
       sequence:
       - variables:
-          entity_id: media_player.portable_speaker
+          entity_id: media_player.kasinot_speaker
     default: []
   - data_template:
       entity_id: '{{ entity_id }}'
@@ -124,7 +124,6 @@ play_spotify:
       account: '{{ account }}'
     service: spotcast.start
   mode: single
-  max: 10
 blinds_open:
   alias: Blinds Open
   sequence:
@@ -269,14 +268,14 @@ good_morning:
     data:
       volume_level: 0.45
     target:
-      entity_id:
-      - media_player.portable_speaker
+      entity_id: media_player.kasinot_speaker
   - service: media_player.volume_set
     data:
       volume_level: 0.15
     target:
       entity_id:
-      - media_player.nest_mini
+      - media_player.rey
+      - media_player.bali
   - service: media_player.volume_set
     data:
       volume_level: 0.15
@@ -285,7 +284,7 @@ good_morning:
       - media_player.rio
   - service: script.play_spotify
     data:
-      entity_id: media_player.nest_mini
+      entity_id: media_player.bali
       uri: input_text.goodnight_playlist
       account: mr
   - service: script.turn_on
@@ -373,12 +372,15 @@ good_night:
       data:
         volume_level: 0.1
       target:
-        entity_id: media_player.nest_mini
+        entity_id:
+        - media_player.bali
+        - media_player.rey
     - service: media_player.volume_set
       data:
         volume_level: 0.2
       target:
-        entity_id: media_player.portable_speaker
+        entity_id:
+        - media_player.kasinot_speaker
     - service: script.play_spotify
       data:
         entity_id: media_player.speakers
@@ -394,8 +396,9 @@ good_night:
       target:
         entity_id:
         - media_player.speakers
-        - media_player.nest_mini
-        - media_player.portable_speaker
+        - media_player.rey
+        - media_player.bali
+        - media_player.kasinot_speaker
     - service: light.turn_off
       data: {}
       target:

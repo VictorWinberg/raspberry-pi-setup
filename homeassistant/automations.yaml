@@ -92,8 +92,10 @@
   action:
   - data:
       volume_level: 0.4
-    entity_id: media_player.portable_speaker
     service: media_player.volume_set
+    target:
+      entity_id:
+      - media_player.kasinot_speaker
   - data:
       entity_id: media_player.speakers
       uri: input_text.arrive_home_playlist
@@ -285,6 +287,7 @@
     - thu
     - sun
     before: 00:00:00
+    after: 00:00:00
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
@@ -311,7 +314,7 @@
       entity_id: media_player.rio
       state: playing
     - condition: state
-      entity_id: media_player.portable_speaker
+      entity_id: media_player.kasinot_speaker
       state: playing
   - condition: state
     entity_id: media_player.mio_tv

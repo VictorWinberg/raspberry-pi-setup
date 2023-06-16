@@ -250,7 +250,7 @@
                     },
                     {
                       "artwork": "cover",
-                      "entity": "media_player.portable_speaker",
+                      "entity": "media_player.kasinot_speaker",
                       "group": true,
                       "hide": {
                         "controls": false,

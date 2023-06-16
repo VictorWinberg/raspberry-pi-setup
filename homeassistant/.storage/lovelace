@@ -287,7 +287,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "media_player.portable_speaker",
+                      "entity": "media_player.kasinot_speaker",
                       "group": true,
                       "hide": {
                         "power_state": false
@@ -303,7 +303,15 @@
                       "type": "custom:mini-media-player"
                     },
                     {
-                      "entity": "media_player.nest_mini",
+                      "entity": "media_player.bali",
+                      "group": true,
+                      "hide": {
+                        "power_state": false
+                      },
+                      "type": "custom:mini-media-player"
+                    },
+                    {
+                      "entity": "media_player.rey",
                       "group": true,
                       "hide": {
                         "power_state": false

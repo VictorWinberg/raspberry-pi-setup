@@ -57,7 +57,7 @@ def setup(hass, config):
         color_list = ["white", "bisque", "red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"]
 
         defaults = {
-          "LDWN": lambda: select_entity("media_player.portable_speaker"),
+          "LDWN": lambda: select_entity("media_player.kasinot_speaker"),
           "RDWN": lambda: select_entity("media_player.mio_tv"),
           "UDWN": lambda: select_entity("light:group.ikea"),
           "DDWN": lambda: select_entity("default")
@@ -81,7 +81,7 @@ def setup(hass, config):
             entity_id = []
             if not hass.states.is_state("media_player.speakers", "off") and not hass.states.is_state("media_player.speakers", "unavailable"):
               entity_id.append("media_player.speakers")
-            if not hass.states.is_state("media_player.portable_speaker", "off") and not hass.states.is_state("media_player.portable_speaker", "unavailable") and (hass.states.is_state("media_player.speakers", "off") or hass.states.is_state("media_player.speakers", "unavailable")):
+            if not hass.states.is_state("media_player.kasinot_speaker", "off") and not hass.states.is_state("media_player.kasinot_speaker", "unavailable") and (hass.states.is_state("media_player.speakers", "off") or hass.states.is_state("media_player.speakers", "unavailable")):
               entity_id.append("media_player.portable_speaker")
             if not hass.states.is_state("media_player.mio_tv", "off") and not hass.states.is_state("media_player.mio_tv", "unavailable"):
               entity_id.append("media_player.mio_tv")
