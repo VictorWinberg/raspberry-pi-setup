@@ -82,7 +82,7 @@ def setup(hass, config):
             if not hass.states.is_state("media_player.speakers", "off") and not hass.states.is_state("media_player.speakers", "unavailable"):
               entity_id.append("media_player.speakers")
             if not hass.states.is_state("media_player.kasinot_speaker", "off") and not hass.states.is_state("media_player.kasinot_speaker", "unavailable") and (hass.states.is_state("media_player.speakers", "off") or hass.states.is_state("media_player.speakers", "unavailable")):
-              entity_id.append("media_player.portable_speaker")
+              entity_id.append("media_player.kasinot_speaker")
             if not hass.states.is_state("media_player.mio_tv", "off") and not hass.states.is_state("media_player.mio_tv", "unavailable"):
               entity_id.append("media_player.mio_tv")
 
@@ -103,8 +103,8 @@ def setup(hass, config):
             if isinstance(entity_id, list) and len(entity_id):
               if hass.states.is_state("media_player.speakers", "playing"):
                 volume_entity = "media_player.speakers"
-              elif hass.states.is_state("media_player.portable_speaker", "playing"):
-                volume_entity = "media_player.portable_speaker"
+              elif hass.states.is_state("media_player.kasinot_speaker", "playing"):
+                volume_entity = "media_player.kasinot_speaker"
               elif hass.states.is_state("media_player.mio_tv", "on"):
                 volume_entity = "media_player.mio_tv"
             if volume_entity:

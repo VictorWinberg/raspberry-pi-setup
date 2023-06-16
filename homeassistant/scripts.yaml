@@ -297,7 +297,7 @@ good_morning:
       milliseconds: 0
   - service: script.play_spotify
     data:
-      entity_id: media_player.nest_mini
+      entity_id: media_player.rey
       uri: input_text.good_morning_playlist
       account: mr
   mode: restart

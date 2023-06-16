@@ -174,7 +174,7 @@ input_select:
      - media_player.mio_tv
      - light:all
      - light:group.ikea
-#   initial: media_player.portable_speaker
+#   initial: media_player.kasinot_speaker
     icon: mdi:circle-outline
   chef_monday:
     name: Chef Monday
