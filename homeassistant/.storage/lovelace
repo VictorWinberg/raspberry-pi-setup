@@ -62,8 +62,8 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.balcony",
-                    "name": "Balcony",
+                    "entity": "switch.power_strip_socket_1",
+                    "name": "Stars",
                     "icon": "mdi:string-lights",
                     "tap_action": {
                       "action": "toggle"

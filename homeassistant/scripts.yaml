@@ -58,7 +58,6 @@ power_off:
       - switch.sonoff_10008c59d6
       - switch.power_strip_socket_1
       - switch.window_plug
-      - switch.power_strip_socket_3
   - entity_id: all
     service: light.turn_off
   mode: single
@@ -479,7 +478,6 @@ dim_lights:
       - switch.bed_strip
       - switch.power_strip_socket_2
       - switch.power_strip_socket_1
-      - switch.power_strip_socket_3
   mode: single
   alias: Dim Lights
 disco_lights:
