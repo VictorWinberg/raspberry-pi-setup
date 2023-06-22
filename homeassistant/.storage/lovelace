@@ -419,7 +419,8 @@
                 "columns": 4
               },
               "type": "custom:mini-media-player",
-              "toggle_power": false
+              "toggle_power": false,
+              "sound_mode": "full"
             }
           ],
           "icon": "mdi:home",
