@@ -21,8 +21,6 @@
       - wed
       - thu
       - fri
-      before: 00:00:00
-      after: 00:00:00
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
@@ -339,11 +337,15 @@
   alias: Watering Plants
   description: ''
   trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: WATERING_PLANTS
-  condition: []
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - wed
+    - fri
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
@@ -475,11 +477,7 @@
   action:
   - service: notify.mobile_app_victors_ipod
     data:
+      title: Plants needs water!
       message: '{{ ''Plants: '' + states(''sensor.plant_sensor_282f_conductivity'')
         + ''µS/cm, '' + states(''sensor.plant_sensor_282f_moisture'') + ''%'' }}'
-      title: Give plants water? (LONG PRESS)
-      data:
-        actions:
-        - action: WATERING_PLANTS
-          title: Give water
   mode: single
