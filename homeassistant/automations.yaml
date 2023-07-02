@@ -481,3 +481,23 @@
       message: '{{ ''Plants: '' + states(''sensor.plant_sensor_282f_conductivity'')
         + ''µS/cm, '' + states(''sensor.plant_sensor_282f_moisture'') + ''%'' }}'
   mode: single
+- id: '1688329161680'
+  alias: Water Pump Duration - Changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.water_pump_duration
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    attribute: raw_state
+  condition: []
+  action:
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Water Pump Duration - CHANGED!
+      message: '{{ ''New duration: '' + states(''sensor.water_pump_duration'') + ''s''
+        }}'
+  mode: single
