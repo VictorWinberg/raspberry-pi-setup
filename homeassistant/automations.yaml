@@ -485,14 +485,14 @@
   alias: Water Pump Duration - Changed
   description: ''
   trigger:
-  - platform: state
-    entity_id:
-    - sensor.water_pump_duration
+  - platform: numeric_state
+    entity_id: sensor.water_pump_duration
     for:
       hours: 0
       minutes: 10
       seconds: 0
     attribute: raw_state
+    below: 600
   condition: []
   action:
   - service: notify.mobile_app_victors_ipod
