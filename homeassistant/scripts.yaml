@@ -243,6 +243,17 @@ good_morning:
       - light.philips_hue
   - service: light.turn_on
     data:
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      brightness_pct: 100
+    target:
+      entity_id:
+      - light.philips_hue
+      - light.bedroom
+  - service: light.turn_on
+    data:
       brightness: 200
       rgb_color:
       - 255
@@ -250,13 +261,11 @@ good_morning:
       - 1
     target:
       entity_id:
-      - light.bedroom
       - light.hallway_door
       - light.hallway_spots
       - light.kitchen_oven
       - light.kitchen_table
       - light.kitchen_sink
-      - light.philips_hue
   - service: switch.turn_on
     data: {}
     target:
