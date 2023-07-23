@@ -5,7 +5,7 @@
   "data": {
     "items": [
       {
-        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524320",
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524322",
         "type": "module",
         "id": "59e84790f1ed4e86aed19a0c81ad07af"
       },
@@ -25,7 +25,7 @@
         "id": "7a9ac2ed77974da180855b99b5813183"
       },
       {
-        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037450",
         "type": "module",
         "id": "2a6bd9e221f04804b4212e49e29b7b26"
       },
@@ -45,7 +45,7 @@
         "id": "c4cfc587eedc4ddfb901a7c4e2ef1936"
       },
       {
-        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128190",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128300",
         "type": "module",
         "id": "2637c969ea3b41e8a4ab8a76f30234a1"
       },
@@ -75,7 +75,7 @@
         "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791111",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791120",
         "type": "module",
         "id": "41662ed39a6241cb8f7a98cc96a4906b"
       },

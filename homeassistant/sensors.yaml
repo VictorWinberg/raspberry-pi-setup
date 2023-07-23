@@ -28,16 +28,6 @@
     - type: load_1m
     - type: load_5m
     - type: load_15m
-- platform: darksky
-  api_key: 0d12f185b83caa57598829eb68da6b95
-  hourly_forecast:
-    - 0
-    - 1
-  monitored_conditions:
-    - summary
-    - temperature
-    - precip_intensity
-  scan_interval: '00:30'
 - platform: spotcast
   country: SE
 - platform: rest
