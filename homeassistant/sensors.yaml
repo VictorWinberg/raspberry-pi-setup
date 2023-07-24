@@ -19,6 +19,9 @@
     someone_home:
       friendly_name: "Someone home?"
       value_template: '{{ is_state("person.annie", "home") or is_state("person.victor", "home") }}'
+    ender_3_print_image:
+      friendly_name: "Ender 3 Print Image"
+      value_template: "{{ 'https://print.zolly.eu.org/plugin/UltimakerFormatPackage/thumbnail/' + states('sensor.ender_3_print_file')[:-5] + 'png' }}"
 - platform: systemmonitor
   resources:
     - type: disk_use_percent

@@ -61,6 +61,14 @@
               ]
             },
             {
+              "show_state": false,
+              "show_name": false,
+              "camera_view": "auto",
+              "type": "picture-entity",
+              "entity": "camera.ender_3_print_file",
+              "camera_image": "camera.ender_3_print_file"
+            },
+            {
               "type": "gauge",
               "entity": "sensor.ender_3_print_progress",
               "name": "Printing"
@@ -107,45 +115,6 @@
                   "name": "SoC Temperature"
                 }
               ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "button.octoprint_pause_job",
-                  "name": "Pause Job"
-                },
-                {
-                  "entity": "button.octoprint_resume_job",
-                  "name": "Resume Job"
-                },
-                {
-                  "entity": "button.octoprint_stop_job",
-                  "name": "Stop Job"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "button.ender_3_emergency_stop",
-                  "name": "Emergency Stop"
-                },
-                {
-                  "entity": "button.ender_3_reboot_system",
-                  "name": "Reboot System"
-                },
-                {
-                  "entity": "button.ender_3_restart_server",
-                  "name": "Restart Server"
-                },
-                {
-                  "entity": "button.ender_3_shutdown_system",
-                  "name": "Shutdown System"
-                }
-              ],
-              "show_header_toggle": false
             }
           ]
         }
