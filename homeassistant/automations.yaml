@@ -499,12 +499,12 @@
       minutes: 10
       seconds: 0
     attribute: raw_state
-    below: 600
+    below: 100
   condition: []
   action:
   - service: notify.mobile_app_victors_ipod
     data:
       title: Water Pump Duration - CHANGED!
-      message: '{{ ''New duration: '' + states(''sensor.water_pump_duration'') + ''s''
-        }}'
+      message: '{{ ''New duration: '' + states(''sensor.water_pump_duration'') + ''s
+        (< 100)'' }}'
   mode: single

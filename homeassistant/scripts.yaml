@@ -290,14 +290,14 @@ good_morning:
     target:
       entity_id:
       - media_player.rio
-  - service: script.play_spotify
-    data:
-      entity_id: media_player.bali
-      uri: input_text.goodnight_playlist
-      account: mr
   - service: script.turn_on
     data: {}
     entity_id: script.blinds_open
+  - service: script.play_spotify
+    data:
+      entity_id: media_player.rey
+      uri: input_text.goodnight_playlist
+      account: mr
   - delay:
       hours: 0
       minutes: 10
