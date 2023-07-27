@@ -43,6 +43,6 @@
     {% set json = value_json | selectattr("uid", "eq", 0) | selectattr("checked", "eq", false) | rejectattr("id", "eq", 62) | map(attribute="name") | sort | join("\n") %}
     {{ json[:255] }}
   scan_interval: 30
-  resource: https://shop.zolly.ml/__/products
+  resource: https://shop.codies.se/__/products
   headers:
     Authorization: !secret api_key_onelist

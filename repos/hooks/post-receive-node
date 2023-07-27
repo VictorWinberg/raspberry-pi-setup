@@ -16,7 +16,8 @@ do
     echo "Deploying ${BRANCH} branch..."
 
     echo "> git checkout..."
-    git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout -f
+    git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout "$BRANCH" -f
+    git symbolic-ref HEAD "refs/heads/$BRANCH"
     cd "$WORK_TREE"
 
     echo "> .github/deploy"
