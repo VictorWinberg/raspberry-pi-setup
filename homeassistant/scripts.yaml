@@ -58,8 +58,11 @@ power_off:
       - switch.sonoff_10008c59d6
       - switch.power_strip_socket_1
       - switch.window_plug
-  - entity_id: all
-    service: light.turn_off
+      - switch.power_strip_socket_3
+  - service: light.turn_off
+    target:
+      entity_id: all
+    data: {}
   mode: single
 power_on:
   alias: Power on
@@ -70,8 +73,12 @@ power_on:
       - light.hallway_door
       - light.hallway_spots
     service: light.turn_on
-  - entity_id: switch.living_room_plug
-    service: switch.turn_on
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id:
+      - switch.living_room_plug
+      - switch.power_strip_socket_3
   - delay: 00:00:01
   - data:
       entity_id:
@@ -335,16 +342,14 @@ good_night:
     - service: script.turn_on
       data: {}
       entity_id: script.blinds_close
-    - wait_for_trigger: []
-      timeout:
+    - delay:
         hours: 0
         minutes: 0
         seconds: 15
         milliseconds: 0
     - service: script.power_off
       data: {}
-    - wait_for_trigger: []
-      timeout:
+    - delay:
         hours: 0
         minutes: 0
         seconds: 1
@@ -357,8 +362,7 @@ good_night:
         - 110
         - 50
         entity_id: light.philips_hue
-    - wait_for_trigger: []
-      timeout:
+    - delay:
         hours: 0
         minutes: 0
         seconds: 1
@@ -397,8 +401,7 @@ good_night:
         entity_id: media_player.speakers
         uri: input_text.goodnight_playlist
         account: mr
-    - wait_for_trigger: []
-      timeout:
+    - delay:
         hours: 0
         minutes: 15
         seconds: 0
