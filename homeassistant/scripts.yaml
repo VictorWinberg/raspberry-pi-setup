@@ -279,6 +279,7 @@ good_morning:
       entity_id:
       - switch.sonoff_10008c59d6
       - switch.bed_strip
+      - switch.power_strip_socket_3
   - service: media_player.volume_set
     data:
       volume_level: 0.45
