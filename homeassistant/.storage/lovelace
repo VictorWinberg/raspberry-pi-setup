@@ -1368,9 +1368,6 @@
                 },
                 {
                   "entity": "input_text.anniversary_image"
-                },
-                {
-                  "entity": "input_text.anniversary_entity"
                 }
               ],
               "type": "entities"
