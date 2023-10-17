@@ -329,6 +329,8 @@
       uri: input_text.goodnight_playlist
       account: mr
       entity_id: media_player.speakers
+  - service: script.blinds_close
+    data: {}
   mode: single
 - id: '1635226651435'
   alias: Certificate Expiration
