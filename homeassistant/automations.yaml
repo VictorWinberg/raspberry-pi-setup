@@ -242,6 +242,14 @@
     entity_id: sensor.someone_home
     state: 'True'
   action:
+  - service: spotcast.start
+    data:
+      entity_id: media_player.speakers
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
+      account: mr
   - service: script.good_morning
     data: {}
   - service: spotcast.start
@@ -251,7 +259,7 @@
       repeat: context
       shuffle: true
       uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
-      account: ms
+      account: mr
   mode: single
 - id: '1608451314385'
   alias: Bedroom brightness
