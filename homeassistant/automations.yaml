@@ -360,9 +360,6 @@
   condition:
   - condition: time
     weekday:
-    - wed
-    - sun
-    - fri
     - mon
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
