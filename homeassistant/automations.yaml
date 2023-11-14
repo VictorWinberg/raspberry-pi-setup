@@ -90,11 +90,14 @@
   - after: '10:00:00'
     before: '19:00:00'
     condition: time
-  - condition: device
-    device_id: 30eb3270af5c0debc8946facfcded474
-    domain: media_player
+  - condition: state
     entity_id: media_player.rio
-    type: is_off
+    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.spotify_thessound
+      state: playing
   action:
   - data:
       volume_level: 0.4
