@@ -1,9 +1,3 @@
-alarm_clock:
-  name: Wake-up Lights
-  entities:
-    - input_datetime.wakeup_time
-    - input_boolean.wakeup_enabled
-    - input_boolean.wakeup_weekend
 bedroom:
   name: Bedroom Lights
   entities:

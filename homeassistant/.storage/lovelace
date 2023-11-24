@@ -794,33 +794,90 @@
           "badges": [],
           "cards": [
             {
-              "entities": [
+              "type": "custom:vertical-stack-in-card",
+              "cards": [
                 {
-                  "entity": "input_datetime.wakeup_time"
+                  "type": "markdown",
+                  "content": "Alarm Clock",
+                  "style": {
+                    ".": "ha-card {\n  font-size: 2rem;\n  line-height: 1.25;\n  font-weight: 300;\n}\n"
+                  }
                 },
                 {
-                  "entity": "sensor.time_until_alarm"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_boolean.wakeup_weekday",
+                          "name": "Weekday"
+                        }
+                      ],
+                      "style": {
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                      }
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_boolean.wakeup_weekend",
+                          "name": "Weekend"
+                        }
+                      ],
+                      "style": {
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                      }
+                    }
+                  ]
                 },
                 {
-                  "entity": "input_boolean.wakeup_enabled",
-                  "name": "Enabled"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_datetime.wakeup_weekday_time",
+                          "name": " "
+                        }
+                      ],
+                      "style": {
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                      }
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_datetime.wakeup_weekend_time",
+                          "name": " "
+                        }
+                      ],
+                      "style": {
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                      }
+                    }
+                  ]
                 },
                 {
-                  "entity": "input_boolean.wakeup_weekend",
-                  "name": "Weekend"
-                },
-                {
-                  "entity": "input_number.wakeup_transition_time",
-                  "name": "Wake-up transition time"
-                },
-                {
-                  "entity": "input_number.goodnight_transition_time",
-                  "name": "Goodnight transition time"
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.time_until_alarm"
+                    },
+                    {
+                      "entity": "input_number.wakeup_transition_time",
+                      "name": "Wake-up transition"
+                    },
+                    {
+                      "entity": "input_number.goodnight_transition_time",
+                      "name": "Goodnight transition"
+                    }
+                  ]
                 }
-              ],
-              "show_header_toggle": false,
-              "title": "Alarm Clock",
-              "type": "entities"
+              ]
             }
           ],
           "icon": "mdi:alarm",

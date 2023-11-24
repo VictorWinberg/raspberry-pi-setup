@@ -2,25 +2,37 @@
   alias: Alarm Clock - Wake me up with lights
   trigger:
   - platform: template
-    value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_time.attributes.timestamp
+    value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_weekday_time.attributes.timestamp
+      | int) - (states(''input_number.wakeup_transition_time'') | int * 60))  | timestamp_custom("%H:%M",
+      False) }}'
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_weekend_time.attributes.timestamp
       | int) - (states(''input_number.wakeup_transition_time'') | int * 60))  | timestamp_custom("%H:%M",
       False) }}'
   condition:
-  - condition: state
-    entity_id: input_boolean.wakeup_enabled
-    state: 'on'
   - condition: or
     conditions:
-    - condition: state
-      entity_id: input_boolean.wakeup_weekend
-      state: 'on'
-    - condition: time
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.wakeup_weekday
+        state: 'on'
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.wakeup_weekend
+        state: 'on'
+      - condition: time
+        weekday:
+        - sat
+        - sun
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
@@ -308,7 +320,7 @@
     entity_id: sensor.someone_home
     state: 'True'
   - condition: state
-    entity_id: input_boolean.wakeup_enabled
+    entity_id: input_boolean.wakeup_weekday
     state: 'on'
   - condition: state
     entity_id: group.ikea

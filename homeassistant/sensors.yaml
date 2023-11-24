@@ -11,9 +11,20 @@
     time_until_alarm:
       friendly_name: "Time until alarm"
       value_template: >
+        {% set weekday = now().weekday() %}
+        {% set weekend = weekday in [5,6] %}
         {% set t = states.sensor.time.state.split(':') %}
         {% set time = t[0] | int * 60 * 60 + t[1] | int * 60 %}
-        {% set alarm = states.input_datetime.wakeup_time.attributes.timestamp %}
+        {% if weekend %}
+          {% set alarm = states.input_datetime.wakeup_weekend_time.attributes.timestamp %}
+        {% else %}
+          {% set alarm = states.input_datetime.wakeup_weekday_time.attributes.timestamp %}
+        {% endif %}
+        {% if weekday == 4 and time > alarm %}
+          {% set alarm = states.input_datetime.wakeup_weekend_time.attributes.timestamp %}
+        {% elif weekday == 6 and time > alarm %}
+          {% set alarm = states.input_datetime.wakeup_weekday_time.attributes.timestamp %}
+        {% endif %}
         {% set until = alarm - time + 60 * 60 * 24 %}
         {{ ((until % (60 * 60 * 24)) / (60 * 60)) | round(1) }}
     someone_home:

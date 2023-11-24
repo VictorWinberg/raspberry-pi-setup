@@ -74,21 +74,26 @@ frontend:
 
 # Variables
 input_boolean:
-  wakeup_enabled:
-    name: "Wake-up lights"
+  wakeup_weekday:
+    name: "Wake-up on weekdays"
 #   initial: on
     icon: mdi:theme-light-dark
   wakeup_weekend:
-    name: "Enable Wake-up on weekends"
+    name: "Wake-up on weekends"
 #   initial: off
     icon: mdi:calendar-blank
 
 input_datetime:
-  wakeup_time:
-    name: "Start alarm at"
+  wakeup_weekday_time:
+    name: "Start weekday alarm at"
     has_time: true
     has_date: false
 #   initial: "07:00"
+  wakeup_weekend_time:
+    name: "Start weekend alarm at"
+    has_time: true
+    has_date: false
+#   initial: "09:00"
 
 input_number:
   light_brightness:
