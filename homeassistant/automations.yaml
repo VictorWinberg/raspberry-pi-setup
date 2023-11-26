@@ -531,3 +531,20 @@
       message: '{{ ''New duration: '' + states(''sensor.water_pump_duration'') + ''s
         (< 100)'' }}'
   mode: single
+- id: '1701035317867'
+  alias: Clara is cleaning
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - thu
+  action:
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Cleanmate
+      message: Clara vill ha bort mattan
+  mode: single
