@@ -35,7 +35,8 @@ def setup(hass, config):
         """Service data"""
         id = call.data.get("id")
         input_select_entity_id = {
-          'symfonisk_sound_controller': 'input_select.symfonisk_entity',
+          'symfonisk_sound_remote': 'input_select.symfonisk_play_entity',
+          'symfonisk_sound_controller': 'input_select.symfonisk_wheel_entity',
           'tradfri_remote_control': 'input_select.remote_entity',
         }.get(id, '')
         if input_select_entity_id:

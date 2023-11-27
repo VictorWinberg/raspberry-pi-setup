@@ -548,3 +548,50 @@
       title: Cleanmate
       message: Clara vill ha bort mattan
   mode: single
+- id: '1701042405778'
+  alias: Chef - Victor
+  description: ''
+  trigger:
+  - platform: time
+    at: '16:00:00'
+  condition:
+  - condition: or
+    conditions:
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+        - mon
+      - condition: state
+        entity_id: input_select.chef_monday
+        state: chef-man
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+        - tue
+      - condition: state
+        entity_id: input_select.chef_tuesday
+        state: chef-man
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+        - wed
+      - condition: state
+        entity_id: input_select.chef_wednesday
+        state: chef-man
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+        - thu
+      - condition: state
+        entity_id: input_select.chef_thursday
+        state: chef-man
+  action:
+  - service: notify.mobile_app_victors_ipod
+    data:
+      title: Middag
+      message: Laga mat ikväll
+  mode: single

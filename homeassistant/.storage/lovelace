@@ -1330,8 +1330,12 @@
                   "state_header": "Remote",
                   "entities": [
                     {
-                      "name": "Symfonisk",
-                      "entity": "sensor.symfonisk_controller_battery"
+                      "name": "Wheel",
+                      "entity": "sensor.symfonisk_sound_controller_battery"
+                    },
+                    {
+                      "name": "Play",
+                      "entity": "sensor.symfonisk_sound_remote_gen2_battery"
                     }
                   ],
                   "type": "custom:multiple-entity-row"
@@ -1421,7 +1425,10 @@
                   "entity": "input_select.remote_entity"
                 },
                 {
-                  "entity": "input_select.symfonisk_entity"
+                  "entity": "input_select.symfonisk_play_entity"
+                },
+                {
+                  "entity": "input_select.symfonisk_wheel_entity"
                 },
                 {
                   "entity": "input_text.anniversary_image"

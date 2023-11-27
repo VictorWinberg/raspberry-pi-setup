@@ -241,9 +241,9 @@
                       "type": "custom:mod-card"
                     },
                     {
-                      "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_time', 'timestamp') | timestamp_custom('%H:%M', False) }}\n",
+                      "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ state_attr('input_datetime.wakeup_weekday_time', 'timestamp') | timestamp_custom('%H:%M', False) }} {% if is_state('input_boolean.wakeup_weekday', 'on') -%} <ha-icon icon=\"mdi:alarm\"></ha-icon> {%- else -%} <ha-icon icon=\"mdi:alarm-off\"></ha-icon> {%- endif %}\n### ({{ state_attr('input_datetime.wakeup_weekend_time', 'timestamp') | timestamp_custom('%H:%M', False) }}) {% if is_state('input_boolean.wakeup_weekend', 'on') -%} <ha-icon icon=\"mdi:alarm\"></ha-icon> {%- else -%} <ha-icon icon=\"mdi:alarm-off\"></ha-icon> {%- endif %}\n",
                       "style": {
-                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 120px; \n  margin-left: 60px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 90px; \n  margin-left: 80px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
                         "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 2em !important; }\n"
                       },
                       "type": "markdown"
