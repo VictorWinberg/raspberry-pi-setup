@@ -815,7 +815,10 @@
                         }
                       ],
                       "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
+                        "hui-toggle-entity-row$": {
+                          "hui-generic-entity-row$": "state-badge {\n  display: none;\n}\n.info.text-content {\n  margin-left: 0;\n}\n"
+                        }
                       }
                     },
                     {
@@ -827,7 +830,10 @@
                         }
                       ],
                       "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
+                        "hui-toggle-entity-row$": {
+                          "hui-generic-entity-row$": "state-badge {\n  display: none;\n}\n.info.text-content {\n  margin-left: 0;\n}\n"
+                        }
                       }
                     }
                   ]
@@ -844,7 +850,10 @@
                         }
                       ],
                       "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
+                        "hui-input-datetime-entity-row$": {
+                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none;\n}\n"
+                        }
                       }
                     },
                     {
@@ -856,7 +865,10 @@
                         }
                       ],
                       "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n"
+                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
+                        "hui-input-datetime-entity-row$": {
+                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none;\n}\n"
+                        }
                       }
                     }
                   ]
