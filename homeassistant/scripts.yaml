@@ -522,6 +522,7 @@ dim_lights:
       - switch.bed_strip
       - switch.power_strip_socket_2
       - switch.power_strip_socket_1
+      - switch.power_strip_socket_3
   mode: single
   alias: Dim Lights
 disco_lights:

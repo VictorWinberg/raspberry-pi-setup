@@ -1,38 +1,24 @@
 - id: ccf2b80b3c4e4080b7e7ea0969afc666
-  alias: Alarm Clock - Wake me up with lights
+  alias: Alarm Clock - Weekday
+  description: ''
   trigger:
   - platform: template
     value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_weekday_time.attributes.timestamp
-      | int) - (states(''input_number.wakeup_transition_time'') | int * 60))  | timestamp_custom("%H:%M",
-      False) }}'
-  - platform: template
-    value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_weekend_time.attributes.timestamp
-      | int) - (states(''input_number.wakeup_transition_time'') | int * 60))  | timestamp_custom("%H:%M",
+      | int) - (states(''input_number.wakeup_transition_time'') | int * 60)) | timestamp_custom("%H:%M",
       False) }}'
   condition:
-  - condition: or
+  - condition: and
     conditions:
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_boolean.wakeup_weekday
-        state: 'on'
-      - condition: time
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: input_boolean.wakeup_weekend
-        state: 'on'
-      - condition: time
-        weekday:
-        - sat
-        - sun
+    - condition: state
+      entity_id: input_boolean.wakeup_weekday
+      state: 'on'
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
@@ -375,7 +361,7 @@
   condition:
   - condition: time
     weekday:
-    - mon
+    - fri
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
@@ -595,3 +581,52 @@
       title: Middag
       message: Laga mat ikväll
   mode: single
+- id: '1701520528599'
+  alias: Alarm Clock - Weekend
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == ((states.input_datetime.wakeup_weekend_time.attributes.timestamp
+      | int) - (states(''input_number.wakeup_transition_time'') | int * 60)) | timestamp_custom("%H:%M",
+      False) }}'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.wakeup_weekend
+      state: 'on'
+    - condition: time
+      weekday:
+      - sat
+      - sun
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+      rgb_color:
+      - 166
+      - 44
+      - 23
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+  - service: light.turn_on
+    data:
+      transition: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
+      brightness_pct: 100
+      rgb_color:
+      - 255
+      - 255
+      - 255
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
+  - service: script.turn_on
+    entity_id: script.good_morning
+  mode: restart

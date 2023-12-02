@@ -8,23 +8,31 @@
       friendly_name: "Weather Temperature"
       unit_of_measurement: 'Celcius'
       value_template: "{{ state_attr('weather.kasinot', 'temperature') }}"
-    time_until_alarm:
-      friendly_name: "Time until alarm"
+    alarm_time:
+      friendly_name: "Alarm Time"
       value_template: >
         {% set weekday = now().weekday() %}
         {% set weekend = weekday in [5,6] %}
-        {% set t = states.sensor.time.state.split(':') %}
+        {% set t = states("sensor.time").split(':') %}
         {% set time = t[0] | int * 60 * 60 + t[1] | int * 60 %}
         {% if weekend %}
-          {% set alarm = states.input_datetime.wakeup_weekend_time.attributes.timestamp %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
         {% else %}
-          {% set alarm = states.input_datetime.wakeup_weekday_time.attributes.timestamp %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
         {% endif %}
         {% if weekday == 4 and time > alarm %}
-          {% set alarm = states.input_datetime.wakeup_weekend_time.attributes.timestamp %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
         {% elif weekday == 6 and time > alarm %}
-          {% set alarm = states.input_datetime.wakeup_weekday_time.attributes.timestamp %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
         {% endif %}
+        {{ alarm }}
+    time_until_alarm:
+      friendly_name: "Time until alarm"
+      value_template: >
+        {% set t = states("sensor.time").split(':') %}
+        {% set time = t[0] | int * 60 * 60 + t[1] | int * 60 %}
+        {% set a = states("sensor.alarm_time").split(':') %}
+        {% set alarm = a[0] | int * 60 * 60 + a[1] | int * 60 %}
         {% set until = alarm - time + 60 * 60 * 24 %}
         {{ ((until % (60 * 60 * 24)) / (60 * 60)) | round(1) }}
     someone_home:
