@@ -16,16 +16,16 @@
         {% set t = states("sensor.time").split(':') %}
         {% set time = t[0] | int * 60 * 60 + t[1] | int * 60 %}
         {% if weekend %}
-          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') %}
         {% else %}
-          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') %}
         {% endif %}
         {% if weekday == 4 and time > alarm %}
-          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekend_time', 'timestamp') %}
         {% elif weekday == 6 and time > alarm %}
-          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') | timestamp_custom('%H:%M', False) %}
+          {% set alarm = state_attr('input_datetime.wakeup_weekday_time', 'timestamp') %}
         {% endif %}
-        {{ alarm }}
+        {{ alarm | timestamp_custom('%H:%M', False) }}
     time_until_alarm:
       friendly_name: "Time until alarm"
       value_template: >
