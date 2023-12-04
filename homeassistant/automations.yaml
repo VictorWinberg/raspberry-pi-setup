@@ -630,3 +630,43 @@
   - service: script.turn_on
     entity_id: script.good_morning
   mode: restart
+- id: '1701712494987'
+  alias: Leaves Job - Mr
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.victor
+    zone: zone.tedsys
+    event: leave
+  - platform: zone
+    entity_id: person.victor
+    zone: zone.yale
+    event: leave
+  condition:
+  - condition: time
+    after: '14:00:00'
+    before: '20:00:00'
+  action:
+  - service: notify.mobile_app_ms
+    data:
+      message: "Nu går jag från jobbet xoxo \U0001F618❤️"
+      title: Victor
+  mode: single
+- id: '1701712730012'
+  alias: Leaves Job - Ms
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.annie
+    zone: zone.tactel
+    event: leave
+  condition:
+  - condition: time
+    after: '14:00:00'
+    before: '20:00:00'
+  action:
+  - service: notify.mobile_app_victors_ipod
+    data:
+      message: "Nu går jag från jobbet xoxo \U0001F618❤️"
+      title: Victor
+  mode: single
