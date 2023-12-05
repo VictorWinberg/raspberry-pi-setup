@@ -668,5 +668,5 @@
   - service: notify.mobile_app_victors_ipod
     data:
       message: "Nu går jag från jobbet xoxo \U0001F618❤️"
-      title: Victor
+      title: Annie
   mode: single

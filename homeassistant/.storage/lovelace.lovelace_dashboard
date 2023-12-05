@@ -598,7 +598,8 @@
                             "top": "37%"
                           },
                           "tap_action": {
-                            "action": "toggle"
+                            "action": "call-service",
+                            "service": "script.ping_tv"
                           },
                           "type": "state-icon"
                         },
