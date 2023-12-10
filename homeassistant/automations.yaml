@@ -366,7 +366,7 @@
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
     timeout: 01:00:00
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Watering Plants
       message: '{{ ''Initial watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
@@ -389,7 +389,7 @@
     data: {}
     target:
       entity_id: switch.water_pump_switch
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Watering Plants
       message: '{{ ''Done watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
@@ -529,7 +529,7 @@
     - mon
     - thu
   action:
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Cleanmate
       message: Clara vill ha bort mattan
@@ -665,7 +665,7 @@
     after: '14:00:00'
     before: '20:00:00'
   action:
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       message: "Nu går jag från jobbet xoxo \U0001F618❤️"
       title: Annie
