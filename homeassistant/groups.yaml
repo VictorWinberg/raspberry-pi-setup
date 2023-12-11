@@ -3,6 +3,11 @@ bedroom:
   entities:
     - light.bedroom
     - light.philips_hue
+balcony:
+  name: Balcony Lights
+  entities:
+    - switch.power_strip_socket_1
+    - switch.power_strip_socket_3
 kitchen:
   name: Kitchen Lights
   entities:
