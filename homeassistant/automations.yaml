@@ -491,7 +491,7 @@
     entity_id: sensor.plant_sensor_282f_conductivity
     below: 350
   action:
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Plants needs water!
       message: '{{ ''Plants: '' + states(''sensor.plant_sensor_282f_conductivity'')
@@ -511,7 +511,7 @@
     below: 100
   condition: []
   action:
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Water Pump Duration - CHANGED!
       message: '{{ ''New duration: '' + states(''sensor.water_pump_duration'') + ''s
@@ -576,7 +576,7 @@
         entity_id: input_select.chef_thursday
         state: chef-man
   action:
-  - service: notify.mobile_app_victors_ipod
+  - service: notify.mobile_app_victors_ipod_2
     data:
       title: Middag
       message: Laga mat ikväll
