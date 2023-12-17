@@ -817,7 +817,7 @@
                       "style": {
                         ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
                         "hui-toggle-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge {\n  display: none;\n}\n.info.text-content {\n  margin-left: 0;\n}\n"
+                          "hui-generic-entity-row$": "state-badge {\n  display: none !important;\n}\n.info {\n  margin-left: 0 !important;\n}\n"
                         }
                       }
                     },
@@ -832,7 +832,7 @@
                       "style": {
                         ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
                         "hui-toggle-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge {\n  display: none;\n}\n.info.text-content {\n  margin-left: 0;\n}\n"
+                          "hui-generic-entity-row$": "state-badge {\n  display: none !important;\n}\n.info {\n  margin-left: 0 !important;\n}\n"
                         }
                       }
                     }
@@ -852,7 +852,7 @@
                       "style": {
                         ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
                         "hui-input-datetime-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none;\n}\n"
+                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none !important;\n}\n"
                         }
                       }
                     },
@@ -867,7 +867,7 @@
                       "style": {
                         ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
                         "hui-input-datetime-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none;\n}\n"
+                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none !important;\n}\n"
                         }
                       }
                     }
