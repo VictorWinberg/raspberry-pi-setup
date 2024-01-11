@@ -543,7 +543,7 @@
       milliseconds: 0
   - service: notify.mobile_app_victors_ipod_2
     data:
-      message: clear_message
+      message: clear_notification
       data:
         tag: cleaning
   mode: single
