@@ -719,14 +719,14 @@
   action:
   - service: notify.notify
     data:
-      title: Goodnight
+      title: Good Night Mode Activated (5 min)
       data:
         tag: goodnight
-      message: "Puss o godnatt \U0001F618\U0001F618\U0001F618"
+      message: "Home Assistant says goodnight! Sweet dreams. \U0001F319\U0001F4A4"
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 1
+      minutes: 5
+      seconds: 0
       milliseconds: 0
   - service: notify.notify
     data:
