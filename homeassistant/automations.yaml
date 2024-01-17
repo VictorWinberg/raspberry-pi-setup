@@ -736,3 +736,17 @@
   - service: script.good_night
     data: {}
   mode: single
+- id: '1705497213363'
+  alias: Printing - Notify
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.ender_3_print_status
+  condition: []
+  action:
+  - service: notify.mobile_app_victors_ipod_2
+    data:
+      title: Ender 3D Printer
+      message: '{{states(''sensor.ender_3_print_status'') }}'
+  mode: single
