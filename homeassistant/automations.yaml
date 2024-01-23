@@ -91,12 +91,10 @@
   - condition: state
     entity_id: media_player.rio
     state: 'off'
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: media_player.spotify_thessound
-      state: playing
   action:
+  - wait_template: '{{ is_state(''media_player.spotify_thessound'', ''idle'') }}'
+    continue_on_timeout: false
+    timeout: 00:15:00
   - data:
       volume_level: 0.4
     service: media_player.volume_set
@@ -342,16 +340,6 @@
       account: mr
       entity_id: media_player.speakers
   mode: single
-- id: '1635226651435'
-  alias: Certificate Expiration
-  description: ''
-  use_blueprint:
-    path: bkbilly/certificate-expiration.yaml
-    input:
-      time_input: '15:00:00'
-      certificate_input: sensor.cert_expiry_timestamp_zolly_ml
-      notify_device: c08dbd4a637d8d214dbebfe72a41eb85
-      days_input: 14
 - id: '1660077043222'
   alias: Watering Plants
   description: ''
@@ -659,6 +647,9 @@
   - condition: time
     after: '14:00:00'
     before: '20:00:00'
+  - condition: state
+    entity_id: person.annie
+    state: home
   action:
   - service: notify.mobile_app_ms
     data:
@@ -677,6 +668,9 @@
   - condition: time
     after: '14:00:00'
     before: '20:00:00'
+  - condition: state
+    entity_id: person.victor
+    state: home
   action:
   - service: notify.mobile_app_victors_ipod_2
     data:

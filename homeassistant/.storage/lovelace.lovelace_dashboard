@@ -625,6 +625,7 @@
                           },
                           "type": "image",
                           "state_filter": {
+                            "Tactel": "grayscale(1)",
                             "not_home": "grayscale(1)",
                             "unknown": "sepia(1)"
                           },
@@ -646,6 +647,8 @@
                           },
                           "type": "image",
                           "state_filter": {
+                            "Yale": "grayscale(1)",
+                            "Tedsys": "grayscale(1)",
                             "not_home": "grayscale(1)",
                             "unknown": "sepia(1)"
                           },

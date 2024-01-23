@@ -386,7 +386,7 @@ good_night:
         - media_player.kasinot_speaker
     - service: media_player.volume_set
       data:
-        volume_level: 0.2
+        volume_level: 0.6
       target:
         entity_id:
         - media_player.bali
@@ -480,17 +480,6 @@ ping_tv:
       - media_player.mio_cast
     data: {}
   mode: single
-shutdown_in_x_minutes:
-  alias: Shutdown in 15 minutes
-  sequence:
-  - delay:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-  - service: script.power_off
-    data: {}
-  mode: restart
 dim_lights:
   sequence:
   - data:
