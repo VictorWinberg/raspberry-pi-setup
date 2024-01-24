@@ -623,6 +623,3 @@ lifx_mode:
     target:
       entity_id: light.led_strip_lifx
   mode: single
-'1697571138020':
-  alias: New Script
-  sequence: []

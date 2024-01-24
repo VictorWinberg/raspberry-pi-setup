@@ -252,17 +252,22 @@
       shuffle: true
       uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
       account: mr
-  - service: script.good_morning
+  - service: script.blinds_open
     data: {}
-  - service: spotcast.start
+  - service: script.power_on
+    data: {}
+  - service: light.turn_on
     data:
-      entity_id: media_player.speakers
-      random_song: true
-      repeat: context
-      shuffle: true
-      uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
-      account: mr
-  mode: single
+      rgb_color:
+      - 118
+      - 187
+      - 64
+    target:
+      entity_id:
+      - light.bedroom
+      - light.kitchen_table
+      - light.philips_hue
+  mode: restart
 - id: '1608451314385'
   alias: Bedroom brightness
   description: ''
