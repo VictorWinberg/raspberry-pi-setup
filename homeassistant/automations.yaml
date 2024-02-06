@@ -716,6 +716,9 @@
   - condition: state
     entity_id: group.dining
     state: 'off'
+  - condition: state
+    state: 'on'
+    entity_id: group.ikea
   action:
   - service: notify.notify
     data:
