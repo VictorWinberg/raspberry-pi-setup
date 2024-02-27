@@ -722,13 +722,13 @@
   action:
   - service: notify.notify
     data:
-      title: Good Night Mode Activated (5 min)
+      title: Good Night Mode Activated (2 min)
       data:
         tag: goodnight
       message: "Home Assistant says goodnight! Sweet dreams. \U0001F319\U0001F4A4"
   - delay:
       hours: 0
-      minutes: 5
+      minutes: 2
       seconds: 0
       milliseconds: 0
   - service: notify.notify
