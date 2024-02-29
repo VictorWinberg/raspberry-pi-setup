@@ -40,8 +40,8 @@
       brightness_pct: 100
       rgb_color:
       - 255
-      - 255
-      - 255
+      - 180
+      - 65
     target:
       entity_id:
       - light.bedroom
@@ -356,7 +356,7 @@
   condition:
   - condition: time
     weekday:
-    - fri
+    - mon
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
@@ -627,8 +627,8 @@
       brightness_pct: 100
       rgb_color:
       - 255
-      - 255
-      - 255
+      - 180
+      - 65
     target:
       entity_id:
       - light.bedroom

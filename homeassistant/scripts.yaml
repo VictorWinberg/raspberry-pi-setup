@@ -269,8 +269,8 @@ good_morning:
     data:
       rgb_color:
       - 255
-      - 255
-      - 255
+      - 180
+      - 65
       brightness_pct: 100
     target:
       entity_id:
