@@ -10,7 +10,7 @@
         "id": "59e84790f1ed4e86aed19a0c81ad07af"
       },
       {
-        "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381165",
+        "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381169",
         "type": "module",
         "id": "4513f5c1a36a42fe93aa42858ca332a5"
       },
@@ -20,17 +20,17 @@
         "id": "c54beee920ce41ec83329fda4f19cab9"
       },
       {
-        "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001740",
+        "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001741",
         "type": "module",
         "id": "7a9ac2ed77974da180855b99b5813183"
       },
       {
-        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037450",
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037451",
         "type": "module",
         "id": "2a6bd9e221f04804b4212e49e29b7b26"
       },
       {
-        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325411",
+        "url": "/hacsfiles/button-card/button-card.js?hacstag=146194325412",
         "type": "module",
         "id": "32a5c937f336435a8e050faf02de3086"
       },
@@ -55,7 +55,7 @@
         "id": "2cf3716e774d4ab89890f5cabf637eed"
       },
       {
-        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620110",
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620121",
         "type": "module",
         "id": "d2fa40762a044ae287ae4766de6ef1a1"
       },
@@ -75,7 +75,7 @@
         "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791131",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791133",
         "type": "module",
         "id": "41662ed39a6241cb8f7a98cc96a4906b"
       },
