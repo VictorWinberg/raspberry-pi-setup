@@ -399,11 +399,12 @@ good_night:
         milliseconds: 0
     - service: light.turn_on
       data:
-        brightness: 50
+        brightness: 100
         rgb_color:
         - 255
-        - 110
-        - 50
+        - 0
+        - 0
+      target:
         entity_id: light.philips_hue
     - delay:
         hours: 0
@@ -427,7 +428,7 @@ good_night:
         account: mr
     - delay:
         hours: 0
-        minutes: 15
+        minutes: 18
         seconds: 0
         milliseconds: 0
     - service: media_player.turn_off
