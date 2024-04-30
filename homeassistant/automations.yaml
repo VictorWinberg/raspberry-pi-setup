@@ -692,11 +692,6 @@
     - sensor.mr_battery_state
     from: Not Charging
     to: Charging
-  - platform: state
-    entity_id:
-    - sensor.ms_battery_state
-    from: discharging
-    to: charging
   condition:
   - condition: state
     entity_id: sensor.someone_home
