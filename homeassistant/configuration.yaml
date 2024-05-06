@@ -57,6 +57,7 @@ google_assistant:
       expose: true
 
 homeassistant:
+  external_url: "https://home.codies.se"
   customize:
     person.victor:
       entity_picture: "/local/victor.jpg"

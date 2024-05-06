@@ -420,7 +420,8 @@
               },
               "type": "custom:mini-media-player",
               "toggle_power": false,
-              "sound_mode": "full"
+              "sound_mode": "full",
+              "volume_stateless": true
             }
           ],
           "icon": "mdi:home",
