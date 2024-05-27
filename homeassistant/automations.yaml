@@ -684,57 +684,6 @@
       message: "Nu går jag från jobbet xoxo \U0001F618❤️"
       title: Annie
   mode: single
-- id: '1704141083682'
-  alias: Good Night - Trigger
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.mr_battery_state
-    from: Not Charging
-    to: Charging
-  condition:
-  - condition: state
-    entity_id: sensor.someone_home
-    state: 'True'
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - sun
-    after: '20:30:00'
-    before: '23:00:00'
-  - condition: state
-    entity_id: media_player.mio_tv
-    state: 'off'
-  - condition: state
-    entity_id: group.dining
-    state: 'off'
-  - condition: state
-    state: 'on'
-    entity_id: group.ikea
-  action:
-  - service: notify.notify
-    data:
-      title: Good Night Mode Activated (2 min)
-      data:
-        tag: goodnight
-      message: "Home Assistant says goodnight! Sweet dreams. \U0001F319\U0001F4A4"
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: notify.notify
-    data:
-      message: clear_notification
-      data:
-        tag: goodnight
-  - service: script.good_night
-    data: {}
-  mode: single
 - id: '1705497213363'
   alias: Printing - Notify
   description: ''

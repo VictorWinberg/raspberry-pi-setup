@@ -232,30 +232,6 @@ blinds_close:
       - cover.bedroom_blind_r
     data: {}
   mode: restart
-default_toggle:
-  alias: Default Toggle
-  sequence:
-  - choose:
-    - conditions:
-      - after: '21:00'
-        before: 04:00
-        condition: time
-      sequence:
-      - service: script.good_night
-        data: {}
-    default:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: group.ikea
-          state: 'on'
-        sequence:
-        - service: script.power_off
-          data: {}
-      default:
-      - service: script.power_on
-        data: {}
-  mode: single
 good_morning:
   alias: Good Morning
   sequence:
@@ -426,6 +402,7 @@ good_night:
         entity_id: media_player.speakers
         uri: input_text.goodnight_playlist
         account: mr
+        continue_on_error: true
     - delay:
         hours: 0
         minutes: 18
