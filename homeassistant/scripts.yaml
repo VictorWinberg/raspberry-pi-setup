@@ -601,3 +601,14 @@ lifx_mode:
     target:
       entity_id: light.led_strip_lifx
   mode: single
+power_off_10_minutes:
+  alias: Power off - 60 minutes
+  sequence:
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: script.power_off
+    data: {}
+  mode: single
