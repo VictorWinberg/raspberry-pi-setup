@@ -698,3 +698,26 @@
       title: Ender 3D Printer
       message: '{{states(''sensor.ender_3_print_status'') }}'
   mode: single
+- id: '1717499246900'
+  alias: Tedsys - Tedbiz booking
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.victor
+    zone: zone.tedsys
+    event: enter
+  condition:
+  - condition: time
+    after: 06:00:00
+    before: '14:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: tedsys.tedbiz_booking
+    data:
+      date: '{{ as_timestamp(now()) | timestamp_custom(''%Y-%m-%d'') }}'
+      notify: mobile_app_victors_ipod_2
+  mode: single

@@ -1,6 +1,6 @@
 {
   "domain": "vicnie",
-  "name": "Vicnie custom components",
+  "name": "Vicnie",
   "requirements": [
     "requests==2.31.0",
     "python-dotenv==0.15.0"

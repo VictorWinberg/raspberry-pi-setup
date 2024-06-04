@@ -6,6 +6,7 @@ mobile_app:
 bluetooth:
 wake_on_lan:
 vicnie:
+tedsys:
 sonoff:
 spotcast:
   sp_dc: !secret sp_mr_dc

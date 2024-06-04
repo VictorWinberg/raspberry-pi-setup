@@ -1,0 +1,9 @@
+tedbiz_booking:
+  description: Service to book a resource
+  fields:
+    date:
+      description: The YYYY-MM-DD date to be used
+      example: "1970-01-01"
+    notify:
+      description: The notify entity
+      example: mobile_app_user

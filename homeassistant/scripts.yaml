@@ -602,7 +602,7 @@ lifx_mode:
       entity_id: light.led_strip_lifx
   mode: single
 power_off_10_minutes:
-  alias: Power off - 60 minutes
+  alias: Power off - X minutes
   sequence:
   - delay:
       hours: 1
