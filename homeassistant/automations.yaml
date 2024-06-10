@@ -715,6 +715,9 @@
     - tue
     - wed
     - thu
+  - condition: template
+    value_template: '{{(as_timestamp(now()) - as_timestamp(state_attr("automation.tedsys_platsbokning",
+      "last_triggered") | default(0)) | int > 12 * 3600 )}}'
   action:
   - service: tedsys.tedbiz_booking
     data:
