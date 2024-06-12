@@ -801,82 +801,26 @@
                   "type": "markdown",
                   "content": "Alarm Clock",
                   "style": {
-                    ".": "ha-card {\n  font-size: 2rem;\n  line-height: 1.25;\n  font-weight: 300;\n}\n"
+                    ".": "ha-card {\n  border: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  font-weight: 300;\n}\n"
                   }
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_boolean.wakeup_weekday",
-                          "name": "Weekday"
-                        }
-                      ],
-                      "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
-                        "hui-toggle-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge {\n  display: none !important;\n}\n.info {\n  margin-left: 0 !important;\n}\n"
-                        }
-                      }
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_boolean.wakeup_weekend",
-                          "name": "Weekend"
-                        }
-                      ],
-                      "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
-                        "hui-toggle-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge {\n  display: none !important;\n}\n.info {\n  margin-left: 0 !important;\n}\n"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_datetime.wakeup_weekday_time",
-                          "name": " "
-                        }
-                      ],
-                      "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
-                        "hui-input-datetime-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none !important;\n}\n"
-                        }
-                      }
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_datetime.wakeup_weekend_time",
-                          "name": " "
-                        }
-                      ],
-                      "style": {
-                        ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
-                        "hui-input-datetime-entity-row$": {
-                          "hui-generic-entity-row$": "state-badge, .info.text-content {\n  display: none !important;\n}\n"
-                        }
-                      }
-                    }
-                  ]
                 },
                 {
                   "type": "entities",
                   "entities": [
+                    {
+                      "entity": "input_boolean.wakeup_weekday"
+                    },
+                    {
+                      "entity": "input_datetime.wakeup_weekday_time",
+                      "name": "Weekday"
+                    },
+                    {
+                      "entity": "input_boolean.wakeup_weekend"
+                    },
+                    {
+                      "entity": "input_datetime.wakeup_weekend_time",
+                      "name": "Weekend"
+                    },
                     {
                       "entity": "sensor.time_until_alarm"
                     },
@@ -888,7 +832,17 @@
                       "entity": "input_number.goodnight_transition_time",
                       "name": "Goodnight transition"
                     }
-                  ]
+                  ],
+                  "style": {
+                    ".": ".card-content {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n",
+                    "hui-toggle-entity-row": {
+                      "$": {
+                        "hui-generic-entity-row": {
+                          "$": "state-badge {\n  display: none !important;\n}\n.info {\n  margin-left: 0 !important;\n}\n"
+                        }
+                      }
+                    }
+                  }
                 }
               ]
             }
