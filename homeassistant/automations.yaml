@@ -357,7 +357,6 @@
   - condition: time
     weekday:
     - mon
-    - thu
   action:
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
