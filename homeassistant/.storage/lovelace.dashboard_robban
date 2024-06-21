@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_robban",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "type": "panel",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:xiaomi-vacuum-map-card",
+              "map_source": {
+                "camera": "camera.roborock_q5_pro_map"
+              },
+              "calibration_source": {
+                "camera": true
+              },
+              "entity": "vacuum.roborock_q5_pro",
+              "vacuum_platform": "humbertogontijo/homeassistant-roborock",
+              "title": "",
+              "map_locked": false,
+              "map_modes": [
+                {
+                  "template": "vacuum_clean_segment",
+                  "predefined_selections": [
+                    {
+                      "id": "16",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 20325,
+                        "y": 29925
+                      },
+                      "label": {
+                        "text": "Bedroom",
+                        "x": 20325,
+                        "y": 29925,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          17950,
+                          27250
+                        ],
+                        [
+                          22700,
+                          27250
+                        ],
+                        [
+                          22700,
+                          32600
+                        ],
+                        [
+                          17950,
+                          32600
+                        ]
+                      ]
+                    },
+                    {
+                      "id": "17",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 30225,
+                        "y": 28775
+                      },
+                      "label": {
+                        "text": "Office",
+                        "x": 30225,
+                        "y": 28775,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          29000,
+                          27050
+                        ],
+                        [
+                          31450,
+                          27050
+                        ],
+                        [
+                          31450,
+                          30500
+                        ],
+                        [
+                          29000,
+                          30500
+                        ]
+                      ]
+                    },
+                    {
+                      "id": "18",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 21575,
+                        "y": 23300
+                      },
+                      "label": {
+                        "text": "Living Room",
+                        "x": 21575,
+                        "y": 23300,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          19750,
+                          19650
+                        ],
+                        [
+                          23400,
+                          19650
+                        ],
+                        [
+                          23400,
+                          26950
+                        ],
+                        [
+                          19750,
+                          26950
+                        ]
+                      ]
+                    },
+                    {
+                      "id": "19",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 26025,
+                        "y": 26475
+                      },
+                      "label": {
+                        "text": "Hallway",
+                        "x": 26025,
+                        "y": 26475,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          23100,
+                          25000
+                        ],
+                        [
+                          28950,
+                          25000
+                        ],
+                        [
+                          28950,
+                          27950
+                        ],
+                        [
+                          23100,
+                          27950
+                        ]
+                      ]
+                    },
+                    {
+                      "id": "20",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 22000,
+                        "y": 18375
+                      },
+                      "label": {
+                        "text": "Balcony",
+                        "x": 22000,
+                        "y": 18375,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          21050,
+                          17100
+                        ],
+                        [
+                          22950,
+                          17100
+                        ],
+                        [
+                          22950,
+                          19650
+                        ],
+                        [
+                          21050,
+                          19650
+                        ]
+                      ]
+                    },
+                    {
+                      "id": "21",
+                      "icon": {
+                        "name": "mdi:broom",
+                        "x": 24325,
+                        "y": 28950
+                      },
+                      "label": {
+                        "text": "Kitchen",
+                        "x": 24325,
+                        "y": 28950,
+                        "offset_y": 35
+                      },
+                      "outline": [
+                        [
+                          22550,
+                          26850
+                        ],
+                        [
+                          26100,
+                          26850
+                        ],
+                        [
+                          26100,
+                          31050
+                        ],
+                        [
+                          22550,
+                          31050
+                        ]
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "template": "vacuum_clean_zone"
+                },
+                {
+                  "template": "vacuum_goto"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

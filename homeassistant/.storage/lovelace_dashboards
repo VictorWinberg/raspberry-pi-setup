@@ -20,6 +20,15 @@
         "mode": "storage",
         "url_path": "dashboard-printer",
         "id": "dashboard_printer"
+      },
+      {
+        "id": "dashboard_robban",
+        "show_in_sidebar": true,
+        "icon": "mdi:robot-vacuum",
+        "title": "Robban",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-robban"
       }
     ]
   }

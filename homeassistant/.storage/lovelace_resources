@@ -83,6 +83,16 @@
         "url": "/hacsfiles/miflora-card/miflora-card.js?hacstag=197715418",
         "type": "module",
         "id": "499d04be7079448a9ca0d0b92b6afb5a"
+      },
+      {
+        "id": "9936b43611dc4250a170ee5ba27739eb",
+        "url": "/hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js?hacstag=193372044222",
+        "type": "module"
+      },
+      {
+        "id": "b9f4b275862a4748bfe76a17d5f23736",
+        "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=2612912952100",
+        "type": "module"
       }
     ]
   }
