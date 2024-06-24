@@ -561,15 +561,15 @@
               "tap_action": {
                 "action": "call-service",
                 "service": "spotcast.start",
-                "service_data": {
+                "target": {},
+                "data": {
                   "entity_id": "media_player.speakers",
                   "random_song": true,
                   "repeat": "context",
                   "shuffle": true,
-                  "uri": "spotify:playlist:0cqy9maQomfMPhSSUtCZbi",
+                  "uri": "spotify:playlist:3RpEqNoUV2DPUmEc78Qggu",
                   "account": "mr"
-                },
-                "target": {}
+                }
               }
             },
             {
