@@ -137,15 +137,6 @@ play_spotify:
       milliseconds: 0
   - condition: template
     value_template: '{{ not is_state(entity_id, "playing")}}'
-  - data_template:
-      entity_id: '{{ entity_id }}'
-      random_song: true
-      repeat: context
-      shuffle: true
-      uri: '{{ states(uri) }}'
-      account: '{{ account }}'
-    service: spotcast.start
-    continue_on_error: true
   mode: single
 blinds_open:
   alias: Blinds Open
