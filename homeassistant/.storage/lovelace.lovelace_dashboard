@@ -26,16 +26,12 @@
                       "aspect_ratio": "4.5:1",
                       "tap_action": {
                         "action": "call-service",
-                        "service": "spotcast.start",
+                        "service": "script.play_spotify",
                         "service_data": {
                           "entity_id": "media_player.speakers",
-                          "random_song": true,
-                          "repeat": "context",
-                          "shuffle": true,
-                          "uri": "spotify:playlist:0cqy9maQomfMPhSSUtCZbi",
+                          "uri": "input_text.anniversary_playlist",
                           "account": "mr"
-                        },
-                        "target": {}
+                        }
                       },
                       "style": {
                         ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
