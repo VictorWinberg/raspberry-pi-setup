@@ -24,7 +24,7 @@ http:
   trusted_proxies:
     - 127.0.0.1
     - ::1
-    - 62.63.212.131
+    - 62.63.212.175
 
 tts:
   - platform: google_translate
