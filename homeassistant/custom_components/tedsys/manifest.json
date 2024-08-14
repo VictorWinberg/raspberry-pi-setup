@@ -1,7 +1,7 @@
 {
   "domain": "tedsys",
   "name": "Tedsys",
-  "requirements": ["requests==2.31.0", "python-dotenv==0.15.0"],
+  "requirements": ["requests==2.32.3", "python-dotenv==0.15.0"],
   "dependencies": [],
   "codeowners": ["@VictorWinberg"],
   "version": "1.0.0"

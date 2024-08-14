@@ -41,15 +41,6 @@
     ender_3_print_image:
       friendly_name: "Ender 3 Print Image"
       value_template: "{{ 'https://print.zolly.eu.org/plugin/UltimakerFormatPackage/thumbnail/' + states('sensor.ender_3_print_file')[:-5] + 'png' }}"
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_use_percent
-    - type: processor_use
-    - type: load_1m
-    - type: load_5m
-    - type: load_15m
 - platform: spotcast
   country: SE
 - platform: rest

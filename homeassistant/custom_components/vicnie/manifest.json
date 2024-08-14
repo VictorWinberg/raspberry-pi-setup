@@ -2,7 +2,7 @@
   "domain": "vicnie",
   "name": "Vicnie",
   "requirements": [
-    "requests==2.31.0",
+    "requests==2.32.3",
     "python-dotenv==0.15.0"
   ],
   "dependencies": [],
