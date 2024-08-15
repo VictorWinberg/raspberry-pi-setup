@@ -93,6 +93,11 @@
         "id": "b9f4b275862a4748bfe76a17d5f23736",
         "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=2612912952101",
         "type": "module"
+      },
+      {
+        "id": "f6dc93db83bf4dd3b3abee3651f5b59b",
+        "url": "/hacsfiles/weather-chart-card/weather-chart-card.js?hacstag=665501829247",
+        "type": "module"
       }
     ]
   }

@@ -33,8 +33,10 @@
                           "account": "mr"
                         }
                       },
-                      "style": {
-                        ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
+                      "card_mod": {
+                        "style": {
+                          ".": ":host {\n  --ha-picture-card-background-color: rgba(255, 255, 255, 0.5);\n}\n.footer.both {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #222;\n}\n"
+                        }
                       }
                     },
                     {
@@ -87,7 +89,9 @@
                       "noEventsForTodayText": "Inga händelser",
                       "showColors": true,
                       "maxDaysToShow": 14,
-                      "style": "ha-card {\n  box-shadow: none;\n  border: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n",
+                      "card_mod": {
+                        "style": "ha-card {\n  box-shadow: none;\n  border: none;\n}\n.content {\n  height: calc(100vh - 14rem - 14rem);\n}\n.content::before {\n  top: calc(100vh - 2rem - 14rem - 14rem);\n}\n"
+                      },
                       "dateColor": "#333",
                       "timeColor": "#313131",
                       "timeSize": 140,
@@ -99,9 +103,11 @@
                     {
                       "type": "markdown",
                       "content": "{{ states(\"sensor.onelist\") }}\n",
-                      "style": {
-                        ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  border: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
-                        "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  height: 14rem !important;\n  overflow-y: scroll;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  box-shadow: none;\n  border: none;\n  font-size: 2rem;\n  line-height: 1.25;\n  text-align: center;\n  color: #F4F5F6;\n  font-weight: 300;\n}\nha-markdown.no-header {\n  padding: 0 !important;\n}\n::-webkit-scrollbar {\n  display: none;\n}\n",
+                          "ha-markdown$": "h1 {\n  font-size: 1.5em;\n  font-weight: 300;\n  margin-bottom: 0;\n  text-transform: uppercase;\n}\np {\n  font-size: 0.9em;\n  column-count: 2;\n  margin-top: 0\n}\n"
+                        }
                       }
                     }
                   ],
@@ -111,9 +117,11 @@
                   "cards": [
                     {
                       "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n\"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n\"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n\"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n%} {% set weekday = weekdays[now().weekday()] %} {% set\nmonth = months[now().month - 1] %} {% set day = now().day %}\n# {{ weekday }}\n## {{ states('sensor.time') }}\n### {{ day }} {{ month }}\n",
-                      "style": {
-                        ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
-                        "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1 !important;\n  margin: 0;\n}\nh1 { font-size: 9em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  margin: 0;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n  margin: 0 -5em;\n}\n",
+                          "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1 !important;\n  margin: 0;\n}\nh1 { font-size: 6em !important; }\nh2 { font-size: 16em !important; }\nh3 { font-size: 6em !important; }\n"
+                        }
                       },
                       "type": "markdown"
                     },
@@ -124,27 +132,62 @@
                         "hide_state": true,
                         "type": "custom:slider-entity-row"
                       },
-                      "style": {
-                        "slider-entity-row$": {
-                          "ha-slider$": ":host {\n  --paper-progress-active-color: orange;\n  --paper-slider-knob-color: orange;\n  --calculated-paper-slider-height: 8px;\n  z-index: 1;\n}\n.slider-knob-inner {\n  margin: 5px;\n  width: calc(100% - 10px);\n  height: calc(100% - 10px);\n}\n"
+                      "card_mod": {
+                        "style": {
+                          "slider-entity-row$": {
+                            "ha-slider$": ":host {\n  --primary-color: orange;\n  --md-slider-inactive-track-height: 8px;\n  --md-slider-active-track-height: 8px;\n  z-index: 1;\n}\n.handleNub {\n  width: 2rem !important;\n  height: 2rem !important;\n}\n"
+                          }
                         }
                       },
                       "type": "custom:mod-card"
                     },
                     {
-                      "current": true,
-                      "details": true,
+                      "type": "custom:weather-chart-card",
                       "entity": "weather.forecast_home",
-                      "style": "ha-card {\n  display: flex;\n  flex-direction: column;\n  background: none;\n  box-shadow: none;\n  border: none;\n  width: 80%;\n  padding: 0 !important;\n  margin-left: 0 !important;\n} .current {\n  position: relative;\n  font-size: 2.25rem;\n  line-height: 1;\n  order: 2;\n  width: 385px;\n  height: 110px;\n  padding: 0 !important;\n  margin-top: 1.2em !important;\n  margin-bottom: 0 !important;\n} .forecast {\n  order: 1;\n} .forecast .day {\n  line-height: 1.2;\n  font-size: 2em;\n  color: white;\n} .forecast .icon {\n  width: 100px;\n  height: 100px;\n  margin: -0.75em 0;\n} .forecast .precipitation, .forecast .precipitation_probability {\n  display: none;\n} ul.variations.spacer > li {\n  display: none;\n} ul.variations.spacer > li:nth-last-of-type(-n+2) {\n  display: block;\n}\n",
+                      "show_main": false,
+                      "show_attributes": false,
+                      "show_sun": true,
+                      "icons_size": 40,
+                      "animated_icons": true,
+                      "icon_style": "style2",
+                      "forecast": {
+                        "precipitation_type": "rainfall",
+                        "labels_font_size": "16",
+                        "precip_bar_size": "100",
+                        "chart_height": "150",
+                        "style": "style2",
+                        "chart_text_color": "white",
+                        "chart_datetime_color": "white",
+                        "show_wind_forecast": false,
+                        "round_temp": true,
+                        "type": "daily"
+                      },
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  background: transparent;\n}\n.card {\n  padding: 0;\n}\n"
+                        }
+                      }
+                    },
+                    {
                       "type": "custom:weather-card",
-                      "number_of_forecasts": "5"
+                      "entity": "weather.forecast_home",
+                      "details": false,
+                      "forecast": false,
+                      "hourly_forecast": false,
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  background: transparent;\n  width: 60%;\n  margin: 0 !important;\n  font-size: 2rem !important;\n}\n.icon {\n  font-size: 1.5rem !important;\n}\n.temp, .tempc {\n  top: 10rem;\n}\n"
+                        }
+                      }
                     },
                     {
                       "type": "markdown",
                       "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor_temperature') }} °C</td>\n    <td>{{ states('sensor.office_sensor_temperature') }} °C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_humidity') }} %</td>\n    <td>{{ states('sensor.office_sensor_humidity') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
-                      "style": {
-                        ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
-                        "ha-markdown$": "td {\n  padding: 0 1rem;\n}\ntr:nth-child(3), tr:nth-child(4) {\n  font-size: 1.25rem;\n  color: grey;\n}\n"
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
+                          "ha-markdown$": "td {\n  padding: 0 1rem;\n}\ntr:nth-child(3), tr:nth-child(4) {\n  font-size: 1.25rem;\n  color: grey;\n}\n"
+                        }
                       }
                     }
                   ],
@@ -233,14 +276,18 @@
                         ],
                         "type": "horizontal-stack"
                       },
-                      "style": "ha-card {\n  position: absolute;\n  z-index: 1;\n  padding: 16px;\n}\n",
+                      "card_mod": {
+                        "style": "ha-card {\n  position: absolute;\n  z-index: 1;\n  padding: 16px;\n}\n"
+                      },
                       "type": "custom:mod-card"
                     },
                     {
                       "content": "# Alarm\n## {{ states('sensor.time_until_alarm') }}\n### {{ states('sensor.alarm_time') }}\n",
-                      "style": {
-                        ".": "ha-card {\n  height: auto !important;\n  margin-top: 90px; \n  margin-left: 80px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
-                        "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 1.75em !important; }\nha-icon {\n  --mdc-icon-size: 12px;\n  position: absolute;\n  margin-left: 4px;\n}\n"
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  height: auto !important;\n  margin-top: 90px; \n  margin-left: 80px;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 20px;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n  text-transform: uppercase;\n}\n",
+                          "ha-markdown$": "h1, h2, h3 {\n  font-weight: 300 !important;\n  line-height: 1;\n  margin: 0;\n}\nh1 { font-size: 2em !important; }\nh2 { font-size: 4em !important; }\nh3 { font-size: 1.75em !important; }\nha-icon {\n  --mdc-icon-size: 12px;\n  position: absolute;\n  margin-left: 4px;\n}\n"
+                        }
                       },
                       "type": "markdown"
                     },
@@ -262,7 +309,9 @@
                         "source": false,
                         "volume": true
                       },
-                      "style": ":host {\n  top: 350px;\n  width: 275px;\n  position: absolute;\n  z-index: 1;\n  --mini-media-player-scale: 1.75;\n}\nha-card {\n  left: 23px;\n}\n.entity__info__media {\n  padding-top: 1em;\n  text-align: center;\n}\n.mmp-player__core.flex {\n  flex-direction: column;\n}\n",
+                      "card_mod": {
+                        "style": ":host {\n  top: 350px;\n  width: 275px;\n  position: absolute;\n  z-index: 1;\n  --mini-media-player-scale: 1.75;\n}\nha-card {\n  left: 23px;\n}\n.entity__info__media {\n  padding-top: 1em;\n  text-align: center;\n}\n.mmp-player__core.flex {\n  flex-direction: column;\n}\n"
+                      },
                       "type": "custom:mini-media-player"
                     },
                     {
@@ -658,14 +707,18 @@
                         }
                       ],
                       "image": "/local/blueprint.png",
-                      "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  border: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n",
+                      "card_mod": {
+                        "style": "ha-card {\n  background: transparent;\n  box-shadow: none;\n  border: none;\n  width: 47vw;\n  margin-left: -15vw;\n}\nhui-state-icon-element.element {\n  transform: translate(-50%, -50%) scale(2);\n}\n"
+                      },
                       "type": "picture-elements"
                     },
                     {
                       "content": "{% set precip_intensity = 0.20 %} {% if state_attr('weather.forecast_home', 'forecast') | map(attribute='precipitation') | first > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | selectattr('state','ne', 'unavailable') | list | count ==\n  states.light | selectattr('state','eq', 'off') | list | count) and\n(states.switch | selectattr('state','ne', 'unavailable') | list | count ==\n  states.switch | selectattr('state','eq', 'off') | list | count + 1) and not\n(states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
-                      "style": {
-                        ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
-                        "ha-markdown$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
+                      "card_mod": {
+                        "style": {
+                          ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
+                          "ha-markdown$": "p, a, b {\n  position: absolute;\n  pointer-events: none;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\na {\n  z-index: 2;\n  background: linear-gradient(to top, rgb(75, 108, 183, 1), rgba(0, 0, 0, 0) 50%);\n}\nb {\n  z-index: 1;\n  background: rgba(0,0,0,0.9);\n}\n"
+                        }
                       },
                       "type": "markdown"
                     }
