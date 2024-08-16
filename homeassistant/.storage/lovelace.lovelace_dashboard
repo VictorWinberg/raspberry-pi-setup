@@ -164,7 +164,10 @@
                       },
                       "card_mod": {
                         "style": {
-                          ".": "ha-card {\n  background: transparent;\n}\n.card {\n  padding: 0;\n}\n"
+                          "weather-chart-card$": {
+                            "ha-card$": ":host {\n  --primary-text-color: red;\n  --primary-color: red;\n  --card-background-color: red;\n  --primary-color: red;\n}\n"
+                          },
+                          ".": ":host {\n  --primary-text-color: red;\n  --primary-color: red;\n  --card-background-color: red;\n}\nha-card {\n  background: transparent;\n}\n.card {\n  padding: 0;\n}\n"
                         }
                       }
                     },
