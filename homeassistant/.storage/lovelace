@@ -180,109 +180,6 @@
               "type": "custom:mod-card"
             },
             {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_l",
-                      "show_icon": false
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_r",
-                      "show_icon": false
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_l",
-                      "icon": "mdi:arrow-up",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_l",
-                      "icon": "mdi:stop",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.stop_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_l",
-                      "icon": "mdi:arrow-down",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_r",
-                      "icon": "mdi:arrow-up",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_r",
-                      "icon": "mdi:stop",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.stop_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    },
-                    {
-                      "type": "custom:button-card",
-                      "entity": "cover.bedroom_blind_r",
-                      "icon": "mdi:arrow-down",
-                      "show_name": false,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "entity"
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "entities": [
                 {
                   "entities": [
@@ -422,6 +319,109 @@
               "toggle_power": false,
               "sound_mode": "full",
               "volume_stateless": true
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "show_icon": false
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "show_icon": false
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:arrow-up",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:stop",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.stop_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_l",
+                      "icon": "mdi:arrow-down",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:arrow-up",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:stop",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.stop_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    },
+                    {
+                      "type": "custom:button-card",
+                      "entity": "cover.bedroom_blind_r",
+                      "icon": "mdi:arrow-down",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "entity"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ],
           "icon": "mdi:home",
