@@ -45,7 +45,7 @@
         "id": "c4cfc587eedc4ddfb901a7c4e2ef1936"
       },
       {
-        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128610",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=497319128611",
         "type": "module",
         "id": "2637c969ea3b41e8a4ab8a76f30234a1"
       },
@@ -96,7 +96,7 @@
       },
       {
         "id": "f6dc93db83bf4dd3b3abee3651f5b59b",
-        "url": "/hacsfiles/weather-chart-card/weather-chart-card.js?hacstag=665501829247",
+        "url": "/hacsfiles/weather-chart-card/weather-chart-card.js?hacstag=665501829249",
         "type": "module"
       }
     ]
