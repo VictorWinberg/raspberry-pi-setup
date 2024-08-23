@@ -650,6 +650,11 @@
                 },
                 {
                   "entity": "sensor.water_pump_duration"
+                },
+                {
+                  "entity": "fan.bedroom",
+                  "name": "Philips Air",
+                  "secondary_info": "last-changed"
                 }
               ],
               "show_header_toggle": false,
