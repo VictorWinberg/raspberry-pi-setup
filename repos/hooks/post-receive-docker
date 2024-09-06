@@ -1,0 +1,34 @@
+#!/bin/bash
+set -eu # exit script on errors
+source ~/.profile
+. $HOME/.nvm/nvm.sh
+
+WORK_TREE="/home/git/www/${REPO}"
+GIT_DIR="/home/git/repos/${REPO}.git"
+
+echo "> ./post-receive-node"
+while read oldrev newrev ref
+do
+  echo "Ref $ref received."
+
+  if [[ $ref = refs/heads/"$BRANCH" ]];
+  then
+    echo "Deploying ${BRANCH} branch..."
+
+    echo "> git checkout..."
+    git --work-tree="$WORK_TREE" --git-dir="$GIT_DIR" checkout "$BRANCH" -f
+    git symbolic-ref HEAD "refs/heads/$BRANCH"
+    cd "$WORK_TREE"
+
+    echo "> docker compose up --detach --build"
+    docker compose up --detach --build
+
+    echo "Deployment ${BRANCH} branch complete."
+
+  else
+    echo "No deployment done."
+    echo "Only the ${BRANCH} branch may be deployed."
+
+  fi
+done
+
