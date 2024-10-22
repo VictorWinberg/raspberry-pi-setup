@@ -2,3 +2,21 @@
   - name: "{{ state_attr(states('input_text.anniversary_entity'), 'friendly_name') }}"
     unique_id: "template_anniversary_entity_id"
     state: "{{ states(states('input_text.anniversary_entity')) }}"
+- trigger:
+    - platform: time_pattern
+      hours: /1
+    - platform: homeassistant
+      event: start
+  action:
+    - service: weather.get_forecasts
+      data:
+        type: hourly
+      target:
+        entity_id: weather.forecast_home
+      response_variable: response
+  sensor:
+    - name: Weather Forecast
+      unique_id: weather_forecast
+      state: "{{ states('weather.forecast_home') }}"
+      attributes:
+        forecast: "{{ response['weather.forecast_home'].forecast }}"

@@ -716,7 +716,7 @@
                       "type": "picture-elements"
                     },
                     {
-                      "content": "{% set precip_intensity = 0.20 %} {% if state_attr('weather.forecast_home', 'forecast') | map(attribute='precipitation') | first > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | selectattr('state','ne', 'unavailable') | list | count ==\n  states.light | selectattr('state','eq', 'off') | list | count) and\n(states.switch | selectattr('state','ne', 'unavailable') | list | count ==\n  states.switch | selectattr('state','eq', 'off') | list | count + 1) and not\n(states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
+                      "content": "{% set precip_intensity = 0.20 %} {% if state_attr('sensor.weather_forecast', 'forecast') | map(attribute='precipitation') | first > precip_intensity -%}\n  <a></a>\n{%- endif %} {% if (states.light | selectattr('state','ne', 'unavailable') | list | count ==\n  states.light | selectattr('state','eq', 'off') | list | count) and\n(states.switch | selectattr('state','ne', 'unavailable') | list | count ==\n  states.switch | selectattr('state','eq', 'off') | list | count + 1) and not\n(states('sensor.someone_home') and states('sensor.time') > '08:00' and states('sensor.time') < '20:00') -%}\n  <b></b>\n{%- endif %}\n",
                       "card_mod": {
                         "style": {
                           ".": "ha-card {\n  position: absolute;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n}\n",
