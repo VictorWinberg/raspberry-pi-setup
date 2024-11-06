@@ -105,13 +105,13 @@ input_number:
   wakeup_transition_time:
     name: "Wake-up timer"
     min: 0
-    max: 100
+    max: 180
     unit_of_measurement: min
     icon: mdi:timer
   goodnight_transition_time:
     name: "Goodnight timer"
     min: 0
-    max: 100
+    max: 180
     unit_of_measurement: min
     icon: mdi:timer
 

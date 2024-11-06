@@ -41,16 +41,16 @@ start_video_lights:
 power_off:
   alias: Power off
   sequence:
-  - service: homeassistant.turn_off
-    target:
+  - target:
       entity_id:
       - script.blinds_close
       - script.blinds_open
+      - script.good_morning_transition
     data: {}
+    action: homeassistant.turn_off
   - entity_id: all
-    service: media_player.turn_off
-  - service: switch.turn_off
-    data: {}
+    action: media_player.turn_off
+  - data: {}
     target:
       entity_id:
       - switch.bed_strip
@@ -59,10 +59,11 @@ power_off:
       - switch.power_strip_socket_1
       - switch.window_plug
       - switch.power_strip_socket_3
-  - service: light.turn_off
-    target:
+    action: switch.turn_off
+  - target:
       entity_id: all
     data: {}
+    action: light.turn_off
   mode: single
 power_on:
   alias: Power on
@@ -603,3 +604,34 @@ power_off_10_minutes:
   - service: script.power_off
     data: {}
   mode: single
+good_morning_transition:
+  alias: Good Morning Transition
+  sequence:
+  - data:
+      brightness_pct: 1
+      rgb_color:
+      - 166
+      - 44
+      - 23
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+    action: light.turn_on
+  - data:
+      transition: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
+      brightness_pct: 100
+      rgb_color:
+      - 255
+      - 180
+      - 65
+    target:
+      entity_id:
+      - light.bedroom
+      - light.philips_hue
+    action: light.turn_on
+  - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
+  - entity_id: script.good_morning
+    action: script.turn_on
+  description: ''
+  icon: mdi:weather-sunset-up
