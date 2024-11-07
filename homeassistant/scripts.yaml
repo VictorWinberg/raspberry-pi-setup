@@ -631,7 +631,53 @@ good_morning_transition:
       - light.philips_hue
     action: light.turn_on
   - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
-  - entity_id: script.good_morning
-    action: script.turn_on
+  - action: script.turn_on
+    data: {}
+    target:
+      entity_id:
+      - script.good_morning
+      - script.annoy_victor
   description: ''
   icon: mdi:weather-sunset-up
+annoy_victor:
+  alias: Wake Up - Victor
+  sequence:
+  - delay:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - condition: state
+    entity_id: person.victor
+    state: home
+  - action: tts.google_translate_say
+    metadata: {}
+    data:
+      cache: false
+      entity_id: media_player.rey
+      message: Victor - The alarm will go off in 1 minute!
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - repeat:
+      sequence:
+      - action: spotcast.start
+        metadata: {}
+        data:
+          limit: 20
+          force_playback: false
+          repeat: track
+          uri: spotify:track:67euHrPxIzKpzpSRLeIKhU
+          entity_id: media_player.rey
+      - delay:
+          hours: 0
+          minutes: 5
+          seconds: 0
+          milliseconds: 0
+      while:
+      - condition: state
+        entity_id: sensor.mr_battery_state
+        state: Charging
+  description: ''

@@ -16,9 +16,9 @@
       weekday:
       - mon
       - tue
-      - wed
       - thu
       - fri
+      - wed
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
