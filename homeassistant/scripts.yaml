@@ -677,7 +677,9 @@ annoy_victor:
           seconds: 0
           milliseconds: 0
       while:
-      - condition: state
-        entity_id: sensor.mr_battery_state
-        state: Charging
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: sensor.mr_battery_state
+          state: Not Charging
   description: ''
