@@ -650,6 +650,12 @@ annoy_victor:
   - condition: state
     entity_id: person.victor
     state: home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.mr_battery_state
+      state: Not Charging
+    enabled: true
   - action: tts.google_translate_say
     metadata: {}
     data:
