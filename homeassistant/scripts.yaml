@@ -664,6 +664,15 @@ annoy_victor:
       message: Victor - The alarm will go off in 1 minute!
   - delay:
       hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - action: media_player.media_next_track
+    target:
+      entity_id: media_player.rey
+    data: {}
+  - delay:
+      hours: 0
       minutes: 1
       seconds: 0
       milliseconds: 0
@@ -679,7 +688,7 @@ annoy_victor:
           entity_id: media_player.rey
       - delay:
           hours: 0
-          minutes: 5
+          minutes: 1
           seconds: 0
           milliseconds: 0
       while:
