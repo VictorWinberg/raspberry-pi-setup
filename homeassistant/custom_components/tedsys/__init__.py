@@ -13,8 +13,7 @@ DOMAIN = "tedsys"
 _LOGGER = logging.getLogger(__name__)
 
 API_URL = "https://tedbiz-tedsys-api.tedsys.net/api/v1"
-RESOURCE_ID = 16
-RESOURCE_IDS = [1, 2, 3, 4]
+RESOURCE_IDS = [16, 1, 2, 3, 4]
 TIMEZONE = ZoneInfo("Europe/Stockholm")
 
 class Weekday:
@@ -61,9 +60,9 @@ def get_booking_availability(weekday, resource_id, token):
     return len(booking_response["data"]) == 0
 
 def get_random_resource_id(weekday, token):
-    resource_id = RESOURCE_ID
+    resource_id = RESOURCE_IDS[0]
     resource_ids = RESOURCE_IDS[:]
-    for _ in range(len(RESOURCE_IDS) + 1):
+    for _ in range(len(RESOURCE_IDS)):
         if get_booking_availability(weekday, resource_id, token):
             return resource_id
         resource_ids.remove(resource_id)
