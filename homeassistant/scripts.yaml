@@ -642,6 +642,20 @@ good_morning_transition:
 annoy_victor:
   alias: Wake Up - Victor
   sequence:
+  - action: media_player.volume_set
+    metadata: {}
+    data:
+      volume_level: 0.5
+    target:
+      entity_id: media_player.rey
+  - data:
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
+      account: mr
+      entity_id: media_player.rey
+    action: spotcast.start
   - delay:
       hours: 0
       minutes: 15
@@ -662,15 +676,6 @@ annoy_victor:
       cache: false
       entity_id: media_player.rey
       message: Victor - The alarm will go off in 1 minute!
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 10
-      milliseconds: 0
-  - action: media_player.media_next_track
-    target:
-      entity_id: media_player.rey
-    data: {}
   - delay:
       hours: 0
       minutes: 1
