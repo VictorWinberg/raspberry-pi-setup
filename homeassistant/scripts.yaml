@@ -296,16 +296,6 @@ good_morning:
       uri: input_text.goodnight_playlist
       account: mr
     action: script.play_spotify
-  - delay:
-      hours: 0
-      minutes: 10
-      seconds: 0
-      milliseconds: 0
-  - data:
-      entity_id: media_player.rey
-      uri: input_text.good_morning_playlist
-      account: mr
-    action: script.play_spotify
   mode: restart
 good_night:
   alias: Good Night
@@ -645,6 +635,17 @@ annoy_victor:
   - condition: state
     entity_id: person.victor
     state: home
+  - delay:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.mr_battery_state
+      state: Not Charging
+    enabled: true
   - action: media_player.volume_set
     metadata: {}
     data:
@@ -661,7 +662,7 @@ annoy_victor:
     action: spotcast.start
   - delay:
       hours: 0
-      minutes: 15
+      minutes: 5
       seconds: 0
       milliseconds: 0
   - condition: not
