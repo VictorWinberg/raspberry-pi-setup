@@ -640,6 +640,22 @@ annoy_victor:
       minutes: 10
       seconds: 0
       milliseconds: 0
+  - action: media_player.volume_set
+    metadata: {}
+    data:
+      volume_level: 0.5
+    target:
+      entity_id: media_player.rey
+  - data:
+      entity_id: media_player.rey
+      uri: input_text.good_morning_playlist
+      account: mr
+    action: script.play_spotify
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
   - condition: not
     conditions:
     - condition: state
@@ -652,25 +668,6 @@ annoy_victor:
       volume_level: 0.5
     target:
       entity_id: media_player.rey
-  - data:
-      random_song: true
-      repeat: context
-      shuffle: true
-      uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
-      account: mr
-      entity_id: media_player.rey
-    action: spotcast.start
-  - delay:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.mr_battery_state
-      state: Not Charging
-    enabled: true
   - action: tts.google_translate_say
     metadata: {}
     data:
