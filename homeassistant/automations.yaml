@@ -731,11 +731,10 @@
     - action: media_player.volume_set
       metadata: {}
       data:
-        volume_level: 0.2
+        volume_level: 0.5
       target:
         entity_id:
         - media_player.bali
         - media_player.rey
-        - media_player.rio
         - media_player.kasinot_speaker
   mode: restart
