@@ -682,14 +682,15 @@
     - tue
     - wed
     - thu
+    - fri
   - condition: template
     value_template: '{{(as_timestamp(now()) - as_timestamp(state_attr("automation.tedsys_platsbokning",
       "last_triggered") | default(0)) | int > 12 * 3600 )}}'
   action:
-  - service: tedsys.tedbiz_booking
-    data:
+  - data:
       date: '{{ as_timestamp(now()) | timestamp_custom(''%Y-%m-%d'') }}'
       notify: mobile_app_victors_ipod_2
+    action: tedsys.tedbiz_booking
   mode: single
 - id: '1732085220956'
   alias: Bodypump - Friday
@@ -721,20 +722,18 @@
         - light.kitchen_table
       action: light.turn_on
     - data:
-        entity_id: media_player.speakers
         random_song: true
         repeat: context
         shuffle: true
         uri: spotify:playlist:37i9dQZF1DX7CB1M7sBt21
         account: mr
+        entity_id: media_player.rey
       action: spotcast.start
     - action: media_player.volume_set
       metadata: {}
       data:
-        volume_level: 0.5
+        volume_level: 0.3
       target:
         entity_id:
-        - media_player.bali
         - media_player.rey
-        - media_player.kasinot_speaker
   mode: restart
