@@ -117,7 +117,7 @@ def setup(hass, config):
         specific_date = datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=TIMEZONE)
         weekday = Weekday(
             specific_date,
-            specific_date.replace(hour=9, minute=0, second=0, microsecond=0),
+            specific_date.replace(hour=8, minute=0, second=0, microsecond=0),
             specific_date.replace(hour=17, minute=0, second=0, microsecond=0)
         )
 
