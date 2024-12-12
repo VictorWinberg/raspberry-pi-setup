@@ -706,7 +706,7 @@ annoy_victor:
         an unstoppable storm of sound. Do not fail us!\"\n] | random }}\n"
   - delay:
       hours: 0
-      minutes: 1
+      minutes: 10
       seconds: 0
       milliseconds: 0
   - repeat:
