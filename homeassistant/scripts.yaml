@@ -293,7 +293,7 @@ good_morning:
     action: script.turn_on
   - data:
       entity_id: media_player.rey
-      uri: input_text.goodnight_playlist
+      uri: input_text.good_morning_playlist
       account: mr
     action: script.play_spotify
   mode: restart
@@ -632,6 +632,8 @@ good_morning_transition:
 annoy_victor:
   alias: Wake Up - Victor
   sequence:
+  - variables:
+      charging: '{{ states(''sensor.mr_battery_state'') }}'
   - condition: state
     entity_id: person.victor
     state: home
@@ -646,22 +648,13 @@ annoy_victor:
       volume_level: 0.5
     target:
       entity_id: media_player.rey
-  - data:
-      entity_id: media_player.rey
-      uri: input_text.good_morning_playlist
-      account: mr
-    action: script.play_spotify
   - delay:
       hours: 0
       minutes: 5
       seconds: 0
       milliseconds: 0
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.mr_battery_state
-      state: Not Charging
-    enabled: true
+  - condition: template
+    value_template: '{{ is_state(''sensor.mr_battery_state'', charging) }}'
   - action: media_player.volume_set
     metadata: {}
     data:
@@ -706,35 +699,17 @@ annoy_victor:
         an unstoppable storm of sound. Do not fail us!\"\n] | random }}\n"
   - delay:
       hours: 0
-      minutes: 10
+      minutes: 1
       seconds: 0
       milliseconds: 0
   - repeat:
       sequence:
-      - action: tts.google_translate_say
+      - action: media_player.volume_set
         metadata: {}
         data:
-          cache: false
+          volume_level: 0.5
+        target:
           entity_id: media_player.rey
-          message: "{{ [\n  \"Victor, it’s about to go off! Stop it now!\",\n  \"Victor,
-            seconds left! Shut it down!\",\n  \"Victor, the alarm is imminent! Do
-            something!\",\n  \"Victor, act now! It’s about to start!\",\n  \"Victor,
-            it’s seconds away! Silence it!\",\n  \"Victor, hurry! The alarm is coming!\",\n
-            \ \"Victor, stop it! The alarm is here!\",\n  \"Victor, no time left!
-            End it now!\",\n  \"Victor, quick! It’s about to sound!\",\n  \"Victor,
-            do it now! The alarm is ready!\",\n  \"Victor, the alarm is here! Move
-            now!\",\n  \"Victor, seconds! Silence it, fast!\",\n  \"Victor, no time!
-            Turn it off now!\",\n  \"Victor, it’s coming! Stop it immediately!\",\n
-            \ \"Victor, the alarm will hit! Act now!\",\n  \"Victor, now or never!
-            Stop the alarm!\",\n  \"Victor, it’s happening! Do something now!\",\n
-            \ \"Victor, emergency! Silence it now!\",\n  \"Victor, final seconds!
-            Shut it off!\",\n  \"Victor, it’s starting! Stop it, hurry!\"\n] | random
-            }}\n"
-      - delay:
-          hours: 0
-          minutes: 0
-          seconds: 10
-          milliseconds: 0
       - action: spotcast.start
         metadata: {}
         data:
@@ -745,13 +720,11 @@ annoy_victor:
           entity_id: media_player.rey
       - delay:
           hours: 0
-          minutes: 1
+          minutes: 9
           seconds: 0
           milliseconds: 0
       while:
-      - condition: not
-        conditions:
-        - condition: state
-          entity_id: sensor.mr_battery_state
-          state: Not Charging
+      - condition: template
+        value_template: '{{ is_state(''sensor.mr_battery_state'', charging) }}'
   description: ''
+  mode: single
