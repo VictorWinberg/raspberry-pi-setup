@@ -49,10 +49,6 @@
                           "titleColor": "#D63118"
                         },
                         {
-                          "entity": "calendar.annie_fodelsedagar",
-                          "titleColor": "#D63118"
-                        },
-                        {
                           "entity": "calendar.victor_fodelsedagar",
                           "titleColor": "#D63118"
                         },
