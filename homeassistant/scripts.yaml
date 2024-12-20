@@ -661,42 +661,6 @@ annoy_victor:
       volume_level: 0.5
     target:
       entity_id: media_player.rey
-  - action: tts.google_translate_say
-    metadata: {}
-    data:
-      cache: false
-      entity_id: media_player.rey
-      message: "{{ [\n  \"Victor, this is your one-minute warning—neutralize the alarm
-        before it launches a full-scale auditory assault!\",\n  \"Victor, the countdown
-        is active—T-minus 60 seconds until Operation Earstrike. Disarm immediately!\",\n
-        \ \"Victor, the alarm is a hostile target; you have one minute to engage and
-        eliminate before it breaches sound security!\",\n  \"Victor, command protocol
-        initiated: one minute to silence the threat. Failure is not an option soldier!\",\n
-        \ \"Victor, enemy alert imminent! Sixty seconds to defuse the situation and
-        restore peace to the perimeter.\",\n  \"Victor, the mission is critical—disable
-        the alarm before it detonates in one minute. Execute, now!\",\n  \"Victor,
-        the battlefield of silence depends on you. One minute to terminate the beeping
-        menace!\",\n  \"Victor, sound warfare approaches! Sixty seconds remain to
-        neutralize the alarm before it claims auditory dominance.\",\n  \"Victor,
-        this is DEFCON 1. You’ve got one minute to silence the alarm before it escalates
-        into full-on chaos.\",\n  \"Victor, the alarm is armed and ready to strike.
-        Your orders: disarm in 60 seconds or prepare for sonic warfare!\",\n  \"Victor,
-        the alarm is a ticking time bomb. You have one minute to defuse it before
-        it detonates our peace.\",\n  \"Victor, the clock marches toward disaster.
-        Sixty seconds stand between us and an unforgiving siren. Act now!\",\n  \"Victor,
-        we are on the brink of pandemonium. The alarm will unleash its wrath in one
-        minute. Stop it, or brace yourself!\",\n  \"Victor, the final countdown has
-        begun—one minute until the alarm tears through the silence like a storm. Intervene
-        now!\",\n  \"Victor, the alarm is a relentless force, poised to strike in
-        sixty seconds. Your swift action is our only hope.\",\n  \"Victor, the sands
-        of tranquility slip away. You have one minute to silence the alarm before
-        it shatters our fragile calm.\",\n  \"Victor, the approaching alarm is a harbinger
-        of chaos. Sixty seconds remain to prevent an auditory apocalypse.\",\n  \"Victor,
-        the alarm lies dormant, but its fury will awaken in one minute. You alone
-        can prevent this disaster.\",\n  \"Victor, the peace we hold is fragile—one
-        minute until the alarm descends upon us. Quell the chaos before it’s too late!\",\n
-        \ \"Victor, destiny demands your action—sixty seconds before the alarm brings
-        an unstoppable storm of sound. Do not fail us!\"\n] | random }}\n"
   - delay:
       hours: 0
       minutes: 1
