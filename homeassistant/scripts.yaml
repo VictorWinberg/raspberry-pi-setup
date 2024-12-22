@@ -642,6 +642,8 @@ annoy_victor:
       minutes: 10
       seconds: 0
       milliseconds: 0
+  - condition: template
+    value_template: '{{ is_state(''sensor.mr_battery_state'', charging) }}'
   - action: media_player.volume_set
     metadata: {}
     data:
