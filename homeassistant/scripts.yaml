@@ -676,14 +676,6 @@ annoy_victor:
           volume_level: 0.5
         target:
           entity_id: media_player.rey
-      - action: spotcast.start
-        metadata: {}
-        data:
-          limit: 20
-          force_playback: false
-          repeat: track
-          uri: spotify:track:67euHrPxIzKpzpSRLeIKhU
-          entity_id: media_player.rey
       - delay:
           hours: 0
           minutes: 9
