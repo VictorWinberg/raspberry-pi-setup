@@ -633,26 +633,13 @@ annoy_victor:
   alias: Wake Up - Victor
   sequence:
   - variables:
-      original: '{{ states(''sensor.mr_battery_level'') }}'
+      original: '{{ states(''sensor.mr_activity'') }}'
   - condition: state
     entity_id: person.victor
     state: home
   - delay:
       hours: 0
-      minutes: 10
-      seconds: 0
-      milliseconds: 0
-  - condition: template
-    value_template: '{{ is_state(''sensor.mr_battery_level'', original) }}'
-  - action: media_player.volume_set
-    metadata: {}
-    data:
-      volume_level: 0.5
-    target:
-      entity_id: media_player.rey
-  - delay:
-      hours: 0
-      minutes: 5
+      minutes: 15
       seconds: 0
       milliseconds: 0
   - repeat:
@@ -663,6 +650,18 @@ annoy_victor:
           volume_level: 0.5
         target:
           entity_id: media_player.rey
+      - if:
+        - condition: not
+          conditions:
+          - condition: state
+            entity_id: media_player.rey
+            state: playing
+        then:
+        - action: script.play_spotify
+          data:
+            entity_id: media_player.rey
+            uri: input_text.good_morning_playlist
+            account: mr
       - delay:
           hours: 0
           minutes: 9
@@ -670,6 +669,6 @@ annoy_victor:
           milliseconds: 0
       while:
       - condition: template
-        value_template: '{{ is_state(''sensor.mr_battery_level'', original) }}'
+        value_template: '{{ is_state(''sensor.mr_activity'', original) }}'
   description: ''
   mode: single
