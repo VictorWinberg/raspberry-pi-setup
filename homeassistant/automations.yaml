@@ -737,3 +737,27 @@
         entity_id:
         - media_player.rey
   mode: restart
+- id: '1735888982946'
+  alias: Victor is awake
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.mr_activity
+    to:
+    from: Stationary
+  conditions:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.mr_activity
+      state: Stationary
+  - condition: state
+    entity_id: script.annoy_victor
+    state: 'on'
+  actions:
+  - action: script.turn_off
+    target:
+      entity_id: script.annoy_victor
+    data: {}
+  mode: single
