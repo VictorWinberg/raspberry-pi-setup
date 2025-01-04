@@ -73,19 +73,20 @@ power_on:
       entity_id:
       - light.hallway_door
       - light.hallway_spots
-    service: light.turn_on
-  - service: switch.turn_on
-    data: {}
+    action: light.turn_on
+  - data: {}
     target:
       entity_id:
       - switch.living_room_plug
       - switch.power_strip_socket_3
+      - switch.power_strip_socket_1
+    action: switch.turn_on
   - delay: 00:00:01
   - data:
       entity_id:
       - automation.evening_dim_lights
       - automation.sunset_balcony_lights
-    service: automation.trigger
+    action: automation.trigger
   mode: single
 hot_night:
   alias: Hot Night
