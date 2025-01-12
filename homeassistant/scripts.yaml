@@ -130,15 +130,8 @@ play_spotify:
       shuffle: true
       uri: '{{ states(uri) }}'
       account: '{{ account }}'
-    service: spotcast.start
     continue_on_error: true
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 10
-      milliseconds: 0
-  - condition: template
-    value_template: '{{ not is_state(entity_id, "playing")}}'
+    action: spotcast.start
   mode: single
 blinds_open:
   alias: Blinds Open
@@ -496,94 +489,6 @@ disco_lights:
           seconds: 0
           milliseconds: 20
   mode: single
-lifx_mode:
-  alias: LIFX - Mode
-  sequence:
-  - service: lifx.set_state
-    data:
-      zones:
-      - 8
-      color_name: slateblue
-    target:
-      entity_id:
-      - light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      transition: 2
-      power: true
-      brightness_pct: 90
-      rgb_color:
-      - 8
-      - 18
-      - 25
-    target:
-      entity_id:
-      - light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 0
-      - 15
-      color_name: blueviolet
-    target:
-      entity_id:
-      - light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 1
-      - 14
-      color_name: orchid
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 2
-      - 13
-      color_name: darkturquoise
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 3
-      - 12
-      color_name: mediumseagreen
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 4
-      - 11
-      color_name: yellowgreen
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 5
-      - 10
-      color_name: orangered
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 6
-      - 9
-      color_name: lime
-    target:
-      entity_id: light.led_strip_lifx
-  - service: lifx.set_state
-    data:
-      zones:
-      - 7
-      color_name: royalblue
-    target:
-      entity_id: light.led_strip_lifx
-  mode: single
 power_off_10_minutes:
   alias: Power off - X minutes
   sequence:
@@ -633,6 +538,13 @@ good_morning_transition:
 annoy_victor:
   alias: Wake Up - Victor
   sequence:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   - condition: state
     entity_id: person.victor
     state: home
