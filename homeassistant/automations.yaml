@@ -760,4 +760,10 @@
     target:
       entity_id: script.annoy_victor
     data: {}
+  - action: media_player.volume_set
+    metadata: {}
+    data:
+      volume_level: 0.2
+    target:
+      entity_id: media_player.rey
   mode: single
