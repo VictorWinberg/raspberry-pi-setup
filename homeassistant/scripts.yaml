@@ -321,57 +321,44 @@ good_night:
         entity_id: group.ikea
         state: 'off'
       sequence:
-      - service: script.hot_night
-        data: {}
+      - data: {}
+        action: script.hot_night
     default:
-    - service: light.turn_on
-      data:
-        brightness: 15
-        transition: 15
-        entity_id:
-        - light.philips_hue
-        - light.bedroom
-    - service: script.turn_on
-      data: {}
+    - data: {}
       entity_id: script.blinds_close
-    - delay:
-        hours: 0
-        minutes: 0
-        seconds: 15
-        milliseconds: 0
-    - service: media_player.volume_set
-      data:
+      action: script.turn_on
+    - data:
         volume_level: 0.05
       target:
         entity_id:
         - media_player.rey
-    - service: media_player.volume_set
-      data:
+      action: media_player.volume_set
+    - data:
         volume_level: 0.1
       target:
         entity_id:
         - media_player.rio
-    - service: media_player.volume_set
-      data:
+      action: media_player.volume_set
+    - data:
         volume_level: 0.1
       target:
         entity_id:
         - media_player.kasinot_speaker
-    - service: media_player.volume_set
-      data:
+      action: media_player.volume_set
+    - data:
         volume_level: 0.2
       target:
         entity_id:
         - media_player.bali
-    - service: script.power_off
-      data: {}
+      action: media_player.volume_set
+    - data: {}
+      action: script.power_off
     - delay:
         hours: 0
         minutes: 0
         seconds: 1
         milliseconds: 0
-    - service: light.turn_on
-      data:
+    - data:
         brightness: 100
         rgb_color:
         - 255
@@ -379,13 +366,13 @@ good_night:
         - 0
       target:
         entity_id: light.philips_hue
+      action: light.turn_on
     - delay:
         hours: 0
         minutes: 0
         seconds: 1
         milliseconds: 0
-    - service: light.turn_on
-      data_template:
+    - data_template:
         brightness: 1
         transition: '{{ states(''input_number.goodnight_transition_time'') | int *
           60 }} '
@@ -394,29 +381,30 @@ good_night:
         - 0
         - 0
         entity_id: light.philips_hue
-    - service: script.play_spotify
-      data:
+      action: light.turn_on
+    - data:
         entity_id: media_player.speakers
         uri: input_text.goodnight_playlist
         account: mr
         continue_on_error: true
+      action: script.play_spotify
     - delay:
         hours: 0
         minutes: 18
         seconds: 0
         milliseconds: 0
-    - service: media_player.turn_off
-      data: {}
+    - data: {}
       target:
         entity_id:
         - media_player.speakers
         - media_player.rey
         - media_player.bali
         - media_player.kasinot_speaker
-    - service: light.turn_off
-      data: {}
+      action: media_player.turn_off
+    - data: {}
       target:
         entity_id: light.philips_hue
+      action: light.turn_off
   mode: restart
 random_light_toggle:
   alias: Random light toggle
