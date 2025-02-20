@@ -46,6 +46,7 @@ power_off:
       - script.blinds_close
       - script.blinds_open
       - script.good_morning_transition
+      - script.annoy_victor
     data: {}
     action: homeassistant.turn_off
   - entity_id: all
