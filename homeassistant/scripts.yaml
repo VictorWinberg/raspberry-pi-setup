@@ -61,6 +61,7 @@ power_off:
       - switch.window_plug
       - switch.power_strip_socket_3
     action: switch.turn_off
+    continue_on_error: true
   - target:
       entity_id: all
     data: {}
@@ -354,6 +355,7 @@ good_night:
       action: media_player.volume_set
     - data: {}
       action: script.power_off
+      continue_on_error: true
     - delay:
         hours: 0
         minutes: 0
