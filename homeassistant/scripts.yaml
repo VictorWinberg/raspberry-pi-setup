@@ -83,6 +83,7 @@ power_on:
       - switch.power_strip_socket_3
       - switch.power_strip_socket_1
     action: switch.turn_on
+    continue_on_error: true
   - delay: 00:00:01
   - data:
       entity_id:
