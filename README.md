@@ -207,6 +207,11 @@ Automatically enable HTTPS on your website with EFF's Certbot, deploying Let's E
 $ sudo apt install python3-certbot-nginx
 ```
 
+**List certs**
+```cs
+$ sudo certbot certificates
+```
+
 **Update certs**
 ```cs
 $ sudo certbot --authenticator webroot -w /var/www/html --installer nginx --cert-name example.com
