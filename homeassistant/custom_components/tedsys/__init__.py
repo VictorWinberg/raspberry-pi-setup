@@ -79,13 +79,12 @@ def get_booking_availability(weekday, resource_id, token):
     return len(booking_response["data"]) == 0
 
 def get_random_resource_id(weekday, token):
-    resource_id = RESOURCE_IDS[0]
     resource_ids = RESOURCE_IDS[:]
-    for _ in range(len(RESOURCE_IDS)):
+    for _ in range(len(RESOURCE_IDS) + 1):
+        resource_id = get_random_in_range(resource_ids)
         if get_booking_availability(weekday, resource_id, token):
             return resource_id
         resource_ids.remove(resource_id)
-        resource_id = get_random_in_range(resource_ids)
     return -1
 
 def get_booking(weekday, resource_id):

@@ -10,26 +10,7 @@ load_dotenv()
 DOMAIN = "vicnie"
 _LOGGER = logging.getLogger(__name__)
 
-key = os.environ.get("yt-api-key")
-channelId = "UCKBW7WWWKIrewD13oRkaDag"
-
 def setup(hass, config):
-    """Set up the tetzipetzi service component."""
-    def tetzipetzi_service(call):
-        url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelId + '&maxResults=1&order=date&type=video&key=' + key
-        res = requests.get(url)
-        if not res.ok:
-          _LOGGER.error('Tetzipetzi error: ' + url + ' ' + str(res.json()))
-          return
-        item = res.json()["items"][0]
-
-        rgb_color = call.data.get("rgb_color")
-        service_data = {"rgb_color": rgb_color, "video": item["id"]["videoId"]}
-        hass.services.call("script", "start_video_lights", service_data, False)
-        player = "media_player.rio"
-        message = "Hej Hej Annie, Tetzipetzi haer. " #+ item["snippet"]["title"]
-        hass.services.call("tts", "google_translate_say", {"entity_id": player, "message": message}, False)
-
     """Set up the remote controller service component."""
     def remote_control_service(call):
         """Service data"""
@@ -155,7 +136,6 @@ def setup(hass, config):
         run_service(domain, entity_id, event)
 
     # Register our service with Home Assistant.
-    hass.services.register(DOMAIN, 'tetzipetzi', tetzipetzi_service)
     hass.services.register(DOMAIN, 'remote_control', remote_control_service)
 
     # Return boolean to indicate that initialization was successfully.

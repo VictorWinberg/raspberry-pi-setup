@@ -596,3 +596,28 @@ annoy_victor:
         value_template: '{{ True }}'
   description: ''
   mode: single
+default_toggle:
+  alias: Default Toggle
+  sequence:
+  - choose:
+    - conditions:
+      - after: '21:00'
+        before: 04:00
+        condition: time
+      sequence:
+      - data: {}
+        action: script.good_night
+    default:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: group.ikea
+          state: 'on'
+        sequence:
+        - data: {}
+          action: script.power_off
+      default:
+      - data: {}
+        action: script.power_on
+  mode: single
+  description: ''
