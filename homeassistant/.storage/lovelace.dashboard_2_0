@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_2_0",
+  "data": {
+    "config": {
+      "title": "Dashboard 2.0",
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Dashboard",
+          "theme": "ios-dark-mode-dark-blue",
+          "cards": [
+            {
+              "show_name": true,
+              "show_icon": true,
+              "type": "button",
+              "tap_action": {
+                "action": "toggle"
+              },
+              "entity": "switch.water_pump_switch"
+            },
+            {
+              "type": "gauge",
+              "entity": "input_number.light_brightness"
+            }
+          ],
+          "type": "masonry"
+        }
+      ]
+    }
+  }
+}

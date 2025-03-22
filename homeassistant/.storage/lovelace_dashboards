@@ -38,6 +38,15 @@
         "require_admin": false,
         "mode": "storage",
         "show_in_sidebar": true
+      },
+      {
+        "id": "dashboard_2_0",
+        "show_in_sidebar": true,
+        "icon": "mdi:monitor-dashboard",
+        "title": "Dashboard 2.0",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-2-0"
       }
     ]
   }

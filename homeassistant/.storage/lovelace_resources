@@ -65,7 +65,7 @@
         "id": "ac8cb3fe71414431b79bdf2e34b12385"
       },
       {
-        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841130",
         "type": "module",
         "id": "d1ebf73f89ba43b194d3475f4c6a595f"
       },
@@ -97,6 +97,16 @@
       {
         "id": "f6dc93db83bf4dd3b3abee3651f5b59b",
         "url": "/hacsfiles/weather-chart-card/weather-chart-card.js?hacstag=665501829249",
+        "type": "module"
+      },
+      {
+        "id": "489e8764b78f4ee2bca0cbb08c36c03a",
+        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=1883234941048",
+        "type": "module"
+      },
+      {
+        "id": "4557d05b9ff946f0b227f9ba85bcf94b",
+        "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866245",
         "type": "module"
       }
     ]
