@@ -9,23 +9,106 @@
         {
           "path": "default_view",
           "title": "Dashboard",
-          "theme": "ios-dark-mode-dark-blue",
+          "theme": "dashboard",
+          "type": "panel",
+          "background": {
+            "image": "/local/gradient.png"
+          },
           "cards": [
             {
-              "show_name": true,
-              "show_icon": true,
-              "type": "button",
-              "tap_action": {
-                "action": "toggle"
-              },
-              "entity": "switch.water_pump_switch"
-            },
-            {
-              "type": "gauge",
-              "entity": "input_number.light_brightness"
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "custom:mod-card",
+                  "card_mod": {
+                    "style": ":host {\n  position: absolute;\n  bottom: 6px;\n  right: 6px;\n  width: 265px;\n}\n"
+                  },
+                  "card": {
+                    "type": "custom:auto-entities",
+                    "show_empty": false,
+                    "filter": {
+                      "include": [
+                        {
+                          "entity_id": "/sensor\\..*battery/",
+                          "state": "< 20",
+                          "attributes": {
+                            "unit_of_measurement": "%"
+                          }
+                        },
+                        {
+                          "attributes": {
+                            "show_battery_alert": false,
+                            "unit_of_measurement": "%"
+                          }
+                        }
+                      ]
+                    },
+                    "card": {
+                      "type": "entities",
+                      "theme": "dashboard",
+                      "card_mod": {
+                        "style": "@keyframes alert {\n  from {\n    background: #ff000033;\n    box-shadow: 0px 0px 0px 1px #f970709e;\n  }\n  to {\n    background: #ff000011;\n    box-shadow: 0px 0px 0px 1px #f9707055;\n  }\n}\nha-card {\n  background: #ffffff14;\n  height: auto !important;\n  transform: translate( 0, 0 );\n  \n  animation: 1s alert linear infinite alternate;\n  box-shadow: 0px 0px 0px 1px #f970709e;\n  background: #ff000033;\n}\n"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "custom:floorplan-card",
+                  "card_mod": {
+                    "style": "ha-card {\n    margin: 0 auto;\n    background: none;\n    box-shadow: none;\n}\n"
+                  },
+                  "full_height": true,
+                  "config": {
+                    "image": "/local/kasinot/kasinot-optimised.svg",
+                    "stylesheet": "/local/floorplan_tutorial/floorplan.css",
+                    "rules": [
+                      {
+                        "entity": "media_player.mio_tv",
+                        "tap_action": "more-info",
+                        "state_action": {
+                          "action": "call-service",
+                          "service": "floorplan.class_set",
+                          "service_data": "media-player-tv media-player-${entity.state}"
+                        }
+                      },
+                      {
+                        "entities": [
+                          "light.living_room",
+                          "group.bedroom"
+                        ],
+                        "tap_action": false,
+                        "state_action": {
+                          "action": "call-service",
+                          "service": "floorplan.class_set",
+                          "service_data": "light-${entity.state}"
+                        }
+                      },
+                      {
+                        "entities": [
+                          "light.living_room",
+                          "group.bedroom"
+                        ],
+                        "tap_action": {
+                          "action": "toggle"
+                        },
+                        "double_tap_action": {
+                          "action": "more-info"
+                        },
+                        "state_action": {
+                          "action": "call-service",
+                          "service": "floorplan.style_set",
+                          "service_data": {
+                            "element": "${entity.entity_id.replace('light.', 'light_overlay.')}",
+                            "style": ">\nif( entity.state !== \"on\" )\n    return \"display: none;\";\nlet hue = 0;\nlet sat = 0;\nif( entity.attributes.hs_color )\n{\n    hue = entity.attributes.hs_color[0];\n    sat = entity.attributes.hs_color[1];\n}\nif( sat < 10 )\n{\n  return `\n    display: block;\n    filter:\n      brightness(calc( ${entity.attributes.brightness} / 255));`\n}\nreturn `\n  display: block;\n  filter:\n    sepia(100%)\n    hue-rotate(calc( ${hue}deg - 55deg ))\n    saturate(calc( ${sat}% * 2 ))\n    brightness(calc( ${entity.attributes.brightness} / 255));\n`\n"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
-          ],
-          "type": "masonry"
+          ]
         }
       ]
     }
