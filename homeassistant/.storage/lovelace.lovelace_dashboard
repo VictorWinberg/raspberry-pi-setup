@@ -396,7 +396,7 @@
                         {
                           "service": "switch.toggle",
                           "service_data": {
-                            "entity_id": "switch.sonoff_10008c59d6"
+                            "entity_id": "switch.office"
                           },
                           "style": {
                             "left": "12%",
@@ -479,7 +479,7 @@
                           "type": "state-icon"
                         },
                         {
-                          "entity": "switch.sonoff_10008c59d6",
+                          "entity": "switch.office",
                           "icon": "mdi:office-building",
                           "style": {
                             "left": "13%",
@@ -700,7 +700,7 @@
                             "action": "call-service",
                             "service": "switch.toggle",
                             "service_data": {
-                              "entity_id": "switch.sonoff_10008c59d6"
+                              "entity_id": "switch.office"
                             }
                           }
                         }

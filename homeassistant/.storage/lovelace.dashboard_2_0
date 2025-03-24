@@ -12,7 +12,7 @@
           "theme": "dashboard",
           "type": "panel",
           "background": {
-            "image": "/local/gradient.png"
+            "image": "/local/floorplan/gradient.png"
           },
           "cards": [
             {
@@ -59,8 +59,8 @@
                   },
                   "full_height": true,
                   "config": {
-                    "image": "/local/kasinot/kasinot-optimised.svg",
-                    "stylesheet": "/local/floorplan_tutorial/floorplan.css",
+                    "image": "/local/floorplan/kasinot.svg",
+                    "stylesheet": "/local/floorplan/style.css",
                     "rules": [
                       {
                         "entity": "media_player.mio_tv",
@@ -73,8 +73,13 @@
                       },
                       {
                         "entities": [
+                          "group.balcony",
                           "light.living_room",
-                          "group.bedroom"
+                          "group.dining",
+                          "group.bedroom",
+                          "group.kitchen",
+                          "switch.office",
+                          "group.hallway"
                         ],
                         "tap_action": false,
                         "state_action": {
@@ -85,8 +90,13 @@
                       },
                       {
                         "entities": [
+                          "group.balcony",
                           "light.living_room",
-                          "group.bedroom"
+                          "group.dining",
+                          "group.bedroom",
+                          "group.kitchen",
+                          "switch.office",
+                          "group.hallway"
                         ],
                         "tap_action": {
                           "action": "toggle"
@@ -98,8 +108,27 @@
                           "action": "call-service",
                           "service": "floorplan.style_set",
                           "service_data": {
-                            "element": "${entity.entity_id.replace('light.', 'light_overlay.')}",
-                            "style": ">\nif( entity.state !== \"on\" )\n    return \"display: none;\";\nlet hue = 0;\nlet sat = 0;\nif( entity.attributes.hs_color )\n{\n    hue = entity.attributes.hs_color[0];\n    sat = entity.attributes.hs_color[1];\n}\nif( sat < 10 )\n{\n  return `\n    display: block;\n    filter:\n      brightness(calc( ${entity.attributes.brightness} / 255));`\n}\nreturn `\n  display: block;\n  filter:\n    sepia(100%)\n    hue-rotate(calc( ${hue}deg - 55deg ))\n    saturate(calc( ${sat}% * 2 ))\n    brightness(calc( ${entity.attributes.brightness} / 255));\n`\n"
+                            "element": "${entity.entity_id.replace(/^(\\w+)\\./, '$1_overlay.')}",
+                            "style": ">\nif(entity.state !== \"on\")\n    return \"display: none;\";\nlet hue = 0;\nlet sat = 0;\nif(entity.attributes.hs_color)\n{\n    hue = entity.attributes.hs_color[0];\n    sat = entity.attributes.hs_color[1];\n}\nif(sat < 10)\n{\n  return `\n    display: block;\n    filter:\n      brightness(calc(${entity.attributes.brightness} / 255));\n  `\n}\nreturn `\n  display: block;\n  filter:\n    sepia(100%)\n    hue-rotate(calc(${hue}deg - 55deg))\n    saturate(calc(${sat}% * 2))\n    brightness(calc(${entity.attributes.brightness} / 255));\n`\n"
+                          }
+                        }
+                      },
+                      {
+                        "entities": [
+                          "sensor.office_sensor_temperature",
+                          "sensor.office_sensor_humidity",
+                          "sensor.balcony_sensor_temperature",
+                          "sensor.balcony_sensor_humidity",
+                          "sensor.netatmo_airq_temperature",
+                          "sensor.netatmo_airq_humidity",
+                          "sensor.netatmo_airq_co2"
+                        ],
+                        "state_action": {
+                          "action": "call-service",
+                          "service": "floorplan.text_set",
+                          "service_data": {
+                            "element": "${entity.entity_id}",
+                            "text": "> return (entity.state !== undefined) ? entity.state + entity.attributes.unit_of_measurement : \"unknown\";\n"
                           }
                         }
                       }

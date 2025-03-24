@@ -56,10 +56,10 @@ power_off:
       entity_id:
       - switch.bed_strip
       - switch.living_room_plug
-      - switch.sonoff_10008c59d6
       - switch.power_strip_socket_1
       - switch.window_plug
       - switch.power_strip_socket_3
+      - switch.office
     action: switch.turn_off
     continue_on_error: true
   - target:
@@ -279,9 +279,9 @@ good_morning:
   - data: {}
     target:
       entity_id:
-      - switch.sonoff_10008c59d6
       - switch.bed_strip
       - switch.power_strip_socket_3
+      - switch.office
     action: switch.turn_on
   - data:
       volume_level: 0.3
