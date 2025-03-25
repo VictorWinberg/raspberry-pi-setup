@@ -26,6 +26,12 @@ dining:
     - light.dining_table_n
     - light.dining_table_m
     - light.dining_table_s
+living_room:
+  name: Living Room Lights
+  entities:
+    - light.living_room
+    - light.led_strip_lifx
+    - light.led_strip_philips
 ikea:
   name: IKEA
   entities:

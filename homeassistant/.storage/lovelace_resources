@@ -108,6 +108,16 @@
         "id": "4557d05b9ff946f0b227f9ba85bcf94b",
         "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866245",
         "type": "module"
+      },
+      {
+        "id": "b2f2250a610549e98a63430e119a4d19",
+        "url": "/local/fonts/digital-7.css",
+        "type": "css"
+      },
+      {
+        "id": "52fa455acce3466d828bbcf01193fccc",
+        "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152212",
+        "type": "module"
       }
     ]
   }

@@ -15,8 +15,26 @@
         entity_id: weather.forecast_home
       response_variable: response
   sensor:
-    - name: Weather Forecast
-      unique_id: weather_forecast
+    - name: Weather Forecast Hourly
+      unique_id: weather_forecast_hourly
+      state: "{{ states('weather.forecast_home') }}"
+      attributes:
+        forecast: "{{ response['weather.forecast_home'].forecast }}"
+- trigger:
+    - platform: time_pattern
+      hours: /1
+    - platform: homeassistant
+      event: start
+  action:
+    - service: weather.get_forecasts
+      data:
+        type: daily
+      target:
+        entity_id: weather.forecast_home
+      response_variable: response
+  sensor:
+    - name: Weather Forecast Daily
+      unique_id: weather_forecast_daily
       state: "{{ states('weather.forecast_home') }}"
       attributes:
         forecast: "{{ response['weather.forecast_home'].forecast }}"

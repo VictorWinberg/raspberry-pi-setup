@@ -16,10 +16,11 @@ svg path {
   fill: inherit;
   stroke: inherit;
   stroke-width: inherit;
+  filter: drop-shadow(0 0 10px currentColor);
 }
 
 g path:active, g use:active, .light-on:active, g#entities > g:active path:not(.touch-area) {
-  stroke: #9ed8ff99 !important;
+  stroke: var(--primary-color) !important;
   stroke-width: 4px;
   stroke-opacity: 0.7;
 }
@@ -39,22 +40,22 @@ g path:active, g use:active, .light-on:active, g#entities > g:active path:not(.t
 }
 
 #areas .light-on {
-  stroke: #00adff;;
+  stroke: var(--primary-color);
   stroke-width: 6px;
   stroke-opacity: 1;
 }
 
 g#entites {
-  stroke: #aaa;
+  stroke: #ccc;
 }
 
 g#entites .light-on {
-  stroke: #00adff;
+  stroke: var(--primary-color);
 }
 
 /* Custom TV Glow */
 g#entites .media-player-tv.media-player-on {
-  stroke: #00adff;
+  stroke: var(--primary-color);
   fill: url(#tvGlow);
   filter: url(#tvGlowFilter);
 }

@@ -750,16 +750,21 @@
     entity_id:
     - sensor.mr_activity
     to:
-    from: Stationary
+    from:
+  - trigger: state
+    entity_id:
+    - sensor.mr_last_update_trigger
+    from:
+    to:
   conditions:
+  - condition: state
+    entity_id: script.annoy_victor
+    state: 'on'
   - condition: not
     conditions:
     - condition: state
       entity_id: sensor.mr_activity
       state: Stationary
-  - condition: state
-    entity_id: script.annoy_victor
-    state: 'on'
   actions:
   - action: script.turn_off
     target:

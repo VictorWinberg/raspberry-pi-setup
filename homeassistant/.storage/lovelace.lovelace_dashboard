@@ -19,10 +19,12 @@
                 {
                   "cards": [
                     {
+                      "show_state": true,
+                      "show_name": true,
+                      "camera_view": "auto",
                       "type": "picture-entity",
                       "entity": "sensor.anniversary_entity",
                       "camera_image": "camera.anniversary_image",
-                      "show_state": true,
                       "aspect_ratio": "4.5:1",
                       "tap_action": {
                         "action": "call-service",
@@ -158,6 +160,9 @@
                         "round_temp": true,
                         "type": "daily"
                       },
+                      "units": {
+                        "speed": ""
+                      },
                       "card_mod": {
                         "style": {
                           "weather-chart-card$": {
@@ -181,7 +186,7 @@
                     },
                     {
                       "type": "markdown",
-                      "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor_temperature') }} °C</td>\n    <td>{{ states('sensor.office_sensor_temperature') }} °C</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_humidity') }} %</td>\n    <td>{{ states('sensor.office_sensor_humidity') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
+                      "content": "<table>\n  <tr>\n    <th><ha-icon icon=\"mdi:bed\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:balcony\"></ha-icon></th>\n    <th><ha-icon icon=\"mdi:office-building\"></ha-icon></th>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_temperature') }} °C</td>\n    <td>{{ states('sensor.balcony_sensor_temperature') }} °C</td>\n    <td>{{ states('sensor.office_sensor_temperature') }} °C</td>\n    <td>{{ states('binary_sensor.motion_sensor') }}</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_humidity') }} %</td>\n    <td>{{ states('sensor.balcony_sensor_humidity') }} %</td>\n    <td>{{ states('sensor.office_sensor_humidity') }} %</td>\n  </tr>\n  <tr>\n    <td>{{ states('sensor.netatmo_airq_co2') }} CO<sub>2</sub></td>\n  </tr>\n</table>\n",
                       "card_mod": {
                         "style": {
                           ".": "ha-card {\n  height: auto !important;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 1.75rem;\n  line-height: 1.25;\n  box-shadow: none;\n  border: none;\n  text-align: center;\n  color: #F4F5F6;\n}\n",
