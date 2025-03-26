@@ -118,6 +118,16 @@
         "id": "52fa455acce3466d828bbcf01193fccc",
         "url": "/hacsfiles/apexcharts-card/apexcharts-card.js?hacstag=331701152212",
         "type": "module"
+      },
+      {
+        "id": "d3518f46068c44118b878872ed1004ce",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375431",
+        "type": "module"
+      },
+      {
+        "id": "0053e9964ba542788bb89f8a3a9c2293",
+        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749212",
+        "type": "module"
       }
     ]
   }

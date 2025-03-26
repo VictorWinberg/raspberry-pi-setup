@@ -760,11 +760,6 @@
   - condition: state
     entity_id: script.annoy_victor
     state: 'on'
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.mr_activity
-      state: Stationary
   actions:
   - action: script.turn_off
     target:
