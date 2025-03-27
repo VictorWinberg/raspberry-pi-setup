@@ -422,54 +422,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "custom:weather-chart-card",
-              "entity": "weather.forecast_home",
-              "show_main": false,
-              "show_attributes": false,
-              "animated_icons": true,
-              "icon_style": "style1",
-              "forecast": {
-                "type": "daily",
-                "show_wind_forecast": false
-              },
-              "card_mod": {
-                "style": ".chart-container {\n  display: none;\n}\n"
-              }
-            },
-            {
-              "type": "custom:calendar-card-pro",
-              "entities": [
-                {
-                  "entity": "calendar.helgdagar_i_sverige",
-                  "color": "#D63118"
-                },
-                {
-                  "entity": "calendar.victor_fodelsedagar",
-                  "color": "#D63118"
-                },
-                {
-                  "entity": "calendar.annie_victor",
-                  "color": "#0F8482"
-                },
-                {
-                  "entity": "calendar.victor_kalender",
-                  "color": "#326BB7"
-                },
-                {
-                  "entity": "calendar.annie_kalender",
-                  "color": "#AD208E"
-                },
-                {
-                  "entity": "calendar.hogtidsdagar_i_sverige",
-                  "color": "#D63118"
-                }
-              ],
-              "days_to_show": 7,
-              "show_location": true,
-              "show_empty_days": true,
-              "language": "sv"
             }
           ],
           "icon": "mdi:home",

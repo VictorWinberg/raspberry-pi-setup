@@ -15,59 +15,49 @@
             {
               "type": "custom:mod-card",
               "card_mod": {
-                "style": ":host {\n  --primary-color-rgb: 85, 177, 242;\n  --primary-color: rgb(var(--primary-color-rgb));\n}\nha-card {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  left: 0;\n  background: radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%);\n  background-size: 100% 100%, 150px 150px;\n  background-image: \n    radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%),\n    linear-gradient(transparent 0%, transparent 99%, rgba(255, 255, 255, 0.1) 99%),\n    linear-gradient(90deg, transparent 0%, transparent 99%, rgba(255, 255, 255, 0.1) 99%);\n  background-position: 0 0, 0 0, 0 0;\n  background-size: 100% 100%, 150px 150px, 150px 150px;\n  background-blend-mode: overlay;\n}\n"
+                "style": ":host {\n  --primary-color-rgb: 85, 177, 242;\n  --primary-color: rgb(var(--primary-color-rgb));\n}\nha-card {\n  position: relative;\n  height: 100%;\n  background: radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%);\n  background-size: 100% 100%, 150px 150px;\n  background-image: \n    radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%),\n    linear-gradient(transparent 0%, transparent 99%, rgba(255, 255, 255, 0.1) 99%),\n    linear-gradient(90deg, transparent 0%, transparent 99%, rgba(255, 255, 255, 0.1) 99%);\n  background-position: 0 0, 0 0, 0 0;\n  background-size: 100% 100%, 150px 150px, 150px 150px;\n  background-blend-mode: overlay;\n}\n"
               },
               "card": {
-                "type": "horizontal-stack",
+                "type": "vertical-stack",
                 "cards": [
                   {
-                    "type": "markdown",
-                    "content": "{{ now().strftime('%H:%M') }}\n",
-                    "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  top: -20px;\n  left: 50%;\n  transform: translateX(-50%);\n}  ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 480px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n}\n"
-                    }
-                  },
-                  {
-                    "type": "markdown",
-                    "content": "{{ now().strftime(\"%a, %d %b\") }}\n",
-                    "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  bottom: 0;\n  left: 20px;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
-                    }
-                  },
-                  {
-                    "type": "custom:calendar-card-pro",
-                    "entities": [
+                    "type": "conditional",
+                    "conditions": [
                       {
-                        "entity": "calendar.helgdagar_i_sverige",
-                        "color": "#D63118"
+                        "condition": "user",
+                        "users": [
+                          "4b96a75a65594ea59e34578da1f98cf4"
+                        ]
                       },
                       {
-                        "entity": "calendar.victor_fodelsedagar",
-                        "color": "#D63118"
-                      },
-                      {
-                        "entity": "calendar.annie_victor",
-                        "color": "#0F8482"
-                      },
-                      {
-                        "entity": "calendar.victor_kalender",
-                        "color": "#326BB7"
-                      },
-                      {
-                        "entity": "calendar.annie_kalender",
-                        "color": "#AD208E"
-                      },
-                      {
-                        "entity": "calendar.hogtidsdagar_i_sverige",
-                        "color": "#D63118"
+                        "condition": "or",
+                        "conditions": [
+                          {
+                            "condition": "state",
+                            "entity": "sensor.someone_home",
+                            "state": "False"
+                          },
+                          {
+                            "condition": "state",
+                            "entity": "binary_sensor.dashboard_motion_detected",
+                            "state": "off"
+                          }
+                        ]
                       }
                     ],
-                    "days_to_show": 7,
-                    "show_location": true,
-                    "show_empty_days": true,
-                    "language": "sv",
+                    "card": {
+                      "type": "markdown",
+                      "content": " ",
+                      "card_mod": {
+                        "style": ":host {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99999;\n}\nha-card {\n  background: black;\n}\n"
+                      }
+                    }
+                  },
+                  {
+                    "type": "markdown",
+                    "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n  \"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n  \"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n  \"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n  %} {% set weekday = weekdays[now().weekday()] %} {% set\n  month = months[now().month - 1] %} {% set day = now().day %}\n{{ \"%s, %s %s\" | format(weekday, day, month) }}\n",
                     "card_mod": {
-                      "style": ":host {\n  max-height: 900px;\n  overflow-y: scroll;\n}\nha-card.calendar-card-pro {\n  background: none;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  bottom: 0;\n  left: 20px;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
                     }
                   },
                   {
@@ -80,7 +70,7 @@
                     },
                     "card_mod": {
                       "style": {
-                        ".": "ha-card {\n  position: absolute;\n  left: 36px;\n  bottom: 128px;\n  width: 450px;\n  font-size: 100px;\n  line-height: 1;\n}\n",
+                        ".": "ha-card {\n  position: absolute;\n  left: 36px;\n  bottom: 128px;\n  width: 670px;\n  font-size: 100px;\n  line-height: 1;\n}\n",
                         "slider-entity-row$": {
                           "ha-slider$": ":host {\n  --md-slider-inactive-track-height: 8px;\n  --md-slider-active-track-height: 8px;\n  z-index: 1;\n}\n.handleNub {\n  width: 2rem !important;\n  height: 2rem !important;\n}\n"
                         }
@@ -88,9 +78,16 @@
                     }
                   },
                   {
+                    "type": "markdown",
+                    "content": "{{ now().strftime('%H:%M') }}\n",
+                    "card_mod": {
+                      "style": ":host {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n} \nha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 400px;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n}\n"
+                    }
+                  },
+                  {
                     "type": "custom:floorplan-card",
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n} ha-card {\n  display: flex;\n  margin: 0 auto;\n  background: none;\n  box-shadow: none;\n  height: 100%;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  opacity: 0.9;\n} ha-card {\n  display: flex;\n  margin: 0 auto;\n  background: none;\n  box-shadow: none;\n  height: 100%;\n}\n"
                     },
                     "config": {
                       "image": "/local/floorplan/kasinot.svg",
@@ -208,17 +205,18 @@
                   {
                     "type": "custom:weather-chart-card",
                     "entity": "weather.forecast_home",
-                    "show_main": false,
+                    "show_main": true,
                     "show_attributes": false,
                     "animated_icons": true,
                     "icon_style": "style1",
                     "icons_size": 48,
+                    "locale": "sv",
                     "forecast": {
                       "type": "daily",
                       "show_wind_forecast": false
                     },
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.chart-container {\n  display: none;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.main {\n  position: absolute;\n  right: 200px;\n  bottom: 200px;\n  transform: scale(2);\n  color: orange;\n  text-shadow: 0 0 10px currentColor;\n}\n.chart-container {\n  display: none;\n}\n"
                     }
                   },
                   {
@@ -309,47 +307,162 @@
                     "series": [
                       {
                         "entity": "sensor.weather_forecast_daily",
-                        "name": "Temp High (°C)",
+                        "name": "Temp Max (°C)",
                         "type": "line",
                         "color": "orange",
                         "stroke_width": 2,
                         "float_precision": 0,
                         "yaxis_id": "main",
+                        "show": {
+                          "in_header": "before_now"
+                        },
                         "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.temperature]);\n"
                       },
                       {
                         "entity": "sensor.weather_forecast_daily",
-                        "name": "Temp Low (°C)",
+                        "name": "Temp Min (°C)",
                         "type": "line",
                         "color": "var(--primary-color)",
                         "stroke_width": 2,
                         "float_precision": 0,
                         "yaxis_id": "main",
+                        "show": {
+                          "in_header": "before_now"
+                        },
                         "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.templow]);\n"
                       },
                       {
                         "entity": "sensor.weather_forecast_daily",
-                        "name": "Wind Speed (m/s)",
+                        "name": "Vind (m/s)",
                         "type": "line",
                         "color": "pink",
                         "stroke_width": 1,
                         "float_precision": 0,
                         "opacity": 0.5,
                         "yaxis_id": "main",
+                        "show": {
+                          "in_header": "before_now"
+                        },
                         "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.wind_speed / 3.6]);\n"
                       },
                       {
                         "entity": "sensor.weather_forecast_daily",
-                        "name": "Rain (mm)",
+                        "name": "Regn (mm)",
                         "type": "area",
                         "color": "lightblue",
                         "stroke_width": 1,
                         "float_precision": 0,
                         "opacity": 0.5,
                         "yaxis_id": "main",
+                        "show": {
+                          "in_header": "before_now"
+                        },
                         "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.precipitation]);\n"
                       }
                     ]
+                  },
+                  {
+                    "type": "custom:calendar-card-pro",
+                    "entities": [
+                      {
+                        "entity": "calendar.helgdagar_i_sverige",
+                        "color": "#D63118"
+                      },
+                      {
+                        "entity": "calendar.victor_fodelsedagar",
+                        "color": "#D63118"
+                      },
+                      {
+                        "entity": "calendar.annie_victor",
+                        "color": "#0F8482"
+                      },
+                      {
+                        "entity": "calendar.victor_kalender",
+                        "color": "#326BB7"
+                      },
+                      {
+                        "entity": "calendar.annie_kalender",
+                        "color": "#AD208E"
+                      },
+                      {
+                        "entity": "calendar.hogtidsdagar_i_sverige",
+                        "color": "#D63118"
+                      }
+                    ],
+                    "days_to_show": 14,
+                    "show_location": true,
+                    "show_empty_days": true,
+                    "max_height": "800px",
+                    "background_color": "none",
+                    "language": "sv",
+                    "card_mod": {
+                      "style": ":host {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 400px;\n}\n"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "Calendar",
+          "path": "calendar",
+          "cards": [
+            {
+              "type": "custom:mod-card",
+              "card_mod": {
+                "style": ":host {\n  --primary-color-rgb: 85, 177, 242;\n  --primary-color: rgb(var(--primary-color-rgb));\n}\nha-card {\n  position: relative;\n  height: 100%;\n  background: radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%);\n  background-size: 100% 100%, 150px 150px;\n  background-image: radial-gradient(circle, rgba(var(--primary-color-rgb), 30%) 0%, black 100%);\n  background-position: 0 0, 0 0, 0 0;\n  background-size: 100% 100%, 150px 150px, 150px 150px;\n  background-blend-mode: overlay;\n}\n"
+              },
+              "card": {
+                "type": "vertical-stack",
+                "cards": [
+                  {
+                    "type": "conditional",
+                    "conditions": [
+                      {
+                        "condition": "user",
+                        "users": [
+                          "4b96a75a65594ea59e34578da1f98cf4"
+                        ]
+                      },
+                      {
+                        "condition": "or",
+                        "conditions": [
+                          {
+                            "condition": "state",
+                            "entity": "sensor.someone_home",
+                            "state": "False"
+                          },
+                          {
+                            "condition": "state",
+                            "entity": "binary_sensor.dashboard_motion_detected",
+                            "state": "off"
+                          }
+                        ]
+                      }
+                    ],
+                    "card": {
+                      "type": "markdown",
+                      "content": " ",
+                      "card_mod": {
+                        "style": ":host {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99999;\n}\nha-card {\n  background: black;\n}\n"
+                      }
+                    }
+                  },
+                  {
+                    "type": "calendar",
+                    "entities": [
+                      "calendar.helgdagar_i_sverige",
+                      "calendar.victor_fodelsedagar",
+                      "calendar.annie_victor",
+                      "calendar.victor_kalender",
+                      "calendar.annie_kalender",
+                      "calendar.hogtidsdagar_i_sverige"
+                    ],
+                    "card_mod": {
+                      "style": ":host {\n  --ha-card-background: none\n}\nha-card {\n  position: absolute !important;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n}\n.header {\n  display: none;\n}\nha-full-calendar {\n  height: 100%;\n}\n"
+                    }
                   }
                 ]
               }
