@@ -398,6 +398,125 @@
                     "card_mod": {
                       "style": ":host {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 400px;\n}\n"
                     }
+                  },
+                  {
+                    "type": "picture-elements",
+                    "image": "/local/transparent.png",
+                    "card_mod": {
+                      "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  pointer-events: none;\n}\n#root { height: 100%; }\nhui-image { display: none; }\n.element { pointer-events: auto; }\n"
+                    },
+                    "elements": [
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "group.balcony",
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "secondary_info": "none",
+                        "style": {
+                          "top": "20%",
+                          "left": "80%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.living_room",
+                        "layout": "horizontal",
+                        "show_brightness_control": true,
+                        "primary_info": "none",
+                        "style": {
+                          "top": "38%",
+                          "left": "74%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.tv_ambient",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "26%",
+                          "left": "68%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.dining_lights",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "48%",
+                          "left": "62%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.bedroom",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "62%",
+                          "left": "50%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.kitchen_table",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "52%",
+                          "left": "33%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.kitchen_sink",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "46%",
+                          "left": "29%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.kitchen_oven",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "38%",
+                          "left": "35%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "light.hallway_lights",
+                        "show_brightness_control": true,
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "style": {
+                          "top": "28%",
+                          "left": "43%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "switch.office",
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "secondary_info": "none",
+                        "style": {
+                          "top": "24%",
+                          "left": "20%"
+                        }
+                      }
+                    ]
                   }
                 ]
               }
