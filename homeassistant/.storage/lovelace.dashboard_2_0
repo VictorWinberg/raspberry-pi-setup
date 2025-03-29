@@ -149,11 +149,8 @@
                         {
                           "entities": [
                             "sensor.office_sensor_temperature",
-                            "sensor.office_sensor_humidity",
                             "sensor.balcony_sensor_temperature",
-                            "sensor.balcony_sensor_humidity",
                             "sensor.netatmo_airq_temperature",
-                            "sensor.netatmo_airq_humidity",
                             "sensor.netatmo_airq_co2"
                           ],
                           "state_action": {
@@ -161,7 +158,7 @@
                             "service": "floorplan.text_set",
                             "service_data": {
                               "element": "${entity.entity_id}",
-                              "text": "> return (entity.state !== undefined) ? entity.state + entity.attributes.unit_of_measurement : \"unknown\";\n"
+                              "text": ">  if (entity.state == undefined) {\n  return \"??\";\n} const temp = parseFloat(entity.state).toFixed(1); const unit = entity.attributes.unit_of_measurement; return temp + unit;\n"
                             }
                           }
                         }
@@ -349,10 +346,10 @@
                         "entity": "sensor.weather_forecast_daily",
                         "name": "Regn (mm)",
                         "type": "area",
-                        "color": "lightblue",
+                        "color": "#4e6881",
                         "stroke_width": 1,
                         "float_precision": 0,
-                        "opacity": 0.5,
+                        "opacity": 0.2,
                         "yaxis_id": "main",
                         "show": {
                           "in_header": "before_now"
