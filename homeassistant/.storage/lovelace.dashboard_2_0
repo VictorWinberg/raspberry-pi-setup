@@ -158,7 +158,7 @@
                             "service": "floorplan.text_set",
                             "service_data": {
                               "element": "${entity.entity_id}",
-                              "text": ">  if (entity.state == undefined) {\n  return \"??\";\n} const temp = parseFloat(entity.state).toFixed(1); const unit = entity.attributes.unit_of_measurement; return temp + unit;\n"
+                              "text": ">  if (entity.state == undefined) {\n  return \"??\";\n} let value = parseFloat(entity.state); if (value % 1 !== 0) value = value.toFixed(1); const unit = entity.attributes.unit_of_measurement; return value + unit;\n"
                             }
                           }
                         }
@@ -213,7 +213,7 @@
                       "show_wind_forecast": false
                     },
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.main {\n  position: absolute;\n  right: 200px;\n  bottom: 200px;\n  transform: scale(2);\n  color: orange;\n  text-shadow: 0 0 10px currentColor;\n}\n.chart-container {\n  display: none;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.main {\n  position: absolute;\n  right: 140px;\n  bottom: 260px;\n  transform: scale(2);\n  text-align: right;\n  color: orange;\n  text-shadow: 0 0 10px currentColor;\n}\n.main img {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: -1;\n}\n.chart-container {\n  display: none;\n}\n"
                     }
                   },
                   {
@@ -359,6 +359,73 @@
                     ]
                   },
                   {
+                    "type": "custom:mod-card",
+                    "card_mod": {
+                      "style": ":host {\n  --vertical-stack-card-margin: 5px;\n  --ha-card-background: none;\n  --rgb-primary-text-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 265px;\n}\n"
+                    },
+                    "card": {
+                      "type": "vertical-stack",
+                      "cards": [
+                        {
+                          "type": "custom:auto-entities",
+                          "card": {
+                            "type": "entities"
+                          },
+                          "filter": {
+                            "include": [
+                              {
+                                "domain": "media_player",
+                                "attributes": {
+                                  "device_class": "speaker"
+                                },
+                                "state": "playing",
+                                "options": {
+                                  "type": "custom:mushroom-media-player-card",
+                                  "layout": "horizontal",
+                                  "volume_controls": [
+                                    "volume_set"
+                                  ],
+                                  "media_controls": [
+                                    "on_off",
+                                    "play_pause_stop",
+                                    "next"
+                                  ]
+                                }
+                              },
+                              {
+                                "domain": "media_player",
+                                "attributes": {
+                                  "device_class": "tv"
+                                },
+                                "state": "on",
+                                "options": {
+                                  "type": "custom:mushroom-media-player-card",
+                                  "layout": "horizontal",
+                                  "volume_controls": [
+                                    "volume_set"
+                                  ],
+                                  "media_controls": [
+                                    "on_off",
+                                    "play_pause_stop"
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "sort": [
+                            {
+                              "method": "attribute",
+                              "attribute": "device_class"
+                            },
+                            {
+                              "method": "friendly_name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "type": "custom:calendar-card-pro",
                     "entities": [
                       {
@@ -400,7 +467,7 @@
                     "type": "picture-elements",
                     "image": "/local/transparent.png",
                     "card_mod": {
-                      "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  pointer-events: none;\n}\n#root { height: 100%; }\nhui-image { display: none; }\n.element { pointer-events: auto; }\n"
+                      "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  pointer-events: none;\n  opacity: 0.5;\n}\n#root { height: 100%; }\nhui-image { display: none; }\n.element { pointer-events: auto; width: 150px; }\n"
                     },
                     "elements": [
                       {
@@ -411,26 +478,26 @@
                         "secondary_info": "none",
                         "style": {
                           "top": "20%",
-                          "left": "80%"
+                          "left": "83%"
                         }
                       },
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.living_room",
                         "layout": "horizontal",
-                        "show_brightness_control": true,
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "38%",
-                          "left": "74%"
+                          "left": "75%"
                         }
                       },
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.tv_ambient",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "26%",
                           "left": "68%"
@@ -439,9 +506,9 @@
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.dining_lights",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "48%",
                           "left": "62%"
@@ -450,20 +517,20 @@
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.bedroom",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
-                          "top": "62%",
+                          "top": "64%",
                           "left": "50%"
                         }
                       },
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.kitchen_table",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "52%",
                           "left": "33%"
@@ -472,20 +539,20 @@
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.kitchen_sink",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
-                          "top": "46%",
+                          "top": "45%",
                           "left": "29%"
                         }
                       },
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.kitchen_oven",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "38%",
                           "left": "35%"
@@ -494,9 +561,9 @@
                       {
                         "type": "custom:mushroom-light-card",
                         "entity": "light.hallway_lights",
-                        "show_brightness_control": true,
                         "layout": "horizontal",
                         "primary_info": "none",
+                        "secondary_info": "none",
                         "style": {
                           "top": "28%",
                           "left": "43%"
@@ -510,7 +577,7 @@
                         "secondary_info": "none",
                         "style": {
                           "top": "24%",
-                          "left": "20%"
+                          "left": "23%"
                         }
                       }
                     ]

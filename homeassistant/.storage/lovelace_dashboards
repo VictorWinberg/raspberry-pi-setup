@@ -6,7 +6,7 @@
     "items": [
       {
         "require_admin": false,
-        "show_in_sidebar": true,
+        "show_in_sidebar": false,
         "title": "Dashboard",
         "url_path": "lovelace-dashboard",
         "mode": "storage",
@@ -41,7 +41,7 @@
       },
       {
         "id": "dashboard_2_0",
-        "show_in_sidebar": true,
+        "show_in_sidebar": false,
         "icon": "mdi:monitor-dashboard",
         "title": "Dashboard 2.0",
         "require_admin": false,
