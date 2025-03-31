@@ -105,13 +105,13 @@
                         {
                           "entities": [
                             "group.balcony",
-                            "group.living_room",
-                            "group.tv_ambient",
-                            "group.dining",
-                            "group.bedroom",
-                            "group.kitchen",
+                            "light.living_room",
+                            "light.tv_ambient",
+                            "light.dining_lights",
+                            "light.bedroom_lights",
+                            "light.kitchen_lights",
                             "switch.office",
-                            "group.hallway"
+                            "light.hallway_lights"
                           ],
                           "tap_action": false,
                           "state_action": {
@@ -123,13 +123,13 @@
                         {
                           "entities": [
                             "group.balcony",
-                            "group.living_room",
-                            "group.tv_ambient",
-                            "group.dining",
-                            "group.bedroom",
-                            "group.kitchen",
+                            "light.living_room",
+                            "light.tv_ambient",
+                            "light.dining_lights",
+                            "light.bedroom_lights",
+                            "light.kitchen_lights",
                             "switch.office",
-                            "group.hallway"
+                            "light.hallway_lights"
                           ],
                           "tap_action": {
                             "action": "toggle"
@@ -516,7 +516,7 @@
                       },
                       {
                         "type": "custom:mushroom-light-card",
-                        "entity": "light.bedroom",
+                        "entity": "light.bedroom_lights",
                         "layout": "horizontal",
                         "primary_info": "none",
                         "secondary_info": "none",

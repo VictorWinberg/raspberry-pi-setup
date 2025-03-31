@@ -756,6 +756,12 @@
     - sensor.mr_last_update_trigger
     from:
     to:
+  - type: value
+    device_id: c08dbd4a637d8d214dbebfe72a41eb85
+    entity_id: bdf3f8497b0695a5956e68eeefe5cd66
+    domain: sensor
+    trigger: device
+    above: 0
   conditions:
   - condition: state
     entity_id: script.annoy_victor

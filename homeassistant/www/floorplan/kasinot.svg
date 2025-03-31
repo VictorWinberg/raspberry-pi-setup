@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="svg1" width="1920" height="1080" version="1.1" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs id="defs4">
-  <filter id="blackShadow" x="-.11737" y="-.37307" width="1.2592" height="1.8239" color-interpolation-filters="sRGB">
+  <filter id="blackShadow" x="-.12083" y="-.50908" width="1.2668" height="2.1242" color-interpolation-filters="sRGB">
    <feFlood id="feFlood5" flood-color="rgb(0,0,0)" flood-opacity=".8" in="SourceGraphic" result="flood"/>
    <feGaussianBlur id="feGaussianBlur5" in="SourceGraphic" result="blur" stdDeviation="4.000000"/>
    <feOffset id="feOffset5" dx="2.000000" dy="2.000000" in="blur" result="offset"/>
@@ -27,49 +27,57 @@
     filter: url(#blackShadow);
   }</style>
  <g id="background">
-  <image id="main-background" width="1920" height="1080" href="/local/floorplan/kasinot.png" preserveAspectRatio="none" xlink:href="/local/floorplan/kasinot.png"/>
+  <image id="main-background" width="1920" height="1080" href="/local/floorplan/renders/ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/ambient.png"/>
   <g id="light-overlays">
+   <image id="switch_overlay.office" width="1920" height="1080" href="/local/floorplan/renders/office.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/office.png"/>
+   <image id="light_overlay.hallway_lights" width="1920" height="1080" href="/local/floorplan/renders/hallway.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/hallway.png"/>
+   <image id="light_overlay.kitchen_lights" width="1920" height="1080" href="/local/floorplan/renders/kitchen.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/kitchen.png"/>
+   <image id="light_overlay.bedroom_lights" width="1920" height="1080" href="/local/floorplan/renders/bedroom.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/bedroom.png"/>
+   <image id="light_overlay.dining_lights" width="1920" height="1080" href="/local/floorplan/renders/dining.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/dining.png"/>
+   <image id="light_overlay.tv_ambient" width="1920" height="1080" href="/local/floorplan/renders/tv_ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/tv_ambient.png"/>
+   <image id="light_overlay.living_room" width="1920" height="1080" href="/local/floorplan/renders/living_room.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/living_room.png"/>
+   <image id="group_overlay.balcony" width="1920" height="1080" href="/local/floorplan/renders/balcony.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/balcony.png"/>
   </g>
  </g>
  <g id="areas">
   <g id="area.balcony" transform="translate(60.425 95.138)">
    <path id="path_balcony" d="m1378.9 63.306 115.31-54.413 4.3659 1.9917-1.4195 19.027 50.489 4.2416 2.4375-16.168c2.1355-9.4023 39.656-7.3449 40.838 3.7777l-2.9642 19.784 75.911 16.176s2.4572-15.341 2.4232-15.415c-0.3086-4.8647 38.163-10.538 42.384 6.9424l-5.2848 24.152 31.276 19.575s1.3774-5.5091 1.3222-5.9658c2.1394-7.9844 43.666-9.4487 42.702 8.2521-0.052 0.95458-3.6439 20.014-3.6439 20.014l35.004 33.045-39.812 186.48-120.42 77.644-19.159-8.9556 4.0827-28.931-85.672-39.608-10.764 7.1768-1.9958 13.276-179.4-85.445z" fill="none" stroke="#000" stroke-width="1px"/>
    <use id="group.balcony" xlink:href="#path_balcony"/>
-   <text id="sensor.balcony_sensor_temperature" class="sensor-text" transform="matrix(.7636 -.429 -.21982 1.2042 388.72 -435.11)" x="1632.4174" y="1161.7399" font-size="34px" stroke-width=".32634">00°C</text>
+   <text id="sensor.balcony_sensor_temperature" class="sensor-text" transform="matrix(.7636 -.429 -.21982 1.2042 388.72 -435.11)" x="1632.4174" y="1161.7399" font-size="34px" stroke-width=".32634">00.0°C</text>
   </g>
   <g id="area.tv_ambient" transform="translate(-485.9,219.22)">
    <path id="path_tv_ambient" transform="translate(485.9,-219.22)" d="m1000.9 368.28 439.08-209.77-22.302 205.54-4.7622 2.197-6.0706 61.205-109.48 58.897-30.993-16.491-2.4174 35.96-187.01 103.4-33.8-20.207-38.8 21.611-6.7969-3.7364z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.tv_ambient" xlink:href="#path_tv_ambient"/>
+   <use id="light.tv_ambient" xlink:href="#path_tv_ambient"/>
   </g>
   <g id="area.living_room">
    <path id="path_living_room" d="m1416.3 365.01 180.81 85.324 1.5861-12.663 10.978-7.7713 85.443 39.41-3.9214 29.621 19.203 8.949-220.53 143.6-244.09-135.54 17.814-9.6962 2.6252-35.726 31.706 16.119 108.76-59.327 3.8957-40.242 2.1752-20.348z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.living_room" xlink:href="#path_living_room"/>
+   <use id="light.living_room" xlink:href="#path_living_room"/>
   </g>
   <g id="area.dining">
    <path id="path_dining" d="m1245.8 515.88 243.69 136.08-293.4 191.01-273.71-177.66-0.24582-8.8522 121.61-67.793 32.648 20.739z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.dining" xlink:href="#path_dining"/>
+   <use id="light.dining_lights" xlink:href="#path_dining"/>
   </g>
   <g id="area.bedroom" transform="translate(-133.06 65.568)">
    <path id="path_bedroom" d="m1000.7 989.56 328.35-212.04-273.94-177.62-1.308-174.78-43.87-26.73-93.816 45.206 7.8992 187.73-48.348 25.194-6.3416-136.19-44.202-29.308-92.274 44.375 16.042 188.73-48.55 26.941z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.bedroom" xlink:href="#path_bedroom"/>
-   <text id="sensor.netatmo_airq_temperature" class="sensor-text" transform="matrix(.83567 .65023 -.82398 .55551 16.807 -138.53)" x="1271.0234" y="225.47473" font-size="34px" stroke-width=".5">00°C</text>
-   <text id="sensor.netatmo_airq_co2" class="sensor-text" transform="matrix(.83567 .65023 -.82398 .55551 19.917 -156.36)" x="1259.4749" y="274.95776" font-size="34px" stroke-width=".5">000 ppm</text>
+   <use id="light.bedroom_lights" xlink:href="#path_bedroom"/>
+   <text id="sensor.netatmo_airq_temperature" class="sensor-text" transform="matrix(.83567 .65023 -.82398 .55551 16.807 -138.53)" x="1271.0234" y="225.47473" font-size="34px" stroke-width=".5">00.0°C</text>
+   <text id="sensor.netatmo_airq_co2" class="sensor-text" transform="matrix(.83567 .65023 -.82398 .55551 49.787 -140.03)" x="1259.4749" y="274.95776" font-size="20px" stroke-width=".5">000ppm</text>
   </g>
   <g id="area.kitchen" transform="translate(-73.925 34.713)">
    <path id="path_kitchen" d="m641.27 782.04s-200.02-26.947-205.41-165.33c-1.2662-1.2662-45.743-36.307-45.743-36.307l9.6359-6.3093-7.4601-54.552 264.09-116.3-0.94917-17.266 34.319-14.721 15.077 9.6339 1.6276 19.33 25.234 15.329 0.60193 16.894 101.98-46.649 45.48 27.86 2.172 48.93-24.646 11.657 7.5373 187.99-47.993 26.193-6.247-137.22-44.395-28.779-92.819 43.922 16.021 189.05z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.kitchen" xlink:href="#path_kitchen"/>
+   <use id="light.kitchen_lights" xlink:href="#path_kitchen"/>
   </g>
   <g id="area.bathroom">
    <path id="path_bathroom" d="m218.22 537.37 97.721 77.716 9.535-6.1691-7.0798-54.452 161.98-71.808-52.638-35.014-75.581 31.429-2.8707-19.424s-3.7437-4.3102-6.7669-4.2674c-6.4478 0.0912-25.536 8.9443-27.876 10.713-2.5186 1.9032-2.8993 9.0158-2.8993 9.0158l-14.353-11.931-13.067-78.784-12.459-6.8444-58.141 22.035 24.291 128.41z" fill="none" stroke="#000" stroke-width="1px"/>
   </g>
   <g id="area.office" transform="translate(-67.497 10.285)">
    <path id="path_office" d="m285.24 527.31-125.98-100.52-42.165-209.04 328.57-112.43 141.26 80.325-19.936 7.8209 24.385 224.56-71.738 31.473-2.7946-16.578-3.7981-3.0852-93.391 39.057-3.0674-19.357s-4.4867-3.932-7.5672-4.4116c-3.0501-0.47491-25.388 7.8952-28.101 11.945-1.5428 2.3032-1.5987 8.1613-1.5987 8.1613l-14.386-11.499-13.324-79.522-11.731-7.0369-58.842 22.312 24.508 128.27z" fill="none" stroke="#000" stroke-width="1px"/>
-   <text id="sensor.office_sensor_temperature" class="sensor-text" transform="matrix(.739 .38 .29 1.287 47.799 -71.596)" x="585.29944" y="54.345657" font-size="34px" stroke-width=".32634">00°C</text>
+   <text id="sensor.office_sensor_temperature" class="sensor-text" transform="matrix(.71219 .42814 .20407 1.3034 58.846 -107.68)" x="585.29944" y="54.345657" font-size="34px" stroke-width=".32634">00.0°C</text>
    <use id="switch.office" xlink:href="#path_office"/>
   </g>
   <g id="area.hallway" transform="translate(-66.854 49.497)">
    <path id="path_hallway" d="m565.48 154.48 144.19-54.766 389.18 204.06-31.212 14.857-2.8956 238.78 6.4254 3.6655-82.257 46.087-1.1192-166.08-43.893-26.779-68.926 33.42-2.3543-48.829-45.075-28.172-102.44 46.964-0.6763-17.115-25.277-14.913-1.2082-19.641-15.352-9.6596-34.1 15.141 0.80353 17.014-101.81 44.889-52.988-35.591 17.722-7.3071 4.0243 3.3298 2.9262 16.337 71.74-31.29z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.hallway" xlink:href="#path_hallway"/>
+   <use id="light.hallway_lights" xlink:href="#path_hallway"/>
   </g>
  </g>
  <g id="entites">
