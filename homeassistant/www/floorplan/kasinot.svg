@@ -33,8 +33,10 @@
    <image id="light_overlay.hallway_lights" width="1920" height="1080" href="/local/floorplan/renders/hallway.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/hallway.png"/>
    <image id="light_overlay.kitchen_lights" width="1920" height="1080" href="/local/floorplan/renders/kitchen.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/kitchen.png"/>
    <image id="light_overlay.bedroom_lights" width="1920" height="1080" href="/local/floorplan/renders/bedroom.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/bedroom.png"/>
+   <image id="light_color_overlay.bedroom_lights" width="1920" height="1080" href="/local/floorplan/renders/bedroom.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/bedroom.png"/>
    <image id="light_overlay.dining_lights" width="1920" height="1080" href="/local/floorplan/renders/dining.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/dining.png"/>
    <image id="light_overlay.tv_ambient" width="1920" height="1080" href="/local/floorplan/renders/tv_ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/tv_ambient.png"/>
+   <image id="light_color_overlay.tv_ambient" width="1920" height="1080" href="/local/floorplan/renders/tv_ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/tv_ambient.png"/>
    <image id="light_overlay.living_room" width="1920" height="1080" href="/local/floorplan/renders/living_room.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/living_room.png"/>
    <image id="group_overlay.balcony" width="1920" height="1080" href="/local/floorplan/renders/balcony.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/balcony.png"/>
   </g>

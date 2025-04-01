@@ -47,10 +47,12 @@ g path:active, g use:active, .light-on:active, g#entities > g:active path:not(.t
 
 g#entites {
   stroke: #ccc;
+  stroke-opacity: 0.5;
 }
 
 g#entites .light-on {
   stroke: var(--primary-color);
+  stroke-opacity: 1;
 }
 
 /* Custom TV Glow */
