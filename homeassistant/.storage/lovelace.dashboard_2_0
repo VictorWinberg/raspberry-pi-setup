@@ -142,7 +142,7 @@
                             "service": "floorplan.style_set",
                             "service_data": {
                               "element": "${entity.entity_id.replace(/^(\\w+)\\./, '$1_overlay.')}",
-                              "style": "> if(entity.state !== \"on\")\n  return \"display: none;\";\n\nlet brightness = (200+entity.attributes.brightness||255)/455;\nif(entity.attributes.hs_color)\n  return `\n    display: block;\n    filter: brightness(calc(${brightness} * 0.7));\n  `\n\nreturn `\n  display: block;\n  filter: brightness(calc(${brightness}));\n`\n"
+                              "style": "> if(entity.state !== \"on\")\n  return \"display: none;\";\n\nlet brightness = (entity.attributes.brightness||255+200)/455;\nif(entity.attributes.hs_color)\n  return `\n    display: block;\n    filter: brightness(calc(${brightness} * 0.7));\n  `\n\nreturn `\n  display: block;\n  filter: brightness(calc(${brightness}));\n`\n"
                             }
                           }
                         },
@@ -514,6 +514,17 @@
                       },
                       {
                         "type": "custom:mushroom-light-card",
+                        "entity": "switch.living_room_plug",
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "secondary_info": "none",
+                        "style": {
+                          "top": "45%",
+                          "left": "75%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
                         "entity": "light.tv_ambient",
                         "layout": "horizontal",
                         "primary_info": "none",
@@ -543,6 +554,17 @@
                         "style": {
                           "top": "64%",
                           "left": "50%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
+                        "entity": "switch.bed_strip",
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "secondary_info": "none",
+                        "style": {
+                          "top": "70%",
+                          "left": "55%"
                         }
                       },
                       {

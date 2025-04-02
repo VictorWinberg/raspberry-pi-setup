@@ -1,43 +1,3 @@
-start_video_lights:
-  alias: Start Video with Lights
-  fields:
-    rgb_color:
-      description: Color for the light in RGB-format.
-      example: 255,255,255
-    video:
-      description: The YouTube video to play.
-      example: https://youtu.be/Wfphn9Dei4k
-  sequence:
-  - data_template:
-      brightness: 255
-      entity_id:
-      - light.led_strip_lifx
-      - light.led_strip_philips
-      rgb_color: '{{ rgb_color }}'
-    service: light.turn_on
-  - condition: template
-    value_template: '{{ video is defined }}'
-  - service: script.ping_tv
-    data: {}
-  - service: media_player.play_media
-    data_template:
-      media_content_type: cast
-      media_content_id: '{
-
-        "app_name": "youtube", "media_id": "{{video}}"
-
-        }'
-    entity_id: media_player.mio_cast
-  - condition: template
-    value_template: '{{ song is defined }}'
-  - data_template:
-      entity_id: media_player.speakers
-      random_song: true
-      repeat: context
-      shuffle: true
-      uri: '{{ song }}'
-    service: spotcast.start
-  mode: single
 power_off:
   alias: Power off
   sequence:
@@ -410,24 +370,6 @@ good_night:
         entity_id: light.philips_hue
       action: light.turn_off
   mode: restart
-random_light_toggle:
-  alias: Random light toggle
-  sequence:
-  - repeat:
-      while:
-      - condition: template
-        value_template: 'True'
-      sequence:
-      - service: light.toggle
-        data_template:
-          entity_id: '{{ states.light | selectattr(''state'',''ne'', ''unavailable'')
-            | map(attribute=''entity_id'') | list | random }}'
-      - delay:
-          hours: 0
-          minutes: 0
-          seconds: 1
-          milliseconds: 0
-  mode: single
 ping_tv:
   alias: Ping TV
   sequence:
@@ -477,31 +419,6 @@ dim_lights:
       - switch.power_strip_socket_3
   mode: single
   alias: Dim Lights
-disco_lights:
-  alias: Disco Lights
-  sequence:
-  - repeat:
-      while:
-      - condition: template
-        value_template: 'True'
-      sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: '{{ states.light | selectattr(''state'',''ne'', ''unavailable'')
-            | selectattr(''attributes.supported_color_modes'', ''search'', "''hs''")
-            | map(attribute=''entity_id'') | list | random }}'
-          rgb_color:
-          - '{{ (range(0, 255) | random) }}'
-          - '0'
-          - '{{ (range(0, 255) | random) }}'
-          brightness: '{{ range(150, 255) | random }}'
-          transition: 1
-      - delay:
-          hours: 0
-          minutes: 0
-          seconds: 0
-          milliseconds: 20
-  mode: single
 power_off_10_minutes:
   alias: Power off - X minutes
   sequence:
