@@ -381,7 +381,7 @@
                   {
                     "type": "custom:mod-card",
                     "card_mod": {
-                      "style": ":host {\n  --vertical-stack-card-margin: 5px;\n  --ha-card-background: none;\n  --rgb-primary-text-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 265px;\n}\n"
+                      "style": ":host {\n  --vertical-stack-card-gap: 0;\n  --vertical-stack-card-margin: 0;\n  --ha-card-border-radius: 6px;\n  --ha-card-background: none;\n  --rgb-primary-text-color: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 265px;\n}\n"
                     },
                     "card": {
                       "type": "vertical-stack",
@@ -394,6 +394,45 @@
                           "filter": {
                             "include": [
                               {
+                                "entity_id": "sensor.anniversary_*",
+                                "options": {
+                                  "type": "custom:mushroom-template-card",
+                                  "primary": "{{ state_attr(config.entity, 'friendly_name') }}",
+                                  "secondary": "{{ states(config.entity) }} dagar",
+                                  "icon": "mdi:cake",
+                                  "icon_color": "white",
+                                  "card_mod": {
+                                    "style": "ha-card {\n  background: url(\"{{ state_attr(config.entity, 'unit_of_measurement') }}\");\n  background-size: cover;\n  background-position: center;\n}\n"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "custom:auto-entities",
+                          "card": {
+                            "type": "entities"
+                          },
+                          "filter": {
+                            "include": [
+                              {
+                                "entity_id": "media_player.spotify_*",
+                                "state": "playing",
+                                "options": {
+                                  "type": "custom:mini-media-player",
+                                  "artwork": "cover-fit",
+                                  "info": "scroll",
+                                  "hide": {
+                                    "icon": true,
+                                    "volume": true,
+                                    "power": true,
+                                    "source": true,
+                                    "prev": true
+                                  }
+                                }
+                              },
+                              {
                                 "domain": "media_player",
                                 "attributes": {
                                   "device_class": "speaker"
@@ -402,13 +441,10 @@
                                 "options": {
                                   "type": "custom:mushroom-media-player-card",
                                   "layout": "horizontal",
+                                  "icon_type": "none",
+                                  "secondary_info": "none",
                                   "volume_controls": [
                                     "volume_set"
-                                  ],
-                                  "media_controls": [
-                                    "on_off",
-                                    "play_pause_stop",
-                                    "next"
                                   ]
                                 }
                               },
@@ -519,8 +555,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "45%",
-                          "left": "75%"
+                          "top": "61%",
+                          "left": "62.3%"
                         }
                       },
                       {
@@ -563,8 +599,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "70%",
-                          "left": "55%"
+                          "top": "83%",
+                          "left": "56%"
                         }
                       },
                       {
@@ -623,6 +659,97 @@
                         }
                       }
                     ]
+                  },
+                  {
+                    "type": "custom:mod-card",
+                    "card": {
+                      "cards": [
+                        {
+                          "color": "transparent",
+                          "color_type": "card",
+                          "size": "36%",
+                          "icon": "mdi:face-woman",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.play_spotify",
+                            "service_data": {
+                              "entity_id": "media_player.speakers",
+                              "uri": "input_text.annie_playlist",
+                              "account": "ms"
+                            }
+                          },
+                          "type": "custom:button-card"
+                        },
+                        {
+                          "color": "transparent",
+                          "color_type": "card",
+                          "size": "36%",
+                          "icon": "mdi:face-man",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.play_spotify",
+                            "service_data": {
+                              "entity_id": "media_player.speakers",
+                              "uri": "input_text.victor_playlist",
+                              "account": "mr"
+                            }
+                          },
+                          "type": "custom:button-card"
+                        },
+                        {
+                          "color": "transparent",
+                          "color_type": "card",
+                          "size": "36%",
+                          "icon": "mdi:account-supervisor",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.play_spotify",
+                            "service_data": {
+                              "entity_id": "media_player.speakers",
+                              "uri": "input_text.couple_playlist",
+                              "account": "ms"
+                            }
+                          },
+                          "type": "custom:button-card"
+                        },
+                        {
+                          "color": "transparent",
+                          "color_type": "card",
+                          "size": "36%",
+                          "icon": "mdi:glass-wine",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.play_spotify",
+                            "service_data": {
+                              "entity_id": "media_player.speakers",
+                              "uri": "input_text.dinner_playlist",
+                              "account": "mr"
+                            }
+                          },
+                          "type": "custom:button-card"
+                        },
+                        {
+                          "color": "transparent",
+                          "color_type": "card",
+                          "size": "36%",
+                          "icon": "mdi:star",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.play_spotify",
+                            "service_data": {
+                              "entity_id": "media_player.speakers",
+                              "uri": "input_text.custom_playlist",
+                              "account": "ms"
+                            }
+                          },
+                          "type": "custom:button-card"
+                        }
+                      ],
+                      "type": "horizontal-stack"
+                    },
+                    "card_mod": {
+                      "style": "ha-card {\n  position: absolute;\n  bottom: 28px;\n  left: 53%;\n  transform: translate(-50%);\n}\n"
+                    }
                   }
                 ]
               }

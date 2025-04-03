@@ -242,6 +242,7 @@ good_morning:
       - switch.bed_strip
       - switch.power_strip_socket_3
       - switch.office
+      - switch.dashboard
     action: switch.turn_on
   - data:
       volume_level: 0.3
@@ -369,6 +370,11 @@ good_night:
       target:
         entity_id: light.philips_hue
       action: light.turn_off
+    - action: switch.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: switch.dashboard
   mode: restart
 ping_tv:
   alias: Ping TV
@@ -456,6 +462,11 @@ good_morning_transition:
       - light.bedroom
       - light.philips_hue
     action: light.turn_on
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.dashboard
   - delay: '{{ states(''input_number.wakeup_transition_time'') | int * 60 }}'
   - action: script.turn_on
     data: {}
