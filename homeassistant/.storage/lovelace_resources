@@ -86,7 +86,7 @@
       },
       {
         "id": "9936b43611dc4250a170ee5ba27739eb",
-        "url": "/hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js?hacstag=193372044224",
+        "url": "/hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js?hacstag=193372044231",
         "type": "module"
       },
       {
@@ -121,12 +121,12 @@
       },
       {
         "id": "d3518f46068c44118b878872ed1004ce",
-        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375431",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375440",
         "type": "module"
       },
       {
         "id": "0053e9964ba542788bb89f8a3a9c2293",
-        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749212",
+        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749231",
         "type": "module"
       }
     ]

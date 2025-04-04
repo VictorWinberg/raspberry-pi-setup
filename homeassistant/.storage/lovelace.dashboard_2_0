@@ -515,6 +515,9 @@
                     "max_height": "800px",
                     "background_color": "none",
                     "language": "sv",
+                    "weekend_weekday_color": "#EE4B2B",
+                    "weekend_day_color": "#EE4B2B",
+                    "weekend_month_color": "#EE4B2B",
                     "card_mod": {
                       "style": ":host {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 400px;\n}\n"
                     }
