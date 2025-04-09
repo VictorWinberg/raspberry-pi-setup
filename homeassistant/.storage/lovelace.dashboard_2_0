@@ -391,18 +391,21 @@
                           "card": {
                             "type": "entities"
                           },
+                          "show_empty": false,
                           "filter": {
                             "include": [
                               {
                                 "entity_id": "sensor.anniversary_*",
+                                "state 1": "<= 50",
+                                "state 2": ">= 0",
                                 "options": {
                                   "type": "custom:mushroom-template-card",
                                   "primary": "{{ state_attr(config.entity, 'friendly_name') }}",
                                   "secondary": "{{ states(config.entity) }} dagar",
-                                  "icon": "mdi:cake",
+                                  "icon": "{{ state_attr(config.entity, \"icon\") }}",
                                   "icon_color": "white",
                                   "card_mod": {
-                                    "style": "ha-card {\n  background: url(\"{{ state_attr(config.entity, 'unit_of_measurement') }}\");\n  background-size: cover;\n  background-position: center;\n}\n"
+                                    "style": "ha-card {\n  background: url(\"{{ state_attr(config.entity, 'unit_of_measurement') }}\");\n  background-size: contain;\n  background-position: center;\n  text-shadow: 0 0 5px black;\n}\n"
                                   }
                                 }
                               }
@@ -414,6 +417,7 @@
                           "card": {
                             "type": "entities"
                           },
+                          "show_empty": false,
                           "filter": {
                             "include": [
                               {

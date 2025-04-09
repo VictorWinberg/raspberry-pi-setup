@@ -1160,24 +1160,6 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.anniversary_dashboard",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/config/integrations/integration/anniversaries"
-                  }
-                },
-                {
-                  "entity": "input_text.anniversary_image"
-                },
-                {
-                  "entity": "input_text.anniversary_playlist"
-                }
-              ],
-              "type": "entities"
-            },
-            {
-              "entities": [
-                {
                   "entity": "input_select.remote_entity"
                 },
                 {

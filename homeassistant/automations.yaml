@@ -587,27 +587,23 @@
 - id: '1701712494987'
   alias: Leaves Job - Mr
   description: ''
-  trigger:
-  - platform: zone
-    entity_id: person.victor
-    zone: zone.tedsys
+  triggers:
+  - entity_id: person.victor
+    zone: zone.pinmeto
     event: leave
-  - platform: zone
-    entity_id: person.victor
-    zone: zone.yale
-    event: leave
-  condition:
+    trigger: zone
+  conditions:
   - condition: time
     after: '14:00:00'
     before: '20:00:00'
   - condition: state
     entity_id: person.annie
     state: home
-  action:
-  - service: notify.mobile_app_ms
-    data:
+  actions:
+  - data:
       message: "Nu går jag från jobbet xoxo \U0001F618❤️"
       title: Victor
+    action: notify.mobile_app_ms
   mode: single
 - id: '1701712730012'
   alias: Leaves Job - Ms

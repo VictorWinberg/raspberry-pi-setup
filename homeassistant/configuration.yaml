@@ -140,13 +140,6 @@ input_text:
   good_morning_playlist:
     name: Good morning Playlist
 #   initial: spotify:playlist:7EMXXzWZ5dLGFZElF5ohEA
-  anniversary_image:
-    name: Anniversary Image
-    max: 255
-  anniversary_entity:
-    name: Anniversary Entity
-  anniversary_playlist:
-    name: Anniversary Playlist
 
 input_select:
   remote_entity:
