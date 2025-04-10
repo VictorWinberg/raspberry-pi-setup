@@ -402,20 +402,19 @@ dim_lights:
       - light.hallway_kitchen
       - light.kitchen_oven
       - light.kitchen_sink
-    service: light.turn_off
+    action: light.turn_off
   - data:
       brightness: 20
       entity_id:
       - light.kitchen_table
       - light.hallway_door
       - light.hallway_spots
-    service: light.turn_on
-  - service: switch.turn_off
-    target:
+    action: light.turn_on
+  - target:
       entity_id: switch.living_room_plug
     data: {}
+    action: switch.turn_off
   - data: {}
-    service: switch.turn_on
     target:
       entity_id:
       - switch.window_plug
@@ -423,6 +422,13 @@ dim_lights:
       - switch.power_strip_socket_2
       - switch.power_strip_socket_1
       - switch.power_strip_socket_3
+    action: switch.turn_on
+  - action: input_number.set_value
+    metadata: {}
+    data:
+      value: 20
+    target:
+      entity_id: input_number.light_brightness
   mode: single
   alias: Dim Lights
 power_off_10_minutes:

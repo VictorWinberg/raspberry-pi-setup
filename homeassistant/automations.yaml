@@ -389,24 +389,30 @@
 - id: '1666531317595'
   alias: Lunch time - Turn on lights
   description: ''
-  trigger:
-  - platform: time
-    at: '12:00:00'
-  condition:
+  triggers:
+  - at: '12:00:00'
+    trigger: time
+  conditions:
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
-  action:
-  - service: script.power_on
-    data: {}
-  - service: light.turn_on
-    data:
+  actions:
+  - data: {}
+    action: script.power_on
+  - data:
       brightness_pct: 100
     target:
       entity_id:
       - light.kitchen_oven
       - light.kitchen_sink
       - light.kitchen_table
+    action: light.turn_on
+  - action: input_number.set_value
+    metadata: {}
+    data:
+      value: 100
+    target:
+      entity_id: input_number.light_brightness
   mode: single
 - id: '1672304388800'
   alias: Vacation - Balcony On
@@ -771,7 +777,7 @@
           entity_id: light.hallway_lights
         action: light.turn_on
         data:
-          brightness_pct: 100
+          brightness_pct: '{{states(''input_number.light_brightness'')}}'
     - conditions:
       - condition: state
         entity_id: binary_sensor.motion_hallway
@@ -820,7 +826,7 @@
           entity_id: light.kitchen_lights
         action: light.turn_on
         data:
-          brightness_pct: 100
+          brightness_pct: '{{states(''input_number.light_brightness'')}}'
     - conditions:
       - condition: state
         entity_id: binary_sensor.motion_kitchen
