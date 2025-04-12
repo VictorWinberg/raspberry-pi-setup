@@ -130,6 +130,12 @@
       - switch.office
     action: switch.turn_on
     data: {}
+  - action: input_number.set_value
+    metadata: {}
+    data:
+      value: 100
+    target:
+      entity_id: input_number.light_brightness
   mode: single
 - id: '1587480240661'
   alias: Brigthness Slider
