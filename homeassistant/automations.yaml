@@ -366,31 +366,31 @@
 - id: '1666530802374'
   alias: TV Lights - Listener
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - media_player.mio_tv
     from: 'off'
     to: 'on'
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: light.living_room
     state: 'off'
-  action:
-  - service: light.turn_on
-    data:
-      transition: 10
+  actions:
+  - data:
+      transition: 2
       brightness_pct: 60
     target:
       entity_id:
       - light.led_strip_philips
       - light.led_strip_lifx
-  - service: light.turn_on
-    data:
-      transition: 10
+    action: light.turn_on
+  - data:
+      transition: 2
       brightness_pct: 10
     target:
       entity_id: light.living_room
+    action: light.turn_on
   mode: single
 - id: '1666531317595'
   alias: Lunch time - Turn on lights
