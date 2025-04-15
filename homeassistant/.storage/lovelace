@@ -551,21 +551,30 @@
               "type": "grid"
             },
             {
-              "show_state": true,
-              "show_name": true,
-              "camera_view": "auto",
-              "type": "picture-entity",
-              "entity": "sensor.anniversary_entity",
-              "camera_image": "camera.anniversary_image",
-              "aspect_ratio": "4.5:1",
-              "tap_action": {
-                "action": "call-service",
-                "service": "script.play_spotify",
-                "service_data": {
-                  "entity_id": "media_player.speakers",
-                  "uri": "input_text.anniversary_playlist",
-                  "account": "mr"
-                }
+              "type": "custom:auto-entities",
+              "card": {
+                "type": "vertical-stack"
+              },
+              "show_empty": false,
+              "card_param": "cards",
+              "filter": {
+                "include": [
+                  {
+                    "entity_id": "sensor.anniversary_*",
+                    "state 1": "<= 50",
+                    "state 2": ">= 0",
+                    "options": {
+                      "type": "custom:mushroom-template-card",
+                      "primary": "{{ state_attr(config.entity, 'friendly_name') }}",
+                      "secondary": "{{ states(config.entity) }} dagar",
+                      "icon": "{{ state_attr(config.entity, \"icon\") }}",
+                      "icon_color": "white",
+                      "card_mod": {
+                        "style": "ha-card {\n  background: url(\"{{ state_attr(config.entity, 'unit_of_measurement') }}\");\n  background-size: contain;\n  background-position: center;\n  text-shadow: 0 0 5px black;\n}\n"
+                      }
+                    }
+                  }
+                ]
               }
             },
             {

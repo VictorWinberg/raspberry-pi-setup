@@ -59,6 +59,14 @@ google_assistant:
 
 homeassistant:
   external_url: "https://home.codies.se"
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.100.200
+      trusted_users:
+        192.168.100.200: 4b96a75a65594ea59e34578da1f98cf4
+      allow_bypass_login: true
   customize:
     person.victor:
       entity_picture: "/local/victor.jpg"
