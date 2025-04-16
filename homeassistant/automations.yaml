@@ -865,11 +865,11 @@
         entity_id: sensor.someone_home
         state: 'True'
       sequence:
-      - action: script.power_on
-        data: {}
       - target:
           entity_id: switch.dashboard
         action: switch.turn_on
+        data: {}
+      - action: script.power_on
         data: {}
     - conditions:
       - condition: state

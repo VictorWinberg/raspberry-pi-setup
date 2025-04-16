@@ -81,7 +81,7 @@
                     "type": "markdown",
                     "content": "{{ now().strftime('%H:%M') }}\n",
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n} \nha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 400px;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n} \nha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 400px;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n  cursor: none;\n}\n"
                     }
                   },
                   {
@@ -142,7 +142,7 @@
                             "service": "floorplan.style_set",
                             "service_data": {
                               "element": "${entity.entity_id.replace(/^(\\w+)\\./, '$1_overlay.')}",
-                              "style": "> if(entity.state !== \"on\")\n  return \"display: none;\";\n\nlet brightness = (entity.attributes.brightness||255+200)/455;\nif(entity.attributes.hs_color)\n  return `\n    display: block;\n    filter: brightness(calc(${brightness} * 0.7));\n  `\n\nreturn `\n  display: block;\n  filter: brightness(calc(${brightness}));\n`\n"
+                              "style": "> if(entity.state !== \"on\")\n  return \"display: none;\";\n\nlet brightness = 0.6 + 0.4*(entity.attributes.brightness||255)/255;\nif(entity.attributes.hs_color)\n  return `\n    display: block;\n    filter: brightness(calc(${brightness} * 0.7));\n  `\n\nreturn `\n  display: block;\n  filter: brightness(calc(${brightness}));\n`\n"
                             }
                           }
                         },
@@ -255,6 +255,9 @@
                         "dropShadow": {
                           "enabled": false
                         }
+                      },
+                      "theme": {
+                        "mode": "dark"
                       },
                       "grid": {
                         "borderColor": "rgba(255, 255, 255, 0.5)",
