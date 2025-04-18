@@ -495,31 +495,31 @@
 - id: '1701035317867'
   alias: Robban is cleaning
   description: ''
-  trigger:
-  - platform: time
-    at: 08:00:00
-  condition:
+  triggers:
+  - at: 07:00:00
+    trigger: time
+  conditions:
   - condition: time
     weekday:
     - mon
     - thu
-  action:
-  - service: notify.mobile_app_victors_ipod_2
-    data:
+  actions:
+  - data:
       title: Cleanmate
       message: Robban vill ha bort mattan
       data:
         tag: cleaning
+    action: notify.mobile_app_victors_ipod_2
   - delay:
       hours: 2
       minutes: 0
       seconds: 0
       milliseconds: 0
-  - service: notify.mobile_app_victors_ipod_2
-    data:
+  - data:
       message: clear_notification
       data:
         tag: cleaning
+    action: notify.mobile_app_victors_ipod_2
   mode: single
 - id: '1701042405778'
   alias: Chef - Victor
