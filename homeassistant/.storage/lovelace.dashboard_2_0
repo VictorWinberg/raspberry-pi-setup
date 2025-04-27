@@ -531,9 +531,9 @@
                   },
                   {
                     "type": "picture-elements",
-                    "image": "/local/transparent.png",
+                    "image": "/local/floorplan/renders/off.png",
                     "card_mod": {
-                      "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 200px;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  pointer-events: none;\n  opacity: 0.5;\n}\n#root { height: 100%; }\nhui-image { display: none; }\n.element { pointer-events: auto; width: 150px; }\n"
+                      "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  pointer-events: none;\n  opacity: 0.5;\n}\n#root { height: 100%; }\nhui-image { opacity: 0; }\n.element { pointer-events: auto; width: 150px; }\n"
                     },
                     "elements": [
                       {
@@ -543,7 +543,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "20%",
+                          "top": "35%",
                           "left": "83%"
                         }
                       },
@@ -554,7 +554,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "38%",
+                          "top": "53%",
                           "left": "75%"
                         }
                       },
@@ -565,7 +565,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "61%",
+                          "top": "72%",
                           "left": "62.3%"
                         }
                       },
@@ -576,7 +576,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "26%",
+                          "top": "40%",
                           "left": "68%"
                         }
                       },
@@ -587,8 +587,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "48%",
-                          "left": "62%"
+                          "top": "62%",
+                          "left": "63%"
                         }
                       },
                       {
@@ -598,7 +598,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "64%",
+                          "top": "78%",
                           "left": "50%"
                         }
                       },
@@ -609,7 +609,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "83%",
+                          "top": "85%",
                           "left": "56%"
                         }
                       },
@@ -620,8 +620,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "52%",
-                          "left": "33%"
+                          "top": "67%",
+                          "left": "32.5%"
                         }
                       },
                       {
@@ -631,8 +631,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "45%",
-                          "left": "29%"
+                          "top": "59%",
+                          "left": "30%"
                         }
                       },
                       {
@@ -642,8 +642,8 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "38%",
-                          "left": "35%"
+                          "top": "54%",
+                          "left": "36%"
                         }
                       },
                       {
@@ -653,7 +653,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "28%",
+                          "top": "43%",
                           "left": "43%"
                         }
                       },
@@ -664,7 +664,7 @@
                         "primary_info": "none",
                         "secondary_info": "none",
                         "style": {
-                          "top": "24%",
+                          "top": "40%",
                           "left": "23%"
                         }
                       }
