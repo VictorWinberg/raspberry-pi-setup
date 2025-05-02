@@ -5,7 +5,7 @@
   "data": {
     "items": [
       {
-        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524343",
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524344",
         "type": "module",
         "id": "59e84790f1ed4e86aed19a0c81ad07af"
       },
@@ -75,7 +75,7 @@
         "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791151",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791152",
         "type": "module",
         "id": "41662ed39a6241cb8f7a98cc96a4906b"
       },
@@ -101,7 +101,7 @@
       },
       {
         "id": "489e8764b78f4ee2bca0cbb08c36c03a",
-        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=1883234941048",
+        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=188323494112",
         "type": "module"
       },
       {
@@ -126,7 +126,7 @@
       },
       {
         "id": "0053e9964ba542788bb89f8a3a9c2293",
-        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749231",
+        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749245",
         "type": "module"
       }
     ]

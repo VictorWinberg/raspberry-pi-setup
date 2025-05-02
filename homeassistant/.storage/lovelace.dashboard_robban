@@ -19,7 +19,7 @@
                 "camera": true
               },
               "entity": "vacuum.roborock_q5_pro",
-              "vacuum_platform": "humbertogontijo/homeassistant-roborock",
+              "vacuum_platform": "Roborock",
               "title": "",
               "map_locked": false,
               "map_modes": [
