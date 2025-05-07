@@ -74,7 +74,7 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.hallway",
+                    "entity": "light.hallway_lights",
                     "name": "Hallway",
                     "icon": "mdi:globe-light",
                     "tap_action": {
@@ -86,7 +86,7 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.dining",
+                    "entity": "light.dining_lights",
                     "name": "Dining",
                     "icon": "mdi:table-chair",
                     "tap_action": {
@@ -122,7 +122,7 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.kitchen",
+                    "entity": "light.kitchen_lights",
                     "name": "Kitchen",
                     "icon": "mdi:fridge-outline",
                     "tap_action": {
@@ -157,7 +157,7 @@
                   },
                   {
                     "type": "custom:button-card",
-                    "entity": "group.bedroom",
+                    "entity": "light.bedroom_lights",
                     "name": "Bedroom",
                     "icon": "mdi:bed",
                     "tap_action": {

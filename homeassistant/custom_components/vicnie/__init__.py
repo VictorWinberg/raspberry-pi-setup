@@ -41,7 +41,7 @@ def setup(hass, config):
         defaults = {
           "LDWN": lambda: select_entity("media_player.kasinot_speaker"),
           "RDWN": lambda: select_entity("media_player.mio_tv"),
-          "UDWN": lambda: select_entity("light:group.ikea"),
+          "UDWN": lambda: select_entity("light.ikea_lights"),
           "DDWN": lambda: select_entity("default")
         }
 
@@ -71,10 +71,10 @@ def setup(hass, config):
             if event == "DDWN":
               s("script", "default_toggle", {}, False)
             elif event == "UDWN":
-              light_on = hass.states.is_state("group.kitchen", "on")
-              s("light", "turn_off" if light_on else "turn_on", {"entity_id": "group.ikea"}, False)
+              light_on = hass.states.is_state("light.kitchen_lights", "on")
+              s("light", "turn_off" if light_on else "turn_on", {"entity_id": "light.ikea_lights"}, False)
             elif not entity_id:
-              run_service("light", "group.ikea", event)
+              run_service("light", "light.ikea_lights", event)
             else:
               run_service("media_player", entity_id, event)
 

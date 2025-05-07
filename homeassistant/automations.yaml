@@ -778,7 +778,7 @@
     state: 'True'
   - condition: time
     after: 06:00:00
-    before: '20:30:00'
+    before: '22:00:00'
   actions:
   - choose:
     - conditions:
@@ -798,6 +798,11 @@
           brightness_pct: '{{states(''input_number.light_brightness'')}}'
       - target:
           entity_id: light.kitchen_lights
+        action: light.turn_on
+        data:
+          brightness_pct: '{{states(''input_number.light_brightness'')}}'
+      - target:
+          entity_id: light.dining_lights
         action: light.turn_on
         data:
           brightness_pct: '{{states(''input_number.light_brightness'')}}'
@@ -821,7 +826,6 @@
       sequence:
       - target:
           entity_id:
-          - light.hallway_lights
           - light.kitchen_lights
         action: light.turn_off
         data: {}
@@ -865,3 +869,30 @@
         action: switch.turn_off
         data: {}
   mode: single
+- id: '1746626907220'
+  alias: Light brightness
+  description: Set brightness from input brightness when any light is turned
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.kitchen_oven
+    - light.kitchen_sink
+    - light.kitchen_table
+    - light.hallway_door
+    - light.hallway_kitchen
+    - light.hallway_spots
+    - light.dining_table_n
+    - light.dining_table_m
+    - light.dining_table_s
+    - light.bedroom
+    from: 'off'
+    to: 'on'
+  conditions: []
+  actions:
+  - target:
+      entity_id: '{{ trigger.entity_id }}'
+    action: light.turn_on
+    data:
+      brightness_pct: '{{ states(''input_number.light_brightness'') }}'
+  mode: parallel
+  max: 10
