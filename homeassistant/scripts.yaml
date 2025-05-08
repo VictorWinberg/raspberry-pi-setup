@@ -426,7 +426,7 @@ dim_lights:
   - action: input_number.set_value
     metadata: {}
     data:
-      value: 20
+      value: 10
     target:
       entity_id: input_number.light_brightness
   mode: single

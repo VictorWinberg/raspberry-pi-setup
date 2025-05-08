@@ -63,13 +63,13 @@
 - id: '1581713291992'
   alias: Evening - Dim lights
   description: ''
-  trigger:
+  triggers:
   - at: '20:30:00'
-    platform: time
-  condition:
+    trigger: time
+  conditions:
   - condition: state
-    entity_id: group.ikea
     state: 'on'
+    entity_id: light.ikea_lights
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
@@ -81,14 +81,14 @@
     - thu
     - sun
   - condition: state
-    entity_id: group.dining
     state: 'off'
-  action:
+    entity_id: light.dining_lights
+  actions:
   - condition: time
     after: '20:15:00'
     before: 05:00:00
-  - service: script.dim_lights
-    data: {}
+  - data: {}
+    action: script.dim_lights
   mode: single
 - id: power_off_for_work
   alias: Power off - @Work
@@ -140,21 +140,21 @@
 - id: '1587480240661'
   alias: Brigthness Slider
   description: ''
-  trigger:
+  triggers:
   - entity_id: input_number.light_brightness
-    platform: state
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: sensor.someone_home
     state: 'True'
-  action:
+  actions:
   - data_template:
       brightness: '{{ ((trigger.to_state.state | float) * 2.54) | int }}'
-      entity_id: '{{ states.light | selectattr(''state'',''eq'',''on'') | map(attribute=''entity_id'')
-        | join('','') }}
+      entity_id: '{{ states.light | selectattr(''state'',''eq'',''on'') | rejectattr(''attributes.entity_id'',
+        ''defined'') | map(attribute=''entity_id'') | join('','') }}
 
         '
-    service: light.turn_on
+    action: light.turn_on
 - id: '1589916252189'
   alias: Remote Control - Listener
   description: ''
@@ -798,11 +798,6 @@
           brightness_pct: '{{states(''input_number.light_brightness'')}}'
       - target:
           entity_id: light.kitchen_lights
-        action: light.turn_on
-        data:
-          brightness_pct: '{{states(''input_number.light_brightness'')}}'
-      - target:
-          entity_id: light.dining_lights
         action: light.turn_on
         data:
           brightness_pct: '{{states(''input_number.light_brightness'')}}'
