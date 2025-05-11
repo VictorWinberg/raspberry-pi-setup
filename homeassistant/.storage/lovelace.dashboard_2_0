@@ -54,6 +54,22 @@
                     }
                   },
                   {
+                    "type": "custom:config-template-card",
+                    "entities": [
+                      "sensor.home_image"
+                    ],
+                    "variables": {
+                      "IMAGE": "states['sensor.home_image'].state"
+                    },
+                    "card": {
+                      "type": "picture",
+                      "image": "${IMAGE}",
+                      "card_mod": {
+                        "style": ":host {\n  --ha-card-background: transparent;\n  position: absolute;\n  top: 16px;\n  right: 265px;\n  width: 186px;\n  height: 248px;\n}\nimg {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border-radius: 6px;\n}\n"
+                      }
+                    }
+                  },
+                  {
                     "type": "markdown",
                     "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n  \"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n  \"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n  \"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n  %} {% set weekday = weekdays[now().weekday()] %} {% set\n  month = months[now().month - 1] %} {% set day = now().day %}\n{{ \"%s, %s %s\" | format(weekday, day, month) }}\n",
                     "card_mod": {
@@ -244,6 +260,7 @@
                       "colorize_states": true
                     },
                     "graph_span": "5d",
+                    "update_interval": "1h",
                     "span": {
                       "start": "day"
                     },

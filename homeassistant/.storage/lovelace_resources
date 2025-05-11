@@ -128,6 +128,11 @@
         "id": "0053e9964ba542788bb89f8a3a9c2293",
         "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749245",
         "type": "module"
+      },
+      {
+        "id": "7711961136694ff1bbe84f1cbd23638c",
+        "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
+        "type": "module"
       }
     ]
   }
