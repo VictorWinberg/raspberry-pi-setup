@@ -95,6 +95,7 @@ play_spotify:
       account: '{{ account }}'
     continue_on_error: true
     action: spotcast.start
+    enabled: false
   mode: single
 blinds_open:
   alias: Blinds Open
