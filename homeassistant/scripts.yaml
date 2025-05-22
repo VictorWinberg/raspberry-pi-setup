@@ -355,9 +355,10 @@ good_night:
         continue_on_error: true
       action: script.play_spotify
       continue_on_error: true
+    - delay: '{{ states(''input_number.goodnight_transition_time'') | int * 60 }}'
     - delay:
         hours: 0
-        minutes: 18
+        minutes: 20
         seconds: 0
         milliseconds: 0
     - data: {}
