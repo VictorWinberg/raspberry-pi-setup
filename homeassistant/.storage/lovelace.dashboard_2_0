@@ -261,6 +261,7 @@
                     },
                     "graph_span": "5d",
                     "update_interval": "1h",
+                    "cache": false,
                     "span": {
                       "start": "day"
                     },
