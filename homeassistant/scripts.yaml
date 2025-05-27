@@ -276,6 +276,17 @@ good_morning:
       uri: input_text.good_morning_playlist
       account: mr
     action: script.play_spotify
+  - delay:
+      hours: 2
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - action: input_number.set_value
+    metadata: {}
+    data:
+      value: 100
+    target:
+      entity_id: input_number.light_brightness
   mode: restart
 good_night:
   alias: Good Night
