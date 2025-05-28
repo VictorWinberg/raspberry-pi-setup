@@ -304,7 +304,7 @@ good_night:
       entity_id: script.blinds_close
       action: script.turn_on
     - data:
-        volume_level: 0.05
+        volume_level: 0.02
       target:
         entity_id:
         - media_player.rey
@@ -367,11 +367,10 @@ good_night:
       action: script.play_spotify
       continue_on_error: true
     - delay: '{{ states(''input_number.goodnight_transition_time'') | int * 60 }}'
-    - delay:
-        hours: 0
-        minutes: 20
-        seconds: 0
-        milliseconds: 0
+    - data: {}
+      target:
+        entity_id: light.philips_hue
+      action: light.turn_off
     - data: {}
       target:
         entity_id:
@@ -380,10 +379,11 @@ good_night:
         - media_player.bali
         - media_player.kasinot_speaker
       action: media_player.turn_off
-    - data: {}
-      target:
-        entity_id: light.philips_hue
-      action: light.turn_off
+    - delay:
+        hours: 0
+        minutes: 30
+        seconds: 0
+        milliseconds: 0
     - action: switch.turn_off
       metadata: {}
       data: {}
