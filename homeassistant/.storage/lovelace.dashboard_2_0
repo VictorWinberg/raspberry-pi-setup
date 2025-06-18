@@ -54,6 +54,29 @@
                     }
                   },
                   {
+                    "type": "conditional",
+                    "conditions": [
+                      {
+                        "condition": "user",
+                        "users": [
+                          "4b96a75a65594ea59e34578da1f98cf4"
+                        ]
+                      },
+                      {
+                        "condition": "numeric_state",
+                        "entity": "sensor.motion_kitchen_lux",
+                        "below": 100
+                      }
+                    ],
+                    "card": {
+                      "type": "markdown",
+                      "content": " ",
+                      "card_mod": {
+                        "style": ":host {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 9999;\n  pointer-events: none;\n}\nha-card {\n  background: rgba(0, 0, 0, 0.5);\n  box-shadow: none;\n}\n"
+                      }
+                    }
+                  },
+                  {
                     "type": "custom:config-template-card",
                     "entities": [
                       "sensor.home_image"
@@ -73,7 +96,7 @@
                     "type": "markdown",
                     "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n  \"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n  \"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n  \"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n  %} {% set weekday = weekdays[now().weekday()] %} {% set\n  month = months[now().month - 1] %} {% set day = now().day %}\n{{ \"%s, %s %s\" | format(weekday, day, month) }}\n",
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  bottom: 0;\n  left: 20px;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  bottom: 100px;\n  left: 26px;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
                     }
                   },
                   {
@@ -86,9 +109,9 @@
                     },
                     "card_mod": {
                       "style": {
-                        ".": "ha-card {\n  position: absolute;\n  left: 36px;\n  bottom: 128px;\n  width: 670px;\n  font-size: 100px;\n  line-height: 1;\n}\n",
+                        ".": "ha-card {\n  position: absolute;\n  left: 36px;\n  bottom: 80px;\n  width: 670px;\n  font-size: 100px;\n  line-height: 1;\n}\n",
                         "slider-entity-row$": {
-                          "ha-slider$": ":host {\n  --md-slider-inactive-track-height: 8px;\n  --md-slider-active-track-height: 8px;\n  z-index: 1;\n}\n.handleNub {\n  width: 2rem !important;\n  height: 2rem !important;\n}\n"
+                          "ha-slider$": ":host {\n  --md-slider-inactive-track-height: 12px;\n  --md-slider-active-track-height: 12px;\n  z-index: 1;\n}\n.handleNub {\n  width: 2rem !important;\n  height: 2rem !important;\n}\n.container input[type=range] {\n  height: 200px;\n}\n"
                         }
                       }
                     }
@@ -97,7 +120,9 @@
                     "type": "markdown",
                     "content": "{{ now().strftime('%H:%M') }}\n",
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n} \nha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 400px;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n  cursor: none;\n}\n"
+                      "style": {
+                        ".": ":host {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n} \nha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 400px;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: center;\n  cursor: none;\n}\n"
+                      }
                     }
                   },
                   {
@@ -111,7 +136,10 @@
                       "rules": [
                         {
                           "entity": "media_player.mio_tv",
-                          "tap_action": "more-info",
+                          "tap_action": {
+                            "action": "call-service",
+                            "service": "script.ping_tv"
+                          },
                           "state_action": {
                             "action": "call-service",
                             "service": "floorplan.class_set",
@@ -199,40 +227,6 @@
                           }
                         }
                       ]
-                    }
-                  },
-                  {
-                    "type": "custom:mod-card",
-                    "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  bottom: 6px;\n  right: 6px;\n  width: 265px;\n}\n"
-                    },
-                    "card": {
-                      "type": "custom:auto-entities",
-                      "show_empty": false,
-                      "filter": {
-                        "include": [
-                          {
-                            "entity_id": "/sensor\\..*battery/",
-                            "state": "< 20",
-                            "attributes": {
-                              "unit_of_measurement": "%"
-                            }
-                          },
-                          {
-                            "attributes": {
-                              "show_battery_alert": false,
-                              "unit_of_measurement": "%"
-                            }
-                          }
-                        ]
-                      },
-                      "card": {
-                        "type": "entities",
-                        "theme": "dashboard",
-                        "card_mod": {
-                          "style": "@keyframes alert {\n  from {\n    background: #ff000033;\n    box-shadow: 0px 0px 0px 1px #f970709e;\n  }\n  to {\n    background: #ff000011;\n    box-shadow: 0px 0px 0px 1px #f9707055;\n  }\n}\nha-card {\n  background: #ffffff14;\n  height: auto !important;\n  transform: translate( 0, 0 );\n  \n  animation: 1s alert linear infinite alternate;\n  box-shadow: 0px 0px 0px 1px #f970709e;\n  background: #ff000033;\n}\n"
-                        }
-                      }
                     }
                   },
                   {
@@ -502,6 +496,34 @@
                               "method": "friendly_name"
                             }
                           ]
+                        },
+                        {
+                          "type": "custom:auto-entities",
+                          "show_empty": false,
+                          "filter": {
+                            "include": [
+                              {
+                                "entity_id": "/sensor\\..*battery/",
+                                "state": "< 20",
+                                "attributes": {
+                                  "unit_of_measurement": "%"
+                                }
+                              },
+                              {
+                                "attributes": {
+                                  "show_battery_alert": false,
+                                  "unit_of_measurement": "%"
+                                }
+                              }
+                            ]
+                          },
+                          "card": {
+                            "type": "entities",
+                            "theme": "dashboard",
+                            "card_mod": {
+                              "style": "@keyframes alert {\n  from {\n    background: #ff000033;\n    box-shadow: 0px 0px 0px 1px #f970709e;\n  }\n  to {\n    background: #ff000011;\n    box-shadow: 0px 0px 0px 1px #f9707055;\n  }\n}\nha-card {\n  background: #ffffff14;\n  height: auto !important;\n  transform: translate( 0, 0 );\n  \n  animation: 1s alert linear infinite alternate;\n  box-shadow: 0px 0px 0px 1px #f970709e;\n  background: #ff000033;\n}\n"
+                            }
+                          }
                         }
                       ]
                     }
