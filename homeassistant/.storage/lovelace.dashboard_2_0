@@ -292,6 +292,15 @@
                       "legend": {
                         "show": false
                       },
+                      "annotations": {
+                        "yaxis": [
+                          {
+                            "y": 6,
+                            "borderColor": "rgba(255, 192, 203, 0.3)",
+                            "strokeDashArray": 4
+                          }
+                        ]
+                      },
                       "tooltip": {
                         "x": {
                           "show": false
