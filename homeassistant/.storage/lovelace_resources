@@ -15,7 +15,7 @@
         "id": "4513f5c1a36a42fe93aa42858ca332a5"
       },
       {
-        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994220",
+        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994232",
         "type": "module",
         "id": "c54beee920ce41ec83329fda4f19cab9"
       },
@@ -55,7 +55,7 @@
         "id": "2cf3716e774d4ab89890f5cabf637eed"
       },
       {
-        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620121",
+        "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620130",
         "type": "module",
         "id": "d2fa40762a044ae287ae4766de6ef1a1"
       },
@@ -75,12 +75,12 @@
         "id": "5c0b3bcb30ab4a6fadf2f98547a2e0ce"
       },
       {
-        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791152",
+        "url": "/hacsfiles/hass-swipe-navigation/swipe-navigation.js?hacstag=5017254791155",
         "type": "module",
         "id": "41662ed39a6241cb8f7a98cc96a4906b"
       },
       {
-        "url": "/hacsfiles/miflora-card/miflora-card.js?hacstag=197715418",
+        "url": "/hacsfiles/miflora-card/miflora-card.js?hacstag=197715418010",
         "type": "module",
         "id": "499d04be7079448a9ca0d0b92b6afb5a"
       },
@@ -101,7 +101,7 @@
       },
       {
         "id": "489e8764b78f4ee2bca0cbb08c36c03a",
-        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=188323494112",
+        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=188323494113",
         "type": "module"
       },
       {
@@ -126,7 +126,7 @@
       },
       {
         "id": "0053e9964ba542788bb89f8a3a9c2293",
-        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749306",
+        "url": "/hacsfiles/calendar-card-pro/calendar-card-pro.js?hacstag=939311749310",
         "type": "module"
       },
       {
