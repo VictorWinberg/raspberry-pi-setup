@@ -243,162 +243,362 @@
                       "show_wind_forecast": false
                     },
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.main {\n  position: absolute;\n  right: 140px;\n  bottom: 260px;\n  transform: scale(2);\n  text-align: right;\n  color: orange;\n  text-shadow: 0 0 10px currentColor;\n}\n.main img {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: -1;\n}\n.chart-container {\n  display: none;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  right: 0;\n  bottom: 110px;\n  width: 660px;\n}\nha-card {\n  background: none;\n}\n.main {\n  position: absolute;\n  right: 140px;\n  bottom: 260px;\n  transform: scale(2);\n  text-align: right;\n  color: orange;\n  text-shadow: 0 0 10px currentColor;\n}\n.main img {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: -1;\n}\n.chart-container, .conditions {\n  display: none;\n}\n"
                     }
                   },
                   {
-                    "type": "custom:apexcharts-card",
-                    "header": {
-                      "show": true,
-                      "show_states": true,
-                      "colorize_states": true
+                    "type": "custom:simple-swipe-card",
+                    "show_pagination": false,
+                    "enable_reset_after": true,
+                    "reset_after_timeout": 180000,
+                    "reset_target_card": 1,
+                    "card_mod": {
+                      "style": ":host {\n  position: absolute;\n  bottom: 20px;\n  right: 0;\n  height: 300px;\n  width: 620px;\n}\nha-card {\n  background: transparent;\n  font-size: 1.5rem;\n  text-shadow: 0 0 10px currentColor;\n}\n"
                     },
-                    "graph_span": "5d",
-                    "update_interval": "1h",
-                    "cache": false,
-                    "span": {
-                      "start": "day"
-                    },
-                    "apex_config": {
-                      "chart": {
-                        "height": 300,
-                        "width": 620,
-                        "background": "transparent",
-                        "dropShadow": {
-                          "enabled": false
-                        }
-                      },
-                      "theme": {
-                        "mode": "dark"
-                      },
-                      "grid": {
-                        "borderColor": "rgba(255, 255, 255, 0.5)",
-                        "strokeDashArray": 5,
-                        "xaxis": {
-                          "lines": {
-                            "show": false
-                          }
-                        },
-                        "yaxis": {
-                          "lines": {
-                            "show": false
-                          }
-                        },
-                        "padding": {
-                          "left": 32,
-                          "right": 64
-                        }
-                      },
-                      "legend": {
-                        "show": false
-                      },
-                      "annotations": {
-                        "yaxis": [
+                    "cards": [
+                      {
+                        "type": "vertical-stack",
+                        "cards": [
                           {
-                            "y": 6,
-                            "borderColor": "rgba(255, 192, 203, 0.3)",
-                            "strokeDashArray": 4
+                            "type": "custom:weather-chart-card",
+                            "entity": "weather.forecast_home",
+                            "show_main": false,
+                            "show_attributes": false,
+                            "animated_icons": true,
+                            "icon_style": "style1",
+                            "icons_size": 48,
+                            "locale": "sv",
+                            "forecast": {
+                              "type": "daily",
+                              "show_wind_forecast": false
+                            },
+                            "card_mod": {
+                              "style": ":host {\n  position: absolute;\n  right: 0;\n  left: -40px;\n  bottom: 80px;\n}\nha-card {\n  background: none;\n}\n.chart-container {\n  display: none;\n}\n"
+                            }
+                          },
+                          {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                              "show": true,
+                              "show_states": true,
+                              "colorize_states": true
+                            },
+                            "graph_span": "5d",
+                            "span": {
+                              "start": "day"
+                            },
+                            "apex_config": {
+                              "chart": {
+                                "height": 300,
+                                "width": 620,
+                                "background": "transparent",
+                                "dropShadow": {
+                                  "enabled": false
+                                }
+                              },
+                              "theme": {
+                                "mode": "dark"
+                              },
+                              "grid": {
+                                "borderColor": "rgba(255, 255, 255, 0.5)",
+                                "strokeDashArray": 5,
+                                "xaxis": {
+                                  "lines": {
+                                    "show": false
+                                  }
+                                },
+                                "yaxis": {
+                                  "lines": {
+                                    "show": false
+                                  }
+                                },
+                                "padding": {
+                                  "left": 32,
+                                  "right": 64
+                                }
+                              },
+                              "legend": {
+                                "show": false
+                              },
+                              "annotations": {
+                                "yaxis": [
+                                  {
+                                    "y": 6,
+                                    "borderColor": "rgba(255, 192, 203, 0.3)",
+                                    "strokeDashArray": 4
+                                  }
+                                ]
+                              },
+                              "tooltip": {
+                                "x": {
+                                  "show": false
+                                }
+                              },
+                              "dataLabels": {
+                                "enabled": true,
+                                "enabledOnSeries": [
+                                  0,
+                                  1
+                                ]
+                              },
+                              "xaxis": {
+                                "type": "datetime",
+                                "tickAmount": 5,
+                                "position": "bottom",
+                                "axisBorder": {
+                                  "show": false
+                                },
+                                "axisTicks": {
+                                  "show": false
+                                },
+                                "tooltip": {
+                                  "enabled": false
+                                },
+                                "labels": {
+                                  "style": {
+                                    "fontSize": 20
+                                  },
+                                  "formatter": "EVAL:function(value) {\n  const date = new Date(value);\n  const options = { weekday: 'short' };\n  return date.toLocaleDateString('sv-SE', options);\n}\n"
+                                }
+                              },
+                              "yaxis": [
+                                {
+                                  "id": "main",
+                                  "opposite": true,
+                                  "decimals": 0,
+                                  "labels": {
+                                    "show": false
+                                  }
+                                }
+                              ]
+                            },
+                            "card_mod": {
+                              "style": "ha-card {\n  background: transparent;\n  font-size: 1.5rem;\n  text-shadow: 0 0 10px currentColor;\n}\nha-card .wrapper {\n  grid-template-areas: 'graph' 'header';\n}\nsvg path {\n  filter: drop-shadow(0 0 10px currentColor);\n}\n"
+                            },
+                            "series": [
+                              {
+                                "entity": "sensor.weather_forecast_daily",
+                                "name": "Temp Max (°C)",
+                                "type": "line",
+                                "color": "orange",
+                                "stroke_width": 2,
+                                "float_precision": 0,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.temperature]);\n"
+                              },
+                              {
+                                "entity": "sensor.weather_forecast_daily",
+                                "name": "Temp Min (°C)",
+                                "type": "line",
+                                "color": "var(--primary-color)",
+                                "stroke_width": 2,
+                                "float_precision": 0,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.templow]);\n"
+                              },
+                              {
+                                "entity": "sensor.weather_forecast_daily",
+                                "name": "Vind (m/s)",
+                                "type": "line",
+                                "color": "pink",
+                                "stroke_width": 1,
+                                "float_precision": 0,
+                                "opacity": 0.5,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.wind_speed / 3.6]);\n"
+                              },
+                              {
+                                "entity": "sensor.weather_forecast_daily",
+                                "name": "Regn (mm)",
+                                "type": "area",
+                                "color": "#4e6881",
+                                "stroke_width": 1,
+                                "float_precision": 0,
+                                "opacity": 0.2,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.precipitation]);\n"
+                              }
+                            ]
                           }
                         ]
                       },
-                      "tooltip": {
-                        "x": {
-                          "show": false
-                        }
-                      },
-                      "dataLabels": {
-                        "enabled": true,
-                        "enabledOnSeries": true,
-                        "formatter": "EVAL:function(value, { seriesIndex }) {\n  return seriesIndex < 2 ? Math.round(value) : '';\n}\n"
-                      },
-                      "xaxis": {
-                        "type": "datetime",
-                        "tickAmount": 5,
-                        "position": "bottom",
-                        "axisBorder": {
-                          "show": false
-                        },
-                        "axisTicks": {
-                          "show": false
-                        },
-                        "tooltip": {
-                          "enabled": false
-                        },
-                        "labels": {
-                          "style": {
-                            "fontSize": 20
+                      {
+                        "type": "vertical-stack",
+                        "cards": [
+                          {
+                            "type": "custom:weather-chart-card",
+                            "entity": "weather.forecast_home",
+                            "show_main": false,
+                            "show_attributes": false,
+                            "animated_icons": true,
+                            "icon_style": "style1",
+                            "icons_size": 48,
+                            "locale": "sv",
+                            "forecast": {
+                              "type": "hourly",
+                              "show_wind_forecast": false,
+                              "number_of_forecasts": 24
+                            },
+                            "card_mod": {
+                              "style": ":host {\n  position: absolute;\n  right: 20px;\n  left: -20px;\n  bottom: 80px;\n}\nha-card {\n  background: none;\n}\n.chart-container {\n  display: none;\n}\n.conditions > * {\n  display: none;\n}\n\n.conditions > :nth-child(3n) {\n  display: block;\n}\n"
+                            }
                           },
-                          "formatter": "EVAL:function(value) {\n  const date = new Date(value);\n  const options = { weekday: 'short' };\n  return date.toLocaleDateString('sv-SE', options);\n}\n"
-                        }
-                      },
-                      "yaxis": [
-                        {
-                          "id": "main",
-                          "opposite": true,
-                          "decimals": 0,
-                          "labels": {
-                            "show": false
+                          {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                              "show": true,
+                              "show_states": true,
+                              "colorize_states": true
+                            },
+                            "graph_span": "24h",
+                            "span": {
+                              "start": "hour"
+                            },
+                            "apex_config": {
+                              "chart": {
+                                "height": 300,
+                                "width": 620,
+                                "background": "transparent",
+                                "dropShadow": {
+                                  "enabled": false
+                                }
+                              },
+                              "theme": {
+                                "mode": "dark"
+                              },
+                              "grid": {
+                                "borderColor": "rgba(255, 255, 255, 0.5)",
+                                "strokeDashArray": 5,
+                                "xaxis": {
+                                  "lines": {
+                                    "show": false
+                                  }
+                                },
+                                "yaxis": {
+                                  "lines": {
+                                    "show": false
+                                  }
+                                },
+                                "padding": {
+                                  "left": 32,
+                                  "right": 64
+                                }
+                              },
+                              "legend": {
+                                "show": false
+                              },
+                              "annotations": {
+                                "yaxis": [
+                                  {
+                                    "y": 6,
+                                    "borderColor": "rgba(255, 192, 203, 0.3)",
+                                    "strokeDashArray": 4
+                                  }
+                                ]
+                              },
+                              "tooltip": {
+                                "x": {
+                                  "show": false
+                                }
+                              },
+                              "dataLabels": {
+                                "enabled": true,
+                                "enabledOnSeries": [
+                                  0
+                                ],
+                                "formatter": "EVAL:function(value, { seriesIndex, dataPointIndex, w }) {\n  const data = w.config.series[seriesIndex].data.map(p => p[1]);\n  const curr = data[dataPointIndex];\n  const prev = data[dataPointIndex - 1] ?? curr;\n  const next = data[dataPointIndex + 1] ?? curr;\n  const isLocalMax = curr > prev && curr >= next;\n  const isLocalMin = curr < prev && curr <= next;\n  if (isLocalMin || isLocalMax || dataPointIndex === 0) {\n    return Math.round(value) + \"°\";\n  }\n  return '';\n}\n"
+                              },
+                              "xaxis": {
+                                "type": "datetime",
+                                "tickAmount": 8,
+                                "position": "bottom",
+                                "axisBorder": {
+                                  "show": false
+                                },
+                                "axisTicks": {
+                                  "show": false
+                                },
+                                "tooltip": {
+                                  "enabled": false
+                                },
+                                "labels": {
+                                  "style": {
+                                    "fontSize": 20
+                                  },
+                                  "formatter": "EVAL:function(value) {\n  const date = new Date(value);\n  return date.toLocaleTimeString('sv-SE', {\n    hour: '2-digit',\n    minute: '2-digit'\n  });\n}\n"
+                                }
+                              },
+                              "yaxis": [
+                                {
+                                  "id": "main",
+                                  "opposite": true,
+                                  "decimals": 0,
+                                  "labels": {
+                                    "show": false
+                                  }
+                                }
+                              ]
+                            },
+                            "card_mod": {
+                              "style": "ha-card {\n  background: transparent;\n  font-size: 1.5rem;\n  text-shadow: 0 0 10px currentColor;\n}\nha-card .wrapper {\n  grid-template-areas: 'graph' 'header';\n}\nsvg path {\n  filter: drop-shadow(0 0 10px currentColor);\n}\n"
+                            },
+                            "series": [
+                              {
+                                "entity": "sensor.weather_forecast_hourly",
+                                "name": "Temp (°C)",
+                                "type": "line",
+                                "color": "orange",
+                                "stroke_width": 2,
+                                "float_precision": 0,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).getTime(), f.temperature]);\n"
+                              },
+                              {
+                                "entity": "sensor.weather_forecast_hourly",
+                                "name": "Vind (m/s)",
+                                "type": "line",
+                                "color": "pink",
+                                "stroke_width": 1,
+                                "float_precision": 0,
+                                "opacity": 0.5,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).getTime(), f.wind_speed / 3.6]);\n"
+                              },
+                              {
+                                "entity": "sensor.weather_forecast_hourly",
+                                "name": "Regn (mm)",
+                                "type": "area",
+                                "color": "#4e6881",
+                                "stroke_width": 1,
+                                "float_precision": 0,
+                                "opacity": 0.2,
+                                "yaxis_id": "main",
+                                "show": {
+                                  "in_header": "before_now"
+                                },
+                                "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).getTime(), f.precipitation]);\n"
+                              }
+                            ]
                           }
-                        }
-                      ]
-                    },
-                    "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  bottom: 20px;\n  right: 0;\n}\nha-card {\n  background: transparent;\n  font-size: 1.5rem;\n  text-shadow: 0 0 10px currentColor;\n}\nha-card .wrapper {\n  grid-template-areas: 'graph' 'header';\n}\nsvg path {\n  filter: drop-shadow(0 0 10px currentColor);\n}\n"
-                    },
-                    "series": [
-                      {
-                        "entity": "sensor.weather_forecast_daily",
-                        "name": "Temp Max (°C)",
-                        "type": "line",
-                        "color": "orange",
-                        "stroke_width": 2,
-                        "float_precision": 0,
-                        "yaxis_id": "main",
-                        "show": {
-                          "in_header": "before_now"
-                        },
-                        "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.temperature]);\n"
-                      },
-                      {
-                        "entity": "sensor.weather_forecast_daily",
-                        "name": "Temp Min (°C)",
-                        "type": "line",
-                        "color": "var(--primary-color)",
-                        "stroke_width": 2,
-                        "float_precision": 0,
-                        "yaxis_id": "main",
-                        "show": {
-                          "in_header": "before_now"
-                        },
-                        "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.templow]);\n"
-                      },
-                      {
-                        "entity": "sensor.weather_forecast_daily",
-                        "name": "Vind (m/s)",
-                        "type": "line",
-                        "color": "pink",
-                        "stroke_width": 1,
-                        "float_precision": 0,
-                        "opacity": 0.5,
-                        "yaxis_id": "main",
-                        "show": {
-                          "in_header": "before_now"
-                        },
-                        "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.wind_speed / 3.6]);\n"
-                      },
-                      {
-                        "entity": "sensor.weather_forecast_daily",
-                        "name": "Regn (mm)",
-                        "type": "area",
-                        "color": "#4e6881",
-                        "stroke_width": 1,
-                        "float_precision": 0,
-                        "opacity": 0.2,
-                        "yaxis_id": "main",
-                        "show": {
-                          "in_header": "before_now"
-                        },
-                        "data_generator": "return entity.attributes.forecast.map(f => [new Date(f.datetime).setHours(0,0,0,0), f.precipitation]);\n"
+                        ]
                       }
                     ]
                   },

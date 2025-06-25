@@ -133,6 +133,11 @@
         "id": "7711961136694ff1bbe84f1cbd23638c",
         "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
         "type": "module"
+      },
+      {
+        "id": "19706d88c2bf4a959ecdc8cab8354f85",
+        "url": "/hacsfiles/simple-swipe-card/simple-swipe-card.js?hacstag=970744650171",
+        "type": "module"
       }
     ]
   }
