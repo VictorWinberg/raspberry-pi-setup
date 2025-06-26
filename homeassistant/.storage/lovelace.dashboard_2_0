@@ -94,9 +94,9 @@
                   },
                   {
                     "type": "markdown",
-                    "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n  \"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Januari\",\n  \"Februari\", \"Mars\", \"April\", \"Maj\", \"Juni\", \"Juli\",\n  \"Augusti\", \"September\", \"Oktober\", \"November\", \"December\"]\n  %} {% set weekday = weekdays[now().weekday()] %} {% set\n  month = months[now().month - 1] %} {% set day = now().day %}\n{{ \"%s, %s %s\" | format(weekday, day, month) }}\n",
+                    "content": "{% set weekdays = [\"Måndag\", \"Tisdag\", \"Onsdag\", \"Torsdag\",\n  \"Fredag\", \"Lördag\", \"Söndag\"] %} {% set months = [\"Jan\",\n  \"Feb\", \"Mars\", \"Apr\", \"Maj\", \"Juni\", \"Juli\",\n  \"Aug\", \"Sep\", \"Okt\", \"Nov\", \"Dec\"]\n  %} {% set weekday = weekdays[now().weekday()] %} {% set\n  month = months[now().month - 1] %} {% set day = now().day %}\n{{ \"%s, %s %s\" | format(weekday, day, month) }}\n",
                     "card_mod": {
-                      "style": ":host {\n  position: absolute;\n  bottom: 100px;\n  left: 26px;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
+                      "style": ":host {\n  position: absolute;\n  bottom: 100px;\n  left: 26px;\n  z-index: 1;\n} ha-card {\n  background: none;\n  font-family: 'Digital-7', sans-serif;\n  font-size: 100px;\n  line-height: 1;\n  color: var(--primary-color);\n  text-shadow: 0 0 10px currentColor;\n  text-align: left;\n}\n"
                     }
                   },
                   {
@@ -452,7 +452,7 @@
                               "number_of_forecasts": 24
                             },
                             "card_mod": {
-                              "style": ":host {\n  position: absolute;\n  right: 20px;\n  left: -20px;\n  bottom: 80px;\n}\nha-card {\n  background: none;\n}\n.chart-container {\n  display: none;\n}\n.conditions > * {\n  display: none;\n}\n\n.conditions > :nth-child(3n) {\n  display: block;\n}\n"
+                              "style": ":host {\n  position: absolute;\n  right: 10px;\n  left: -30px;\n  bottom: 80px;\n}\nha-card {\n  background: none;\n}\n.chart-container {\n  display: none;\n}\n.conditions > * {\n  display: none;\n}\n.conditions > :first-child, .conditions > :nth-child(4n) {\n  display: block;\n}\n"
                             }
                           },
                           {
@@ -518,11 +518,11 @@
                                 "enabledOnSeries": [
                                   0
                                 ],
-                                "formatter": "EVAL:function(value, { seriesIndex, dataPointIndex, w }) {\n  const data = w.config.series[seriesIndex].data.map(p => p[1]);\n  const curr = data[dataPointIndex];\n  const prev = data[dataPointIndex - 1] ?? curr;\n  const next = data[dataPointIndex + 1] ?? curr;\n  const isLocalMax = curr > prev && curr >= next;\n  const isLocalMin = curr < prev && curr <= next;\n  if (isLocalMin || isLocalMax || dataPointIndex === 0) {\n    return Math.round(value) + \"°\";\n  }\n  return '';\n}\n"
+                                "formatter": "EVAL:function(value, { dataPointIndex }) {\n  if (dataPointIndex % 4 === 0) {\n    return Math.round(value) + \"°\";\n  }\n  return '';\n}\n"
                               },
                               "xaxis": {
                                 "type": "datetime",
-                                "tickAmount": 8,
+                                "tickAmount": 6,
                                 "position": "bottom",
                                 "axisBorder": {
                                   "show": false
