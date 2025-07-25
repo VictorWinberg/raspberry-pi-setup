@@ -137,8 +137,7 @@
                         {
                           "entity": "media_player.mio_tv",
                           "tap_action": {
-                            "action": "call-service",
-                            "service": "script.ping_tv"
+                            "action": "more-info"
                           },
                           "state_action": {
                             "action": "call-service",
