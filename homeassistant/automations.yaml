@@ -363,21 +363,6 @@
   - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
     continue_on_timeout: false
     timeout: 01:00:00
-  - delay:
-      hours: 0
-      minutes: 30
-      seconds: 0
-      milliseconds: 0
-  - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
-    continue_on_timeout: false
-    timeout: 01:00:00
-  - data: {}
-    target:
-      entity_id: switch.water_pump_switch
-    action: switch.turn_on
-  - wait_template: '{{ states(''switch.water_pump_switch'') == ''off'' }}'
-    continue_on_timeout: false
-    timeout: 01:00:00
   - data:
       title: Watering Plants
       message: '{{ ''Done watering at '' + as_timestamp(now()) | timestamp_custom(''%H:%M'')  }}'
