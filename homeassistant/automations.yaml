@@ -783,7 +783,7 @@
     state: 'True'
   - condition: time
     after: 06:00:00
-    before: '22:00:00'
+    before: '20:00:00'
   actions:
   - choose:
     - conditions:
@@ -795,6 +795,9 @@
         - condition: state
           entity_id: binary_sensor.motion_kitchen
           state: 'on'
+      - condition: state
+        entity_id: light.kitchen_lights
+        state: 'off'
       sequence:
       - target:
           entity_id: light.hallway_lights
