@@ -712,7 +712,7 @@
                             "include": [
                               {
                                 "entity_id": "/sensor\\..*battery/",
-                                "state": "< 20",
+                                "state": "< 10",
                                 "attributes": {
                                   "unit_of_measurement": "%"
                                 }
