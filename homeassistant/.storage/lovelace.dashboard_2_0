@@ -797,6 +797,17 @@
                       },
                       {
                         "type": "custom:mushroom-light-card",
+                        "entity": "switch.window_plug",
+                        "layout": "horizontal",
+                        "primary_info": "none",
+                        "secondary_info": "none",
+                        "style": {
+                          "top": "51%",
+                          "left": "83%"
+                        }
+                      },
+                      {
+                        "type": "custom:mushroom-light-card",
                         "entity": "light.living_room",
                         "layout": "horizontal",
                         "primary_info": "none",
