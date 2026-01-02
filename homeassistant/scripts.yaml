@@ -304,7 +304,7 @@ good_night:
       entity_id: script.blinds_close
       action: script.turn_on
     - data:
-        volume_level: 0.02
+        volume_level: 0.2
       target:
         entity_id:
         - media_player.rey
@@ -344,21 +344,6 @@ good_night:
       target:
         entity_id: light.philips_hue
       action: light.turn_on
-    - delay:
-        hours: 0
-        minutes: 0
-        seconds: 1
-        milliseconds: 0
-    - data_template:
-        brightness: 1
-        transition: '{{ states(''input_number.goodnight_transition_time'') | int *
-          60 }} '
-        rgb_color:
-        - 255
-        - 0
-        - 0
-        entity_id: light.philips_hue
-      action: light.turn_on
     - data:
         entity_id: media_player.speakers
         uri: input_text.goodnight_playlist
@@ -367,10 +352,6 @@ good_night:
       action: script.play_spotify
       continue_on_error: true
     - delay: '{{ states(''input_number.goodnight_transition_time'') | int * 60 }}'
-    - data: {}
-      target:
-        entity_id: light.philips_hue
-      action: light.turn_off
     - data: {}
       target:
         entity_id:
