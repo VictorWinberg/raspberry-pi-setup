@@ -610,6 +610,39 @@
                       "type": "vertical-stack",
                       "cards": [
                         {
+                          "type": "horizontal-stack",
+                          "cards": [
+                            {
+                              "type": "custom:mushroom-person-card",
+                              "entity": "sensor.stella_profile",
+                              "name": "Stella",
+                              "icon_type": "entity-picture",
+                              "layout": "horizontal",
+                              "tap_action": {
+                                "action": "more-info"
+                              },
+                              "fill_container": false,
+                              "secondary_info": "none",
+                              "primary_info": "name"
+                            },
+                            {
+                              "type": "custom:mushroom-template-card",
+                              "vertical": false,
+                              "features_position": "bottom",
+                              "tap_action": {
+                                "action": "more-info"
+                              },
+                              "primary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  Matas\n{% else %}\n  {{ states('sensor.stella_previous_feed_start') | as_timestamp | timestamp_custom('%H:%M') }}\n{% endif %}\n",
+                              "secondary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  Just nu\n{% else %}\n  {% set last = states('sensor.stella_previous_feed_start') | as_timestamp %}\n  {% set diff = (now().timestamp() - last) | int %}\n  {% set hours = diff // 3600 %}\n  {% set minutes = (diff % 3600) // 60 %}\n  {{ hours }}h {{ minutes }}m\n{% endif %}\n",
+                              "icon": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  mdi:baby-bottle\n{% else %}\n  {% if states('sensor.stella_last_feeding_side') == 'Left' %}\n    mdi:arrow-left-bold\n  {% elif states('sensor.stella_last_feeding_side') == 'Right' %}\n    mdi:arrow-right-bold\n  {% else %}\n    mdi:swap-horizontal\n  {% endif %}\n{% endif %}\n",
+                              "color": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  green\n{% else %}\n  blue\n{% endif %}\n",
+                              "card_mod": {
+                                "style": "ha-card {\n  {% if states('sensor.stella_feeding_status') == 'feeding' %}\n    background: rgba(0,255,0,0.2);\n  {% else %}\n    {% set last = states('sensor.stella_previous_feed_start') | as_timestamp %}\n    {% set diff = (now().timestamp() - last) | int %}\n    {% set interval_sec = state_attr('input_datetime.time_between_feeding', 'timestamp') %}\n    {% if diff >= interval_sec %}\n      background: rgba(255,0,0,0.2);\n    {% elif diff >= (interval_sec - 1800) %}\n      background: rgba(255,255,0,0.2);\n    {% else %}\n      background: rgba(0,0,255,0.1);\n    {% endif %}\n  {% endif %}\n  border-radius: 16px;\n  box-shadow: 0 2px 6px rgba(0,0,0,0.2);\n}\n"
+                              }
+                            }
+                          ]
+                        },
+                        {
                           "type": "custom:auto-entities",
                           "card": {
                             "type": "entities"

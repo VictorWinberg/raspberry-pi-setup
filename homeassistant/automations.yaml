@@ -899,3 +899,69 @@
       brightness_pct: '{{ states(''input_number.light_brightness'') }}'
   mode: parallel
   max: 10
+- id: '1767477067429'
+  alias: Morning - Turn on Dashboard
+  description: ''
+  triggers:
+  - trigger: time
+    at: 07:00:00
+  conditions:
+  - condition: state
+    entity_id: sensor.someone_home
+    state: 'True'
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.dashboard
+  mode: single
+- id: '1767478509432'
+  alias: Stella Feed Reminder
+  description: Remind with TTS how long since last feeding
+  triggers:
+  - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
+      as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
+      %} {{ ((last + interval) - now().timestamp()) | int <= 1800 }}   # triggers
+      30 min or less
+
+      '
+    trigger: template
+  - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
+      as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
+      %} {{ ((last + interval) - now().timestamp()) | int <= 900 }}    # triggers
+      15 min or less
+
+      '
+    trigger: template
+  - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
+      as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
+      %} {{ ((last + interval) - now().timestamp()) | int <= 0 }}      # triggers
+      at feeding time
+
+      '
+    trigger: template
+  conditions:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.stella_feeding_status
+      state: feeding
+  actions:
+  - action: media_player.volume_set
+    metadata: {}
+    data:
+      volume_level: 0.1
+    target:
+      entity_id: media_player.rey
+  - target:
+      entity_id: media_player.rey
+    data:
+      language: sv
+      message: '{% set last_ts = states(''sensor.stella_previous_feed_start'') | as_timestamp
+        %} {% set diff = (now().timestamp() - last_ts) | int %} {% set hours = diff
+        // 3600 %} {% set minutes = (diff % 3600) // 60 %} Det har gått {{ hours }}
+        timmar och {{ minutes }} minuter sedan Stellas senaste matning.
+
+        '
+    action: tts.google_translate_say
