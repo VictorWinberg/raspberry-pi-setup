@@ -16,17 +16,15 @@
               "type": "horizontal-stack",
               "cards": [
                 {
-                  "type": "custom:mushroom-person-card",
+                  "type": "custom:mushroom-template-card",
                   "entity": "sensor.stella_profile",
-                  "name": "Stella",
-                  "icon_type": "entity-picture",
-                  "layout": "horizontal",
+                  "primary": "Stella",
+                  "secondary": "{% set start = strptime('2025-12-28', '%Y-%m-%d').timestamp() %} {% set diff = (now().timestamp() - start) | int %} {% set weeks = diff // (7 * 86400) %} {% set days = (diff % (7 * 86400)) // 86400 %}\n  {{ weeks }}v {{ days }}d\n",
+                  "picture": "{{ state_attr('sensor.stella_profile', 'entity_picture') }}",
                   "tap_action": {
                     "action": "more-info"
                   },
-                  "fill_container": false,
-                  "secondary_info": "none",
-                  "primary_info": "name"
+                  "features_position": "bottom"
                 },
                 {
                   "type": "custom:mushroom-template-card",
@@ -35,8 +33,8 @@
                   "tap_action": {
                     "action": "more-info"
                   },
-                  "primary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  Matas\n{% else %}\n  {{ states('sensor.stella_previous_feed_start') | as_timestamp | timestamp_custom('%H:%M') }}\n{% endif %}\n",
-                  "secondary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  Just nu\n{% else %}\n  {% set last = states('sensor.stella_previous_feed_start') | as_timestamp %}\n  {% set diff = (now().timestamp() - last) | int %}\n  {% set hours = diff // 3600 %}\n  {% set minutes = (diff % 3600) // 60 %}\n  {{ hours }}h {{ minutes }}m\n{% endif %}\n",
+                  "secondary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  Matas\n{% else %}\n  {{ states('sensor.stella_previous_feed_start') | as_timestamp | timestamp_custom('%H:%M') }}\n{% endif %}\n",
+                  "primary": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  {% set changed = states.sensor.stella_feeding_status.last_changed | as_timestamp %}\n  {% set diff = (now().timestamp() - changed) | int %}\n  {% set minutes = diff // 60 %}\n  {{ minutes }}m\n{% else %}\n  {% set last = states('sensor.stella_previous_feed_start') | as_timestamp %}\n  {% set diff = (now().timestamp() - last) | int %}\n  {% set hours = diff // 3600 %}\n  {% set minutes = (diff % 3600) // 60 %}\n  {{ hours }}h {{ minutes }}m\n{% endif %}\n",
                   "icon": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  mdi:baby-bottle\n{% else %}\n  {% if states('sensor.stella_last_feeding_side') == 'Left' %}\n    mdi:arrow-left-bold\n  {% elif states('sensor.stella_last_feeding_side') == 'Right' %}\n    mdi:arrow-right-bold\n  {% else %}\n    mdi:swap-horizontal\n  {% endif %}\n{% endif %}\n",
                   "color": "{% if states('sensor.stella_feeding_status') == 'feeding' %}\n  green\n{% else %}\n  blue\n{% endif %}\n",
                   "card_mod": {
@@ -46,7 +44,8 @@
                 {
                   "type": "custom:mushroom-template-card",
                   "entity": "input_datetime.time_between_feeding",
-                  "primary": "{% set interval_sec = state_attr('input_datetime.time_between_feeding', 'timestamp') %} {% set hours = interval_sec // 3600 %} {% set minutes = (interval_sec % 3600) // 60 %} {{ hours }}h {{ minutes }}m\n",
+                  "primary": "{% if states('sensor.stella_feeding_status') == 'feeding' %} {% set last_feed = states.sensor.stella_feeding_status.last_changed | as_timestamp %}\n {% else %}\n{% set last_feed = states('sensor.stella_previous_feed_start') | as_timestamp %} {% endif %} {% set interval_sec= state_attr('input_datetime.time_between_feeding', 'timestamp') %}  {% set remaining = (last_feed + interval_sec - now().timestamp()) | int %} {% set sign = remaining < 0 and '-' or '' %} {% set remaining_abs = remaining | abs %} {% set h = remaining_abs // 3600 %} {% set m = (remaining_abs % 3600) // 60 %}\n\n  {{ sign }}{{ h }}h {{ m }}m\n  \n",
+                  "secondary": "{% set interval_sec = state_attr('input_datetime.time_between_feeding', 'timestamp') %}  {% set hours = interval_sec // 3600 %}  {% set minutes = (interval_sec % 3600) // 60 %} \n  ({{ hours }}h {{ minutes }}m)\n",
                   "icon": "mdi:timer-outline",
                   "vertical": false,
                   "features_position": "bottom",
@@ -119,6 +118,18 @@
                   },
                   {
                     "type": "custom:button-card",
+                    "entity": "light.kitchen_lights",
+                    "name": "Kitchen",
+                    "icon": "mdi:fridge-outline",
+                    "tap_action": {
+                      "action": "toggle"
+                    },
+                    "hold_action": {
+                      "action": "more-info"
+                    }
+                  },
+                  {
+                    "type": "custom:button-card",
                     "entity": "light.dining_lights",
                     "name": "Dining",
                     "icon": "mdi:table-chair",
@@ -146,18 +157,6 @@
                     "entity": "switch.window_plug",
                     "name": "Window",
                     "icon": "mdi:lamp-outline",
-                    "tap_action": {
-                      "action": "toggle"
-                    },
-                    "hold_action": {
-                      "action": "more-info"
-                    }
-                  },
-                  {
-                    "type": "custom:button-card",
-                    "entity": "light.kitchen_lights",
-                    "name": "Kitchen",
-                    "icon": "mdi:fridge-outline",
                     "tap_action": {
                       "action": "toggle"
                     },
@@ -268,54 +267,29 @@
                     "shortcuts": {
                       "buttons": [
                         {
+                          "type": "service",
+                          "id": "media_player.play_media",
                           "data": {
                             "entity_id": "media_player.speakers",
-                            "uri": "input_text.annie_playlist",
-                            "account": "ms"
+                            "media_content_id": "https://live1.sr.se/p4malm-mp3-96",
+                            "media_content_type": "music"
                           },
-                          "icon": "mdi:face-woman",
-                          "id": "script.play_spotify",
-                          "type": "script"
+                          "icon": "mdi:radio"
                         },
                         {
-                          "data": {
-                            "entity_id": "media_player.speakers",
-                            "uri": "input_text.victor_playlist",
-                            "account": "mr"
-                          },
-                          "icon": "mdi:face-man",
-                          "id": "script.play_spotify",
-                          "type": "script"
+                          "type": "music",
+                          "id": "https://stream.radioparadise.com/mellow-128",
+                          "icon": "mdi:music-note"
                         },
                         {
-                          "data": {
-                            "entity_id": "media_player.speakers",
-                            "uri": "input_text.couple_playlist",
-                            "account": "mr"
-                          },
-                          "icon": "mdi:account-supervisor",
-                          "id": "script.play_spotify",
-                          "type": "script"
+                          "type": "music",
+                          "id": "http://ice.somafm.com/lush",
+                          "icon": "mdi:glass-cocktail"
                         },
                         {
-                          "data": {
-                            "entity_id": "media_player.speakers",
-                            "uri": "input_text.dinner_playlist",
-                            "account": "mr"
-                          },
-                          "icon": "mdi:glass-wine",
-                          "id": "script.play_spotify",
-                          "type": "script"
-                        },
-                        {
-                          "data": {
-                            "entity_id": "media_player.speakers",
-                            "uri": "input_text.custom_playlist",
-                            "account": "ms"
-                          },
-                          "icon": "mdi:star",
-                          "id": "script.play_spotify",
-                          "type": "script"
+                          "type": "music",
+                          "id": "http://ice.somafm.com/groovesalad",
+                          "icon": "mdi:leaf"
                         }
                       ],
                       "columns": 5

@@ -922,22 +922,22 @@
   triggers:
   - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
       as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
-      %} {{ ((last + interval) - now().timestamp()) | int <= 1800 }}   # triggers
-      30 min or less
+      %}  {% set remaining = (last + interval - now().timestamp()) | int %} {{ remaining
+      <= 0 and remaining > -900 }}
 
       '
     trigger: template
   - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
       as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
-      %} {{ ((last + interval) - now().timestamp()) | int <= 900 }}    # triggers
-      15 min or less
+      %} {# Negative remaining time means overdue #} {% set remaining = (last + interval
+      - now().timestamp()) | int %} {{ remaining <= -900 and remaining > -1800 }}
 
       '
     trigger: template
   - value_template: '{% set last = states(''sensor.stella_previous_feed_start'') |
       as_timestamp %} {% set interval = state_attr(''input_datetime.time_between_feeding'',''timestamp'')
-      %} {{ ((last + interval) - now().timestamp()) | int <= 0 }}      # triggers
-      at feeding time
+      %} {# More than 30 minutes overdue #} {% set remaining = (last + interval -
+      now().timestamp()) | int %} {{ remaining <= -1800 }}
 
       '
     trigger: template
