@@ -13,7 +13,6 @@ Versioned backup of the Raspberry Pi homelab Docker stacks and Home Assistant co
 
 ## Related repos
 
-- **rpi-setup** — step-by-step rebuild guides; start at `setup/README.md`
 - **[raspberry-pi-backup](https://github.com/VictorWinberg/raspberry-pi-backup)** — crons and Postgres SQL dumps
 
 ## Notes
