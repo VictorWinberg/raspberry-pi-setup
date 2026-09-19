@@ -1,0 +1,10 @@
+# Secrets — backed up by Restic on the Pi, not committed
+.env
+passwordfile
+credentials.json
+
+# Runtime / persistent data — not compose config
+data/
+
+# OS / editor
+.DS_Store
