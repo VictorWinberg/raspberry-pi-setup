@@ -1,4 +1,4 @@
-# Secrets — backed up by Restic on the Pi, not committed
+# Secrets
 .env
 passwordfile
 credentials.json
