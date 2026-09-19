@@ -1,0 +1,18 @@
+services:
+  jsonvault:
+    image: ghcr.io/victorwinberg/jsonvault:latest
+    container_name: jsonvault
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jsonvault.rule=Host(`json.codies.se`)"
+      - "traefik.http.routers.jsonvault.entrypoints=websecure"
+      - "traefik.http.routers.jsonvault.tls.certresolver=letsencrypt"
+      - "traefik.http.services.jsonvault.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true

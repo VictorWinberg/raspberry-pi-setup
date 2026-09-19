@@ -1,0 +1,18 @@
+services:
+  onemenu:
+    image: ghcr.io/annieleonia/onemenu:latest
+    container_name: onemenu
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.onemenu.rule=Host(`menu.codies.se`)"
+      - "traefik.http.routers.onemenu.entrypoints=websecure"
+      - "traefik.http.routers.onemenu.tls.certresolver=letsencrypt"
+      - "traefik.http.services.onemenu.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true

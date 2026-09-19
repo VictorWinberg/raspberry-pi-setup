@@ -1,0 +1,18 @@
+services:
+  onelist:
+    image: ghcr.io/victorwinberg/onelist:latest
+    container_name: onelist
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.onelist.rule=Host(`shop.codies.se`)"
+      - "traefik.http.routers.onelist.entrypoints=websecure"
+      - "traefik.http.routers.onelist.tls.certresolver=letsencrypt"
+      - "traefik.http.services.onelist.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true

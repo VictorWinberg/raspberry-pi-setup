@@ -1,0 +1,18 @@
+services:
+  qr-hunt:
+    image: ghcr.io/victorwinberg/qr-hunt:latest
+    container_name: qr-hunt
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.qrhunt.rule=Host(`qr.codies.se`)"
+      - "traefik.http.routers.qrhunt.entrypoints=websecure"
+      - "traefik.http.routers.qrhunt.tls.certresolver=letsencrypt"
+      - "traefik.http.services.qrhunt.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true

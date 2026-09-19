@@ -1,0 +1,22 @@
+services:
+  codies:
+    image: ghcr.io/victorwinberg/home:latest
+    container_name: codies
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PUBLIC_DATA_DIR: /data/public
+    volumes:
+      - /srv/data/codies/public:/data/public:ro
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.home.rule=Host(`codies.se`) || Host(`www.codies.se`)"
+      - "traefik.http.routers.home.entrypoints=websecure"
+      - "traefik.http.routers.home.tls.certresolver=letsencrypt"
+      - "traefik.http.services.home.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true

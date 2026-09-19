@@ -1,0 +1,10 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /opt/stacks/mosquitto/config:/mosquitto/config
+      - /srv/data/mosquitto/data:/mosquitto/data
+      - /srv/data/mosquitto/log:/mosquitto/log

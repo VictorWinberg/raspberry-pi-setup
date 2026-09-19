@@ -1,0 +1,20 @@
+services:
+  traefik:
+    image: traefik:v3.6.1
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9000:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /opt/stacks/traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - /opt/stacks/traefik/dynamic:/etc/traefik/dynamic:ro
+      - /srv/data/traefik:/letsencrypt
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

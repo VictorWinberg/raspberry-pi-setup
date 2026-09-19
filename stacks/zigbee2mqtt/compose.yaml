@@ -1,0 +1,13 @@
+services:
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt:latest
+    container_name: zigbee2mqtt
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /srv/data/zigbee2mqtt:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE1996631-if00:/dev/ttyACM0
+    environment:
+      TZ: Europe/Stockholm

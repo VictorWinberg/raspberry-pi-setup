@@ -1,0 +1,15 @@
+http:
+  routers:
+    homeassistant:
+      rule: "Host(`home.codies.se`)"
+      entryPoints:
+        - websecure
+      service: homeassistant
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.100:8123"

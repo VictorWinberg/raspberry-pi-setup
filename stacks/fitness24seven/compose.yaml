@@ -1,0 +1,12 @@
+services:
+  fitness24seven:
+    image: ghcr.io/victorwinberg/fitness24seven:latest
+    container_name: fitness24seven
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium
+    volumes:
+      - ./credentials.json:/app/credentials.json:ro
+    shm_size: "1gb"
