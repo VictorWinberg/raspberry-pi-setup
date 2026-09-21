@@ -8,10 +8,7 @@ services:
       - /home/dev/git/raspberry-pi-setup:/git/setup
       - /home/dev/git/raspberry-pi-backup:/git/backup
       - /opt/stacks/backup/backup-manifest.yaml:/manifest.yaml:ro
-      - /home/dev/.ssh:/home/dev/.ssh:ro
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=accept-new
     user: "1000:1000"
     group_add:
       - "${DOCKER_GID}"

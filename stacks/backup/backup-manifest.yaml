@@ -109,12 +109,4 @@ restic:
     keep_weekly: 4
     keep_monthly: 6
 
-healthchecks:
-  nightly:
-    url: https://hc-ping.com/5143c6ae-4155-4ad8-a8be-2e9771ccac24
-  restic:
-    url: https://hc-ping.com/1609a9e3-9186-4bb8-af57-19d978e837a5
-  restic-check:
-    url: https://hc-ping.com/656315fb-675e-45e9-b97f-5b08a34a1db7
-
 audit_ignore:
