@@ -1,0 +1,18 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+template: !include templates.yaml
+
+tts:
+  - platform: google_translate
+
+google_assistant:
+  project_id: homeassistant-273413
+  service_account: !include gcp_homeassistant_service_account.json
+  report_state: true

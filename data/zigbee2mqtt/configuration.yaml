@@ -1,0 +1,77 @@
+homeassistant:
+  enabled: true
+  experimental_event_entities: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://127.0.0.1:1883
+  user: zigbee
+  password: zigbee
+serial:
+  port: /dev/ttyACM0
+  adapter: deconz
+frontend:
+  enabled: true
+  port: 8080
+advanced:
+  channel: 15
+  log_level: info
+  pan_id: 6754
+  ext_pan_id:
+    - 221
+    - 221
+    - 221
+    - 221
+    - 221
+    - 221
+    - 221
+    - 221
+version: 5
+devices:
+  '0x5c0272fffec80411':
+    friendly_name: Dining Table N
+  '0x5c0272fffec51eed':
+    friendly_name: Dining Table M
+  '0xec1bbdfffeb2c740':
+    friendly_name: Hallway Door
+  '0xec1bbdfffeaa8c2d':
+    friendly_name: Hallway Kitchen
+  '0x5c0272fffec40ee9':
+    friendly_name: Dining Table S
+  '0xec1bbdfffea87344':
+    friendly_name: Kitchen Oven
+  '0xccccccfffe975906':
+    friendly_name: Bedroom
+  '0x00158d0003894228':
+    friendly_name: Living Room Plug
+  '0x00158d0003884303':
+    friendly_name: Dashboard
+  '0x0017880108eecd99':
+    friendly_name: Living Room
+  '0x680ae2fffe8f897f':
+    friendly_name: Hallway Spots
+  '0x00158d0007e66a80':
+    friendly_name: Office Sensor
+  '0x00158d000837f2f6':
+    friendly_name: Balcony Sensor
+  '0x680ae2fffefbb09b':
+    friendly_name: Window Plug
+  '0x9035eafffeec6bbc':
+    friendly_name: SYMFONISK Sound Remote
+  '0x680ae2fffe829d7a':
+    friendly_name: TRADFRI Remote Control
+  '0x04cd15fffe7b70c3':
+    friendly_name: TRADFRI Open/Close Remote
+  '0xb4e3f9fffefb6b52':
+    friendly_name: Bedroom Blind L
+  '0x680ae2fffea52c5a':
+    friendly_name: Bed Strip
+  '0x0017880106f93345':
+    friendly_name: Philips Hue
+  '0x54ef441000948473':
+    friendly_name: Motion Kitchen
+  '0x54ef441000baeed4':
+    friendly_name: Motion Hallway
+  '0xec1bbdfffea4d269':
+    friendly_name: Kitchen Sink
+  '0x0015bc00310635f4':
+    friendly_name: '0x0015bc00310635f4'

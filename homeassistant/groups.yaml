@@ -1,5 +1,0 @@
-balcony:
-  name: Balcony Lights
-  entities:
-    - switch.power_strip_socket_1
-    - switch.power_strip_socket_3

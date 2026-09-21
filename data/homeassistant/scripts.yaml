@@ -1,0 +1,46 @@
+power_off:
+  sequence:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      area_id:
+      - living_room
+      - kitchen
+      - bedroom
+      - hallway
+    data: {}
+    continue_on_error: true
+  - action: light.turn_off
+    metadata: {}
+    target:
+      area_id:
+      - living_room
+      - kitchen
+      - bedroom
+      - hallway
+    data: {}
+    continue_on_error: true
+  - action: script.turn_off
+    metadata: {}
+    data: {}
+    continue_on_error: true
+  alias: Power Off
+  description: ''
+power_on:
+  sequence:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id:
+      - light.hallway_door
+      - light.hallway_spots
+    data: {}
+    continue_on_error: true
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.living_room_plug
+    data: {}
+    continue_on_error: true
+  alias: Power On
+  description: ''

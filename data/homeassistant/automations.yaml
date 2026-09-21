@@ -1,0 +1,73 @@
+- id: '1789846151394'
+  alias: Brightness Slider
+  triggers:
+  - trigger: state
+    entity_id: input_number.light_brightness
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.someone_home
+    state: 'on'
+  actions:
+  - action: light.turn_on
+    target:
+      entity_id: "{{ expand(label_entities('auto_brightness'))\n   | selectattr('state',
+        'eq', 'on')\n   | rejectattr('attributes.entity_id', 'defined')\n   | map(attribute='entity_id')\n
+        \  | list }}\n"
+    data:
+      brightness: '{{ ((trigger.to_state.state | float) * 2.54) | int }}'
+  mode: single
+- id: '1789846602015'
+  alias: Light Brightness
+  triggers:
+  - trigger: light.turned_on
+    target:
+      label_id: auto_brightness
+    options:
+      for: 00:00:00
+      behavior: each
+  actions:
+  - action: light.turn_on
+    target:
+      entity_id: '{{ trigger.entity_id }}'
+    data:
+      brightness_pct: '{{ states(''input_number.light_brightness'') }}'
+  mode: parallel
+  max: 30
+- id: '1789846848389'
+  alias: Home Presence - Control Lights
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.someone_home
+    from:
+    - 'off'
+    to:
+    - 'on'
+  - trigger: state
+    entity_id:
+    - binary_sensor.someone_home
+    from:
+    - 'on'
+    to:
+    - 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.someone_home
+        state:
+        - 'on'
+      sequence: []
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.someone_home
+        state:
+        - 'off'
+      sequence: []
+  mode: single

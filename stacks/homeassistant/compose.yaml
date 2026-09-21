@@ -3,6 +3,7 @@ services:
     image: ghcr.io/home-assistant/home-assistant:stable
     container_name: homeassistant
     restart: unless-stopped
+    user: "1000:1000"
     network_mode: host
     volumes:
       - /srv/data/homeassistant:/config

@@ -1,0 +1,37 @@
+- triggers:
+    - trigger: time_pattern
+      hours: "/1"
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: weather.get_forecasts
+      target:
+        entity_id: weather.forecast_home
+      data:
+        type: hourly
+      response_variable: response
+  sensor:
+    - name: Weather Forecast Hourly
+      unique_id: weather_forecast_hourly
+      state: "{{ states('weather.forecast_home') }}"
+      attributes:
+        forecast: "{{ response['weather.forecast_home'].forecast }}"
+
+- triggers:
+    - trigger: time_pattern
+      hours: "/1"
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: weather.get_forecasts
+      target:
+        entity_id: weather.forecast_home
+      data:
+        type: daily
+      response_variable: response
+  sensor:
+    - name: Weather Forecast Daily
+      unique_id: weather_forecast_daily
+      state: "{{ states('weather.forecast_home') }}"
+      attributes:
+        forecast: "{{ response['weather.forecast_home'].forecast }}"

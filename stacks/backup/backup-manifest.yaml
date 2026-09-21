@@ -1,0 +1,120 @@
+# Every file under scan_roots must be: setup, backup, or audit_ignore.
+# Restic block is documentation only (not used by pi-backup audit).
+
+repos:
+  setup:
+    path: /git/setup
+    remote: origin/main
+  backup:
+    path: /git/backup
+    remote: origin/main
+
+scan_roots:
+  - /opt/stacks
+  - /srv/data
+
+global_exclude:
+  - ".env"
+  - "credentials.json"
+  - "passwordfile"
+  - "secrets.yaml"
+  - ".cache"
+
+setup:
+  - name: stacks-compose
+    source: /opt/stacks
+    target: stacks/
+    include:
+      - "**/compose.yaml"
+
+  - name: stacks-traefik
+    source: /opt/stacks/traefik
+    target: stacks/traefik/
+    include:
+      - "**/*"
+
+  - name: stacks-mosquitto-config
+    source: /opt/stacks/mosquitto/config
+    target: stacks/mosquitto/config/
+    include:
+      - "**/*"
+
+  - name: stacks-healthchecks
+    source: /opt/stacks/health/healthchecks
+    target: stacks/health/healthchecks/
+    include:
+      - "*.sh"
+
+  - name: stacks-backup
+    source: /opt/stacks/backup
+    target: stacks/backup/
+    include:
+      - "*.sh"
+      - "*.yaml"
+
+  - name: homeassistant-config
+    source: /srv/data/homeassistant
+    target: data/homeassistant/
+    include:
+      - "*.yaml"
+      - "www/**"
+    exclude:
+      - "www/community/**"
+      - "custom_components/**"
+      - "www/audiobooks/**"
+      - "www/brown_noise_10h.mp3"
+      - "gcp_homeassistant_service_account.json"
+
+  - name: zigbee2mqtt-config
+    source: /srv/data/zigbee2mqtt
+    target: data/zigbee2mqtt/
+    include:
+      - configuration.yaml
+
+backup:
+  - name: homeassistant-storage
+    source: /srv/data/homeassistant
+    target: data/homeassistant/
+    include:
+      - ".storage/core.*"
+      - ".storage/lovelace*"
+      - ".storage/person"
+    exclude:
+      - ".storage/core.config_entries"
+      - ".storage/core.restore_state"
+
+postgres:
+  container: postgres
+  user: vicnie
+  restrict_key: raspberrypibackup
+  output_dir: db-dumps
+  databases:
+    - onelist
+    - onemenu
+    - wishlist
+    - jsonvault
+    - qrhunt
+
+restic:
+  repository: /mnt/storage/backups/restic
+  password_file: /root/.restic-pass
+  tag: daily
+  include:
+    - /opt/stacks
+    - /srv/data
+  exclude:
+    - "/mnt/storage/**"
+  retention:
+    keep_daily: 7
+    keep_weekly: 4
+    keep_monthly: 6
+
+healthchecks:
+  nightly:
+    url: https://hc-ping.com/5143c6ae-4155-4ad8-a8be-2e9771ccac24
+  restic:
+    url: https://hc-ping.com/1609a9e3-9186-4bb8-af57-19d978e837a5
+  restic-check:
+    url: https://hc-ping.com/656315fb-675e-45e9-b97f-5b08a34a1db7
+
+audit_ignore:

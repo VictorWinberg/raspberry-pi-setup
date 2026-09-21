@@ -1,0 +1,29 @@
+services:
+  pi-backup-sync:
+    image: ghcr.io/victorwinberg/pi-backup-sync:latest
+    network_mode: host
+    volumes:
+      - /opt/stacks:/opt/stacks:ro
+      - /srv/data:/srv/data:ro
+      - /home/dev/git/raspberry-pi-setup:/git/setup
+      - /home/dev/git/raspberry-pi-backup:/git/backup
+      - /opt/stacks/backup/backup-manifest.yaml:/manifest.yaml:ro
+      - /home/dev/.ssh:/home/dev/.ssh:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=accept-new
+    user: "1000:1000"
+    group_add:
+      - "${DOCKER_GID}"
+
+  pi-backup-restic:
+    image: ghcr.io/victorwinberg/pi-backup-sync:latest
+    network_mode: host
+    user: root
+    volumes:
+      - /opt/stacks:/opt/stacks:ro
+      - /srv/data:/srv/data:ro
+      - /mnt/storage/backups/restic:/mnt/storage/backups/restic
+      - /opt/stacks/backup/backup-manifest.yaml:/manifest.yaml:ro
+      - /root/.restic-pass:/root/.restic-pass:ro
+    command: ["restic"]

@@ -1,0 +1,14 @@
+services:
+  pgweb:
+    image: sosedoff/pgweb
+    container_name: pgweb
+    restart: unless-stopped
+    ports:
+      - "5050:8081"
+    env_file: .env
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
