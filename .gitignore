@@ -3,8 +3,5 @@
 passwordfile
 credentials.json
 
-# Runtime / persistent data — not compose config
-data/
-
 # OS / editor
 .DS_Store
