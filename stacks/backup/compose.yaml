@@ -7,7 +7,7 @@ services:
       - /srv/data:/srv/data:ro
       - /home/dev/git/raspberry-pi-setup:/git/setup
       - /home/dev/git/raspberry-pi-backup:/git/backup
-      - /opt/stacks/backup/backup-manifest.yaml:/manifest.yaml:ro
+      - /opt/stacks/backup/manifest.yaml:/manifest.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock
     user: "1000:1000"
     group_add:
@@ -21,6 +21,6 @@ services:
       - /opt/stacks:/opt/stacks:ro
       - /srv/data:/srv/data:ro
       - /mnt/storage/backups/restic:/mnt/storage/backups/restic
-      - /opt/stacks/backup/backup-manifest.yaml:/manifest.yaml:ro
+      - /opt/stacks/backup/manifest.yaml:/manifest.yaml:ro
       - /root/.restic-pass:/root/.restic-pass:ro
     command: ["restic"]
