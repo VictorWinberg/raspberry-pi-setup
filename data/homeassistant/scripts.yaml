@@ -39,7 +39,9 @@ power_on:
   - action: switch.turn_on
     metadata: {}
     target:
-      entity_id: switch.living_room_plug
+      entity_id:
+      - switch.living_room_plug
+      - switch.dashboard
     data: {}
     continue_on_error: true
   alias: Power On

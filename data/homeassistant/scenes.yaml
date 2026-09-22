@@ -1,0 +1,156 @@
+- id: '1790105131687'
+  name: Cosy
+  entities:
+    light.living_room_led_stip_tv:
+      min_color_temp_kelvin: 1500
+      max_color_temp_kelvin: 9000
+      effect_list:
+      - effect_colorloop
+      - effect_pulse
+      - effect_move
+      - effect_stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      effect:
+      color_mode: hs
+      brightness: 71
+      color_temp_kelvin:
+      hs_color:
+      - 236.924
+      - 69.02
+      rgb_color:
+      - 79
+      - 88
+      - 255
+      xy_color:
+      - 0.169
+      - 0.1
+      friendly_name: Led Stip TV
+      supported_features: 36
+      state: 'on'
+    light.living_room:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - candle
+      - sunset
+      - sunrise
+      - sparkle
+      - opal
+      - glisten
+      - underwater
+      - cosmos
+      - sunbeam
+      - enchant
+      - none
+      - finish_effect
+      - stop_effect
+      - stop_hue_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 13
+      friendly_name: Living Room
+      supported_features: 44
+      state: 'on'
+    light.hallway_lights:
+      effect_list:
+      - blink
+      - breathe
+      - channel_change
+      - finish_effect
+      - okay
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      entity_id:
+      - light.hallway_door
+      - light.hallway_kitchen
+      - light.hallway_spots
+      friendly_name: Hallway Lights
+      supported_features: 44
+      state: 'off'
+    light.kitchen_lights:
+      effect_list:
+      - blink
+      - breathe
+      - channel_change
+      - finish_effect
+      - okay
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      entity_id:
+      - light.kitchen_oven
+      - light.kitchen_sink
+      - light.kitchen_kitchen_table
+      friendly_name: Kitchen Lights
+      supported_features: 44
+      state: 'off'
+    light.dining_table_n:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 3
+      friendly_name: Dining Table N
+      supported_features: 44
+      state: 'on'
+    light.dining_table_m:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      friendly_name: Dining Table M
+      supported_features: 44
+      state: 'off'
+    light.dining_table_s:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      friendly_name: Dining Table S
+      supported_features: 44
+      state: 'off'
+    switch.living_room_plug:
+      friendly_name: Living Room Plug
+      state: 'off'
+  metadata:
+    light.hallway_lights:
+      entity_only: true
+    light.kitchen_lights:
+      entity_only: true
+  icon: mdi:compare

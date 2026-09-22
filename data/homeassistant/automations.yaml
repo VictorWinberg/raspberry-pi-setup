@@ -34,7 +34,7 @@
   mode: parallel
   max: 30
 - id: '1789846848389'
-  alias: Home Presence - Control Lights
+  alias: Home Presence - Power On/Off
   description: ''
   triggers:
   - trigger: state
@@ -63,11 +63,65 @@
         entity_id: binary_sensor.someone_home
         state:
         - 'on'
-      sequence: []
+      sequence:
+      - action: script.power_on
+        metadata: {}
+        data: {}
     - conditions:
       - condition: state
         entity_id: binary_sensor.someone_home
         state:
         - 'off'
-      sequence: []
+      sequence:
+      - action: script.power_off
+        metadata: {}
+        data: {}
+  mode: single
+- id: '1790060442793'
+  alias: Dashboard - Turn On/Off
+  description: ''
+  triggers:
+  - trigger: time
+    at: 07:00:00
+    id: Turn On
+  - trigger: time
+    at: '23:00:00'
+    id: Turn Off
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Turn On
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          entity_id: switch.dashboard
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - Turn Off
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        target:
+          entity_id: switch.dashboard
+        data: {}
+  mode: single
+- id: '1790078521836'
+  alias: Guest Mode - Reset
+  description: ''
+  triggers:
+  - trigger: time
+    at: 04:00:00
+  conditions: []
+  actions:
+  - action: input_boolean.turn_off
+    metadata: {}
+    target:
+      entity_id: input_boolean.guest_mode
+    data: {}
   mode: single
