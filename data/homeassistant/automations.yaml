@@ -1,5 +1,6 @@
 - id: '1789846151394'
-  alias: Brightness Slider
+  alias: 'Brightness Slider - Set Brightness '
+  description: ''
   triggers:
   - trigger: state
     entity_id: input_number.light_brightness
@@ -17,7 +18,8 @@
       brightness: '{{ ((trigger.to_state.state | float) * 2.54) | int }}'
   mode: single
 - id: '1789846602015'
-  alias: Light Brightness
+  alias: 'Light On - Set Brightness '
+  description: ''
   triggers:
   - trigger: light.turned_on
     target:
@@ -124,4 +126,29 @@
     target:
       entity_id: input_boolean.guest_mode
     data: {}
+  mode: single
+- id: '1790146871074'
+  alias: Time - Light Brightness
+  description: ''
+  triggers:
+  - trigger: time
+    at: 08:00:00
+    id: '15'
+  - trigger: time
+    at: '10:00:00'
+    id: '80'
+  - trigger: time
+    at: '12:00:00'
+    id: '100'
+  - trigger: time
+    at: '20:00:00'
+    id: '15'
+  conditions: []
+  actions:
+  - action: input_number.set_value
+    metadata: {}
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: '{{ trigger.id | int }}'
   mode: single

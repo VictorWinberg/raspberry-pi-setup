@@ -154,3 +154,173 @@
     light.kitchen_lights:
       entity_only: true
   icon: mdi:compare
+- id: '1790146497298'
+  name: Godnatt
+  entities:
+    switch.bed_strip:
+      friendly_name: Bed Strip
+      state: 'off'
+    light.bedroom:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      hs_color:
+      rgb_color:
+      xy_color:
+      friendly_name: Bedroom
+      supported_features: 44
+      state: 'off'
+    light.philips_hue:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6666
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - candle
+      - fireplace
+      - colorloop
+      - sunset
+      - sunrise
+      - sparkle
+      - opal
+      - glisten
+      - underwater
+      - cosmos
+      - sunbeam
+      - enchant
+      - none
+      - finish_effect
+      - stop_effect
+      - stop_hue_effect
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 38
+      color_temp_kelvin:
+      hs_color:
+      - 35.854
+      - 64.314
+      rgb_color:
+      - 255
+      - 189
+      - 91
+      xy_color:
+      - 0.498
+      - 0.412
+      friendly_name: Philips Hue
+      supported_features: 44
+      state: 'on'
+    cover.bedroom_blind_l:
+      is_closed: false
+      current_position: 0
+      friendly_name: Bedroom Blind L
+      supported_features: 15
+      state: open
+  metadata: {}
+  icon: mdi:weather-night
+- id: '1790146596655'
+  name: 'Good morning '
+  entities:
+    light.bedroom:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 51
+      color_temp_kelvin:
+      hs_color:
+      - 38.222
+      - 52.941
+      rgb_color:
+      - 255
+      - 206
+      - 120
+      xy_color:
+      - 0.458
+      - 0.41
+      friendly_name: Bedroom
+      supported_features: 44
+      state: 'on'
+    light.philips_hue:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6666
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - candle
+      - fireplace
+      - colorloop
+      - sunset
+      - sunrise
+      - sparkle
+      - opal
+      - glisten
+      - underwater
+      - cosmos
+      - sunbeam
+      - enchant
+      - none
+      - finish_effect
+      - stop_effect
+      - stop_hue_effect
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 51
+      color_temp_kelvin:
+      hs_color:
+      - 35.854
+      - 64.314
+      rgb_color:
+      - 255
+      - 189
+      - 91
+      xy_color:
+      - 0.498
+      - 0.412
+      friendly_name: Philips Hue
+      supported_features: 44
+      state: 'on'
+    cover.bedroom_blind_l:
+      is_closed: false
+      current_position: 100
+      friendly_name: Bedroom Blind L
+      supported_features: 15
+      state: open
+  metadata: {}
+  icon: mdi:weather-sunset-up
