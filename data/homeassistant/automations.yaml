@@ -1,5 +1,5 @@
 - id: '1789846151394'
-  alias: 'Brightness Slider - Set Brightness '
+  alias: Brightness Slider - Set Value
   description: ''
   triggers:
   - trigger: state
@@ -18,7 +18,7 @@
       brightness: '{{ ((trigger.to_state.state | float) * 2.54) | int }}'
   mode: single
 - id: '1789846602015'
-  alias: 'Light On - Set Brightness '
+  alias: Light On - Set Brightness
   description: ''
   triggers:
   - trigger: light.turned_on
@@ -128,7 +128,7 @@
     data: {}
   mode: single
 - id: '1790146871074'
-  alias: Time - Light Brightness
+  alias: Light Brightness - Set Value
   description: ''
   triggers:
   - trigger: time
@@ -151,4 +151,51 @@
       entity_id: input_number.light_brightness
     data:
       value: '{{ trigger.id | int }}'
+  mode: single
+- id: '1790241315000'
+  alias: Motion Detected - Kitchen & Hallway Lights
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.motion_detected
+    from:
+    - 'off'
+    to:
+    - 'on'
+    id: Motion Detected
+  - trigger: state
+    entity_id:
+    - binary_sensor.motion_detected
+    from:
+    - 'on'
+    to:
+    - 'off'
+    id: Motion Cleared
+  conditions:
+  - condition: time
+    after: 08:00:00
+    before: '20:00:00'
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Motion Detected
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id:
+          - light.kitchen_lights
+          - light.hallway_lights
+    - conditions:
+      - condition: trigger
+        id:
+        - Motion Cleared
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id:
+          - light.kitchen_lights
+          - light.hallway_lights
   mode: single

@@ -24,6 +24,8 @@ power_off:
     metadata: {}
     data: {}
     continue_on_error: true
+    target:
+      entity_id: script.power_on
   alias: Power Off
   description: ''
 power_on:

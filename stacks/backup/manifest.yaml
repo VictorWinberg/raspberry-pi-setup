@@ -63,7 +63,6 @@ setup:
       - "custom_components/**"
       - "www/audiobooks/**"
       - "www/brown_noise_10h.mp3"
-      - "gcp_homeassistant_service_account.json"
 
   - name: zigbee2mqtt-config
     source: /srv/data/zigbee2mqtt
@@ -72,6 +71,19 @@ setup:
       - configuration.yaml
 
 backup:
+  - name: homeassistant-config
+    source: /srv/data/homeassistant
+    target: data/homeassistant/
+    include:
+      - "*.yaml"
+      - "www/**"
+    exclude:
+      - "www/community/**"
+      - "custom_components/**"
+      - "www/audiobooks/**"
+      - "www/brown_noise_10h.mp3"
+      - "gcp_homeassistant_service_account.json"
+
   - name: homeassistant-storage
     source: /srv/data/homeassistant
     target: data/homeassistant/
@@ -79,6 +91,8 @@ backup:
       - ".storage/core.*"
       - ".storage/lovelace*"
       - ".storage/person"
+      - ".storage/zone"
+      - ".storage/input_*"
     exclude:
       - ".storage/core.config_entries"
       - ".storage/core.restore_state"

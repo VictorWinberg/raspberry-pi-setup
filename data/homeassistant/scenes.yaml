@@ -1,5 +1,5 @@
 - id: '1790105131687'
-  name: Cosy
+  name: TV Night
   entities:
     light.living_room_led_stip_tv:
       min_color_temp_kelvin: 1500
@@ -155,7 +155,7 @@
       entity_only: true
   icon: mdi:compare
 - id: '1790146497298'
-  name: Godnatt
+  name: Good Night
   entities:
     switch.bed_strip:
       friendly_name: Bed Strip
@@ -238,7 +238,7 @@
   metadata: {}
   icon: mdi:weather-night
 - id: '1790146596655'
-  name: 'Good morning '
+  name: 'Good Morning '
   entities:
     light.bedroom:
       min_color_temp_kelvin: 2000
