@@ -12,6 +12,7 @@ services:
       - "traefik.http.routers.onelist.entrypoints=websecure"
       - "traefik.http.routers.onelist.tls.certresolver=letsencrypt"
       - "traefik.http.services.onelist.loadbalancer.server.port=3000"
+      - "dev.dozzle.url=https://shop.codies.se"
 
 networks:
   proxy:

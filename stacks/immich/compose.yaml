@@ -31,6 +31,7 @@ services:
       - "traefik.http.routers.immich.entrypoints=websecure"
       - "traefik.http.routers.immich.tls.certresolver=letsencrypt"
       - "traefik.http.services.immich.loadbalancer.server.port=2283"
+      - "dev.dozzle.url=https://photos.codies.se"
 
   redis:
     container_name: immich_redis

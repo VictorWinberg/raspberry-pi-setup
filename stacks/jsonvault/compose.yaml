@@ -12,6 +12,7 @@ services:
       - "traefik.http.routers.jsonvault.entrypoints=websecure"
       - "traefik.http.routers.jsonvault.tls.certresolver=letsencrypt"
       - "traefik.http.services.jsonvault.loadbalancer.server.port=3000"
+      - "dev.dozzle.url=https://json.codies.se"
 
 networks:
   proxy:

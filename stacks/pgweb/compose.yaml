@@ -8,6 +8,8 @@ services:
     env_file: .env
     networks:
       - proxy
+    labels:
+      - "dev.dozzle.url=http://192.168.0.100:5050"
 
 networks:
   proxy:

@@ -3,10 +3,23 @@ services:
     image: amir20/dozzle:latest
     container_name: dozzle
     restart: unless-stopped
-    ports:
-      - "8888:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /srv/data/dozzle:/data
     environment:
       DOZZLE_LEVEL: info
       DOZZLE_FILTER: "status=running"
+      DOZZLE_ENABLE_ACTIONS: true
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dozzle.rule=Host(`docker.codies.se`)"
+      - "traefik.http.routers.dozzle.entrypoints=websecure"
+      - "traefik.http.routers.dozzle.tls.certresolver=letsencrypt"
+      - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
+      - "dev.dozzle.url=https://docker.codies.se"
+
+networks:
+  proxy:
+    external: true

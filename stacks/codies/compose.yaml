@@ -16,6 +16,7 @@ services:
       - "traefik.http.routers.home.entrypoints=websecure"
       - "traefik.http.routers.home.tls.certresolver=letsencrypt"
       - "traefik.http.services.home.loadbalancer.server.port=3000"
+      - "dev.dozzle.url=https://codies.se"
 
 networks:
   proxy:
