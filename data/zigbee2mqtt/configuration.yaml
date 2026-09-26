@@ -40,7 +40,7 @@ devices:
   '0xec1bbdfffea87344':
     friendly_name: Kitchen Oven
   '0xccccccfffe975906':
-    friendly_name: Bedroom
+    friendly_name: Bedroom Ceiling
   '0x00158d0003894228':
     friendly_name: Living Room Plug
   '0x00158d0003884303':
@@ -75,3 +75,5 @@ devices:
     friendly_name: Kitchen Sink
   '0x0015bc00310635f4':
     friendly_name: '0x0015bc00310635f4'
+  '0x680ae2fffed185df':
+    friendly_name: Bedroom Repeater

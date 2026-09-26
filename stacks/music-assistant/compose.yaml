@@ -1,0 +1,19 @@
+services:
+  music-assistant-server:
+    image: ghcr.io/music-assistant/server:2
+    container_name: music-assistant-server
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /srv/data/music-assistant:/data
+    environment:
+      TZ: Europe/Stockholm
+      LOG_LEVEL: info
+    labels:
+      - "dev.dozzle.url=http://127.0.0.1:8095"
+      - "traefik.enable=true"
+      - "traefik.http.routers.music-assistant.rule=Host(`music.codies.se`)"
+      - "traefik.http.routers.music-assistant.entrypoints=websecure"
+      - "traefik.http.routers.music-assistant.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.music-assistant.service=music-assistant"
+      - "traefik.http.services.music-assistant.loadbalancer.server.port=8095"

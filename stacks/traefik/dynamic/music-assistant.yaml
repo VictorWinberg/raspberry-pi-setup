@@ -1,0 +1,15 @@
+http:
+  routers:
+    music-assistant:
+      rule: "Host(`music.codies.se`)"
+      entryPoints:
+        - websecure
+      service: music-assistant
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    music-assistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.100:8095"

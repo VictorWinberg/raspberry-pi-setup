@@ -18,6 +18,7 @@ power_off:
       - kitchen
       - bedroom
       - hallway
+      - dining
     data: {}
     continue_on_error: true
   - action: script.turn_off
@@ -48,3 +49,4 @@ power_on:
     continue_on_error: true
   alias: Power On
   description: ''
+
