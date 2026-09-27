@@ -22,9 +22,10 @@ This repo is a **versioned backup** of the live Pi. `/opt/stacks` on the Pi is t
 | Path | What |
 | ---- | ---- |
 | [`stacks/`](stacks/) | Mirror of `/opt/stacks` |
-| [`homeassistant/`](homeassistant/) | Home Assistant config backup (live: `/srv/data/homeassistant`) |
+| [`data/homeassistant/`](data/homeassistant/) | Home Assistant config backup (live: `/srv/data/homeassistant`) |
+| [`data/zigbee2mqtt/`](data/zigbee2mqtt/) | Zigbee2MQTT config backup (live: `/srv/data/zigbee2mqtt`) |
 
-Step-by-step rebuild guides live in a separate **rpi-setup** docs repo (`setup/README.md`).
+Nightly sync and restore workflow: [raspberry-pi-backup/crons](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/crons).
 
 Table of contents :book:
 =======================
@@ -34,7 +35,7 @@ Table of contents :book:
    - [Network - Static IP :pushpin:](#network---static-ip-pushpin)
    - [Network - External IP :earth_africa:](#network---external-ip-earth_africa)
    - [External Storage :file_folder:](#external-storage-file_folder)
-   - [Remote Access (Samba) :open_file_folder:](#remote-access-samba-open_file_folder)
+   - [Remote Access (Samba) :open_file_folder:](#remote-access-samba-open-file_folder)
    - [Remote Access (SSH) :key:](#remote-access-ssh-key)
    - [Remote Access (RDP) :computer:](#remote-access-rdp-computer)
    - [Remote Access (Traefik) :earth_africa:](#remote-access-traefik-earth_africa)
@@ -43,9 +44,12 @@ Table of contents :book:
    - [Docker :whale:](#docker-whale)
    - [Postgres :elephant:](#postgres-elephant)
    - [Node apps (GHCR) :diamond_shape_with_a_dot_inside:](#node-apps-ghcr-diamond_shape_with_a_dot_inside)
+   - [Backup :floppy_disk:](#backup-floppy_disk)
+   - [Healthchecks :heartbeat:](#healthchecks-heartbeat)
 - [Applications :computer:](#applications-computer)
    - [Home Assistant :house:](#home-assistant-house)
    - [Zigbee2MQTT + Mosquitto :speaking_head:](#zigbee2mqtt--mosquitto-speaking_head)
+   - [Music Assistant :notes:](#music-assistant-notes)
    - [Immich :camera:](#immich-camera)
 - [Layout :file_folder:](#layout-file_folder)
 - [Git :octocat:](#git-octocat)
@@ -161,7 +165,7 @@ Remote Access (Traefik) :earth_africa:
 Live stack: [`stacks/traefik/`](stacks/traefik/)
 
 - Listens on ports `80` / `443` (dashboard on LAN `:9000`)
-- Docker provider + file provider (`dynamic/` for host-network services like Home Assistant)
+- Docker provider + file provider (`dynamic/` for host-network services like Home Assistant and Music Assistant)
 - Apps expose themselves with Traefik labels on the shared `proxy` network
 
 ### DNS setup
@@ -184,14 +188,16 @@ Live stack: [`stacks/traefik/`](stacks/traefik/)
 | ------- | ---- |
 | Home / www | `codies.se`, `www.codies.se` |
 | Home Assistant | `home.codies.se` |
+| Music Assistant | `music.codies.se` |
 | OneList | `shop.codies.se` |
 | OneMenu | `menu.codies.se` |
 | jsonvault | `json.codies.se` |
 | wishlist | `wish.codies.se` |
 | qr-hunt | `qr.codies.se` |
 | Immich | `photos.codies.se` |
+| Dozzle | `docker.codies.se` |
 | Dockge | LAN only `:5001` |
-| Dozzle | LAN only `:8888` |
+| pgweb | LAN only `:5050` |
 | Traefik dashboard | LAN only `:9000` |
 
 Crontab :clock4:
@@ -200,7 +206,7 @@ The editor for the cron jobs (time-based job scheduler).
 
 [Scheduling tasks with Cron](https://www.raspberrypi.org/documentation/linux/usage/cron.md)
 
-Nightly dumps + stack sync live in [raspberry-pi-backup/crons](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/crons) (`backup.sh` → `db-dumps.sh` → `sync-setup.sh` → `sync-backup.sh`). Healthchecks.io pings run every few minutes until Uptime Kuma is fully live.
+Nightly dumps + stack sync live in [raspberry-pi-backup/crons](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/crons) (`backup.sh` → `db-dumps.sh` → `sync-setup.sh` → `sync-backup.sh`). Healthchecks.io pings run every few minutes from [`stacks/health/healthchecks/`](stacks/health/healthchecks/).
 
 Services
 ========
@@ -211,7 +217,7 @@ Docker is an open platform for developing, shipping, and running applications.
 
 [Docker](https://www.docker.com/)
 - [Dockge](https://github.com/louislam/dockge) — stack manager UI for `/opt/stacks` (LAN `:5001`), see [`stacks/dockge/`](stacks/dockge/)
-- [Dozzle](https://dozzle.dev/) — Docker log viewer (LAN `:8888`), see [`stacks/dozzle/`](stacks/dozzle/)
+- [Dozzle](https://dozzle.dev/) — Docker log viewer at `docker.codies.se`, see [`stacks/dozzle/`](stacks/dozzle/)
 
 Create the shared Traefik network once:
 
@@ -226,6 +232,8 @@ PostgreSQL is a powerful, open source object-relational database system.
 [Postgres](https://www.postgresql.org/)
 
 Shared app database runs as **Postgres 16 in Docker** ([`stacks/postgres/`](stacks/postgres/)), data at `/srv/data/postgres`. Immich uses its **own** Postgres instance.
+
+[pgweb](https://github.com/sosedoff/pgweb) provides a LAN Postgres UI at `:5050` ([`stacks/pgweb/`](stacks/pgweb/)); connection settings live in `.env` on the Pi.
 
 **Reset / restore a database**
 
@@ -244,15 +252,15 @@ Node apps (GHCR) :diamond_shape_with_a_dot_inside:
 -------------------------------------
 Node apps run as Docker containers pulling images from [GitHub Container Registry](https://github.com/features/packages) — not git-push + PM2.
 
-| App | Image | Stack |
-| --- | ----- | ----- |
-| codies (www) | `ghcr.io/victorwinberg/home` | [`stacks/codies/`](stacks/codies/) |
-| OneList | `ghcr.io/victorwinberg/onelist` | [`stacks/onelist/`](stacks/onelist/) |
-| OneMenu | `ghcr.io/annieleonia/onemenu` | [`stacks/onemenu/`](stacks/onemenu/) |
-| wishlist | `ghcr.io/annieleonia/wishlist` | [`stacks/wishlist/`](stacks/wishlist/) |
-| jsonvault | `ghcr.io/victorwinberg/jsonvault` | [`stacks/jsonvault/`](stacks/jsonvault/) |
-| qr-hunt | `ghcr.io/victorwinberg/qr-hunt` | [`stacks/qr-hunt/`](stacks/qr-hunt/) |
-| fitness24seven | `ghcr.io/victorwinberg/fitness24seven` | [`stacks/fitness24seven/`](stacks/fitness24seven/) |
+| App | Image | Stack | Public host |
+| --- | ----- | ----- | ----------- |
+| codies (www) | `ghcr.io/victorwinberg/home` | [`stacks/codies/`](stacks/codies/) | `codies.se` |
+| OneList | `ghcr.io/victorwinberg/onelist` | [`stacks/onelist/`](stacks/onelist/) | `shop.codies.se` |
+| OneMenu | `ghcr.io/annieleonia/onemenu` | [`stacks/onemenu/`](stacks/onemenu/) | `menu.codies.se` |
+| wishlist | `ghcr.io/annieleonia/wishlist` | [`stacks/wishlist/`](stacks/wishlist/) | `wish.codies.se` |
+| jsonvault | `ghcr.io/victorwinberg/jsonvault` | [`stacks/jsonvault/`](stacks/jsonvault/) | `json.codies.se` |
+| qr-hunt | `ghcr.io/victorwinberg/qr-hunt` | [`stacks/qr-hunt/`](stacks/qr-hunt/) | `qr.codies.se` |
+| fitness24seven | `ghcr.io/victorwinberg/fitness24seven` | [`stacks/fitness24seven/`](stacks/fitness24seven/) | none (internal scraper) |
 
 Update an app:
 
@@ -264,12 +272,30 @@ docker compose up -d
 
 `.env` files stay on the Pi (excluded from git sync).
 
+Backup :floppy_disk:
+-------------------
+[`stacks/backup/`](stacks/backup/) runs two containers from `ghcr.io/victorwinberg/pi-backup-sync`:
+
+- **pi-backup-sync** — syncs selected paths into the git clones under `/home/dev/git/`
+- **pi-backup-restic** — Restic backups to `/mnt/storage/backups/restic`
+
+What gets synced or backed up is defined in [`stacks/backup/manifest.yaml`](stacks/backup/manifest.yaml).
+
+Healthchecks :heartbeat:
+-----------------------
+Shell scripts in [`stacks/health/healthchecks/`](stacks/health/healthchecks/) ping [Healthchecks.io](https://healthchecks.io/) on a short cron interval:
+
+- `hc-website.sh` — public site
+- `hc-home-assistant.sh` — Home Assistant
+- `hc-hard-drive.sh` — storage
+- `hc-external.sh` — external checks
+
 Applications :computer:
 ======================
 
 Home Assistant :house:
 ---------------------
-**[My Home Assistant Configuration](homeassistant)**
+**[My Home Assistant Configuration](data/homeassistant)**
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
 
@@ -295,10 +321,18 @@ Zigbee2MQTT + Mosquitto :speaking_head:
 Zigbee devices are bridged with [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (replacing deCONZ / Phoscon) over MQTT.
 
 - Mosquitto: [`stacks/mosquitto/`](stacks/mosquitto/) — broker on host network, auth via `passwordfile` (not in git)
-- Zigbee2MQTT: [`stacks/zigbee2mqtt/`](stacks/zigbee2mqtt/) — ConBee II USB device bind-mounted; config under `/srv/data/zigbee2mqtt`
+- Zigbee2MQTT: [`stacks/zigbee2mqtt/`](stacks/zigbee2mqtt/) — ConBee II USB device bind-mounted; config under `/srv/data/zigbee2mqtt` (backed up → [`data/zigbee2mqtt/`](data/zigbee2mqtt/))
 
 **Home Assistant Integration**
 - MQTT integration pointing at the Mosquitto broker
+
+Music Assistant :notes:
+----------------------
+[Music Assistant](https://music-assistant.io/) server for multi-room audio.
+
+- Stack: [`stacks/music-assistant/`](stacks/music-assistant/) — data at `/srv/data/music-assistant`
+- Uses `network_mode: host`
+- Public host: `music.codies.se` via Traefik ([`stacks/traefik/dynamic/music-assistant.yaml`](stacks/traefik/dynamic/music-assistant.yaml))
 
 Immich :camera:
 ----------------
@@ -317,9 +351,10 @@ Layout :file_folder:
 ```
 /
 ├── opt/stacks/          # Compose source of truth (backed up → stacks/)
-├── srv/data/            # Persistent app data
+├── srv/data/            # Persistent app data (partially backed up → data/)
 ├── mnt/storage/         # External HDD (media + backups)
-└── home/dev/            # Personal files + git clones
+└── home/dev/
+    └── git/             # Clones of this repo + raspberry-pi-backup
 ```
 
 Edit stacks on the Pi (or via Dockge), then sync — do not treat this git repo as the live deploy source.
@@ -330,7 +365,7 @@ Git :octocat:
 This repo and [raspberry-pi-backup](https://github.com/VictorWinberg/raspberry-pi-backup) are **backups**, not a git deploy server.
 
 - App images: built in GitHub Actions → pushed to GHCR → pulled on the Pi with `docker compose pull`
-- Stacks: rsync `/opt/stacks` → `stacks/` (excludes `.env`, `passwordfile`, `credentials.json`)
+- Stacks: rsync `/opt/stacks` → `stacks/` (excludes `.env`, `passwordfile`, `credentials.json`, `secrets.yaml`)
 - DB dumps + crons: see raspberry-pi-backup
 
 Legacy bare repos under `/home/git` and PM2 `post-receive` hooks were removed.
@@ -340,7 +375,7 @@ Recovery :recycle:
 - PC/Laptop
 - USB SSD / adapter
 - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-- Restore stacks from this repo + SQL dumps from raspberry-pi-backup; follow **rpi-setup** guides for a full rebuild
+- Restore stacks from this repo + SQL dumps from [raspberry-pi-backup](https://github.com/VictorWinberg/raspberry-pi-backup); Restic repo at `/mnt/storage/backups/restic`
 
 > [TOC Generate](https://magnetikonline.github.io/markdown-toc-generate/)
 
