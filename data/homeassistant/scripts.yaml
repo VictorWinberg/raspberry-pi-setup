@@ -1,32 +1,46 @@
 power_off:
   sequence:
-  - action: switch.turn_off
-    metadata: {}
-    target:
-      area_id:
-      - living_room
-      - kitchen
-      - bedroom
-      - hallway
-    data: {}
-    continue_on_error: true
   - action: light.turn_off
     metadata: {}
     target:
-      area_id:
-      - living_room
-      - kitchen
-      - bedroom
-      - hallway
-      - dining
+      entity_id:
+      - light.bedroom_lights
+      - light.dining_lights
+      - light.hallway_lights
+      - light.tv_ambient
+      - light.living_room
+      - light.kitchen_lights
     data: {}
     continue_on_error: true
-  - action: script.turn_off
+  - action: switch.turn_off
     metadata: {}
+    target:
+      entity_id:
+      - switch.living_room_plug
+      - switch.window_plug
+      - switch.bed_strip
+      - switch.dashboard
+      - switch.office_switch
     data: {}
     continue_on_error: true
+  - action: media_player.media_stop
+    metadata: {}
     target:
-      entity_id: script.power_on
+      device_id:
+      - 2563d9bad4bdc09071559aa2a8e47b91
+      - 97392862ca74fadba17679987c00106a
+      - ae91bcc35b18ee823421b141ab68b2f6
+      - 1e2d746f6f467df9d8b8cb308b2e4f32
+      - 55a2c74a132465a3804a3f7ae6759d90
+    data: {}
+    continue_on_error: true
+  - action: media_player.turn_off
+    metadata: {}
+    target:
+      entity_id:
+      - media_player.speakers
+      - media_player.mio
+    data: {}
   alias: Power Off
   description: ''
 power_on:
@@ -49,4 +63,3 @@ power_on:
     continue_on_error: true
   alias: Power On
   description: ''
-

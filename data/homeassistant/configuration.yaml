@@ -9,6 +9,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 template: !include templates.yaml
+media_player: !include media_players.yaml
 
 tts:
   - platform: google_translate

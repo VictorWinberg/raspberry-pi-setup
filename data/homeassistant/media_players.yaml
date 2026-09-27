@@ -1,0 +1,27 @@
+- platform: universal
+  name: Mio
+  unique_id: mio
+  device_class: tv
+  children:
+    - media_player.mio_tv
+    - media_player.mio_cast
+  active_child_template: >
+    {% set tv = 'media_player.mio_tv' %}
+    {% set cast = 'media_player.mio_cast' %}
+    {% if states(tv) not in ['off', 'unknown', 'unavailable'] %}
+      {{ tv }}
+    {% elif states(cast) not in ['unknown', 'unavailable'] %}
+      {{ cast }}
+    {% else %}
+      none
+    {% endif %}
+  state_template: >
+    {% set tv = 'media_player.mio_tv' %}
+    {% set cast = 'media_player.mio_cast' %}
+    {% if states(tv) not in ['off', 'unknown', 'unavailable'] %}
+      {{ states(tv) }}
+    {% elif states(cast) not in ['unknown', 'unavailable'] %}
+      {{ states(cast) }}
+    {% else %}
+      unavailable
+    {% endif %}

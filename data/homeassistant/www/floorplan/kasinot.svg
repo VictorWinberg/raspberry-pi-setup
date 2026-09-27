@@ -83,6 +83,6 @@
   </g>
  </g>
  <g id="entites">
-  <path id="media_player.mio_tv" d="m1390.7 315.86-97.845 50.445-4.7955 56.595 96.86-53.057z" fill="url(#tvGlow)" filter="url(#tvGlowFilter)" stroke="#aaa" stroke-width="1px"/>
+  <path id="media_player.mio" d="m1390.7 315.86-97.845 50.445-4.7955 56.595 96.86-53.057z" fill="url(#tvGlow)" filter="url(#tvGlowFilter)" stroke="#aaa" stroke-width="1px"/>
  </g>
 </svg>

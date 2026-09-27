@@ -64,12 +64,6 @@ setup:
       - "www/audiobooks/**"
       - "www/brown_noise_10h.mp3"
 
-  - name: zigbee2mqtt-config
-    source: /srv/data/zigbee2mqtt
-    target: data/zigbee2mqtt/
-    include:
-      - configuration.yaml
-
 backup:
   - name: homeassistant-config
     source: /srv/data/homeassistant
@@ -96,6 +90,12 @@ backup:
     exclude:
       - ".storage/core.config_entries"
       - ".storage/core.restore_state"
+
+  - name: zigbee2mqtt-config
+    source: /srv/data/zigbee2mqtt
+    target: data/zigbee2mqtt/
+    include:
+      - configuration.yaml
 
 postgres:
   container: postgres
