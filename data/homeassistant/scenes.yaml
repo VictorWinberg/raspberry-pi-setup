@@ -158,32 +158,8 @@
   name: Good Night
   entities:
     switch.bed_strip:
+      icon: mdi:string-lights
       friendly_name: Bed Strip
-      state: 'off'
-    light.bedroom:
-      min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 6535
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      - colorloop
-      - stop_colorloop
-      supported_color_modes:
-      - color_temp
-      - xy
-      effect:
-      color_mode:
-      brightness:
-      color_temp_kelvin:
-      hs_color:
-      rgb_color:
-      xy_color:
-      friendly_name: Bedroom
-      supported_features: 44
       state: 'off'
     light.philips_hue:
       min_color_temp_kelvin: 2000
@@ -214,7 +190,7 @@
       - xy
       effect:
       color_mode: xy
-      brightness: 38
+      brightness: 69
       color_temp_kelvin:
       hs_color:
       - 35.854
@@ -226,15 +202,42 @@
       xy_color:
       - 0.498
       - 0.412
+      icon: mdi:wall-sconce-round-variant
       friendly_name: Philips Hue
       supported_features: 44
       state: 'on'
     cover.bedroom_blind_l:
-      is_closed: false
+      is_closed: true
       current_position: 0
       friendly_name: Bedroom Blind L
       supported_features: 15
-      state: open
+      state: closed
+    light.bedroom_ceiling:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      hs_color:
+      rgb_color:
+      xy_color:
+      icon: mdi:ceiling-light
+      friendly_name: Bedroom Ceiling
+      supported_features: 44
+      state: 'off'
   metadata: {}
   icon: mdi:weather-night
 - id: '1790146596655'
