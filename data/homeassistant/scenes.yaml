@@ -17,7 +17,7 @@
       brightness: 71
       color_temp_kelvin:
       hs_color:
-      - 236.924
+      - 236.929
       - 69.02
       rgb_color:
       - 79
@@ -26,6 +26,7 @@
       xy_color:
       - 0.169
       - 0.1
+      icon: mdi:led-strip-variant
       friendly_name: Led Stip TV
       supported_features: 36
       state: 'on'
@@ -54,6 +55,7 @@
       effect:
       color_mode: brightness
       brightness: 13
+      icon: mdi:ceiling-light
       friendly_name: Living Room
       supported_features: 44
       state: 'on'
@@ -108,11 +110,12 @@
       supported_color_modes:
       - brightness
       effect:
-      color_mode: brightness
-      brightness: 3
+      color_mode:
+      brightness:
+      icon: mdi:ceiling-light
       friendly_name: Dining Table N
       supported_features: 44
-      state: 'on'
+      state: 'off'
     light.dining_table_m:
       effect_list:
       - blink
@@ -126,6 +129,7 @@
       effect:
       color_mode:
       brightness:
+      icon: mdi:ceiling-light
       friendly_name: Dining Table M
       supported_features: 44
       state: 'off'
@@ -142,10 +146,12 @@
       effect:
       color_mode:
       brightness:
+      icon: mdi:ceiling-light
       friendly_name: Dining Table S
       supported_features: 44
       state: 'off'
     switch.living_room_plug:
+      icon: mdi:floor-lamp-torchiere
       friendly_name: Living Room Plug
       state: 'off'
   metadata:
