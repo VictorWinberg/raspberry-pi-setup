@@ -203,3 +203,126 @@
           - light.kitchen_lights
           - light.hallway_lights
   mode: single
+- id: '1790305344000'
+  alias: Symfonisk Sound Remote - Button Actions
+  description: Control Kasinot media player from Symfonisk remote
+  triggers:
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - toggle
+    id: toggle
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - track_previous
+    id: previous
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - track_next
+    id: next
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - volume_up
+    id: up
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - volume_down
+    id: down
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - dots_1_initial_press
+    id: dot_1
+  - trigger: event.received
+    target:
+      entity_id: event.symfonisk_sound_remote_action
+    options:
+      event_type:
+      - dots_2_initial_press
+    id: dot_2
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: toggle
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: media_player.kasinot
+            state: 'off'
+          sequence:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.kasinot
+            data:
+              media_content_id: https://live1.sr.se/p4malm-mp3-96
+              media_content_type: music
+        default:
+        - action: media_player.media_play_pause
+          target:
+            entity_id: media_player.kasinot
+    - conditions:
+      - condition: trigger
+        id: previous
+      sequence:
+      - action: media_player.media_previous_track
+        target:
+          entity_id: media_player.kasinot
+    - conditions:
+      - condition: trigger
+        id: next
+      sequence:
+      - action: media_player.media_next_track
+        target:
+          entity_id: media_player.kasinot
+    - conditions:
+      - condition: trigger
+        id: up
+      sequence:
+      - action: media_player.volume_up
+        target:
+          entity_id: media_player.kasinot
+    - conditions:
+      - condition: trigger
+        id: down
+      sequence:
+      - action: media_player.volume_down
+        target:
+          entity_id: media_player.kasinot
+    - conditions:
+      - condition: trigger
+        id: dot_1
+      sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.light_brightness
+        data:
+          value: "{{ max(0, states('input_number.light_brightness') | float - 20) }}"
+    - conditions:
+      - condition: trigger
+        id: dot_2
+      sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.light_brightness
+        data:
+          value: "{{ min(100, states('input_number.light_brightness') | float + 20) }}"
+  mode: single

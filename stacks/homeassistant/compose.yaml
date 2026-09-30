@@ -4,6 +4,9 @@ services:
     container_name: homeassistant
     restart: unless-stopped
     network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     volumes:
       - /srv/data/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro

@@ -1,0 +1,87 @@
+alias: Favorite song
+description: >-
+  Add the currently playing Spotify track to Music Assistant favorites on the
+  active home speaker (from Spotify Connect source).
+icon: mdi:heart
+mode: single
+sequence:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Kasinot
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.kasinot_favorite_current_song
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Speakers
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.speakers_favorite_current_song
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Bali
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.bali_favorite_current_song
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Rey
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.rey_favorite_current_song
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Rio
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.rio_favorite_current_song
+      - conditions:
+          - condition: state
+            entity_id: media_player.spotify_victor
+            state: playing
+          - condition: state
+            entity_id: media_player.spotify_victor
+            attribute: source
+            state: Mio Cast
+        sequence:
+          - action: button.press
+            target:
+              entity_id: button.mio_cast_favorite_current_song
+    default:
+      - action: persistent_notification.create
+        data:
+          title: Favorite song
+          message: >-
+            No Spotify playback on a home speaker
+            (source: {{ state_attr('media_player.spotify_victor', 'source') | default('none') }}).

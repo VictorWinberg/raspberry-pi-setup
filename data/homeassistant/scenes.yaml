@@ -249,38 +249,6 @@
 - id: '1790146596655'
   name: 'Good Morning '
   entities:
-    light.bedroom:
-      min_color_temp_kelvin: 2000
-      max_color_temp_kelvin: 6535
-      effect_list:
-      - blink
-      - breathe
-      - okay
-      - channel_change
-      - finish_effect
-      - stop_effect
-      - colorloop
-      - stop_colorloop
-      supported_color_modes:
-      - color_temp
-      - xy
-      effect:
-      color_mode: xy
-      brightness: 51
-      color_temp_kelvin:
-      hs_color:
-      - 38.222
-      - 52.941
-      rgb_color:
-      - 255
-      - 206
-      - 120
-      xy_color:
-      - 0.458
-      - 0.41
-      friendly_name: Bedroom
-      supported_features: 44
-      state: 'on'
     light.philips_hue:
       min_color_temp_kelvin: 2000
       max_color_temp_kelvin: 6666
@@ -322,6 +290,7 @@
       xy_color:
       - 0.498
       - 0.412
+      icon: mdi:wall-sconce-round-variant
       friendly_name: Philips Hue
       supported_features: 44
       state: 'on'
@@ -331,5 +300,42 @@
       friendly_name: Bedroom Blind L
       supported_features: 15
       state: open
+    light.bedroom_ceiling:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      - colorloop
+      - stop_colorloop
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode: xy
+      brightness: 38
+      color_temp_kelvin:
+      hs_color:
+      - 38.222
+      - 52.941
+      rgb_color:
+      - 255
+      - 206
+      - 120
+      xy_color:
+      - 0.458
+      - 0.41
+      icon: mdi:ceiling-light
+      friendly_name: Bedroom Ceiling
+      supported_features: 44
+      state: 'on'
+    switch.bed_strip:
+      icon: mdi:string-lights
+      friendly_name: Bed Strip
+      state: 'on'
   metadata: {}
   icon: mdi:weather-sunset-up
