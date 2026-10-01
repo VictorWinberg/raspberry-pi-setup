@@ -33,3 +33,9 @@ certificatesResolvers:
       storage: /letsencrypt/acme.json
       httpChallenge:
         entryPoint: web
+
+experimental:
+  plugins:
+    rewriteHeaders:
+      moduleName: github.com/XciD/traefik-plugin-rewrite-headers
+      version: v0.0.4

@@ -196,7 +196,7 @@
       - xy
       effect:
       color_mode: xy
-      brightness: 69
+      brightness: 20
       color_temp_kelvin:
       hs_color:
       - 35.854

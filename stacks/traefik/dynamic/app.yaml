@@ -1,0 +1,41 @@
+http:
+  serversTransports:
+    github-pages:
+      serverName: victorwinberg.github.io
+
+  middlewares:
+    app-github-request:
+      headers:
+        customRequestHeaders:
+          Host: "victorwinberg.github.io"
+          X-Forwarded-Host: ""
+    app-github-redirect:
+      plugin:
+        rewriteHeaders:
+          rewrites:
+            - header: "Location"
+              regex: "^https?://victorwinberg\\.github\\.io(.*)$"
+              replacement: "https://app.codies.se$1"
+            - header: "Refresh"
+              regex: "^0;\\s*[Uu]rl=https?://victorwinberg\\.github\\.io(.*)$"
+              replacement: "0;url=https://app.codies.se$1"
+
+  routers:
+    app:
+      rule: "Host(`app.codies.se`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - app-github-request
+        - app-github-redirect
+      service: app-github-pages
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    app-github-pages:
+      loadBalancer:
+        passHostHeader: false
+        serversTransport: github-pages@file
+        servers:
+          - url: "https://victorwinberg.github.io"
