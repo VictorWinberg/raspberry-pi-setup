@@ -1,0 +1,73 @@
+name: Preview - Deploy
+
+on:
+  workflow_call:
+    inputs:
+      app:
+        required: true
+        type: string
+      docker_build_args:
+        required: false
+        type: string
+        default: ""
+    secrets:
+      SSH_PRIVATE_KEY:
+        required: true
+      KNOWN_HOSTS:
+        required: true
+
+permissions:
+  contents: read
+  packages: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: preview-${{ inputs.app }}-pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    env:
+      IMAGE: ghcr.io/${{ github.repository }}
+      IMAGE_TAG: preview-pr-${{ github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.head_ref }}
+
+      - run: echo "IMAGE=$(echo "$IMAGE" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+
+      - uses: docker/setup-buildx-action@v3.12.0
+
+      - uses: docker/login-action@v3.7.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6.19.2
+        with:
+          context: .
+          push: true
+          platforms: linux/arm64
+          build-args: ${{ inputs.docker_build_args }}
+          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
+
+      - uses: shimataro/ssh-key-action@v2.8.1
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Deploy preview to Pi
+        run: |
+          OUTPUT=$(ssh gha@codies.se \
+            "/opt/stacks/previews/scripts/deploy.sh ${{ inputs.app }} ${{ github.event.pull_request.number }} ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}")
+          echo "$OUTPUT"
+          echo "PREVIEW_URL=$(echo "$OUTPUT" | grep '^PREVIEW_URL=' | cut -d= -f2-)" >> "$GITHUB_ENV"
+
+      - uses: marocchino/sticky-pull-request-comment@v2.9.4
+        with:
+          header: test-env
+          message: |
+            Preview: ${{ env.PREVIEW_URL }}
+            PR: #${{ github.event.pull_request.number }} · Image: `${{ env.IMAGE }}:${{ env.IMAGE_TAG }}`
