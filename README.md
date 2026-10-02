@@ -23,7 +23,6 @@ This repo is a **versioned backup** of the live Pi. `/opt/stacks` on the Pi is t
 | ---- | ---- |
 | [`stacks/`](stacks/) | Mirror of `/opt/stacks` |
 | [`data/homeassistant/`](data/homeassistant/) | Home Assistant config backup (live: `/srv/data/homeassistant`) |
-| [`data/zigbee2mqtt/`](data/zigbee2mqtt/) | Zigbee2MQTT config backup (live: `/srv/data/zigbee2mqtt`) |
 
 Nightly sync and restore workflow: [raspberry-pi-backup/crons](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/crons).
 
@@ -321,7 +320,7 @@ Zigbee2MQTT + Mosquitto :speaking_head:
 Zigbee devices are bridged with [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (replacing deCONZ / Phoscon) over MQTT.
 
 - Mosquitto: [`stacks/mosquitto/`](stacks/mosquitto/) — broker on host network, auth via `passwordfile` (not in git)
-- Zigbee2MQTT: [`stacks/zigbee2mqtt/`](stacks/zigbee2mqtt/) — ConBee II USB device bind-mounted; config under `/srv/data/zigbee2mqtt` (backed up → [`data/zigbee2mqtt/`](data/zigbee2mqtt/))
+- Zigbee2MQTT: [`stacks/zigbee2mqtt/`](stacks/zigbee2mqtt/) — ConBee II USB device bind-mounted; config under `/srv/data/zigbee2mqtt`
 
 **Home Assistant Integration**
 - MQTT integration pointing at the Mosquitto broker
