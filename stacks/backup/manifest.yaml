@@ -45,6 +45,14 @@ setup:
     include:
       - "*.sh"
 
+  - name: stacks-previews
+    source: /opt/stacks/previews
+    target: stacks/previews/
+    include:
+      - "**/*"
+    exclude:
+      - "prs/**"
+
   - name: stacks-backup
     source: /opt/stacks/backup
     target: stacks/backup/
