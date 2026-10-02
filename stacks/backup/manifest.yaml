@@ -45,6 +45,14 @@ setup:
     include:
       - "*.sh"
 
+  - name: stacks-previews
+    source: /opt/stacks/previews
+    target: stacks/previews/
+    include:
+      - "**/*"
+    exclude:
+      - "prs/**"
+
   - name: stacks-backup
     source: /opt/stacks/backup
     target: stacks/backup/
@@ -59,12 +67,20 @@ setup:
       - "*.yaml"
       - "www/**"
     exclude:
+      - "blueprints/**"
       - "www/community/**"
       - "custom_components/**"
       - "www/audiobooks/**"
       - "www/brown_noise_10h.mp3"
 
 backup:
+  - name: stacks-backup
+    source: /opt/stacks/backup
+    target: backup/
+    include:
+      - "*.sh"
+      - "*.yaml"
+
   - name: homeassistant-config
     source: /srv/data/homeassistant
     target: homeassistant/
@@ -88,14 +104,22 @@ backup:
       - ".storage/zone"
       - ".storage/input_*"
     exclude:
+      - ".storage/core.device_registry"
+      - ".storage/core.entity_registry"
       - ".storage/core.config_entries"
       - ".storage/core.restore_state"
 
   - name: zigbee2mqtt-config
     source: /srv/data/zigbee2mqtt
-    target: data/zigbee2mqtt/
+    target: zigbee2mqtt/
     include:
       - configuration.yaml
+
+  - name: dozzle-config
+    source: /srv/data/dozzle
+    target: dozzle/
+    include:
+      - notifications.yml
 
 postgres:
   container: postgres

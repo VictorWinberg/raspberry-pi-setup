@@ -1,0 +1,21 @@
+services:
+  preview:
+    image: ${IMAGE}
+    container_name: preview-qr-hunt-${CITY}
+    restart: unless-stopped
+    env_file: /opt/stacks/qr-hunt/.env
+    volumes:
+      - /opt/stacks/qr-hunt/credentials.json:/app/credentials.json:ro
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${CITY}.rule=Host(`${CITY}.codies.se`)
+      - traefik.http.routers.${CITY}.entrypoints=websecure
+      - traefik.http.routers.${CITY}.tls.certresolver=letsencrypt
+      - traefik.http.services.${CITY}.loadbalancer.server.port=3000
+      - "dev.dozzle.url=https://${CITY}.codies.se"
+
+networks:
+  proxy:
+    external: true
