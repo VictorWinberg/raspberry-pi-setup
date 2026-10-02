@@ -27,29 +27,9 @@ http:
     preview-short-y: {redirectRegex: {permanent: true, regex: "^https?://y\\.codies\\.se.*", replacement: "https://ystad.codies.se/"}}
     preview-short-z: {redirectRegex: {permanent: true, regex: "^https?://z\\.codies\\.se.*", replacement: "https://zagreb.codies.se/"}}
   routers:
-    preview-short-a: {rule: Host(`a.codies.se`), entryPoints: [websecure], middlewares: [preview-short-a], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-b: {rule: Host(`b.codies.se`), entryPoints: [websecure], middlewares: [preview-short-b], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-c: {rule: Host(`c.codies.se`), entryPoints: [websecure], middlewares: [preview-short-c], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-d: {rule: Host(`d.codies.se`), entryPoints: [websecure], middlewares: [preview-short-d], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-e: {rule: Host(`e.codies.se`), entryPoints: [websecure], middlewares: [preview-short-e], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-f: {rule: Host(`f.codies.se`), entryPoints: [websecure], middlewares: [preview-short-f], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-g: {rule: Host(`g.codies.se`), entryPoints: [websecure], middlewares: [preview-short-g], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-h: {rule: Host(`h.codies.se`), entryPoints: [websecure], middlewares: [preview-short-h], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-i: {rule: Host(`i.codies.se`), entryPoints: [websecure], middlewares: [preview-short-i], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-j: {rule: Host(`j.codies.se`), entryPoints: [websecure], middlewares: [preview-short-j], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-k: {rule: Host(`k.codies.se`), entryPoints: [websecure], middlewares: [preview-short-k], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-l: {rule: Host(`l.codies.se`), entryPoints: [websecure], middlewares: [preview-short-l], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-m: {rule: Host(`m.codies.se`), entryPoints: [websecure], middlewares: [preview-short-m], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-n: {rule: Host(`n.codies.se`), entryPoints: [websecure], middlewares: [preview-short-n], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-o: {rule: Host(`o.codies.se`), entryPoints: [websecure], middlewares: [preview-short-o], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-p: {rule: Host(`p.codies.se`), entryPoints: [websecure], middlewares: [preview-short-p], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-q: {rule: Host(`q.codies.se`), entryPoints: [websecure], middlewares: [preview-short-q], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-r: {rule: Host(`r.codies.se`), entryPoints: [websecure], middlewares: [preview-short-r], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-s: {rule: Host(`s.codies.se`), entryPoints: [websecure], middlewares: [preview-short-s], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-t: {rule: Host(`t.codies.se`), entryPoints: [websecure], middlewares: [preview-short-t], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-u: {rule: Host(`u.codies.se`), entryPoints: [websecure], middlewares: [preview-short-u], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-v: {rule: Host(`v.codies.se`), entryPoints: [websecure], middlewares: [preview-short-v], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-w: {rule: Host(`w.codies.se`), entryPoints: [websecure], middlewares: [preview-short-w], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-x: {rule: Host(`x.codies.se`), entryPoints: [websecure], middlewares: [preview-short-x], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-y: {rule: Host(`y.codies.se`), entryPoints: [websecure], middlewares: [preview-short-y], service: ping@internal, tls: {certResolver: letsencrypt}}
-    preview-short-z: {rule: Host(`z.codies.se`), entryPoints: [websecure], middlewares: [preview-short-z], service: ping@internal, tls: {certResolver: letsencrypt}}
+    preview-short:
+      rule: HostRegexp(`^[a-z]\.codies\.se$`)
+      entryPoints: [websecure]
+      middlewares: [preview-short-a,preview-short-b,preview-short-c,preview-short-d,preview-short-e,preview-short-f,preview-short-g,preview-short-h,preview-short-i,preview-short-j,preview-short-k,preview-short-l,preview-short-m,preview-short-n,preview-short-o,preview-short-p,preview-short-q,preview-short-r,preview-short-s,preview-short-t,preview-short-u,preview-short-v,preview-short-w,preview-short-x,preview-short-y,preview-short-z]
+      service: ping@internal
+      tls: {certResolver: letsencrypt}
