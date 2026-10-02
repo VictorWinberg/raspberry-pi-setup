@@ -22,7 +22,7 @@ This repo is a **versioned backup** of the live Pi. `/opt/stacks` on the Pi is t
 | Path | What |
 | ---- | ---- |
 | [`stacks/`](stacks/) | Mirror of `/opt/stacks` |
-| [`data/homeassistant/`](data/homeassistant/) | Home Assistant config backup (live: `/srv/data/homeassistant`) |
+| [`homeassistant/`](homeassistant/) | Home Assistant config backup (live: `/srv/data/homeassistant`) |
 
 Nightly sync and restore workflow: [raspberry-pi-backup/crons](https://github.com/VictorWinberg/raspberry-pi-backup/tree/main/crons).
 
@@ -294,7 +294,7 @@ Applications :computer:
 
 Home Assistant :house:
 ---------------------
-**[My Home Assistant Configuration](data/homeassistant)**
+**[My Home Assistant Configuration](homeassistant)**
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
 
@@ -350,7 +350,7 @@ Layout :file_folder:
 ```
 /
 ├── opt/stacks/          # Compose source of truth (backed up → stacks/)
-├── srv/data/            # Persistent app data (partially backed up → data/)
+├── srv/data/            # Persistent app data (partially backed up → homeassistant/, data/)
 ├── mnt/storage/         # External HDD (media + backups)
 └── home/dev/
     └── git/             # Clones of this repo + raspberry-pi-backup

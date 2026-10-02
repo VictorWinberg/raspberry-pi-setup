@@ -54,7 +54,7 @@ setup:
 
   - name: homeassistant-config
     source: /srv/data/homeassistant
-    target: data/homeassistant/
+    target: homeassistant/
     include:
       - "*.yaml"
       - "www/**"
@@ -67,7 +67,7 @@ setup:
 backup:
   - name: homeassistant-config
     source: /srv/data/homeassistant
-    target: data/homeassistant/
+    target: homeassistant/
     include:
       - "*.yaml"
       - "www/**"
@@ -80,7 +80,7 @@ backup:
 
   - name: homeassistant-storage
     source: /srv/data/homeassistant
-    target: data/homeassistant/
+    target: homeassistant/
     include:
       - ".storage/core.*"
       - ".storage/lovelace*"
