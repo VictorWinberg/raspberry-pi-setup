@@ -1,0 +1,17 @@
+# Routes a.codies.se … z.codies.se to the preview-short redirect service.
+# City mapping lives in /opt/stacks/previews/short-urls/nginx.conf
+http:
+  routers:
+    preview-short:
+      rule: HostRegexp(`^[a-z]\.codies\.se$`)
+      entryPoints:
+        - websecure
+      service: preview-short
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    preview-short:
+      loadBalancer:
+        servers:
+          - url: "http://preview-short:8080"
