@@ -43,9 +43,14 @@ jobs:
           echo "$OUTPUT"
           echo "PREVIEW_URL=$(echo "$OUTPUT" | grep '^PREVIEW_URL=' | cut -d= -f2-)" >> "$GITHUB_ENV"
 
+      - name: Timestamp
+        run: echo "TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')" >> "$GITHUB_ENV"
+
       - uses: marocchino/sticky-pull-request-comment@v2.9.4
         with:
           header: test-env
+          append: true
           message: |
+            **Deployed** · ${{ env.TIMESTAMP }}
             Preview: ${{ env.PREVIEW_URL }}
             PR: #${{ github.event.pull_request.number }} · Image: `${{ env.IMAGE }}`

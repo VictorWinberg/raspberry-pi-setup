@@ -30,7 +30,12 @@ jobs:
           ssh gha@codies.se \
             "/opt/stacks/previews/scripts/remove.sh ${{ inputs.app }} ${{ github.event.pull_request.number }}"
 
+      - name: Timestamp
+        run: echo "TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')" >> "$GITHUB_ENV"
+
       - uses: marocchino/sticky-pull-request-comment@v2.9.4
         with:
           header: test-env
-          message: _Environment has been shut down._
+          append: true
+          message: |
+            **Shut down** · ${{ env.TIMESTAMP }}
