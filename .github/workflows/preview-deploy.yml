@@ -43,14 +43,29 @@ jobs:
           echo "$OUTPUT"
           echo "PREVIEW_URL=$(echo "$OUTPUT" | grep '^PREVIEW_URL=' | cut -d= -f2-)" >> "$GITHUB_ENV"
 
-      - name: Timestamp
-        run: echo "TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')" >> "$GITHUB_ENV"
+      - name: Build comment metadata
+        run: |
+          echo "TIMESTAMP=$(TZ=Europe/Stockholm date '+%Y-%m-%d %H:%M')" >> "$GITHUB_ENV"
+          echo "CITY=$(echo "$PREVIEW_URL" | sed -E 's|https?://([^./]+)\..*|\1|')" >> "$GITHUB_ENV"
+          echo "ENV_SLUG=$(echo '${{ github.repository }}' | tr '/' '-')--${{ github.head_ref }}" >> "$GITHUB_ENV"
 
       - uses: marocchino/sticky-pull-request-comment@v2.9.4
+        if: github.event.action != 'synchronize'
         with:
           header: test-env
           append: true
           message: |
-            **Deployed** · ${{ env.TIMESTAMP }}
-            Preview: ${{ env.PREVIEW_URL }}
-            PR: #${{ github.event.pull_request.number }} · Image: `${{ env.IMAGE }}`
+            ## QA Test Environment
+            _[${{ env.ENV_SLUG }}](${{ env.PREVIEW_URL }})_
+
+            Environment has been created!
+            Please visit [${{ env.CITY }}](${{ env.PREVIEW_URL }}).
+
+            deploy ${{ env.TIMESTAMP }}
+
+      - uses: marocchino/sticky-pull-request-comment@v2.9.4
+        if: github.event.action == 'synchronize'
+        with:
+          header: test-env
+          append: true
+          message: redeploy ${{ env.TIMESTAMP }}
