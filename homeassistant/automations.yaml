@@ -89,7 +89,11 @@
   - trigger: time
     at: '23:00:00'
     id: Turn Off
-  conditions: []
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.someone_home
+    state:
+    - 'on'
   actions:
   - choose:
     - conditions:
@@ -315,7 +319,8 @@
         target:
           entity_id: input_number.light_brightness
         data:
-          value: "{{ max(0, states('input_number.light_brightness') | float - 20) }}"
+          value: '{{ max(0, states(''input_number.light_brightness'') | float - 20)
+            }}'
     - conditions:
       - condition: trigger
         id: dot_2
@@ -324,5 +329,6 @@
         target:
           entity_id: input_number.light_brightness
         data:
-          value: "{{ min(100, states('input_number.light_brightness') | float + 20) }}"
+          value: '{{ min(100, states(''input_number.light_brightness'') | float +
+            20) }}'
   mode: single

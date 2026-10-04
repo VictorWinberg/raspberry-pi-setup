@@ -9,4 +9,6 @@ services:
       PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium
     volumes:
       - ./credentials.json:/app/credentials.json:ro
+    labels:
+      - "dev.dozzle.icon=nodejs"
     shm_size: "1gb"

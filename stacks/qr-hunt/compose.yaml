@@ -15,6 +15,7 @@ services:
       - "traefik.http.routers.qrhunt.tls.certresolver=letsencrypt"
       - "traefik.http.services.qrhunt.loadbalancer.server.port=3000"
       - "dev.dozzle.url=https://qr.codies.se"
+      - "dev.dozzle.icon=nodejs"
 
 networks:
   proxy:
