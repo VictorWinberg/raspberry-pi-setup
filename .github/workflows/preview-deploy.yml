@@ -6,17 +6,17 @@ on:
       app:
         required: true
         type: string
+      image_tag:
+        required: true
+        type: string
     secrets:
       SSH_PRIVATE_KEY:
         required: true
       KNOWN_HOSTS:
         required: true
-      VUE_APP_GOOGLE_API_KEY:
-        required: false
 
 permissions:
   contents: read
-  packages: write
   pull-requests: write
 
 jobs:
@@ -25,44 +25,11 @@ jobs:
     concurrency:
       group: preview-${{ inputs.app }}-pr-${{ github.event.pull_request.number }}
       cancel-in-progress: true
-    env:
-      IMAGE: ghcr.io/${{ github.repository }}
-      IMAGE_TAG: preview-pr-${{ github.event.pull_request.number }}
     steps:
-      - uses: actions/checkout@v7.0.1
-        with:
-          ref: ${{ github.head_ref }}
-
-      - run: echo "IMAGE=$(echo "$IMAGE" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
-
-      - uses: docker/setup-buildx-action@v3.12.0
-
-      - uses: docker/login-action@v3.7.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push preview image (Vue app)
-        if: ${{ secrets.VUE_APP_GOOGLE_API_KEY != '' }}
-        uses: docker/build-push-action@v6.19.2
-        with:
-          context: .
-          push: true
-          platforms: linux/arm64
-          build-args: |
-            VUE_APP_GOOGLE_API_KEY=${{ secrets.VUE_APP_GOOGLE_API_KEY }}
-            VUE_APP_VERSION=${{ env.IMAGE_TAG }}
-          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
-
-      - name: Build and push preview image
-        if: ${{ secrets.VUE_APP_GOOGLE_API_KEY == '' }}
-        uses: docker/build-push-action@v6.19.2
-        with:
-          context: .
-          push: true
-          platforms: linux/arm64
-          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
+      - name: Resolve preview image
+        run: |
+          IMAGE="ghcr.io/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')"
+          echo "IMAGE=${IMAGE}:${{ inputs.image_tag }}" >> "$GITHUB_ENV"
 
       - uses: shimataro/ssh-key-action@v2.8.1
         with:
@@ -72,7 +39,7 @@ jobs:
       - name: Deploy preview to Pi
         run: |
           OUTPUT=$(ssh gha@codies.se \
-            "/opt/stacks/previews/scripts/deploy.sh ${{ inputs.app }} ${{ github.event.pull_request.number }} ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}")
+            "/opt/stacks/previews/scripts/deploy.sh ${{ inputs.app }} ${{ github.event.pull_request.number }} ${{ env.IMAGE }}")
           echo "$OUTPUT"
           echo "PREVIEW_URL=$(echo "$OUTPUT" | grep '^PREVIEW_URL=' | cut -d= -f2-)" >> "$GITHUB_ENV"
 
@@ -81,4 +48,4 @@ jobs:
           header: test-env
           message: |
             Preview: ${{ env.PREVIEW_URL }}
-            PR: #${{ github.event.pull_request.number }} · Image: `${{ env.IMAGE }}:${{ env.IMAGE_TAG }}`
+            PR: #${{ github.event.pull_request.number }} · Image: `${{ env.IMAGE }}`
