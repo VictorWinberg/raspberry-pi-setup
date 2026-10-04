@@ -6,15 +6,13 @@ on:
       app:
         required: true
         type: string
-      docker_build_args:
-        required: false
-        type: string
-        default: ""
     secrets:
       SSH_PRIVATE_KEY:
         required: true
       KNOWN_HOSTS:
         required: true
+      VUE_APP_GOOGLE_API_KEY:
+        required: false
 
 permissions:
   contents: read
@@ -45,12 +43,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: docker/build-push-action@v6.19.2
+      - name: Build and push preview image (Vue app)
+        if: ${{ secrets.VUE_APP_GOOGLE_API_KEY != '' }}
+        uses: docker/build-push-action@v6.19.2
         with:
           context: .
           push: true
           platforms: linux/arm64
-          build-args: ${{ inputs.docker_build_args }}
+          build-args: |
+            VUE_APP_GOOGLE_API_KEY=${{ secrets.VUE_APP_GOOGLE_API_KEY }}
+            VUE_APP_VERSION=${{ env.IMAGE_TAG }}
+          tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
+
+      - name: Build and push preview image
+        if: ${{ secrets.VUE_APP_GOOGLE_API_KEY == '' }}
+        uses: docker/build-push-action@v6.19.2
+        with:
+          context: .
+          push: true
+          platforms: linux/arm64
           tags: ${{ env.IMAGE }}:${{ env.IMAGE_TAG }}
 
       - uses: shimataro/ssh-key-action@v2.8.1
