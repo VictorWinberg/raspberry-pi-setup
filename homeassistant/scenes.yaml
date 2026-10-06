@@ -54,7 +54,7 @@
       - brightness
       effect:
       color_mode: brightness
-      brightness: 13
+      brightness: 38
       icon: mdi:ceiling-light
       friendly_name: Living Room
       supported_features: 44
@@ -154,10 +154,23 @@
       icon: mdi:floor-lamp-torchiere
       friendly_name: Living Room Plug
       state: 'off'
+    input_number.light_brightness:
+      min: 0
+      max: 100
+      step: 1
+      mode: slider
+      initial:
+      editable: true
+      unit_of_measurement: '%'
+      icon: mdi:brightness-6
+      friendly_name: Light Brightness
+      state: '15.0'
   metadata:
     light.hallway_lights:
       entity_only: true
     light.kitchen_lights:
+      entity_only: true
+    input_number.light_brightness:
       entity_only: true
   icon: mdi:compare
 - id: '1790146497298'
@@ -244,7 +257,24 @@
       friendly_name: Bedroom Ceiling
       supported_features: 44
       state: 'off'
-  metadata: {}
+    input_number.light_brightness:
+      min: 0
+      max: 100
+      step: 1
+      mode: slider
+      initial:
+      editable: true
+      unit_of_measurement: '%'
+      icon: mdi:brightness-6
+      friendly_name: Light Brightness
+      state: '15.0'
+    switch.living_room_plug:
+      icon: mdi:floor-lamp-torchiere
+      friendly_name: Living Room Plug
+      state: 'off'
+  metadata:
+    input_number.light_brightness:
+      entity_only: true
   icon: mdi:weather-night
 - id: '1790146596655'
   name: 'Good Morning '
