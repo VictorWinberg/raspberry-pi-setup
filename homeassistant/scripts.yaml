@@ -20,7 +20,7 @@ power_off:
       - switch.window_plug
       - switch.bed_strip
       - switch.dashboard
-      - switch.office_switch
+      - switch.office
     data: {}
     continue_on_error: true
   - action: media_player.media_stop
