@@ -38,13 +38,13 @@
    <image id="light_overlay.tv_ambient" width="1920" height="1080" href="/local/floorplan/renders/tv_ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/tv_ambient.png"/>
    <image id="light_color_overlay.tv_ambient" width="1920" height="1080" href="/local/floorplan/renders/tv_ambient.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/tv_ambient.png"/>
    <image id="light_overlay.living_room" width="1920" height="1080" href="/local/floorplan/renders/living_room.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/living_room.png"/>
-   <image id="group_overlay.balcony" width="1920" height="1080" href="/local/floorplan/renders/balcony.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/balcony.png"/>
+   <image id="switch_overlay.balcony_group" width="1920" height="1080" href="/local/floorplan/renders/balcony.png" preserveAspectRatio="none" xlink:href="/local/floorplan/renders/balcony.png"/>
   </g>
  </g>
  <g id="areas">
   <g id="area.balcony" transform="translate(60.425 95.138)">
    <path id="path_balcony" d="m1378.9 63.306 115.31-54.413 4.3659 1.9917-1.4195 19.027 50.489 4.2416 2.4375-16.168c2.1355-9.4023 39.656-7.3449 40.838 3.7777l-2.9642 19.784 75.911 16.176s2.4572-15.341 2.4232-15.415c-0.3086-4.8647 38.163-10.538 42.384 6.9424l-5.2848 24.152 31.276 19.575s1.3774-5.5091 1.3222-5.9658c2.1394-7.9844 43.666-9.4487 42.702 8.2521-0.052 0.95458-3.6439 20.014-3.6439 20.014l35.004 33.045-39.812 186.48-120.42 77.644-19.159-8.9556 4.0827-28.931-85.672-39.608-10.764 7.1768-1.9958 13.276-179.4-85.445z" fill="none" stroke="#000" stroke-width="1px"/>
-   <use id="group.balcony" xlink:href="#path_balcony"/>
+   <use id="switch.balcony_group" xlink:href="#path_balcony"/>
    <text id="sensor.balcony_sensor_temperature" class="sensor-text" transform="matrix(.7636 -.429 -.21982 1.2042 388.72 -435.11)" x="1632.4174" y="1161.7399" font-size="34px" stroke-width=".32634">00.0°C</text>
   </g>
   <g id="area.tv_ambient" transform="translate(-485.9,219.22)">
