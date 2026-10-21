@@ -149,3 +149,23 @@ favorite_song:
         title: Favorite song
         message: 'No Spotify playback on a home speaker (source: {{ state_attr(''media_player.spotify_victor'',
           ''source'') | default(''none'') }}).'
+roborock_start_pause:
+  alias: Robban start or pause
+  description: Start full clean or pause if already cleaning.
+  icon: mdi:robot-vacuum
+  mode: single
+  sequence:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.roborock_q5_pro_cleaning
+        state: 'on'
+      sequence:
+      - action: vacuum.pause
+        target:
+          entity_id: vacuum.roborock_q5_pro
+    - conditions: []
+      sequence:
+      - action: vacuum.start
+        target:
+          entity_id: vacuum.roborock_q5_pro
