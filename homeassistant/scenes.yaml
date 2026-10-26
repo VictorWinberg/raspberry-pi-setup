@@ -272,6 +272,24 @@
       icon: mdi:floor-lamp-torchiere
       friendly_name: Living Room Plug
       state: 'off'
+    media_player.rey:
+      device_class: speaker
+      friendly_name: Rey
+      supported_features: 152511
+      volume_level: 0.2199999988079071
+      is_volume_muted: false
+      media_content_type: music
+      media_position_updated_at: '2026-10-26T20:29:38.290256+00:00'
+      app_id: C35B0678
+      app_name: Music Assistant
+      entity_picture_local: /api/media_player_proxy/media_player.rey?token=2304718c87adee46a26b42aed19d2111a9a6b2ba075480bec9bec3ab5f87274c&cache=16f7e0811e5b2803
+      media_content_id: http://192.168.100.113:8097/flow/gAgyJa2W/99a7b145-f991-9628-a63f-03a71b4e4210/0363cf93359045f5847a2b175abbe48c/99a7b145-f991-9628-a63f-03a71b4e4210.flac
+      media_position: 0
+      media_title: brown_noise_10h
+      media_artist: '[unknown]'
+      media_album_name: ''
+      entity_picture: https://raw.githubusercontent.com/music-assistant/server/refs/heads/dev/music_assistant/logo.png
+      state: playing
   metadata:
     input_number.light_brightness:
       entity_only: true
