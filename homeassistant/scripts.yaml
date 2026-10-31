@@ -149,9 +149,9 @@ favorite_song:
         title: Favorite song
         message: 'No Spotify playback on a home speaker (source: {{ state_attr(''media_player.spotify_victor'',
           ''source'') | default(''none'') }}).'
-roborock_start_pause:
-  alias: Robban start or pause
-  description: Start full clean or pause if already cleaning.
+toggle_vacuum:
+  alias: Toggle vacuum
+  description: Start a full clean or pause if the vacuum is already cleaning.
   icon: mdi:robot-vacuum
   mode: single
   sequence:
@@ -169,3 +169,101 @@ roborock_start_pause:
       - action: vacuum.start
         target:
           entity_id: vacuum.roborock_q5_pro
+cosy:
+  alias: TV Night
+  description: Living room TV mood — main lights on, rest of home off. No fixed colors
+    (simplified version of scene.cosy).
+  icon: mdi:television
+  mode: single
+  sequence:
+  - action: input_number.set_value
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: 20
+    continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id:
+      - light.living_room_led_stip_tv
+    continue_on_error: true
+    data: {}
+  - action: light.turn_on
+    target:
+      entity_id:
+      - light.living_room
+    continue_on_error: true
+    data:
+      brightness_pct: 1
+  - action: light.turn_off
+    target:
+      entity_id:
+      - light.hallway_lights
+      - light.kitchen_lights
+      - light.dining_lights
+    continue_on_error: true
+  - action: switch.turn_off
+    target:
+      entity_id: switch.living_room_plug
+    continue_on_error: true
+good_night:
+  alias: Good Night
+  description: Bedtime — bedroom hue on, ceiling and bed strip off, blind closed,
+    living plug off. No fixed colors (simplified version of scene.godnatt).
+  icon: mdi:weather-night
+  mode: single
+  sequence:
+  - action: input_number.set_value
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: 20
+    continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id: light.philips_hue
+    continue_on_error: true
+  - action: cover.close_cover
+    target:
+      entity_id: cover.bedroom_blind_l
+    continue_on_error: true
+  - action: light.turn_off
+    target:
+      entity_id: light.bedroom_ceiling
+    continue_on_error: true
+  - action: switch.turn_off
+    target:
+      entity_id:
+      - switch.living_room_plug
+      - switch.bed_strip
+    continue_on_error: true
+    data: {}
+  - action: music_assistant.play_media
+    target:
+      entity_id: media_player.rey_ma
+    data:
+      media_id: brown_noise_10h
+      media_type: track
+      enqueue: replace
+    continue_on_error: true
+good_morning:
+  alias: Good Morning
+  description: Wake up — open blind, bedroom lights on. No fixed colors (simplified
+    version of scene.good_morning).
+  icon: mdi:weather-sunny
+  mode: single
+  sequence:
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom_blind_l
+    continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id:
+      - light.philips_hue
+      - light.bedroom_ceiling
+    continue_on_error: true
+  - action: switch.turn_on
+    target:
+      entity_id: switch.bed_strip
+    continue_on_error: true

@@ -1,0 +1,21 @@
+alias: Good Morning
+description: >-
+  Wake up — open blind, bedroom lights on. No fixed colors (simplified version
+  of scene.good_morning).
+icon: mdi:weather-sunny
+mode: single
+sequence:
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom_blind_l
+    continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id:
+        - light.philips_hue
+        - light.bedroom_ceiling
+    continue_on_error: true
+  - action: switch.turn_on
+    target:
+      entity_id: switch.bed_strip
+    continue_on_error: true

@@ -1,0 +1,33 @@
+alias: Good Night
+description: >-
+  Bedtime — bedroom hue on, ceiling and bed strip off, blind closed, living
+  plug off. No fixed colors (simplified version of scene.godnatt).
+icon: mdi:weather-night
+mode: single
+sequence:
+  - action: switch.turn_off
+    target:
+      entity_id: switch.bed_strip
+    continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id: light.philips_hue
+    continue_on_error: true
+  - action: light.turn_off
+    target:
+      entity_id: light.bedroom_ceiling
+    continue_on_error: true
+  - action: cover.close_cover
+    target:
+      entity_id: cover.bedroom_blind_l
+    continue_on_error: true
+  - action: switch.turn_off
+    target:
+      entity_id: switch.living_room_plug
+    continue_on_error: true
+  - action: input_number.set_value
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: 15
+    continue_on_error: true

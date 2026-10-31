@@ -1,0 +1,19 @@
+alias: Toggle vacuum
+description: Start a full clean or pause if the vacuum is already cleaning.
+icon: mdi:robot-vacuum
+mode: single
+sequence:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.roborock_q5_pro_cleaning
+            state: "on"
+        sequence:
+          - action: vacuum.pause
+            target:
+              entity_id: vacuum.roborock_q5_pro
+      - conditions: []
+        sequence:
+          - action: vacuum.start
+            target:
+              entity_id: vacuum.roborock_q5_pro

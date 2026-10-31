@@ -1,0 +1,30 @@
+alias: TV Night
+description: >-
+  Living room TV mood — main lights on, rest of home off. No fixed colors
+  (simplified version of scene.cosy).
+icon: mdi:television
+mode: single
+sequence:
+  - action: light.turn_on
+    target:
+      entity_id:
+        - light.living_room_led_stip_tv
+        - light.living_room
+    continue_on_error: true
+  - action: light.turn_off
+    target:
+      entity_id:
+        - light.hallway_lights
+        - light.kitchen_lights
+        - light.dining_lights
+    continue_on_error: true
+  - action: switch.turn_off
+    target:
+      entity_id: switch.living_room_plug
+    continue_on_error: true
+  - action: input_number.set_value
+    target:
+      entity_id: input_number.light_brightness
+    data:
+      value: 15
+    continue_on_error: true
