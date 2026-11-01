@@ -213,16 +213,12 @@ good_night:
   icon: mdi:weather-night
   mode: single
   sequence:
-  - action: input_number.set_value
-    target:
-      entity_id: input_number.light_brightness
-    data:
-      value: 20
-    continue_on_error: true
   - action: light.turn_on
     target:
       entity_id: light.philips_hue
     continue_on_error: true
+    data:
+      brightness_pct: 30
   - action: cover.close_cover
     target:
       entity_id: cover.bedroom_blind_l
@@ -246,6 +242,13 @@ good_night:
       media_type: track
       enqueue: replace
     continue_on_error: true
+  - action: light.turn_on
+    target:
+      entity_id: light.philips_hue
+    continue_on_error: true
+    data:
+      brightness_pct: 15
+      transition: 900
 good_morning:
   alias: Good Morning
   description: Wake up — open blind, bedroom lights on. No fixed colors (simplified
