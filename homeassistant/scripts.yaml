@@ -59,6 +59,7 @@ power_on:
       entity_id:
       - switch.living_room_plug
       - switch.dashboard
+      - switch.bed_strip
     data: {}
     continue_on_error: true
   alias: Power On
