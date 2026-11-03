@@ -332,3 +332,49 @@
           value: '{{ min(100, states(''input_number.light_brightness'') | float +
             20) }}'
   mode: single
+- id: '1793735975279'
+  alias: Evening - Lights Control
+  description: ''
+  triggers:
+  - trigger: time
+    at: '20:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - sun
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.someone_home
+    state:
+    - 'on'
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.living_room_plug
+    data: {}
+  mode: single
+- id: '1793736358740'
+  alias: TV On - Ambient Lights
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - media_player.mio
+    to:
+    - 'on'
+    from:
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.someone_home
+    state:
+    - 'on'
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id: light.tv_ambient
+    data: {}
+  mode: single
