@@ -65,7 +65,7 @@ power_on:
   alias: Power On
   description: ''
 favorite_song:
-  alias: Favorite song
+  alias: Favorite Song
   description: Add the currently playing Spotify track to Music Assistant favorites
     on the active home speaker (from Spotify Connect source).
   icon: mdi:heart
@@ -151,7 +151,7 @@ favorite_song:
         message: 'No Spotify playback on a home speaker (source: {{ state_attr(''media_player.spotify_victor'',
           ''source'') | default(''none'') }}).'
 toggle_vacuum:
-  alias: Toggle vacuum
+  alias: Toggle Vacuum
   description: Start a full clean or pause if the vacuum is already cleaning.
   icon: mdi:robot-vacuum
   mode: single
@@ -243,6 +243,11 @@ good_night:
       media_type: track
       enqueue: replace
     continue_on_error: true
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
   - action: light.turn_on
     target:
       entity_id: light.philips_hue
@@ -271,3 +276,8 @@ good_morning:
     target:
       entity_id: switch.bed_strip
     continue_on_error: true
+  - action: media_player.media_stop
+    metadata: {}
+    target:
+      entity_id: media_player.rey_ma
+    data: {}
