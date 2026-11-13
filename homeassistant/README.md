@@ -157,8 +157,6 @@ HACS :books:
 - [mini-media-player](https://github.com/kalkih/mini-media-player)
 - [mushroom](https://github.com/piitaya/lovelace-mushroom)
 - [simple-swipe-card](https://github.com/nutteloost/simple-swipe-card)
-- [slider-entity-row](https://github.com/thomasloven/lovelace-slider-entity-row)
-- [vertical-stack-in-card](https://github.com/ofekashery/vertical-stack-in-card)
 - [weather-chart-card](https://github.com/mlamberts78/weather-chart-card)
 - `www/fonts/ds-digital.css` (local CSS resource)
 
