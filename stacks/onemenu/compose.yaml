@@ -11,7 +11,7 @@ services:
       - "traefik.http.routers.onemenu.rule=Host(`menu.codies.se`)"
       - "traefik.http.routers.onemenu.entrypoints=websecure"
       - "traefik.http.routers.onemenu.tls.certresolver=letsencrypt"
-      - "traefik.http.services.onemenu.loadbalancer.server.port=3000"
+      - "traefik.http.services.onemenu.loadbalancer.server.port=8080"
       - "dev.dozzle.url=https://menu.codies.se"
       - "dev.dozzle.icon=nodejs"
 

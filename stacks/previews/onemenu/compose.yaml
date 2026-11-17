@@ -11,7 +11,7 @@ services:
       - traefik.http.routers.${CITY}.rule=Host(`${CITY}.codies.se`)
       - traefik.http.routers.${CITY}.entrypoints=websecure
       - traefik.http.routers.${CITY}.tls.certresolver=letsencrypt
-      - traefik.http.services.${CITY}.loadbalancer.server.port=3000
+      - traefik.http.services.${CITY}.loadbalancer.server.port=8080
       - "dev.dozzle.url=https://${CITY}.codies.se"
 
 networks:
